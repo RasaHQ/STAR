@@ -1,0 +1,48 @@
+[
+  {
+    "Name": "Name",
+    "Type": "Categorical",
+    "Categories": [
+      "One on Center Apartments",
+      "Shadyside Apartments",
+      "North Hill Apartments"
+    ]
+  },
+  { "Name": "Level", "Type": "Integer", "Min": 0, "Max": 15 },
+  {
+    "Name": "MaxLevel",
+    "Type": "Integer",
+    "Min": "!lambda p: p[\"Level\"]",
+    "Max": 15
+  },
+  { "Name": "HasBalcony", "Type": "Boolean" },
+  {
+    "Name": "BalconySide",
+    "Type": "Categorical",
+    "Categories": ["east", "north", "south", "west"],
+    "Enabled": "!lambda p: p[\"HasBalcony\"]"
+  },
+  {
+    "Name": "HasElevator",
+    "Type": "Boolean",
+    "Enabled": "!lambda p: p[\"MaxLevel\"] > 0"
+  },
+  { "Name": "NumRooms", "Type": "Integer", "Min": 1, "Max": 7 },
+  {
+    "Name": "FloorSquareMeters",
+    "Type": "Integer",
+    "Min": "!lambda p: p[\"NumRooms\"] * 10",
+    "Max": "!lambda p: p[\"NumRooms\"] * 50"
+  },
+  {
+    "Name": "Price",
+    "Type": "Integer",
+    "Min": "!lambda p: p[\"NumRooms\"] * 300",
+    "Max": "!lambda p: p[\"NumRooms\"] * 800"
+  },
+  {
+    "Name": "NearbyPOIs",
+    "Type": "Categorical",
+    "Categories": "!list(combinations([\"School\", \"TrainStation\", \"Park\", \"Museum\", \"University\", \"Club\", \"User's office\", \"User's gym\"], 2))"
+  }
+]

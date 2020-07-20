@@ -1,0 +1,50 @@
+[
+    {
+        "Name": "Name",
+        "Type": "Categorical",
+        "Categories": [
+            "John",
+            "Michael",
+            "Southside Venue",
+            "Dr. Johnson",
+            "North Heights Venue",
+            "West Bay Venue",
+            "Dr. Morgan",
+            "Fred",
+            "George",
+            "Dr. Alexis",
+            "Conference Room 43",
+            "Conference Room 91",
+            "One on Center Apartments",
+            "Shadyside Apartments",
+            "North Hill Apartments"
+        ]
+    },
+    {
+        "Name": "Day",
+        "Type": "Categorical",
+        "Categories": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ]
+    },
+    {"Name": "StartTimeHour", "Type": "Integer", "Min": 0, "Max": 20},
+    {
+        "Name": "EndTimeHour",
+        "Type": "Integer",
+        "Min": "!lambda p: p[\"StartTimeHour\"] + 2",
+        "Max": "!lambda p: p[\"StartTimeHour\"] + 2"
+    },
+    {
+        "Name": "SizeLimit",
+        "Type": "Integer",
+        "Min": 3,
+        "Max": 100,
+        "Enabled": "!lambda p: \"Conference\" in p[\"Name\"] or \"Venue\" in p[\"Name\"]"
+    }
+]

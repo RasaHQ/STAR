@@ -1,0 +1,184 @@
+{
+  "input": [
+    {
+      "Name": "TripLengthMinutes",
+      "Type": "Integer",
+      "Min": 15,
+      "Max": 120,
+      "ReadableName": "Trip Length Minutes"
+    },
+    {
+      "Name": "TravelMode",
+      "Type": "Categorical",
+      "Categories": ["Transit", "Driving", "Walking"],
+      "ReadableName": "Travel Mode"
+    },
+    {
+      "Name": "DepartureTime",
+      "Type": "Categorical",
+      "Categories": [
+        "12 am",
+        "1 am",
+        "2 am",
+        "3 am",
+        "4 am",
+        "5 am",
+        "6 am",
+        "7 am",
+        "8 am",
+        "9 am",
+        "10 am",
+        "11 am",
+        "12 pm",
+        "1 pm",
+        "2 pm",
+        "3 pm",
+        "4 pm",
+        "5 pm",
+        "6 pm",
+        "7 pm",
+        "8 pm",
+        "9 pm",
+        "10 pm",
+        "11 pm"
+      ],
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Transit\"",
+      "ReadableName": "Departure Time"
+    },
+    {
+      "Name": "Price",
+      "Type": "Integer",
+      "Min": 0,
+      "Max": 5,
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Transit\"",
+      "ReadableName": "Price"
+    },
+    {
+      "Name": "DepartureLocation",
+      "Type": "ShortString",
+      "ReadableName": "Departure Location"
+    },
+    {
+      "Name": "ArrivalLocation",
+      "Type": "ShortString",
+      "ReadableName": "Arrival Location"
+    }
+  ],
+  "output": [
+    {
+      "Name": "TripLengthMinutes",
+      "Type": "Integer",
+      "Min": 15,
+      "Max": 120,
+      "ReadableName": "Trip Length Minutes"
+    },
+    {
+      "Name": "TravelMode",
+      "Type": "Categorical",
+      "Categories": ["Transit", "Driving", "Walking"],
+      "ReadableName": "Travel Mode"
+    },
+    {
+      "Name": "DepartureTime",
+      "Type": "Integer",
+      "Min": 6,
+      "Max": 23,
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Transit\"",
+      "ReadableName": "Departure Time"
+    },
+    {
+      "Name": "TransitInstructions",
+      "Type": "CategoricalList",
+      "Categories": [
+        [
+          "Walk to the bus stop at Forbes and Murray.",
+          "Take the 61A until the last stop.",
+          "After you get off the stop, turn left and walk down Craig St for 2 blocks.",
+          "Your destination will be on the left."
+        ],
+        [
+          "Go to the bus stop at the corner of the intersection.",
+          "Take the 28X to Forbes and Atwood.",
+          "Walk in the same direction as the bus for 1 block.",
+          "Turn left at the football field.",
+          "Your destination will be on the right."
+        ],
+        [
+          "Walk for 14 minutes to the bus stop on Wilkins and Beechwood.",
+          "Take the 67 and get off the University.",
+          "Walk for 1 more block and turn right at the Starbucks.",
+          "After one more block, your destination will be on the right."
+        ]
+      ],
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Transit\"",
+      "ReadableName": "Transit Instructions"
+    },
+    {
+      "Name": "DrivingInstructions",
+      "Type": "CategoricalList",
+      "Categories": [
+        [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ]
+      ],
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Driving\"",
+      "ReadableName": "Driving Instructions"
+    },
+    {
+      "Name": "WalkingInstructions",
+      "Type": "CategoricalList",
+      "Categories": [
+        [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        [
+          "Walk east for 10 minutes on University Boulevard",
+          "Turn right on Allison Road, right after the McDonalds.",
+          "Turn left after the park and your destination will be on the left."
+        ],
+        [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ]
+      ],
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Walking\"",
+      "ReadableName": "Walking Instructions"
+    },
+    {
+      "Name": "Price",
+      "Type": "Integer",
+      "Min": 0,
+      "Max": 5,
+      "Enabled": "!lambda p: p[\"TravelMode\"] == \"Transit\"",
+      "ReadableName": "Price"
+    }
+  ],
+  "required": [
+    "DepartureLocation",
+    "ArrivalLocation",
+    "TravelMode",
+    "DepartureTime"
+  ],
+  "db": "trip",
+  "function": "trip_directions",
+  "returns_count": false
+}
