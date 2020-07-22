@@ -1,0 +1,181 @@
+{
+  "AnonymizedUserWorkerID": "29460cea-cd22-bb2d-8c7b-b206609fd10e",
+  "AnonymizedWizardWorkerID": "8fd82cbd-c563-20d6-55e1-f6598e35808c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3375,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am looking for a room at the Hilton hotel between the 13th and the 19th.",
+      "UnixTime": 1589609799
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name?",
+      "UnixTime": 1589609808
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_inform_nothing_found",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589609810
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alexis.",
+      "UnixTime": 1589609832
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "StartDate": "\"13th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589609835
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1589609841
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "hotel_ask_hotel",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Hilton Hotel for your requested dates.",
+      "UnixTime": 1589609844
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Alright, I guess I will look elsewhere. Bye.",
+      "UnixTime": 1589609865
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "bye",
+      "UnixTime": 1589609868
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_reservation_failed",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589609870
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589609872
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Hilton Hotel from May 13th to 19th. Your name is Alexis. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

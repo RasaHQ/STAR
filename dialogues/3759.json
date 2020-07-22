@@ -1,0 +1,132 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3759,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589585511
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How can I help?",
+      "UnixTime": 1589585531
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "How can I help you?",
+      "UnixTime": 1589585541
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Ben and my ride is 450. I gotta change my departure location to 5th and main",
+      "UnixTime": 1589585575
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "450"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "ChangeDescription": "\"change my departure location to 5th and main\""
+        }
+      ],
+      "UnixTime": 1589585613
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "I'm sorry, they were unable to change your trip.",
+      "UnixTime": 1589585625
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_failed",
+      "ActionLabelOptions": [
+        "ride_inform_changes_failed",
+        "ride_ask_booking_number",
+        "ride_ask_change"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately I wasn't able to update your booking, sorry.",
+      "UnixTime": 1589585627
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589585636
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Ben and your ride ID is 450. You must change your departure location to 5th and Main, if possible.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      }
+    ],
+    "WizardTask": "The user had booked a ride. Help him/her make changes to his/her booking. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant successfully change your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

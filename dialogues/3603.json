@@ -1,0 +1,191 @@
+{
+  "AnonymizedUserWorkerID": "58be375a-caa2-7735-72af-2683a9d7dda2",
+  "AnonymizedWizardWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3603,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi what is the weather for sunday",
+      "UnixTime": 1589601446
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What city are you in?",
+      "UnixTime": 1589601456
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "out_of_scope",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1589601458
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "new jersey where I live",
+      "UnixTime": 1589601472
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "City": "\"New York City\""
+        }
+      ],
+      "UnixTime": 1589601505
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Snowing",
+        "id": 333
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Snowing",
+        "id": 333
+      },
+      "Text": "The weather for Sunday in New York shows to be snowing and 24",
+      "UnixTime": 1589601526
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_day",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Snowing",
+        "id": 333
+      },
+      "Text": "It will be Snowing all day on Sunday in New York City, with temperatures of around 24 degrees celsius.",
+      "UnixTime": 1589601528
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "wow great. thank you",
+      "UnixTime": 1589601542
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Snowing",
+        "id": 333
+      },
+      "Text": "Is there anything else that I can help you with?",
+      "UnixTime": 1589601560
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "weather_inform_forecast",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Snowing",
+        "id": 333
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589601562
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589601586
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Sunday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "AnonymizedUserWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "AnonymizedWizardWorkerID": "00f54eab-f813-a79e-fabe-cbdd3da9441d",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2096,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Ben and I want to RSVP for John's party.",
+      "UnixTime": 1589841391
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the venue name?",
+      "UnixTime": 1589841431
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "party_ask_arrival_time",
+        "party_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what venue is the party taking place?",
+      "UnixTime": 1589841434
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Southside",
+      "UnixTime": 1589841442
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your arrival time?",
+      "UnixTime": 1589841463
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_arrival_time",
+      "ActionLabelOptions": [
+        "party_ask_arrival_time",
+        "party_ask_parking_needed",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you planning to arrive at the party?",
+      "UnixTime": 1589841466
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "12pm, with 8 other people",
+      "UnixTime": 1589841473
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you need parking?",
+      "UnixTime": 1589841493
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_parking_needed",
+      "ActionLabelOptions": [
+        "party_ask_parking_needed",
+        "party_ask_arrival_time",
+        "party_ask_host"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you require parking at the venue?",
+      "UnixTime": 1589841495
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes. I need parking and HALAL food.",
+      "UnixTime": 1589841506
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"John\""
+        },
+        {
+          "GuestName": "\"Ben\""
+        },
+        {
+          "ArrivalTime": "\"12 pm\""
+        },
+        {
+          "NumberGuests": "9"
+        },
+        {
+          "NeedParking": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "DietaryRestrictions": "\"HALAL food\""
+        }
+      ],
+      "UnixTime": 1589841529
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "I have confirmed your RSVP.",
+      "UnixTime": 1589841542
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_arrival_time",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1589841544
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wow! Thank you so much! Goodbye!",
+      "UnixTime": 1589841551
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1589841571
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "out_of_scope",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589841573
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589841576
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Ben and would like to RSVP to a party. The host is John and the venue is Southside Venue. You will be arriving at 12 pm and will bring 8 guests with you. You need parking. You can only eat halal food.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      }
+    ],
+    "WizardTask": "Help the user RSVP for a party."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant submit your RSVP for the party?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

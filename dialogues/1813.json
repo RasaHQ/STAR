@@ -1,0 +1,222 @@
+{
+  "AnonymizedUserWorkerID": "62eeec70-6c47-578d-fd46-fef2b9b6d543",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1813,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello!",
+      "UnixTime": 1589833312
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How may I help you?",
+      "UnixTime": 1589833338
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "anything_else",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589833340
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm looking for an expensive hotel. It can be anywhere as long as it isn't in the East of town. ",
+      "UnixTime": 1589833369
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "\"Expensive\""
+        }
+      ],
+      "UnixTime": 1589833395
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "TotalItems": 321
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "Text": "The Shadyside Inn ",
+      "UnixTime": 1589833405
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "Text": "The Shadyside Inn is expensive and located in the Center.",
+      "UnixTime": 1589833427
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_provide_search_result",
+        "hotel_inform_price",
+        "hotel_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "Text": "OK, I have found the 'Shadyside Inn', located Center. It is in the Expensive price category and has an average rating of 4.",
+      "UnixTime": 1589833431
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sounds great! Thanks for your help!",
+      "UnixTime": 1589833454
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "Text": "bye",
+      "UnixTime": 1589833465
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_inform_nothing_found",
+        "hotel_inform_rating"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "Center",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "11 pm",
+        "TakesReservations": true,
+        "id": 424
+      },
+      "Text": "Goodbye!",
+      "UnixTime": 1589833468
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589833472
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a Expensive hotel that is not in the East part of town and note its name.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific hotel. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant find you a suitable hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

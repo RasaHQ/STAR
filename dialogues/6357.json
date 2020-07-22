@@ -1,0 +1,1152 @@
+{
+  "AnonymizedUserWorkerID": "1777b3e5-9e12-0a4d-288e-a8708b011a07",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6357,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant', 'Bank balance checking' and 'Filing a bank fraud report' (in any order), as shown on the left. You may also play up to three rounds of trivia with the assistant.  [instruction 1 of 9]",
+      "UnixTime": 1590521122
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. I need to reserve a table at Legume tonight",
+      "UnixTime": 1590521166
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590521293
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_ask_restaurant",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590521295
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sarah Brown",
+      "UnixTime": 1590521311
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "time",
+      "UnixTime": 1590521357
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590521360
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm sorry. I need to check my bank balance first to make sure I have enough money. My account number is 85731890, PIN 1596",
+      "UnixTime": 1590521413
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590521413
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "bank_balance",
+      "UnixTime": 1590521420
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "AccountNumber": "85731890"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "UnixTime": 1590521439
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2240,
+        "BankName": "Chase",
+        "id": 412
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2240,
+        "BankName": "Chase",
+        "id": 412
+      },
+      "Text": "2240",
+      "UnixTime": 1590521441
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2240,
+        "BankName": "Chase",
+        "id": 412
+      },
+      "Text": "Your current balance is 2240 in credit.",
+      "UnixTime": 1590521444
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh my god! There's money missing. I need to file a fraud report.",
+      "UnixTime": 1590521473
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2240,
+        "BankName": "Chase",
+        "id": 412
+      },
+      "Task": "bank_fraud_report",
+      "UnixTime": 1590521473
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Missing money\""
+        },
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "AccountNumber": "85731890"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2240,
+        "BankName": "Chase",
+        "id": 412
+      },
+      "UnixTime": 1590521506
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "success",
+      "UnixTime": 1590521509
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_nothing_found",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590521510
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you. Back to Legume. I would like a table at 9 PM. ",
+      "UnixTime": 1590521547
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590521586
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "size",
+      "UnixTime": 1590521594
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "How many people",
+      "UnixTime": 1590521601
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Just two. It's me and my girlfriend. It's her birthday - Friday the 13th! No wonder I was defrauded.",
+      "UnixTime": 1590521654
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590521654
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Legume\""
+        },
+        {
+          "Time": "\"9 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "UnixTime": 1590521693
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590521697
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590521699
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about 10 PM?",
+      "UnixTime": 1590521715
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Legume\""
+        },
+        {
+          "Time": "\"10 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "UnixTime": 1590521722
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590521725
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590521727
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Damn! It's not my day. Let's play trivia to get my mind off this.",
+      "UnixTime": 1590521756
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590521756
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Task": "trivia",
+      "UnixTime": 1590521764
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "question",
+      "UnixTime": 1590521767
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "What question?",
+      "UnixTime": 1590521773
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Any one, but I don't want an easy question.",
+      "UnixTime": 1590521796
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for a game of trivia at any point. But don't play more than three rounds. [instruction 5 of 9]",
+      "UnixTime": 1590521796
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "2"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "UnixTime": 1590521801
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "blue",
+      "UnixTime": 1590521803
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A ____ is the blue field behind the stars",
+      "UnixTime": 1590521805
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "canton",
+      "UnixTime": 1590521819
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "correct",
+      "UnixTime": 1590521848
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590521849
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Could you check Legume for 7 PM?",
+      "UnixTime": 1590521875
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590521875
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590521913
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Legume\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "UnixTime": 1590521916
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590521919
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590521921
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My girlfriend will be furious. She always tells me I wait till the last minute. Can I have another question please?",
+      "UnixTime": 1590521960
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Task": "trivia",
+      "UnixTime": 1590522013
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "3"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "UnixTime": 1590522015
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "takes",
+      "UnixTime": 1590522017
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_bye",
+        "trivia_inform_answer_2_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "A ____ takes 33 hours to crawl one mile",
+      "UnixTime": 1590522019
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Me, when I've had too much to drink - like I'm going to do tonight.",
+      "UnixTime": 1590522048
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant, bank balance checking, and bank fraud report). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590522048
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "wrong",
+      "UnixTime": 1590522069
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_incorrect_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_incorrect_ask_next",
+        "trivia_bye",
+        "trivia_ask_question"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Unfortunately your answer was wrong. 'snail' would have been correct.\nWould you like to continue playing?",
+      "UnixTime": 1590522070
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My answer was not wrong. How would you know?",
+      "UnixTime": 1590522105
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "anything else",
+      "UnixTime": 1590522159
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_inform_answer_correct_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590522161
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Are you a robot?",
+      "UnixTime": 1590522176
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590522176
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "understand",
+      "UnixTime": 1590522205
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "trivia_ask_question",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to play trivia with you.",
+      "UnixTime": 1590522207
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "One more question please",
+      "UnixTime": 1590522221
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "4"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "UnixTime": 1590522238
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "written",
+      "UnixTime": 1590522241
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "A ____ written to celebrate a wedding is called a epithalamium",
+      "UnixTime": 1590522242
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "poem",
+      "UnixTime": 1590522251
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "correct",
+      "UnixTime": 1590522259
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590522260
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "One more",
+      "UnixTime": 1590522273
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant, bank balance checking, and bank fraud report) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590522273
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "5"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "UnixTime": 1590522307
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "sirocco",
+      "UnixTime": 1590522311
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "A 'sirocco' refers to a type of ____",
+      "UnixTime": 1590522313
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "wind. I think that's enough for now. Thanks for your help.",
+      "UnixTime": 1590522336
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590522340
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590522341
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Goodbye",
+      "UnixTime": 1590522347
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590522361
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590522362
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Bye",
+      "UnixTime": 1590522370
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590522383
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590522384
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590522388
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Sarah Brown\n- Your bank account: 85731890, with PIN 1596\n- Today is Friday the 13th of June, 10 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Filing a bank fraud report\n- Reserving a table at a restaurant (e.g. Tamarind or Legume) for today\n- A game of trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Friday the 13th of June, 10 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

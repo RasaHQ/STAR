@@ -1,0 +1,283 @@
+{
+  "AnonymizedUserWorkerID": "6ca4ce6b-c601-d2e3-da9b-d5b12a7ad9d7",
+  "AnonymizedWizardWorkerID": "06e6755f-be58-d1ca-998c-b87e3a0d8c19",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4218,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, please help! I lost my debit card.",
+      "UnixTime": 1589582022
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What",
+      "UnixTime": 1589582031
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "What is your full name please?",
+      "UnixTime": 1589582057
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tyler Jones, I need to report fraud. Someone withdrew $300",
+      "UnixTime": 1589582090
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is yo",
+      "UnixTime": 1589582120
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "bank_ask_dob",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589582125
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "29/02/1980",
+      "UnixTime": 1589582141
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"lost debit card  $300 stolen\""
+        },
+        {
+          "FullName": "\"Tyler Jones\""
+        },
+        {
+          "DateOfBirth": "\"29/02/1980\""
+        }
+      ],
+      "UnixTime": 1589582194
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "What is your account number Tyler?",
+      "UnixTime": 1589582219
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "ask_name",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589582221
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I forgot my account # but my mommies maiden name is Sanders",
+      "UnixTime": 1589582250
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you.  May I ask another security question?",
+      "UnixTime": 1589582331
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you.  May I ask another security question?",
+      "UnixTime": 1589582337
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes. Charlie is my dogs name",
+      "UnixTime": 1589582378
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"lost debit card  $300 stolen\""
+        },
+        {
+          "FullName": "\"Tyler Jones\""
+        },
+        {
+          "DateOfBirth": "\"29/02/1980\""
+        },
+        {
+          "SecurityAnswer1": "\"Sanders\""
+        },
+        {
+          "SecurityAnswer2": "\"Charlie\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589582386
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Thank you",
+      "UnixTime": 1589582397
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1589582401
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much! Bye bye!",
+      "UnixTime": 1589582423
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1589582435
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_ask_childhood_pets_name",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589582437
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589582442
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Tyler Jones and would like to report fraud on your bank account. You have lost your debit card and before you could cancel it, somebody withdrew $300 at an ATM.. Unfortunately, you don't remember your account number nor your PIN. Your date of birth is 29/02/1980. For your security questions, your mother's maiden name is Sanders and your childhood pet is Charlie.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Authenticate the user and submit a fraud report"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant succesfully report fraud on your account?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

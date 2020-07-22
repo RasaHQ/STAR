@@ -1,0 +1,222 @@
+{
+  "AnonymizedUserWorkerID": "7e46c32f-64e8-9560-702e-82f6b52463d7",
+  "AnonymizedWizardWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1777,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello.",
+      "UnixTime": 1589840663
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello can I have your name",
+      "UnixTime": 1589840682
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_ask_time",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589840683
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, I'm Ben.",
+      "UnixTime": 1589840690
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What hotel are you at?",
+      "UnixTime": 1589840705
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "hotel_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589840706
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm in room 301 at the Hyatt",
+      "UnixTime": 1589840718
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What are you needing?",
+      "UnixTime": 1589840732
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_service_request",
+      "ActionLabelOptions": [
+        "hotel_ask_service_request",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, please let us know your request now.",
+      "UnixTime": 1589840735
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh, I'd like to get a medium-rare steak and some red wine.",
+      "UnixTime": 1589840758
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time?",
+      "UnixTime": 1589840770
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_time",
+      "ActionLabelOptions": [
+        "hotel_ask_time",
+        "ask_name",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time would you like us to provide the service?",
+      "UnixTime": 1589840772
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like it for lunch at 3pm.",
+      "UnixTime": 1589840783
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "RoomNumber": "301"
+        },
+        {
+          "Time": "\"3 pm\""
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "CustomerRequest": "\"Medium rare steak and red wine\\n\""
+        }
+      ],
+      "UnixTime": 1589840800
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "3 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "3 pm"
+      },
+      "Text": "Okay all done",
+      "UnixTime": 1589840804
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "anything_else",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "3 pm"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 301 at 3 pm!",
+      "UnixTime": 1589840807
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589840814
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Ben and you are staying in room 301 of the Hyatt Hotel. You would like to make a service request for 3 pm. Your request is: I'd like to order a medium-rare steak and glass of red wine..",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully submit your service request?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

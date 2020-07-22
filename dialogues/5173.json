@@ -1,0 +1,1017 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5173,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Maybe the AI Assistant can help? Say hello and ask if it can help you plan the party. [instruction 1 of 7]",
+      "UnixTime": 1590296281
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela. My friend Ben and I have want to organize a birthday party on Sunday where we expect 48 guests to come.",
+      "UnixTime": 1590296324
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ben says: 'I think the West Bay Venue is quite nice'. [instruction 2 of 7]",
+      "UnixTime": 1590296324
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have the venue?",
+      "UnixTime": 1590296352
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "ask_name",
+        "party_no_venue_available"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what venue would you like to have your party organised?",
+      "UnixTime": 1590296353
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "South Bay",
+      "UnixTime": 1590296392
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What time?",
+      "UnixTime": 1590296448
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_starting_time",
+      "ActionLabelOptions": [
+        "party_ask_starting_time",
+        "party_ask_day",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "Text": "When would you like your party to kick off?",
+      "UnixTime": 1590296451
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "6pm",
+      "UnixTime": 1590296464
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that if the weather is nice, you might just have the party outside somewhere. Ask your assistant what the weather will be like on Sunday. [instruction 3 of 7]",
+      "UnixTime": 1590296464
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "NumberGuests": "48"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590296484
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The venue is availa",
+      "UnixTime": 1590296492
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_food",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "OK, the Southside Venue would be happy to accommodate you on Sunday @ 6 pm.\nCan I book it for you now?",
+      "UnixTime": 1590296494
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What will the weather be like on Sunday?",
+      "UnixTime": 1590296523
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ben says: 'Yeah, actually, if the weather is good, we could just go out to the park and book a restaurant for the evening'. You agree. So depending on the weather, either continue searching / booking the venue, or ask your assistant to help you find and book a restaurant for Sunday evening. [instruction 4 of 7]",
+      "UnixTime": 1590296523
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Task": "weather",
+      "UnixTime": 1590296568
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590296572
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 16,
+        "Weather": "Sunny",
+        "id": 786
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 16,
+        "Weather": "Sunny",
+        "id": 786
+      },
+      "Text": "It will be Sunny",
+      "UnixTime": 1590296582
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_bye",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 16,
+        "Weather": "Sunny",
+        "id": 786
+      },
+      "Text": "It will be Sunny all day on Sunday in Los Angeles, with temperatures of around 16 degrees celsius.",
+      "UnixTime": 1590296584
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "In that case, could you find and book a restaurant for us for Sunday evening instead?",
+      "UnixTime": 1590296609
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Note: You are located in the Center of town, which you may or may not take into account if you search for a restaurant. [instruction 5 of 7]",
+      "UnixTime": 1590296609
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 16,
+        "Weather": "Sunny",
+        "id": 786
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590296615
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 16,
+        "Weather": "Sunny",
+        "id": 786
+      },
+      "UnixTime": 1590296640
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "TotalItems": 1000
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "I have Tamarind",
+      "UnixTime": 1590296649
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "I have Tamarind id 947",
+      "UnixTime": 1590296669
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "I have Tamarind that has a moderate cost, serves pizza and their hours are 8-7. Do you want to keep searching?",
+      "UnixTime": 1590296705
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "I have Tamarind that has a moderate cost, serves pizza and their hours are 8-7. Do you want to keep searching?",
+      "UnixTime": 1590296708
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That works.",
+      "UnixTime": 1590296732
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When the question comes up: you both like Chinese food and Indian food, but no Italian food. [instruction 6 of 7]",
+      "UnixTime": 1590296732
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590296744
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "Would you like to book? If so, can I get the time and party size?",
+      "UnixTime": 1590296786
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "Text": "Would you like to book? If so, can I get the time and party size?",
+      "UnixTime": 1590296788
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I changed my mind. Chinese or Indian food. 6pm and party size of 4.",
+      "UnixTime": 1590296809
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 19,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Tamarind",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 947
+      },
+      "UnixTime": 1590296839
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590296845
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590296859
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Food": "\"Chinese\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590296872
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": true,
+        "id": 65
+      },
+      "TotalItems": 134
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": true,
+        "id": 65
+      },
+      "Text": "I have Cactus Club that serves Chinese food",
+      "UnixTime": 1590296889
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": true,
+        "id": 65
+      },
+      "Text": "I have the Cactus Club that serves Chinese food. Would you like to book?",
+      "UnixTime": 1590296916
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please.",
+      "UnixTime": 1590296921
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": true,
+        "id": 65
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590296921
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Cactus Club\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "South",
+        "MaxPartySize": 14,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": true,
+        "id": 65
+      },
+      "UnixTime": 1590296931
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I'm sorry it failed ",
+      "UnixTime": 1590296949
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "ask_name",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590296953
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "another restaurant perhaps?",
+      "UnixTime": 1590296964
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done booking (not just finding!) either a restaurant or a party venue, you can say goodbye and end the dialogue. This might take a while though, e.g. in case the venue is not available. [instruction 7 of 7]",
+      "UnixTime": 1590296964
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590296971
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Food": "\"Indian\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590296974
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 34,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "West",
+        "MaxPartySize": 30,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 134
+      },
+      "TotalItems": 139
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 34,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "West",
+        "MaxPartySize": 30,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 134
+      },
+      "Text": "I have the Cactus Club that serves Indian and is open from 8-11. ",
+      "UnixTime": 1590297002
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 34,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "West",
+        "MaxPartySize": 30,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 134
+      },
+      "Text": "I have the Cactus Club that serves Indian and is open from 8-11",
+      "UnixTime": 1590297021
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "that works",
+      "UnixTime": 1590297031
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 34,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "West",
+        "MaxPartySize": 30,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 134
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590297034
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Cactus Club\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 34,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "West",
+        "MaxPartySize": 30,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "8 am",
+        "TakesReservations": false,
+        "id": 134
+      },
+      "UnixTime": 1590297040
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I have reserved",
+      "UnixTime": 1590297049
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_time",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590297051
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590297055
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You (Angela) and your friend Ben want to organize a birthday party on Sunday. You expect 48 guests to come.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Note: If the user already knows a restaurant name, use 'restaurant reserve', otherwise use 'restaurant search'."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

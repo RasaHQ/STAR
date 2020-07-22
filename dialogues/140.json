@@ -1,0 +1,218 @@
+{
+  "AnonymizedUserWorkerID": "dafaf3b5-ecb1-93eb-584e-3238e912182c",
+  "AnonymizedWizardWorkerID": "cd16c4d4-79bc-8ba3-bf47-368689966c2c",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 140,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi there!",
+      "UnixTime": 1589467277
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589467281
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589467283
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like to book a flight today please.",
+      "UnixTime": 1589467294
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have your name",
+      "UnixTime": 1589467302
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589467304
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, it's John",
+      "UnixTime": 1589467312
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "flight ID",
+      "UnixTime": 1589467317
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_flight_id",
+      "ActionLabelOptions": [
+        "plane_ask_flight_id",
+        "plane_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can I have your flight ID, please?",
+      "UnixTime": 1589467319
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "605",
+      "UnixTime": 1589467323
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "605"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589467328
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 605
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 605
+      },
+      "Text": "unavailable",
+      "UnixTime": 1589467334
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "plane_reservation_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 605
+      },
+      "Text": "Sorry, but the flight with id '605' is not available any more.",
+      "UnixTime": 1589467338
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, thanks for your time. I'll look and see if there's any more available.",
+      "UnixTime": 1589467352
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 605
+      },
+      "Text": "thank you",
+      "UnixTime": 1589467359
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 605
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589467360
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589467365
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 605. Your name is John",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

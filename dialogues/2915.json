@@ -1,0 +1,223 @@
+{
+  "AnonymizedUserWorkerID": "f76f8d4d-5223-f6a7-71bb-8abf87118490",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2915,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey there, I need help finding a 5 bedroom apartment for my family. I can only afford 330 credits but I would like for it to have a balcony and be near a park.",
+      "UnixTime": 1589584993
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "HasBalcony": "False"
+        },
+        {
+          "NumRooms": "5"
+        },
+        {
+          "Price": "api.is_less_than(400)"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"Park\")"
+        }
+      ],
+      "UnixTime": 1589585163
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I am unable to find one",
+      "UnixTime": 1589585176
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_nothing_found",
+      "ActionLabelOptions": [
+        "apartment_inform_nothing_found",
+        "out_of_scope",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589585180
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Really? In the whole city? ",
+      "UnixTime": 1589585199
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "yes",
+      "UnixTime": 1589585209
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Unfortunately, yes.",
+      "UnixTime": 1589585221
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wow, that is shocking. I guess the kids are going to have to share a room. ",
+      "UnixTime": 1589585252
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "HasBalcony": "False"
+        },
+        {
+          "NumRooms": "4"
+        },
+        {
+          "Price": "api.is_less_than(400)"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"Park\")"
+        }
+      ],
+      "UnixTime": 1589585269
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how many rooms",
+      "UnixTime": 1589585283
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_num_bedrooms",
+      "ActionLabelOptions": [
+        "apartment_ask_num_bedrooms",
+        "apartment_ask_balcony",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many bedrooms does the apartment need to have?",
+      "UnixTime": 1589585287
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need 5.",
+      "UnixTime": 1589585297
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "no",
+      "UnixTime": 1589585306
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589585317
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_nothing_found",
+      "ActionLabelOptions": [
+        "apartment_inform_nothing_found",
+        "anything_else",
+        "apartment_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589585319
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, I will talk to my husband and we will figure something out. ",
+      "UnixTime": 1589585340
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "alright then",
+      "UnixTime": 1589585354
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "apartment_ask_elevator",
+        "apartment_ask_num_bedrooms"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589585362
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589585366
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 5 bedroom apartment. The unit should be on floor 12 or higher. Your price budget is 330 credits. You would like the building to have a balcony and be near a park.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

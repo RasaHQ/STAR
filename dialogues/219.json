@@ -1,0 +1,162 @@
+{
+  "AnonymizedUserWorkerID": "d063746c-0ca1-ad09-7159-11880a755cd0",
+  "AnonymizedWizardWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 219,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello!",
+      "UnixTime": 1589467425
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How can I help you?",
+      "UnixTime": 1589467437
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589467439
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to book a flight, ID 480",
+      "UnixTime": 1589467461
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your name?",
+      "UnixTime": 1589467472
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "plane_reservation_failed"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589467474
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure, My name is John",
+      "UnixTime": 1589467493
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "480"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589467536
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 480
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 480
+      },
+      "Text": "I'm sorry, it is not available. ",
+      "UnixTime": 1589467544
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "plane_reservation_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 480
+      },
+      "Text": "Sorry, but the flight with id '480' is not available any more.",
+      "UnixTime": 1589467548
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589467556
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 480. Your name is John",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

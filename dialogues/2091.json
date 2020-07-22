@@ -1,0 +1,421 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2091,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week. Quickly you contact the bank-system's AI assistant. Perhaps it can help? [instruction 1 of 5]",
+      "UnixTime": 1589841883
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "HELP frequent money transfers of $10 over the past week. I didn't do this.",
+      "UnixTime": 1589841911
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You are John Smith. Your PIN is 7402, but you forgot your account number. (You might need your childhood pet's name for the security questions: Molly.) [instruction 2 of 5]",
+      "UnixTime": 1589841911
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account",
+      "UnixTime": 1589841944
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "out_of_scope",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589841945
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "i can't remember my account number. The pin is 7402.",
+      "UnixTime": 1589841965
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589841976
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_bye",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1589841977
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John Smith",
+      "UnixTime": 1589841989
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You forget what you are doing (imagine you're 93 years old and have some mental condition). [instruction 3 of 5]",
+      "UnixTime": 1589841989
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"frequent money transfers of $10 over the past week\""
+        },
+        {
+          "PIN": "7402"
+        },
+        {
+          "FullName": "\"John Smith\""
+        }
+      ],
+      "UnixTime": 1589841997
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "date",
+      "UnixTime": 1589841999
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589842000
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "i know i left my shoes here somewhere",
+      "UnixTime": 1589842077
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep this conversation going for a bit - you can be creative! [instruction 4 of 5]",
+      "UnixTime": 1589842077
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "error",
+      "UnixTime": 1589842085
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_cannot_authenticate",
+      "ActionLabelOptions": [
+        "bank_inform_cannot_authenticate",
+        "bank_bye",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "I am sorry, but I cannot authenticate you with the information you have provided.",
+      "UnixTime": 1589842087
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "here they are, they were on my feet this whole time",
+      "UnixTime": 1589842122
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "error",
+      "UnixTime": 1589842159
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_cannot_authenticate",
+      "ActionLabelOptions": [
+        "bank_inform_cannot_authenticate",
+        "bank_bye",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "I am sorry, but I cannot authenticate you with the information you have provided.",
+      "UnixTime": 1589842160
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh yes my pet's name is Molly.",
+      "UnixTime": 1589842175
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "err",
+      "UnixTime": 1589842179
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "bank_ask_dob",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589842185
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "12/08/1930",
+      "UnixTime": 1589842196
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"frequent money transfers of $10 over the past week\""
+        },
+        {
+          "PIN": "7402"
+        },
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "SecurityAnswer1": "\"Molly\""
+        },
+        {
+          "DateOfBirth": "\"12/08/1930\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589842205
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "number",
+      "UnixTime": 1589842208
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_ask_pin",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589842210
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I can't remember",
+      "UnixTime": 1589842218
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, great. Now bring the conversation to a natural close. [instruction 5 of 5]",
+      "UnixTime": 1589842218
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "error",
+      "UnixTime": 1589842260
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_cannot_authenticate",
+      "ActionLabelOptions": [
+        "bank_inform_cannot_authenticate",
+        "bank_bye",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "I am sorry, but I cannot authenticate you with the information you have provided.",
+      "UnixTime": 1589842261
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's okay I'll come back later",
+      "UnixTime": 1589842268
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "thank you",
+      "UnixTime": 1589842295
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589842296
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589842303
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* You are the customer service AI of the international banking system"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user seem confused? (He or she may have been instructed to be.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

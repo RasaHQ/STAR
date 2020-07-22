@@ -1,0 +1,441 @@
+{
+  "AnonymizedUserWorkerID": "6cb66f0b-1a8b-fec4-b481-96b6da01d513",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4179,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hallo to the AI Assistant. [instruction 1 of 6]",
+      "UnixTime": 1589562523
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, I need to set a viewing for North Hill Apartments on Thursday at 7pm.",
+      "UnixTime": 1589562572
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I also get your name? ",
+      "UnixTime": 1589562593
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "apartment_ask_custom_message",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you give me your name, please?",
+      "UnixTime": 1589562595
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, John.",
+      "UnixTime": 1589562605
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You suddenly remember that you have a friend's wedding on Thursday at 7 pm. [instruction 2 of 6]",
+      "UnixTime": 1589562605
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589562621
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "The time is unavalaible.",
+      "UnixTime": 1589562632
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_ask_end_time",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1589562637
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok can we try on Friday?",
+      "UnixTime": 1589562650
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ask something about the apartment, or engage in smalltalk, or make a joke. [instruction 3 of 6]",
+      "UnixTime": 1589562650
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589562658
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "The time is available. ",
+      "UnixTime": 1589562665
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_available",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_inform_viewing_available",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Great, there is still a viewing available at that time. Would you like me to book it for you?",
+      "UnixTime": 1589562670
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh wait, I just remembered I have wedding for an old friend on that day. Can we try on Saturday?",
+      "UnixTime": 1589562714
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You cannot remember if you had payed the application fee. Find a way to make an appointment anyway. If no date is available, change date and/or time until something works. If you already got the appointment, engage in smalltalk. [instruction 4 of 6]",
+      "UnixTime": 1589562714
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589562722
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "The time is available.",
+      "UnixTime": 1589562731
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_available",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_inform_viewing_available",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Great, there is still a viewing available at that time. Would you like me to book it for you?",
+      "UnixTime": 1589562736
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please, but I don't remember paying any application fee because I have seen so many.",
+      "UnixTime": 1589562774
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once you've scheduled the viewing, say something about your friend's wedding. [instruction 5 of 6]",
+      "UnixTime": 1589562774
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589562792
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "I have booked your appointment. Please make sure to bring your passport, SCHUFA certificate, and have funds available if needed for an application fee. ",
+      "UnixTime": 1589562843
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "I have booked your appointment. Please make sure to bring your passport, SCHUFA certificate, and have funds available if needed for an application fee. ",
+      "UnixTime": 1589562848
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok great and I can't wait to see this wedding on the private island!",
+      "UnixTime": 1589562879
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done with all the instructions, bring the conversation to a natural close.  [instruction 6 of 6]",
+      "UnixTime": 1589562879
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "Sounds great, have fun!",
+      "UnixTime": 1589562933
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "Sounds great, have fun! Do you need any more assistance?",
+      "UnixTime": 1589562948
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That is all thanks a million.",
+      "UnixTime": 1589562963
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "Thank you.",
+      "UnixTime": 1589562977
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "Thank you.",
+      "UnixTime": 1589562984
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589562986
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at North Hill Apartments for Thursday at 7 pm. Your name is John. You cannot remember if you had payed the application fee. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,776 @@
+{
+  "AnonymizedUserWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "AnonymizedWizardWorkerID": "34240f9a-bd13-8ae1-c634-f07162c54b7c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3616,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hallo to the AI Assistant. [instruction 1 of 6]",
+      "UnixTime": 1589607507
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like to schedule a viewing.",
+      "UnixTime": 1589607527
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "whats your name",
+      "UnixTime": 1589607544
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "anything_else",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you give me your name, please?",
+      "UnixTime": 1589607547
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Mark",
+      "UnixTime": 1589607566
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You suddenly remember that you have a friend's wedding on Friday at 11 am. [instruction 2 of 6]",
+      "UnixTime": 1589607566
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Where do you want to view",
+      "UnixTime": 1589607574
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_apartment_name",
+      "ActionLabelOptions": [
+        "apartment_ask_custom_message",
+        "apartment_inform_nothing_found",
+        "apartment_ask_apartment_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "What apartment are you interested in?",
+      "UnixTime": 1589607578
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "One on Center Apartments Friday at 11am.",
+      "UnixTime": 1589607595
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ask something about the apartment, or engage in smalltalk, or make a joke. [instruction 3 of 6]",
+      "UnixTime": 1589607595
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Have you paid application fee",
+      "UnixTime": 1589607617
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_ask_end_time",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1589607620
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't know, I'll just pay when I get there.",
+      "UnixTime": 1589607637
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You cannot remember if you had payed the application fee. Find a way to make an appointment anyway. If no date is available, change date and/or time until something works. If you already got the appointment, engage in smalltalk. [instruction 4 of 6]",
+      "UnixTime": 1589607637
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589607644
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589607651
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607675
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589607678
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "ok that time is available",
+      "UnixTime": 1589607686
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_available",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_available",
+        "apartment_inform_viewing_unavailable",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "Great, there is still a viewing available at that time. Would you like me to book it for you?",
+      "UnixTime": 1589607690
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Shoot, my friend is getting married then. Can I change it to 2 pm that same day?",
+      "UnixTime": 1589607721
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once you've scheduled the viewing, say something about your friend's wedding. [instruction 5 of 6]",
+      "UnixTime": 1589607721
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607730
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607738
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607741
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "2pm is unavailable",
+      "UnixTime": 1589607751
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_ask_start_time",
+        "apartment_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1589607754
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about Thursday at noon?",
+      "UnixTime": 1589607782
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done with all the instructions, bring the conversation to a natural close.  [instruction 6 of 6]",
+      "UnixTime": 1589607782
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"12 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607791
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"12 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607796
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607800
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"12 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to([\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607829
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "that time is also unavailable",
+      "UnixTime": 1589607833
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_bye",
+        "apartment_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1589607836
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Anything on Thursday will work.",
+      "UnixTime": 1589607859
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"12 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607862
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1589607870
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Thursday at 11am is available",
+      "UnixTime": 1589607883
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Thursday at 11 am is available. Would you like me to book it?",
+      "UnixTime": 1589607915
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "perfect, please book it.",
+      "UnixTime": 1589607931
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589607937
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "it has been booked",
+      "UnixTime": 1589607948
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_booking_successful",
+      "ActionLabelOptions": [
+        "apartment_inform_booking_successful",
+        "apartment_ask_application_fee_paid",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Passport and SCHUFA certificate with you."
+      },
+      "Text": "Excellent, the viewing is scheduled now!",
+      "UnixTime": 1589607951
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589607957
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at One on Center Apartments for Friday at 11 am. Your name is Mark. You cannot remember if you had payed the application fee. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

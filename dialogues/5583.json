@@ -1,0 +1,655 @@
+{
+  "AnonymizedUserWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "AnonymizedWizardWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5583,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'finding a hotel' and 'reserving a room at a hotel' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590190713
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, I need to check the weather in Los Angeles",
+      "UnixTime": 1590190727
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi what day?",
+      "UnixTime": 1590190739
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "weather",
+      "UnixTime": 1590190746
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What day",
+      "UnixTime": 1590190749
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what day would you like the weather forecast?",
+      "UnixTime": 1590190752
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Monday please",
+      "UnixTime": 1590190760
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "UnixTime": 1590190765
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "Text": "los angeles partly cloudy",
+      "UnixTime": 1590190770
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "Text": "It will be Partly Cloudy all day on Monday in Los Angeles, with temperatures of around 6 degrees celsius.",
+      "UnixTime": 1590190772
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My favorite type of weather! But it's time to travel. Let's find a hotel!",
+      "UnixTime": 1590190793
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590190793
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "Task": "hotel_search",
+      "UnixTime": 1590190799
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "Text": "Can I have your name please",
+      "UnixTime": 1590190807
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_name",
+      "ActionLabelOptions": [
+        "hotel_ask_name",
+        "hello",
+        "anything_else",
+        "hotel_inform_search_criteria",
+        "weather_inform_nothing_found",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "Text": "What Hotel would you like to stay at?",
+      "UnixTime": 1590190809
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "whatever you can find for me in the East of town.",
+      "UnixTime": 1590190825
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "Location": "\"East\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Partly Cloudy",
+        "id": 484
+      },
+      "UnixTime": 1590190836
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "TotalItems": 59
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "shady side inn cheap",
+      "UnixTime": 1590190842
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_inform_price",
+        "hotel_provide_search_result",
+        "hotel_inform_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "OK, I have found the 'Shadyside Inn', located East. It is in the Cheap price category and has an average rating of 5.",
+      "UnixTime": 1590190844
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That sounds pretty good I guess. Can we book it?",
+      "UnixTime": 1590190857
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590190857
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590190862
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "your name please",
+      "UnixTime": 1590190871
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_ask_name",
+        "hotel_inform_search_criteria",
+        "hotel_bye",
+        "anything_else",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590190873
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John Smith",
+      "UnixTime": 1590190879
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590190879
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "Check in and check out dates?",
+      "UnixTime": 1590190889
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "Text": "check in and check out dates?",
+      "UnixTime": 1590190896
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "9th to the 19th",
+      "UnixTime": 1590190902
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('finding a hotel' and 'reserving a room at a hotel'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590190902
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"9th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "East",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 964
+      },
+      "UnixTime": 1590190922
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "okay that is available shall i book",
+      "UnixTime": 1590190929
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_ask_date_to",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Shadyside Inn ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1590190931
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please! Book it! Just like I got booked last night.",
+      "UnixTime": 1590190947
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"9th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "UnixTime": 1590190950
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "something went wrong",
+      "UnixTime": 1590190960
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_failed",
+      "ActionLabelOptions": [
+        "hotel_reservation_failed",
+        "hotel_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "I'm sorry, but your booking request failed.",
+      "UnixTime": 1590190962
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Damnit! I've been having lots of problems with my bank card, but I think that's a different Assistant...",
+      "UnixTime": 1590190983
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('finding a hotel' and 'reserving a room at a hotel') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590190983
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "yeah I don't deal with bank fraud",
+      "UnixTime": 1590191005
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "yeah I don't deal with bank fraud",
+      "UnixTime": 1590191008
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, that's all I needed. Thanks.",
+      "UnixTime": 1590191016
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "okay thanks goodbye",
+      "UnixTime": 1590191051
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "anything_else",
+        "hotel_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590191053
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590191056
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John Smith\n- Today is Monday the 25th, 2 pm\n\n The AI Assistant can handle:\n- Search for a hotel (e.g. in the East of town`)\n- Book a room at a hotel (e.g. Shadyside Inn or whatever the assistant can find for you; e.g. from 9th to 19th)\n- Checking the weather forecast in different Cities (e.g. Los Angeles or San Francisco)",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Monday the 25th, 2 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

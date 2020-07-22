@@ -1,0 +1,244 @@
+{
+  "AnonymizedUserWorkerID": "62eeec70-6c47-578d-fd46-fef2b9b6d543",
+  "AnonymizedWizardWorkerID": "6ca4ce6b-c601-d2e3-da9b-d5b12a7ad9d7",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2667,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I need to make a reservation at Cactus Club at 6 pm.",
+      "UnixTime": 1589834091
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi May I have your name?",
+      "UnixTime": 1589834126
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589834128
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela.",
+      "UnixTime": 1589834161
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "For how many guests?",
+      "UnixTime": 1589834191
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_size",
+      "ActionLabelOptions": [
+        "restaurant_ask_size",
+        "restaurant_inform_unavailable",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "For how many people should the reservation be made?",
+      "UnixTime": 1589834193
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Make it for 3 people.",
+      "UnixTime": 1589834206
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "3"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589834216
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Its available, shall I book?",
+      "UnixTime": 1589834225
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_ask_confirm_booking",
+        "restaurant_ask_time",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Great, the Cactus Club is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1589834227
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, that sounds great!",
+      "UnixTime": 1589834238
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "3"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1589834243
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1589834249
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1589834252
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589834256
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "restaurant"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Make a reservation at Cactus Club for 3 people at 6 pm. Your name is Angela.",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Help the user make a reservation at a restaurant."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant reserve your restaurant?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

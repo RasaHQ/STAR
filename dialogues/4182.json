@@ -1,0 +1,169 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "8829abee-d7b6-d749-1f21-2eee378e34bb",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4182,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589564717
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello how can I help?",
+      "UnixTime": 1589564722
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589564723
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alexis, I would like to request a room at the Hilton Hotel from May 12th-25th.",
+      "UnixTime": 1589564740
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you have any particular requests for your room?",
+      "UnixTime": 1589564763
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you have any particular requests for your room?",
+      "UnixTime": 1589564766
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "None",
+      "UnixTime": 1589564774
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "StartDate": "\"12th\""
+        },
+        {
+          "EndDate": "\"25th\""
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589564780
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "That's unavailable.",
+      "UnixTime": 1589564787
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "out_of_scope",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Hilton Hotel for your requested dates.",
+      "UnixTime": 1589564791
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589564801
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Hilton Hotel from May 12th to 25th. Your name is Alexis. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

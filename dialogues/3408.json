@@ -1,0 +1,186 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3408,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi",
+      "UnixTime": 1589610723
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hi",
+      "UnixTime": 1589610728
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "plane_bye",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589610730
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is John and I want to reserve flight ID 629",
+      "UnixTime": 1589610751
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "629"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589610763
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "Text": "U",
+      "UnixTime": 1589610767
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "Text": "Unavailable",
+      "UnixTime": 1589610776
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "plane_reservation_failed",
+        "plane_ask_flight_id"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "Text": "Sorry, but the flight with id '629' is not available any more.",
+      "UnixTime": 1589610779
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is there another flight available?",
+      "UnixTime": 1589610811
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "Text": "no",
+      "UnixTime": 1589610821
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 629
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you reserve a flight.",
+      "UnixTime": 1589610829
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589610835
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 629. Your name is John",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

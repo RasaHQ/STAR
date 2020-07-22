@@ -1,0 +1,136 @@
+{
+  "AnonymizedUserWorkerID": "5279cf01-d151-44ce-b806-dd2536b8c8bd",
+  "AnonymizedWizardWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3293,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, my name is Ben. I booked a cab for my friend at the airport a few hours ago but he's still not here. What is the status of the ride?",
+      "UnixTime": 1589590906
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the ID?",
+      "UnixTime": 1589590916
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "out_of_scope",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1589590918
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "416",
+      "UnixTime": 1589590922
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "416"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        }
+      ],
+      "UnixTime": 1589590930
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your ride is on its way. It is 1 minute away.",
+      "UnixTime": 1589590948
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your ride is on its way. It is 1 minute away.",
+      "UnixTime": 1589590950
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589590964
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Some hours ago you've booked a cab to pick up your friend from the airport. He's still not here. Ask the assistant about the status of his ride (booking id 416. You booked the ride under the name 'Ben'.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Help the user stay informed about the status of his/her ride. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the status of your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

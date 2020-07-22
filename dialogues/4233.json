@@ -1,0 +1,181 @@
+{
+  "AnonymizedUserWorkerID": "34240f9a-bd13-8ae1-c634-f07162c54b7c",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4233,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "In this dialogue, either act confused, like a person with memory problems, or act concerned about the effects of the medicine.  [instruction 1 of 3]",
+      "UnixTime": 1589603069
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I had an appointment with Dr. Morgan but I didn't write down the instructions he gave me",
+      "UnixTime": 1589603106
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Oh, Dr. Morgan was actually your previous doctor. Your new doctor is Dr. Johnson now. That's the one you had the appointment with. [instruction 2 of 3]",
+      "UnixTime": 1589603106
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "your name",
+      "UnixTime": 1589603125
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_bye",
+        "doctor_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589603127
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Morgan. Wow I got confused. Morgan was my doctor 20 years ago. Dr. Johnson is my doctor now",
+      "UnixTime": 1589603170
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say something random about your doctors, your condition, or about something (imagined) that happened to you today. Then bring the conversation to a natural close. [instruction 3 of 3]",
+      "UnixTime": 1589603170
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Johnson\""
+        },
+        {
+          "PatientName": "\"Morgan\""
+        }
+      ],
+      "UnixTime": 1589603375
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Take your medicine before you go to sleep",
+      "UnixTime": 1589603395
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "anything_else",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1589603399
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Why are you taking so long to respond. I have things to do and don't feel like waiting for you all day. It's not bad enough being sick, now these meds are making me puke. I'm not happy about that at all.",
+      "UnixTime": 1589603441
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "is there anything else",
+      "UnixTime": 1589603567
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "doctor_inform_doctors_instructions",
+        "doctor_ask_doctor_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589603570
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589603656
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You (Angela) had an appointment with Dr. Morgan the other day. Unfortunately, you forgot to write down the instructions the doctor gave you. Please followup and find out how often to take your medicine.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Inform the user of his/her doctor's orders."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

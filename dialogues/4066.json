@@ -1,0 +1,217 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4066,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589573046
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How may I help you?",
+      "UnixTime": 1589573082
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589573085
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like to view North Hill Apartments for Sunday at 9 pm",
+      "UnixTime": 1589573130
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Have you paid the application fee?",
+      "UnixTime": 1589573156
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_ask_end_time",
+        "apartment_inform_viewing_unavailable"
+      ],
+      "Agent": "Wizard",
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1589573158
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Not yet",
+      "UnixTime": 1589573198
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have your name please?",
+      "UnixTime": 1589573213
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "apartment_ask_custom_message",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you give me your name, please?",
+      "UnixTime": 1589573217
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1589573235
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"9 pm\""
+        },
+        {
+          "ApplicationFeePaid": "\"No\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589573240
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "That time is unavailable. Would another time work for you?",
+      "UnixTime": 1589573259
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_inform_viewing_available",
+        "apartment_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1589573263
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh no :(",
+      "UnixTime": 1589573277
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "Is there another time that would work for you?",
+      "UnixTime": 1589573300
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "Is there another day or time that would work for you?",
+      "UnixTime": 1589573317
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589573322
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at North Hill Apartments for Sunday at 9 pm. Your name is Angela. You have not paid the application fee.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

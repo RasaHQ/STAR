@@ -1,0 +1,244 @@
+{
+  "AnonymizedUserWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "AnonymizedWizardWorkerID": "71f8d498-7034-65f3-de7c-7ac126139a2e",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 420,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589466959
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi how can I help you today",
+      "UnixTime": 1589466972
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589466976
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Angela. I need to reserve a flight with id 635.",
+      "UnixTime": 1589467001
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Thank Angela, let me check",
+      "UnixTime": 1589467036
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "635"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589467059
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 635
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 635
+      },
+      "Text": "Flight is available",
+      "UnixTime": 1589467076
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "plane_flight_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 635
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1589467079
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, that would be great!",
+      "UnixTime": 1589467099
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "635"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 635
+      },
+      "UnixTime": 1589467105
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 635
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "635"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 635
+      },
+      "UnixTime": 1589467130
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 635
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 635
+      },
+      "Text": "Okay Angela, your flight is booked",
+      "UnixTime": 1589467150
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_succeeded",
+      "ActionLabelOptions": [
+        "plane_reservation_succeeded",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 635
+      },
+      "Text": "Right, your flight is now reserved!",
+      "UnixTime": 1589467154
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589467158
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 635. Your name is Angela",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

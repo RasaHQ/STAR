@@ -1,0 +1,195 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "d54cbfbe-9822-80ca-c06f-a9029d7dbe20",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4473,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey",
+      "UnixTime": 1589574506
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589574511
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "plane_bye",
+        "plane_ask_departure_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589574513
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want to fly Pittsburgh to Los Angeles for May 8th, preferably with United Airlines",
+      "UnixTime": 1589574535
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you have a prefferred airline",
+      "UnixTime": 1589574586
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_request_optional",
+      "ActionLabelOptions": [
+        "plane_request_optional",
+        "plane_bye",
+        "plane_ask_more_questions"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can also filter the results for a specific airline, class, price or duration.",
+      "UnixTime": 1589574589
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "proud of you <3",
+      "UnixTime": 1589574603
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Thank you",
+      "UnixTime": 1589574625
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Thank you. Would you like me to filter by specific airline, class, price or duration?",
+      "UnixTime": 1589574648
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yeah, United Airlines",
+      "UnixTime": 1589574658
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Pittsburgh\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"8th\""
+        },
+        {
+          "Airline": "\"United\""
+        }
+      ],
+      "UnixTime": 1589574678
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Im sorry I found nothing",
+      "UnixTime": 1589574686
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_inform_nothing_found",
+        "plane_ask_more_questions",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589574688
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No.",
+      "UnixTime": 1589574701
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "goodbye",
+      "UnixTime": 1589574762
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "hello",
+        "plane_ask_date"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589574763
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589574770
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight between Pittsburgh to Los Angeles for May 8th. Your flight should be with United airline.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant find you a suitable flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

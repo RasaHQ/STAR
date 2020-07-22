@@ -1,0 +1,208 @@
+{
+  "AnonymizedUserWorkerID": "a36b0bfb-b70b-ed8a-aa44-347240d05b0a",
+  "AnonymizedWizardWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2467,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi",
+      "UnixTime": 1589835104
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how can ",
+      "UnixTime": 1589835131
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589835135
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "ride_inform_nothing_found",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589835137
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is John. I need to change my ride arrival location to 5th and Main. Ride ID is 638.",
+      "UnixTime": 1589835209
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "638"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "ChangeDescription": "\"arrival location 5th and main\""
+        }
+      ],
+      "UnixTime": 1589835241
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "changed",
+      "UnixTime": 1589835246
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "ride_ask_change",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1589835248
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much. ",
+      "UnixTime": 1589835279
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "is that all",
+      "UnixTime": 1589835298
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589835300
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No.Thanks again. Have a good day.",
+      "UnixTime": 1589835305
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "thank",
+      "UnixTime": 1589835310
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "ask_name",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1589835312
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589835315
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John and your ride ID is 638. You must change your arrival location to 5th and Main. If that's not possible, try to cancel your ride.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      }
+    ],
+    "WizardTask": "The user had booked a ride. Help him/her make changes to his/her booking. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully change your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "AnonymizedUserWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "AnonymizedWizardWorkerID": "750c3b94-faf8-5308-8f53-b3ede1581787",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1895,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Please help.. I need to get in the hatch I am locked out!! I am chewie the Ships chief Engineer",
+      "UnixTime": 1589838401
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code",
+      "UnixTime": 1589838426
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589838429
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "9315831",
+      "UnixTime": 1589838441
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code  type",
+      "UnixTime": 1589838453
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code_type",
+      "ActionLabelOptions": [
+        "spaceship_ask_code_type",
+        "spaceship_inform_nothing_found",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please specify the code type.",
+      "UnixTime": 1589838455
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Clearance",
+      "UnixTime": 1589838459
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Chewie\""
+        },
+        {
+          "UserRank": "\"Chief Engineer\""
+        },
+        {
+          "Code": "9315831"
+        },
+        {
+          "CodeType": "api.is_equal_to(\"Clearance\")"
+        }
+      ],
+      "UnixTime": 1589838462
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "sorry",
+      "UnixTime": 1589838469
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "spaceship_inform_outcome",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain.",
+      "UnixTime": 1589838472
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh darn it.. thanks anyway",
+      "UnixTime": 1589838480
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "thank you",
+      "UnixTime": 1589838488
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "spaceship_bye",
+        "ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589838493
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589838495
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Chewie) are the ship's Chief Engineer. You have been a given a Clearance Code: 9315831.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

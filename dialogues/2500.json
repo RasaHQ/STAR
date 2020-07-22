@@ -1,0 +1,209 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2500,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "In this dialogue, either act confused, like a person with memory problems, or act concerned about the effects of the medicine.  [instruction 1 of 3]",
+      "UnixTime": 1589842935
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I had an appointment with Dr. Alexis. I forgot to write down the instructions.",
+      "UnixTime": 1589842961
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Oh, Dr. Alexis was actually your previous doctor. Your new doctor is Dr. Morgan now. That's the one you had the appointment with. [instruction 2 of 3]",
+      "UnixTime": 1589842961
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589842967
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_inform_nothing_found",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589842969
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John",
+      "UnixTime": 1589842973
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say something random about your doctors, your condition, or about something (imagined) that happened to you today. Then bring the conversation to a natural close. [instruction 3 of 3]",
+      "UnixTime": 1589842973
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"John\""
+        }
+      ],
+      "UnixTime": 1589842977
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "must take",
+      "UnixTime": 1589842981
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "doctor_inform_doctors_instructions",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Your instructions are: You must take your medicine 2 times a day before meals..",
+      "UnixTime": 1589842982
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Sorry Dr. Alexis was my previous dr. My new dr is dr. Morgan",
+      "UnixTime": 1589843044
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Morgan\""
+        },
+        {
+          "PatientName": "\"John\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "UnixTime": 1589843049
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Take your medicine",
+      "UnixTime": 1589843053
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "hello",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1589843055
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589843063
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "You (John) had an appointment with Dr. Alexis the other day. Unfortunately, you forgot to write down the instructions the doctor gave you. Please followup and find out how often to take your medicine.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Inform the user of his/her doctor's orders."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

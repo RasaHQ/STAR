@@ -1,0 +1,260 @@
+{
+  "AnonymizedUserWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1873,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey, I need to make a flight reservation.",
+      "UnixTime": 1589827638
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589827644
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "plane_inform_nothing_found",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589827646
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alina",
+      "UnixTime": 1589827656
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "id",
+      "UnixTime": 1589827660
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Flight ID?",
+      "UnixTime": 1589827666
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "846",
+      "UnixTime": 1589827671
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "846"
+        },
+        {
+          "CustomerName": "\"Alina\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589827675
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 846
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 846
+      },
+      "Text": "available",
+      "UnixTime": 1589827678
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "anything_else",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 846
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1589827679
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes, please.",
+      "UnixTime": 1589827692
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "846"
+        },
+        {
+          "CustomerName": "\"Alina\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 846
+      },
+      "UnixTime": 1589827697
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 846
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 846
+      },
+      "Text": "confirmed",
+      "UnixTime": 1589827700
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_succeeded",
+      "ActionLabelOptions": [
+        "plane_reservation_succeeded",
+        "plane_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 846
+      },
+      "Text": "Right, your flight is now reserved!",
+      "UnixTime": 1589827702
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "great! thanks for the help.",
+      "UnixTime": 1589827713
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 846
+      },
+      "Text": "thank you",
+      "UnixTime": 1589827717
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 846
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589827718
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589827721
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 846. Your name is Alina",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "06e6755f-be58-d1ca-998c-b87e3a0d8c19",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 774,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Explain the general situation to the robot and ask some question. [instruction 1 of 3]",
+      "UnixTime": 1590445539
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, The life support on your spaceship is failing! We need to get to the engineering deck",
+      "UnixTime": 1590445558
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make lots of typos [instruction 2 of 3]",
+      "UnixTime": 1590445558
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the lock",
+      "UnixTime": 1590445568
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_lock_manufacturer",
+      "ActionLabelOptions": [
+        "spaceship_ask_lock_manufacturer",
+        "out_of_scope",
+        "spaceship_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the name of the lock manufacturer.",
+      "UnixTime": 1590445571
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "the lock manufaktuerer is Diebold",
+      "UnixTime": 1590445579
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the life support system is repaired (not earlier!), you can end the conversation.  [instruction 3 of 3]",
+      "UnixTime": 1590445579
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Color",
+      "UnixTime": 1590445596
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "first cable ",
+      "UnixTime": 1590445607
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_colour_second_cable",
+      "ActionLabelOptions": [
+        "spaceship_ask_colour_second_cable",
+        "spaceship_ask_lock_manufacturer",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the color of the second cable.",
+      "UnixTime": 1590445610
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The thirst cabel is black and the seckond cabel is white",
+      "UnixTime": 1590445625
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "LockManufacturer": "\"Diebold\""
+        },
+        {
+          "ColorOfTopCable": "\"black\""
+        },
+        {
+          "ColorOfSecondCable": "\"white\""
+        }
+      ],
+      "UnixTime": 1590445645
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Successful",
+      "UnixTime": 1590445657
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "hello",
+        "spaceship_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Ok, I can reach the control panel now... Successful! Life support was recovered.",
+      "UnixTime": 1590445661
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590445670
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "The life support on your spaceship is failing! To save the lives of the crew, the ship's repair-robot has to get into the engineering deck, which is sealed due to a lack of air. Help the robot to enter the engineering deck! It has to temper with the lock (manufactured by 'Diebold') and swap the positions of the Black cable and the White cable. It already reached the door.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_life_support.jpg",
+        "Task": "spaceship_life_support"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard robot and help the user recover the life support."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the robot help successfully recover the life support?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the robot stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

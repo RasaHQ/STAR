@@ -1,0 +1,889 @@
+{
+  "AnonymizedUserWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "AnonymizedWizardWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6176,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking ride status', 'getting directions', and 'schedule a meeting' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590537390
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello I need to check the status of y ride.",
+      "UnixTime": 1590537403
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "id",
+      "UnixTime": 1590537408
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1590537411
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yeah I'm Mark and my ride id is 442.",
+      "UnixTime": 1590537429
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "442"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        }
+      ],
+      "UnixTime": 1590537439
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "7 minutes",
+      "UnixTime": 1590537445
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "Your ride is 7 minutes away.",
+      "UnixTime": 1590537460
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "Your ride is 7 minutes away.",
+      "UnixTime": 1590537463
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh that's pretty quick.  Can you help me schedule a meeting with Fred?",
+      "UnixTime": 1590537505
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590537505
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590537510
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "day",
+      "UnixTime": 1590537516
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_day",
+      "ActionLabelOptions": [
+        "meeting_ask_day",
+        "ride_bye",
+        "out_of_scope",
+        "hello",
+        "ask_name",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "What day did you have in mind for the meeting?",
+      "UnixTime": 1590537519
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "10 am till 11 am on Friday",
+      "UnixTime": 1590537528
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Mark\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"10 am\""
+        },
+        {
+          "EndTimeHour": "\"11 am\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "UnixTime": 1590537554
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "success",
+      "UnixTime": 1590537558
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_bye",
+        "anything_else",
+        "meeting_inform_confirmed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "Fantastic, your meeting with Fred has been successfully scheduled for Friday, 10 am-11 am.",
+      "UnixTime": 1590537560
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wow good deal!  We can finally talk about our merger.  I need some walking directions also if you could help.",
+      "UnixTime": 1590537581
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590537581
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590537589
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "departure",
+      "UnixTime": 1590537596
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "arrival",
+      "UnixTime": 1590537604
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590537608
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "departure",
+      "UnixTime": 1590537617
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "location",
+      "UnixTime": 1590537626
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_location",
+      "ActionLabelOptions": [
+        "trip_ask_departure_location",
+        "trip_ask_arrival_location",
+        "meeting_inform_confirmed",
+        "meeting_inform_nothing_found",
+        "meeting_ask_end_time",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "Where are you departing from?",
+      "UnixTime": 1590537629
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "5th and Main and going to the Hospital.  I am sick!",
+      "UnixTime": 1590537645
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590537645
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "time",
+      "UnixTime": 1590537661
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_time",
+      "ActionLabelOptions": [
+        "trip_instructions_done",
+        "trip_ask_departure_time",
+        "meeting_bye",
+        "hello",
+        "meeting_ask_end_time",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "Text": "When are you going to start your trip?",
+      "UnixTime": 1590537665
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "right now.  6 pm.  I think I'm gonna hurl.",
+      "UnixTime": 1590537684
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('checking ride status', 'getting directions', and 'schedule a meeting'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590537684
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureLocation": "\"5th and Main\""
+        },
+        {
+          "ArrivalLocation": "\"Hospital\""
+        },
+        {
+          "TravelMode": "\"Walking\""
+        },
+        {
+          "DepartureTime": "\"6 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "11 am",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 am"
+      },
+      "UnixTime": 1590537693
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Turn right on El Camino Real",
+      "UnixTime": 1590537701
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_travel_mode"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Turn right on El Camino Real. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590537704
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Keep going I'm super good at directions.",
+      "UnixTime": 1590537718
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "After 5 blocks, turn right on Castro St.",
+      "UnixTime": 1590537727
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_departure_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "After 5 blocks, turn right on Castro St. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590537730
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed kind robot.",
+      "UnixTime": 1590537740
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking ride status', 'getting directions', and 'schedule a meeting') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590537740
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Walk for 3 blocks and turn left at the pub",
+      "UnixTime": 1590537745
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_ask_arrival_location",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Walk for 3 blocks and turn left at the pub. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590537748
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "You may proceed I feel like I'm getting close.",
+      "UnixTime": 1590537766
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Your destination will be on the left.",
+      "UnixTime": 1590537770
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_last_step_and_done",
+      "ActionLabelOptions": [
+        "trip_inform_last_step_and_done",
+        "trip_ask_travel_mode",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Your destination will be on the left. Do you know how to reach your destination or would you require more detailed instructions?",
+      "UnixTime": 1590537772
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I see it!  I'm good and I just barfed!  ",
+      "UnixTime": 1590537788
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Oh no, Sir! Is there anything else that I can do for you?",
+      "UnixTime": 1590537817
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Oh no, Sir! Is there anything else that I can do for you?",
+      "UnixTime": 1590537821
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope thanks for the help!",
+      "UnixTime": 1590537832
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "thank",
+      "UnixTime": 1590537837
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_bye",
+      "ActionLabelOptions": [
+        "trip_bye",
+        "trip_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Turn right on El Camino Real and walk towards the Target.",
+          "Walk for 5 blocks, turn right onto Castro St right after you pass a library",
+          "Walk for 3 blocks and turn left at the Irish pub. You will pass several restaurants.",
+          "Your destination will be on the left besides the ice cream store."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 117,
+        "WalkingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 blocks, turn right on Castro St.",
+          "Walk for 3 blocks and turn left at the pub",
+          "Your destination will be on the left."
+        ],
+        "id": 989
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590537839
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590537844
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting",
+      "ride",
+      "trip",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Mark\n\n The AI Assistant can handle:\n- Check your ride's status (e.g. ride id 442)\n- Get walking/driving/transit directions (e.g. from '5th and Main' to 'Hospital') \n- Schedule a meeting\n- Checking the weather forecast in different Cities (e.g. San Francisco or New York City)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

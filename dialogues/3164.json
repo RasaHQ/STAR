@@ -1,0 +1,162 @@
+{
+  "AnonymizedUserWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "AnonymizedWizardWorkerID": "8fd82cbd-c563-20d6-55e1-f6598e35808c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3164,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. I would like to book flight ID 950 please. My name is John",
+      "UnixTime": 1589610284
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "950"
+        },
+        {
+          "CustomerName": "\"john\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589610297
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "Text": "Unava",
+      "UnixTime": 1589610302
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "Text": "unavail",
+      "UnixTime": 1589610308
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "ask_name",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "Text": "Sorry, but the flight with id '950' is not available any more.",
+      "UnixTime": 1589610312
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh bummer. Thanks for looking anyway.",
+      "UnixTime": 1589610332
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "Text": "goodbye",
+      "UnixTime": 1589610340
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "plane_ask_flight_id",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 950
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589610342
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589610349
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 950. Your name is John",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

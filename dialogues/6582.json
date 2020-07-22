@@ -1,0 +1,692 @@
+{
+  "AnonymizedUserWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "AnonymizedWizardWorkerID": "3edcce52-bbdf-48d8-3d95-d45dad2e0182",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6582,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Maybe the AI Assistant can help? Say hello and ask if it can help you plan the party. [instruction 1 of 7]",
+      "UnixTime": 1590521342
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I'm Ben I want to organize a party for 14 guests on Monday ",
+      "UnixTime": 1590521386
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Angela says: 'I think the Southside Venue is quite nice'. [instruction 2 of 7]",
+      "UnixTime": 1590521386
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What venue",
+      "UnixTime": 1590521396
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "party_booking_failed",
+        "party_ask_drinks"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what venue would you like to have your party organised?",
+      "UnixTime": 1590521398
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The Southside",
+      "UnixTime": 1590521458
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What time?",
+      "UnixTime": 1590521477
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_starting_time",
+      "ActionLabelOptions": [
+        "party_ask_starting_time",
+        "party_ask_day",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "Text": "When would you like your party to kick off?",
+      "UnixTime": 1590521479
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "6pm",
+      "UnixTime": 1590521490
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that if the weather is nice, you might just have the party outside somewhere. Ask your assistant what the weather will be like on Monday. [instruction 3 of 7]",
+      "UnixTime": 1590521490
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "NumberGuests": "14"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590521549
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The vneue is too small for your party, would you like a different venue",
+      "UnixTime": 1590521558
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The southside is too small for your party , would you like someowhere else?",
+      "UnixTime": 1590521574
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What is the weather on Monday?",
+      "UnixTime": 1590521599
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Angela says: 'Yeah, actually, if the weather is good, we could just go out to the park and book a restaurant for the evening'. You agree. So depending on the weather, either continue searching / booking the venue, or ask your assistant to help you find and book a restaurant for Monday evening. [instruction 4 of 7]",
+      "UnixTime": 1590521599
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Task": "weather",
+      "UnixTime": 1590521656
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Monday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "6 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590521658
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Cloudy",
+        "id": 655
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Cloudy",
+        "id": 655
+      },
+      "Text": "It will be cloudy in new york city on monday",
+      "UnixTime": 1590521665
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_day",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Cloudy",
+        "id": 655
+      },
+      "Text": "It will be Cloudy all day on Monday in New York City, with temperatures of around 6 degrees celsius.",
+      "UnixTime": 1590521667
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's bad can you find a venue for 20lpm",
+      "UnixTime": 1590521700
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Note: You are located in the North of town, which you may or may not take into account if you search for a restaurant. [instruction 5 of 7]",
+      "UnixTime": 1590521700
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Cloudy",
+        "id": 655
+      },
+      "Task": "party_plan",
+      "UnixTime": 1590521705
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "14"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Monday",
+        "TemperatureCelsius": 6,
+        "Weather": "Cloudy",
+        "id": 655
+      },
+      "UnixTime": 1590521723
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Southside can accomodate you at 2 pm",
+      "UnixTime": 1590521729
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_booking_successful",
+        "party_no_venue_available"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "OK, the Southside Venue would be happy to accommodate you on Monday @ 2 pm.\nCan I book it for you now?",
+      "UnixTime": 1590521731
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please do",
+      "UnixTime": 1590521762
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When the question comes up: you both like Steak and Italian food, but no Indian food. [instruction 6 of 7]",
+      "UnixTime": 1590521762
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "14"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590521779
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Your event has been succesfully schedueld ",
+      "UnixTime": 1590521785
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_successful",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "party_ask_food",
+        "party_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Great, your party has been successfully booked at the Southside Venue on Monday at 2 pm!",
+      "UnixTime": 1590521787
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Please we don't want Italian food at the party ",
+      "UnixTime": 1590521814
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "14"
+        },
+        {
+          "RequestType": "\"Book\""
+        },
+        {
+          "FoodRequest": "\"No italian \""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590521829
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Your event has been succesfully updated",
+      "UnixTime": 1590521836
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Your event has been succesfully updated",
+      "UnixTime": 1590521839
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nice job",
+      "UnixTime": 1590521858
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "cani do anythign else for you",
+      "UnixTime": 1590521885
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "party_venue_not_available",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590521886
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, the weather is just so beautiful",
+      "UnixTime": 1590521906
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done booking (not just finding!) either a restaurant or a party venue, you can say goodbye and end the dialogue. This might take a while though, e.g. in case the venue is not available. [instruction 7 of 7]",
+      "UnixTime": 1590521906
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "thank you and goodbye",
+      "UnixTime": 1590521945
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "out_of_scope",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590521946
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Goodbye ",
+      "UnixTime": 1590521954
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "bye",
+      "UnixTime": 1590521963
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_end_time",
+      "ActionLabelOptions": [
+        "party_bye",
+        "party_ask_end_time",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Monday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "When should the party end?",
+      "UnixTime": 1590521964
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590521966
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You (Ben) and your friend Angela want to organize a birthday party on Monday. You expect 14 guests to come.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Note: If the user already knows a restaurant name, use 'restaurant reserve', otherwise use 'restaurant search'."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

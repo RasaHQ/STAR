@@ -1,0 +1,234 @@
+{
+  "AnonymizedUserWorkerID": "d063746c-0ca1-ad09-7159-11880a755cd0",
+  "AnonymizedWizardWorkerID": "06e6755f-be58-d1ca-998c-b87e3a0d8c19",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3946,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello!",
+      "UnixTime": 1589571567
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello",
+      "UnixTime": 1589571578
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "hotel_ask_room_number",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589571580
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to put in a service request",
+      "UnixTime": 1589571610
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Yes",
+      "UnixTime": 1589571617
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Yes.  What is your name and your request?",
+      "UnixTime": 1589571636
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "May name is Alexis and my AC is not working in my room",
+      "UnixTime": 1589571662
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I'm",
+      "UnixTime": 1589571679
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_ask_hotel",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589571687
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am at the Hilton in room 301",
+      "UnixTime": 1589571710
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I will see if someone can service that Alexis",
+      "UnixTime": 1589571758
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Alexis, I will see if someone can service that.",
+      "UnixTime": 1589571783
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "okay thank you",
+      "UnixTime": 1589571809
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Is there a time ",
+      "UnixTime": 1589571825
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_time",
+      "ActionLabelOptions": [
+        "hotel_ask_time",
+        "ask_name",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time would you like us to provide the service?",
+      "UnixTime": 1589571829
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "11 am",
+      "UnixTime": 1589571846
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "RoomNumber": "301"
+        },
+        {
+          "Time": "\"11 am\""
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "CustomerRequest": "\"AC not working\""
+        }
+      ],
+      "UnixTime": 1589571853
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "11 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "11 am"
+      },
+      "Text": "Yes",
+      "UnixTime": 1589571862
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "hotel_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 301,
+        "Time": "11 am"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 301 at 11 am!",
+      "UnixTime": 1589571871
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589571889
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Alexis and you are staying in room 301 of the Hilton Hotel. You would like to make a service request for 11 am. Your request is: The AC isn't working in my room. I need it fixed immediately!.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully submit your service request?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

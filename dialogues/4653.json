@@ -1,0 +1,195 @@
+{
+  "AnonymizedUserWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "AnonymizedWizardWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4653,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I forgot to write down the instructions Dr. Morgan gave me. Could you help me out?",
+      "UnixTime": 1589590453
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589590467
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_inform_nothing_found",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589590468
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben",
+      "UnixTime": 1589590470
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Morgan\""
+        },
+        {
+          "PatientName": "\"Ben\""
+        }
+      ],
+      "UnixTime": 1589590478
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "take medicine",
+      "UnixTime": 1589590487
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1589590490
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Perfect, thanks so much.",
+      "UnixTime": 1589590501
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "anything else",
+      "UnixTime": 1589590513
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "doctor_inform_doctors_instructions",
+        "doctor_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589590515
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope, that's everything.",
+      "UnixTime": 1589590519
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "bye",
+      "UnixTime": 1589590524
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_bye",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "hello",
+        "doctor_inform_doctors_instructions"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589590525
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589590527
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You (Ben) just finished your appointment with Dr. Morgan. Unfortunately, you forgot to write down the instructions the doctor gave you. Please followup and find out how often to take your medicine.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Inform the user of his/her doctor's orders."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

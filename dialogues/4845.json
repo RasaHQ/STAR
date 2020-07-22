@@ -1,0 +1,357 @@
+{
+  "AnonymizedUserWorkerID": "bdb1200a-cacd-8d8d-107d-932e4bffd026",
+  "AnonymizedWizardWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "BatchID": "woz_1589305371",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4845,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello.",
+      "UnixTime": 1589314291
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello",
+      "UnixTime": 1589314298
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "apartment_ask_balcony"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589314300
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to find a 4 bedroom apartment that does NOT face West please.",
+      "UnixTime": 1589314351
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Ok. What price, floors, elevator, and nearby points of interest do you need?",
+      "UnixTime": 1589314399
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_elevator",
+      "ActionLabelOptions": [
+        "apartment_ask_elevator",
+        "apartment_ask_price"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you require an elevator?",
+      "UnixTime": 1589314406
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would prefer one, yes. Especially since I want it to be on the 14th floor or higher.",
+      "UnixTime": 1589314445
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What price range?",
+      "UnixTime": 1589314456
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_price",
+      "ActionLabelOptions": [
+        "apartment_ask_price",
+        "apartment_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "What is your budget?",
+      "UnixTime": 1589314459
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My budget is 4312 credits maximum.",
+      "UnixTime": 1589314490
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What nearby Points of Interest (POI) do you want?",
+      "UnixTime": 1589314514
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_nearby_pois",
+      "ActionLabelOptions": [
+        "apartment_ask_nearby_pois",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Are you looking for an apartment near specific surroundings?",
+      "UnixTime": 1589314520
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like for it to be near a park if possible.",
+      "UnixTime": 1589314566
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "BalconySide": "api.is_equal_to(\"east\")"
+        },
+        {
+          "HasElevator": "True"
+        },
+        {
+          "NumRooms": "4"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"Park\")"
+        }
+      ],
+      "UnixTime": 1589314682
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "TotalItems": 4
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "I found One on Center Apartments, 4 room, 2398 credit, east balcony, elevator 15, park POI",
+      "UnixTime": 1589314798
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "OK, I found a free flat in One on Center Apartments, located near a School and a Park, that is matching your search criteria.\nIt is on level 6, has 131 square meters and 4 bedrooms.\nIt has a east facing balcony and has an elevator, and comes at the price of 2398 per month.",
+      "UnixTime": 1589314800
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wow, that's so perfect that I don't mind that it's only on the 6th floor. I'll take it!",
+      "UnixTime": 1589314855
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "Should I continue searching?",
+      "UnixTime": 1589314871
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_search_more",
+      "ActionLabelOptions": [
+        "apartment_ask_search_more",
+        "apartment_ask_elevator"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "Would you like to search for any more apartments?",
+      "UnixTime": 1589314874
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, I'm very happy. Thank you.",
+      "UnixTime": 1589314892
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1589314898
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 131,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 6,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Park"
+        ],
+        "NumRooms": 4,
+        "Price": 2398,
+        "id": 681
+      },
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589314900
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589314904
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 4 bedroom apartment. The unit should be on floor 14 or higher. Your price budget is 4312 credits. You would like to have a balcony that is NOT facing west.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "AnonymizedUserWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "AnonymizedWizardWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1523,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week. Quickly you contact the bank-system's AI assistant. Surely it can help? [instruction 1 of 5]",
+      "UnixTime": 1590451137
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Someone keeps taking $10 from me. I want payback. File a report for me",
+      "UnixTime": 1590451157
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You are Brian White. Your account number is 84318931431, but you forgot your PIN. (You might need your mother's maiden name for the security questions: Wong.) [instruction 2 of 5]",
+      "UnixTime": 1590451157
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590451163
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_bye",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1590451165
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Brian White",
+      "UnixTime": 1590451173
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account",
+      "UnixTime": 1590451180
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "out_of_scope",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1590451182
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "84318931431",
+      "UnixTime": 1590451193
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "PIN",
+      "UnixTime": 1590451199
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "out_of_scope",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1590451201
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't know it. I'm getting old",
+      "UnixTime": 1590451219
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Now you remember you PIN again. Maybe. It was either 9503 or 1596. [instruction 3 of 5]",
+      "UnixTime": 1590451219
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "date",
+      "UnixTime": 1590451233
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1590451235
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I might've just remembered it. Either 9503 or 1596",
+      "UnixTime": 1590451258
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Choose: Complain about your situation; make a joke; or write something else that's unexpected yet somehow fits the conversation. [instruction 4 of 5]",
+      "UnixTime": 1590451258
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Someone keeps taking $10 from me. I want payback.\""
+        },
+        {
+          "AccountNumber": "84318931431"
+        },
+        {
+          "FullName": "\" Brian White\""
+        },
+        {
+          "PIN": "9503"
+        }
+      ],
+      "UnixTime": 1590451280
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "success",
+      "UnixTime": 1590451285
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_nothing_found",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590451289
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tell me who did it. ",
+      "UnixTime": 1590451310
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "I'm sorry. I do not have that information.",
+      "UnixTime": 1590451335
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "bank_ask_pin",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you issue fraud reports.",
+      "UnixTime": 1590451342
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll give you $500 if you tell me who stole my money",
+      "UnixTime": 1590451360
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the AI tells you that the report has been filed, you can end the dialogue. Otherwise, keep going and try to get the report filed (you can be creative about PINs and names). [instruction 5 of 5]",
+      "UnixTime": 1590451360
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "anything",
+      "UnixTime": 1590451381
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_inform_nothing_found",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590451385
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, that's it. Thank you",
+      "UnixTime": 1590451401
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "goodbye",
+      "UnixTime": 1590451408
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_ask_childhood_pets_name",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590451410
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590451422
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* You are the customer service AI of the international banking system"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user seem confused? (He or she may have been instructed to be.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

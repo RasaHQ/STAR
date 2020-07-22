@@ -1,0 +1,1211 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5339,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'looking for a flight', 'schedule a meeting', 'RSVP to a party' and 'book a table at a restaurant' (in any order), as shown on the left. You may also make a request to your hotel's room service.  [instruction 1 of 9]",
+      "UnixTime": 1590292268
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Sarah Brown and I would like to search for flights from Chicago to New York City for the 13th.",
+      "UnixTime": 1590292315
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Chicago\""
+        },
+        {
+          "ArrivalCity": "\"New York City\""
+        },
+        {
+          "Date": "\"13th\""
+        }
+      ],
+      "UnixTime": 1590292363
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "TotalItems": 1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "Text": "I found a Delta flight from Chicago",
+      "UnixTime": 1590292381
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "out_of_scope",
+        "plane_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "Text": "Right, I found an Economy flight with Delta for 189 credits\n that takes 3 hours to get to New York City.",
+      "UnixTime": 1590292384
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. I would like to schedule a meeting please.",
+      "UnixTime": 1590292399
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590292406
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "Text": "Guest name",
+      "UnixTime": 1590292426
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_guest_name",
+      "ActionLabelOptions": [
+        "meeting_ask_guest_name",
+        "plane_request_optional",
+        "plane_ask_arrival_city",
+        "plane_bye",
+        "meeting_ask_end_time",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "Text": "With whom would you like to schedule the meeting?",
+      "UnixTime": 1590292429
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John. For Friday at 2pm. Should be done at 4pm.",
+      "UnixTime": 1590292472
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590292472
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"John\")"
+        },
+        {
+          "UserName": "\"Sarah Brown\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "EndTimeHour": "\"4 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "New York City",
+        "ArrivalTime": "5 pm",
+        "Class": "Economy",
+        "Date": "13th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 3,
+        "Price": 189,
+        "id": 756
+      },
+      "UnixTime": 1590292505
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "4 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "2 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "4 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "2 pm"
+      },
+      "Text": "success",
+      "UnixTime": 1590292513
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_bye",
+        "anything_else",
+        "meeting_inform_confirmed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "4 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "2 pm"
+      },
+      "Text": "Fantastic, your meeting with John has been successfully scheduled for Friday, 2 pm-4 pm.",
+      "UnixTime": 1590292516
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. I also need to reserve a table at Lucca for Sunday at 6pm for 2.",
+      "UnixTime": 1590292561
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "4 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "2 pm"
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590292576
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "4 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "2 pm"
+      },
+      "UnixTime": 1590292603
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590292617
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590292622
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about Tamarind?",
+      "UnixTime": 1590292636
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590292653
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590292660
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590292664
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Lucca at 7pm?",
+      "UnixTime": 1590292698
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590292698
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590292709
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "available",
+      "UnixTime": 1590292716
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Great, the Lucca is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590292719
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please",
+      "UnixTime": 1590292731
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590292731
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590292738
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1590292743
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Excellent, your reservation at the Lucca is confirmed!",
+      "UnixTime": 1590292746
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great thanks. I also need to RSVP to a party at Southside Venue.",
+      "UnixTime": 1590292765
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Task": "party_rsvp",
+      "UnixTime": 1590292784
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Host name",
+      "UnixTime": 1590292798
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_host",
+      "ActionLabelOptions": [
+        "ask_name",
+        "party_ask_host",
+        "ask_name",
+        "party_ask_number_of_guests",
+        "out_of_scope",
+        "restaurant_ask_restaurant"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Could you provide me with the name of the host, please?",
+      "UnixTime": 1590292802
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John",
+      "UnixTime": 1590292815
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for room service at any point. This is not necessary, however. [instruction 5 of 9]",
+      "UnixTime": 1590292815
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Arrival time",
+      "UnixTime": 1590292843
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "party_ask_arrival_time",
+        "party_ask_number_of_guests",
+        "restaurant_inform_booking_failed",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590292846
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "6pm.",
+      "UnixTime": 1590292872
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Number of guests",
+      "UnixTime": 1590292886
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_size",
+      "ActionLabelOptions": [
+        "restaurant_ask_size",
+        "party_ask_number_of_guests",
+        "party_bye",
+        "restaurant_ask_confirm_booking",
+        "party_ask_host",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "For how many people should the reservation be made?",
+      "UnixTime": 1590292889
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2",
+      "UnixTime": 1590292896
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590292896
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "parking",
+      "UnixTime": 1590292906
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_parking_needed",
+      "ActionLabelOptions": [
+        "party_ask_parking_needed",
+        "out_of_scope",
+        "restaurant_inform_booking_failed",
+        "hello",
+        "party_ask_arrival_time",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Do you require parking at the venue?",
+      "UnixTime": 1590292909
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no",
+      "UnixTime": 1590292913
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"John\""
+        },
+        {
+          "GuestName": "\"Sarah Brown\""
+        },
+        {
+          "ArrivalTime": "\"6 pm\""
+        },
+        {
+          "NumberGuests": "3"
+        },
+        {
+          "NeedParking": "\"No\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590292924
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "RSVP success",
+      "UnixTime": 1590292933
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_number_of_guests",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1590292936
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Awesome. In the meantime I need some room service.",
+      "UnixTime": 1590292968
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('looking for a flight', 'schedule a meeting', 'RSVP to a party' and 'book a table at a restaurant'). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590292968
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Task": "hotel_service_request",
+      "UnixTime": 1590292997
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "What hotel",
+      "UnixTime": 1590293003
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "party_ask_venue",
+        "hello",
+        "party_ask_dietary_restrictions",
+        "hotel_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1590293006
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Old Town Inn. My room number is 114 and I want a burger and fries at 4pm.",
+      "UnixTime": 1590293032
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "RoomNumber": "114"
+        },
+        {
+          "Time": "\"4 pm\""
+        },
+        {
+          "CustomerName": "\"Sarah Brown\""
+        },
+        {
+          "CustomerRequest": "\"Burger and fries.\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "UnixTime": 1590293059
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1590293065
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "hotel_bye",
+        "hotel_inform_service_request_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 114 at 4 pm!",
+      "UnixTime": 1590293068
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. Thanks!",
+      "UnixTime": 1590293088
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590293088
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Anything",
+      "UnixTime": 1590293097
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hotel_ask_service_request",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590293100
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't think so. I am feel rather tired.",
+      "UnixTime": 1590293123
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590293130
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590293133
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I can't wait for my restaurant reservation.",
+      "UnixTime": 1590293161
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590293172
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590293175
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am still hungry.",
+      "UnixTime": 1590293195
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('looking for a flight', 'schedule a meeting', 'RSVP to a party' and 'book a table at a restaurant') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590293195
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Anything else",
+      "UnixTime": 1590293212
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hotel_bye",
+        "hotel_inform_service_request_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590293215
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, I'm good thanks.",
+      "UnixTime": 1590293224
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Thank you",
+      "UnixTime": 1590293231
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_ask_hotel",
+        "hotel_inform_service_request_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 114,
+        "Time": "4 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590293234
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590293245
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel",
+      "meeting",
+      "party",
+      "plane",
+      "restaurant"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Sarah Brown\n- Your current location: Old Town Inn\n- Today is Sunday the 14th, 11 am\n\n The AI Assistant can handle:\n- Searching for flights (e.g. from Chicago to Pittsburgh or New York City)\n- Schedule a meeting\n- Reserving a table at a restaurant (e.g. Tamarind or Lucca) for today\n- RSVP you to a party (Example venues: Southside Venue or West Bay Venue)\n- Request room service",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Sunday the 14th, 11 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

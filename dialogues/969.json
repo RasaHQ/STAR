@@ -1,0 +1,224 @@
+{
+  "AnonymizedUserWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 969,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Explain the general situation to the robot and ask some question. [instruction 1 of 3]",
+      "UnixTime": 1590447002
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi the life support is failing help! ",
+      "UnixTime": 1590447037
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make lots of typos [instruction 2 of 3]",
+      "UnixTime": 1590447037
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Lock manufacture",
+      "UnixTime": 1590447048
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_lock_manufacturer",
+      "ActionLabelOptions": [
+        "spaceship_ask_lock_manufacturer",
+        "spaceship_ask_colour_top_cable",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the name of the lock manufacturer.",
+      "UnixTime": 1590447050
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Fortune brands",
+      "UnixTime": 1590447068
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the life support system is repaired (not earlier!), you can end the conversation.  [instruction 3 of 3]",
+      "UnixTime": 1590447068
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "color",
+      "UnixTime": 1590447075
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "first cable",
+      "UnixTime": 1590447080
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the color of the first and second cable?",
+      "UnixTime": 1590447094
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_colour_top_cable",
+      "ActionLabelOptions": [
+        "spaceship_ask_colour_second_cable",
+        "spaceship_ask_colour_top_cable",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the color of the first cable.",
+      "UnixTime": 1590447096
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Red 2nd is blue",
+      "UnixTime": 1590447111
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "LockManufacturer": "\"Fortune Brands\""
+        },
+        {
+          "ColorOfTopCable": "\"red\""
+        },
+        {
+          "ColorOfSecondCable": "\"blue\""
+        }
+      ],
+      "UnixTime": 1590447131
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Successful! Life support was recovered.",
+      "UnixTime": 1590447136
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "spaceship_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Ok, I can reach the control panel now... Successful! Life support was recovered.",
+      "UnixTime": 1590447138
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks goodbye",
+      "UnixTime": 1590447145
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "bye",
+      "UnixTime": 1590447150
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_bye",
+      "ActionLabelOptions": [
+        "spaceship_bye",
+        "out_of_scope",
+        "spaceship_inform_outcome"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1590447152
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590447155
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "The life support on your spaceship is failing! To save the lives of the crew, the ship's repair-robot has to get into the engineering deck, which is sealed due to a lack of air. Help the robot to enter the engineering deck! It has to temper with the lock (manufactured by 'Fortune Brands') and swap the positions of the Red cable and the Blue cable. It already reached the door.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_life_support.jpg",
+        "Task": "spaceship_life_support"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard robot and help the user recover the life support."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the robot help successfully recover the life support?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the robot stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

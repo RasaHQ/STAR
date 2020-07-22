@@ -1,0 +1,374 @@
+{
+  "AnonymizedUserWorkerID": "7e46c32f-64e8-9560-702e-82f6b52463d7",
+  "AnonymizedWizardWorkerID": "9cfed8ec-54a9-f0f7-8327-15f6470d4a6c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3492,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Somebody has transferred $500 from your account. Quickly you contact the bank-system's AI assistant. Perhaps it can help? [instruction 1 of 5]",
+      "UnixTime": 1589578886
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need help, somebody transferred $500 out of my account!",
+      "UnixTime": 1589578903
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You are John Smith. Your PIN is 1596, but you forgot your account number. (You might need your childhood pet's name for the security questions: Poppy.) [instruction 2 of 5]",
+      "UnixTime": 1589578903
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589578954
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589578958
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My Name is John Smith, and I need help with my account.",
+      "UnixTime": 1589578980
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Account Numbe",
+      "UnixTime": 1589579010
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_inform_cannot_authenticate",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589579014
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't know my account number.",
+      "UnixTime": 1589579022
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You forget what you are doing (imagine you're 93 years old and have some mental condition). [instruction 3 of 5]",
+      "UnixTime": 1589579022
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin",
+      "UnixTime": 1589579049
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "can i get your pin",
+      "UnixTime": 1589579075
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "bank_ask_dob",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589579082
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wait, who are you? Why are you talking to me?",
+      "UnixTime": 1589579099
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep this conversation going for a bit - you can be creative! [instruction 4 of 5]",
+      "UnixTime": 1589579099
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I'm here to help you",
+      "UnixTime": 1589579125
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you issue fraud reports.",
+      "UnixTime": 1589579130
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think you're some sort of scammer trying to trick me!",
+      "UnixTime": 1589579148
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\" somebody transferred $500 out of my account!\""
+        },
+        {
+          "PIN": "null"
+        },
+        {
+          "FullName": "\" somebody transferred $500 out of my account!\""
+        }
+      ],
+      "UnixTime": 1589579182
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "You must provide either AccountNumber/FullName/PIN or FullNam",
+      "UnixTime": 1589579200
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_cannot_authenticate",
+      "ActionLabelOptions": [
+        "bank_inform_cannot_authenticate",
+        "bank_ask_pin",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "I am sorry, but I cannot authenticate you with the information you have provided.",
+      "UnixTime": 1589579204
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Look, I'm trying to run for president here but if you don't want to vote for me, you should vote for some other Biden, okay fat?",
+      "UnixTime": 1589579233
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "We cannot authenticate the user otherw",
+      "UnixTime": 1589579301
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_inform_cannot_authenticate",
+        "bank_ask_account_number",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579304
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wait a second buddy, why did you start texting me?",
+      "UnixTime": 1589579328
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579338
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579342
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't know why you say goodbye. Now that's a good lyric, if you ask me.",
+      "UnixTime": 1589579374
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, great. Now bring the conversation to a natural close. [instruction 5 of 5]",
+      "UnixTime": 1589579374
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579388
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579391
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh, are we done talking? Okay, goodbye Martha, have a nice day.",
+      "UnixTime": 1589579408
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579417
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589579420
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589579426
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* You are the customer service AI of the international banking system"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user seem confused? (He or she may have been instructed to be.)"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": true,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

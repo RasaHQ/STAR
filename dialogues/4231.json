@@ -1,0 +1,189 @@
+{
+  "AnonymizedUserWorkerID": "34240f9a-bd13-8ae1-c634-f07162c54b7c",
+  "AnonymizedWizardWorkerID": "d063746c-0ca1-ad09-7159-11880a755cd0",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4231,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I just finished an appointment with Dr. Johnson and need to followup to make sure I understood everything",
+      "UnixTime": 1589590538
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Okay what is your name",
+      "UnixTime": 1589590564
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_bye",
+        "doctor_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589590567
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Mark",
+      "UnixTime": 1589590575
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Mark\""
+        }
+      ],
+      "UnixTime": 1589590584
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "you must",
+      "UnixTime": 1589590595
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "You must take your medicine 2 times a day before meals.",
+      "UnixTime": 1589590607
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok thanks, do you know how many days I take it for?",
+      "UnixTime": 1589590630
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "untill ",
+      "UnixTime": 1589590655
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "anything_else",
+        "doctor_inform_doctors_instructions"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Your instructions are: You must take your medicine 2 times a day before meals..",
+      "UnixTime": 1589590677
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok, probably till it's gone. Thanks alot. Have a great day.",
+      "UnixTime": 1589590702
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Thank you",
+      "UnixTime": 1589590713
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_bye",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "ask_name",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589590720
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589590723
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You (Mark) just finished your appointment with Dr. Johnson and would like to followup to ensure you understood everything.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Inform the user of his/her doctor's orders."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

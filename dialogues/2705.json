@@ -1,0 +1,201 @@
+{
+  "AnonymizedUserWorkerID": "58be375a-caa2-7735-72af-2683a9d7dda2",
+  "AnonymizedWizardWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2705,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "help my spaceship is under attack! my name is luke and I'm the first officer",
+      "UnixTime": 1589837307
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what is your code?",
+      "UnixTime": 1589837412
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "spaceship_ask_rank",
+        "spaceship_ask_code_type"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589837416
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "639431",
+      "UnixTime": 1589837425
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code type?",
+      "UnixTime": 1589837437
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code_type",
+      "ActionLabelOptions": [
+        "spaceship_ask_code_type",
+        "spaceship_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please specify the code type.",
+      "UnixTime": 1589837440
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "access code",
+      "UnixTime": 1589837446
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"luke \""
+        },
+        {
+          "UserRank": "\"First Officer\""
+        },
+        {
+          "Code": "639431"
+        },
+        {
+          "CodeType": "\"Access Code\""
+        }
+      ],
+      "UnixTime": 1589837496
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "the door id unlocked",
+      "UnixTime": 1589837510
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "anything_else",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "The door is now unlocked.",
+      "UnixTime": 1589837513
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "thanks",
+      "UnixTime": 1589837567
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "good day",
+      "UnixTime": 1589837576
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_bye",
+      "ActionLabelOptions": [
+        "spaceship_bye",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1589837581
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589837583
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Luke) are the ship's First Officer. You have been a given a Access Code: 639431.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

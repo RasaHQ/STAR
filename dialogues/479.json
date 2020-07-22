@@ -1,0 +1,343 @@
+{
+  "AnonymizedUserWorkerID": "6cb66f0b-1a8b-fec4-b481-96b6da01d513",
+  "AnonymizedWizardWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 479,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hallo to the AI Assistant. [instruction 1 of 6]",
+      "UnixTime": 1589461571
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi my name is John and need a viewing scheduled.",
+      "UnixTime": 1589461609
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the apartment name?",
+      "UnixTime": 1589461634
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_apartment_name",
+      "ActionLabelOptions": [
+        "apartment_ask_apartment_name",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "What apartment are you interested in?",
+      "UnixTime": 1589461636
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think I am looking at One on Center Apts and would love for it to be on Thursday around 5pm.",
+      "UnixTime": 1589461667
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You suddenly remember that you have a hot date on Thursday at 5 pm. [instruction 2 of 6]",
+      "UnixTime": 1589461667
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Did you pay the application fee?",
+      "UnixTime": 1589461692
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1589461695
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't remember if I paid but I did remember I already have plans with a date on Thursday.",
+      "UnixTime": 1589461753
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ask something about the apartment, or engage in smalltalk, or make a joke. [instruction 3 of 6]",
+      "UnixTime": 1589461753
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Okay. What other time would you like?",
+      "UnixTime": 1589461768
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_start_time",
+      "ActionLabelOptions": [
+        "anything_else",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "When would you like the viewing to start?",
+      "UnixTime": 1589461772
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I will have to look closer at my schedule, things have been crazy lately. ",
+      "UnixTime": 1589461802
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You cannot remember if you had payed the application fee. Find a way to make an appointment anyway. If no date is available, change date and/or time until something works. If you already got the appointment, engage in smalltalk. [instruction 4 of 6]",
+      "UnixTime": 1589461802
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you have a custom message you'd like to send?",
+      "UnixTime": 1589461838
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_custom_message",
+      "ActionLabelOptions": [
+        "apartment_ask_custom_message",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Would you like to add a message for the letting agency?",
+      "UnixTime": 1589461841
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No that is ok but is Wed anytime good?",
+      "UnixTime": 1589461866
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once you've scheduled the viewing, say something about your hot date. [instruction 5 of 6]",
+      "UnixTime": 1589461866
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "api.is_one_of([\"11 am\",\"12 pm\",\"1 pm\",\"2 pm\",\"3 pm\",\"4 pm\",\"5 pm\",\"6 pm\",\"7 pm\"])"
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589461890
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Yes. I have an available slot on Wednesday at 1pm. Is this good?",
+      "UnixTime": 1589461919
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "I have a viewing available on Wednesday at 1pm. Is that alright?",
+      "UnixTime": 1589461941
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great let's book it and crossing my fingers on my blind date Thursday!",
+      "UnixTime": 1589461967
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done with all the instructions, bring the conversation to a natural close.  [instruction 6 of 6]",
+      "UnixTime": 1589461967
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"One on Center Apartments\")"
+        },
+        {
+          "RenterName": "\"John\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "api.is_one_of([\"1 pm\"])"
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589461989
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring SCHUFA certificate and SCHUFA certificate with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring SCHUFA certificate and SCHUFA certificate with you."
+      },
+      "Text": "It has been scheduled. Please bring SCHUFA with you",
+      "UnixTime": 1589462002
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_booking_successful",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_inform_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring SCHUFA certificate and SCHUFA certificate with you."
+      },
+      "Text": "Excellent, the viewing is scheduled now!",
+      "UnixTime": 1589462007
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks again have a great day.",
+      "UnixTime": 1589462020
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring SCHUFA certificate and SCHUFA certificate with you."
+      },
+      "Text": "Thank you!",
+      "UnixTime": 1589462024
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring SCHUFA certificate and SCHUFA certificate with you."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589462027
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589462029
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at One on Center Apartments for Thursday at 5 pm. Your name is John. You cannot remember if you had payed the application fee. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

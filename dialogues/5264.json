@@ -1,0 +1,1484 @@
+{
+  "AnonymizedUserWorkerID": "06e6755f-be58-d1ca-998c-b87e3a0d8c19",
+  "AnonymizedWizardWorkerID": "ff344ac7-17f2-a634-e31d-1f27b14ae9f3",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5264,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find apartment', 'Schedule apartment viewing' and 'Calling a ride' (in any order), as shown on the left. You may also ask the assistant to check the weather.  [instruction 1 of 8]",
+      "UnixTime": 1590270038
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, this is Angela and I need to find an apartment very soon.",
+      "UnixTime": 1590270103
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I can filter",
+      "UnixTime": 1590270120
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_criteria",
+      "ActionLabelOptions": [
+        "apartment_inform_search_criteria",
+        "apartment_ask_balcony",
+        "apartment_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can apply the following filters: number of bedrooms, price, floor, balcony, elevator and nearby POIs.",
+      "UnixTime": 1590270123
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK; how about 2 bedrooms, 3000 credits, any floor but the 13th and the rest I'm not too concerned.about.",
+      "UnixTime": 1590270231
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590270231
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "book_ride",
+      "UnixTime": 1590270231
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590270231
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "apartment_search",
+      "UnixTime": 1590270235
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "1"
+        },
+        {
+          "Price": "api.is_at_most(3000)"
+        },
+        {
+          "MaxLevel": "12"
+        }
+      ],
+      "UnixTime": 1590270286
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 42,
+        "HasBalcony": false,
+        "HasElevator": false,
+        "Level": 7,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Club",
+          "User's office"
+        ],
+        "NumRooms": 1,
+        "Price": 408,
+        "id": 444
+      },
+      "TotalItems": 12
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "Price": "api.is_at_most(3000)"
+        },
+        {
+          "MaxLevel": "12"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 42,
+        "HasBalcony": false,
+        "HasElevator": false,
+        "Level": 7,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Club",
+          "User's office"
+        ],
+        "NumRooms": 1,
+        "Price": 408,
+        "id": 444
+      },
+      "UnixTime": 1590270328
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 80,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 1,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "TrainStation",
+          "Museum"
+        ],
+        "NumRooms": 2,
+        "Price": 712,
+        "id": 997
+      },
+      "TotalItems": 13
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 80,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 1,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "TrainStation",
+          "Museum"
+        ],
+        "NumRooms": 2,
+        "Price": 712,
+        "id": 997
+      },
+      "Text": "I found one at the North Hill Apartments. Its on floor 1. 2 bedrooms. Has no Balcony, has a elevator, the price is 712 credits.",
+      "UnixTime": 1590270371
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_inform_search_criteria",
+        "apartment_ask_floor"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 80,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 1,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "TrainStation",
+          "Museum"
+        ],
+        "NumRooms": 2,
+        "Price": 712,
+        "id": 997
+      },
+      "Text": "OK, I found a free flat in North Hill Apartments, located near a TrainStation and a Museum, that is matching your search criteria.\nIt is on level 1, has 80 square meters and 2 bedrooms.\nIt does not have a balcony and has an elevator, and comes at the price of 712 per month.",
+      "UnixTime": 1590270373
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Not crazy about living near a Museum.  I'm leaving my current apartment because it's haunted- lots of orbs at night.  You hear about haunted houses, but rarely haunted apartments.",
+      "UnixTime": 1590270472
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "Price": "api.is_at_most(3000)"
+        },
+        {
+          "MaxLevel": "12"
+        },
+        {
+          "NearbyPOIs": "api.contains_not(\"Museum\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 80,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 1,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "TrainStation",
+          "Museum"
+        ],
+        "NumRooms": 2,
+        "Price": 712,
+        "id": 997
+      },
+      "UnixTime": 1590270501
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "TotalItems": 11
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "I found one at the North Hill Apartments. Its on floor . 2 bedrooms. Has a Balcony, has a elevator, the price is 1415 credits.",
+      "UnixTime": 1590270542
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_inform_search_criteria",
+        "apartment_ask_floor"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "OK, I found a free flat in North Hill Apartments, located near a University and a User's gym, that is matching your search criteria.\nIt is on level 4, has 60 square meters and 2 bedrooms.\nIt has a west facing balcony and has an elevator, and comes at the price of 1415 per month.",
+      "UnixTime": 1590270544
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sounds promising.  Can we schedule a viewing?",
+      "UnixTime": 1590270571
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590270577
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "what day would you like to see it?",
+      "UnixTime": 1590270593
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_day",
+      "ActionLabelOptions": [
+        "apartment_ask_day",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_price",
+        "anything_else",
+        "apartment_ask_custom_message",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "What day would you like to make the booking for?",
+      "UnixTime": 1590270595
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ASAP, today, Friday",
+      "UnixTime": 1590270629
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590270629
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "and at what time?",
+      "UnixTime": 1590270641
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_start_time",
+      "ActionLabelOptions": [
+        "apartment_ask_nearby_pois",
+        "anything_else",
+        "apartment_ask_end_time",
+        "apartment_inform_viewing_unavailable",
+        "apartment_ask_start_time",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Text": "When would you like the viewing to start?",
+      "UnixTime": 1590270648
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "You know, can you check the weather for Saturday in Chicago?  I have a bet with a friend about something.",
+      "UnixTime": 1590270692
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "Task": "weather",
+      "UnixTime": 1590270705
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "west",
+        "FloorSquareMeters": 60,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 4,
+        "MaxLevel": 12,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1415,
+        "id": 272
+      },
+      "UnixTime": 1590270722
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 14,
+        "Weather": "Raining",
+        "id": 598
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 14,
+        "Weather": "Raining",
+        "id": 598
+      },
+      "Text": "its going to be raining in chicago on saturday",
+      "UnixTime": 1590270733
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_bye",
+        "weather_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 14,
+        "Weather": "Raining",
+        "id": 598
+      },
+      "Text": "It will be Raining all day on Saturday in Chicago, with temperatures of around 14 degrees celsius.",
+      "UnixTime": 1590270735
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is the temp going up there on Sunday?",
+      "UnixTime": 1590270755
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Sunday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 14,
+        "Weather": "Raining",
+        "id": 598
+      },
+      "UnixTime": 1590270773
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Text": "it will be partly cloudy in chicago on sunday",
+      "UnixTime": 1590270788
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_bye",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Text": "It will be Partly Cloudy all day on Sunday in Chicago, with temperatures of around 24 degrees celsius.",
+      "UnixTime": 1590270789
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Good, now about that viewing.  It's 1 now, so how about 2 pm?",
+      "UnixTime": 1590270839
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Task": "apartment_search",
+      "UnixTime": 1590270854
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590270858
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Text": "have you paid the application fee?",
+      "UnixTime": 1590270871
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "weather_inform_nothing_found",
+        "hello",
+        "weather_ask_day",
+        "apartment_ask_end_time",
+        "apartment_inform_viewing_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1590270873
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes",
+      "UnixTime": 1590270879
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590270879
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Sunday",
+        "TemperatureCelsius": 24,
+        "Weather": "Partly Cloudy",
+        "id": 448
+      },
+      "UnixTime": 1590270900
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "that time is unavailable ",
+      "UnixTime": 1590270907
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_bye",
+        "apartment_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1590270909
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about 3 pm?  I really don't want it any later than that.",
+      "UnixTime": 1590270945
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"3 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1590270961
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry but there is no viewing available at that time",
+      "UnixTime": 1590270976
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_ask_application_fee_paid",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1590270978
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can you try for 1 pm?  These viewings never run on time anyway.",
+      "UnixTime": 1590271040
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590271040
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"1 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1590271055
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "that time slot is available, would you like me to book it for you?",
+      "UnixTime": 1590271071
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_available",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_available",
+        "apartment_ask_custom_message",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "Text": "Great, there is still a viewing available at that time. Would you like me to book it for you?",
+      "UnixTime": 1590271073
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, book it before it's gone.",
+      "UnixTime": 1590271115
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"1 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1590271138
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "Text": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you",
+      "UnixTime": 1590271146
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_booking_successful",
+      "ActionLabelOptions": [
+        "apartment_inform_booking_successful",
+        "apartment_ask_application_fee_paid",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "Text": "Excellent, the viewing is scheduled now!",
+      "UnixTime": 1590271151
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a ride there.  Any driver except Sirius; his cologne is nauseating.",
+      "UnixTime": 1590271200
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590271200
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "Task": "book_ride",
+      "UnixTime": 1590271205
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "Text": "Where is your departure location?",
+      "UnixTime": 1590271253
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_departure",
+      "ActionLabelOptions": [
+        "ride_ask_departure",
+        "apartment_ask_apartment_name",
+        "apartment_ask_start_time",
+        "apartment_ask_application_fee_paid",
+        "ride_bye",
+        "ride_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "Text": "OK, and where are you departing from?",
+      "UnixTime": 1590271256
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hospital. Sprained my ankle running from a noise in the night which is why I'm heading out.",
+      "UnixTime": 1590271301
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"Hospital\""
+        },
+        {
+          "ArrivalLocation": "\"North Hill Apartments\""
+        },
+        {
+          "RequestType": "\"Check\""
+        },
+        {
+          "DriverName": "api.is_one_of([\"Mark\",\"Ella\",\"Dave\",\"Zoe\",\"Alex\"])"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Proof of Income and Proof of Income with you."
+      },
+      "UnixTime": 1590271336
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "North Hill Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Mark",
+        "LicensePlate": "432 LSA",
+        "MinutesTillPickup": 20,
+        "Price": 22,
+        "ServiceProvider": "Uber",
+        "id": 661
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "North Hill Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Mark",
+        "LicensePlate": "432 LSA",
+        "MinutesTillPickup": 20,
+        "Price": 22,
+        "ServiceProvider": "Uber",
+        "id": 661
+      },
+      "Text": "I have an uber ride, the drivers name is Mark and they will pick you up in 20 minutes at the cost of 22 credits, would you like me to book that now?",
+      "UnixTime": 1590271367
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "ride_ask_confirm_booking",
+        "ask_name",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "North Hill Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Mark",
+        "LicensePlate": "432 LSA",
+        "MinutesTillPickup": 20,
+        "Price": 22,
+        "ServiceProvider": "Uber",
+        "id": 661
+      },
+      "Text": "I found a Uber ride for you from 'Hospital' to 'North Hill Apartments' for 22 credits\nthat could pick you up in 20 minutes. Should I book that for you?",
+      "UnixTime": 1590271371
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes",
+      "UnixTime": 1590271381
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590271381
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"Hospital\""
+        },
+        {
+          "ArrivalLocation": "\"North Hill Apartments\""
+        },
+        {
+          "RequestType": "\"Book\""
+        },
+        {
+          "DriverName": "api.is_one_of([\"Mark\",\"Ella\",\"Dave\",\"Zoe\",\"Alex\"])"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "North Hill Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Mark",
+        "LicensePlate": "432 LSA",
+        "MinutesTillPickup": 20,
+        "Price": 22,
+        "ServiceProvider": "Uber",
+        "id": 661
+      },
+      "UnixTime": 1590271386
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your ride is booked, is there anything else I can do for you?",
+      "UnixTime": 1590271399
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your ride is booked, is there anything else I can do for you?",
+      "UnixTime": 1590271400
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nothing I can think of. Oh yeah- who's my driver?",
+      "UnixTime": 1590271434
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your drivers name will be mark.",
+      "UnixTime": 1590271447
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your drivers name will be mark.",
+      "UnixTime": 1590271449
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Good. Thanks.",
+      "UnixTime": 1590271461
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "thank you and have a great day.",
+      "UnixTime": 1590271472
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "ride_inform_search_criteria",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590271474
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks! Wish me luck!",
+      "UnixTime": 1590271495
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590271495
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Good luck!",
+      "UnixTime": 1590271502
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Good luck!",
+      "UnixTime": 1590271505
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks again! But I left my 4 leaf clover in the last Uber I took!",
+      "UnixTime": 1590271552
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Hopefully you can find another one, have a fantastic day!",
+      "UnixTime": 1590271580
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Hopefully you can find another one, have a fantastic day!",
+      "UnixTime": 1590271584
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes- bye now",
+      "UnixTime": 1590271594
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "thank you and goodbye",
+      "UnixTime": 1590271601
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "ride_inform_search_criteria",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590271602
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590271605
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment",
+      "ride",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Angela\n- Today is Friday\n\n The AI Assistant can handle:\n- Find an apartment (prices are in 'credits')\n- Schedule an apartment viewing \n- Calling a Taxi/Uber/Lyft ride \n- Checking the weather forecast in different Cities (e.g. Chicago or Detroit)",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      },
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. NOTE: When users give PRICE limits, you usually have to use the 'is at most' comparator, not 'is equal to'. Assume:\n\n- Today is Friday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

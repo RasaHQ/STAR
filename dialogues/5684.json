@@ -1,0 +1,1238 @@
+{
+  "AnonymizedUserWorkerID": "ef43f87b-badc-34f5-e103-d10f2d852aed",
+  "AnonymizedWizardWorkerID": "14919914-710a-eee6-acf9-4a4b56ee1641",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5684,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant', 'Bank balance checking' and 'Filing a bank fraud report' (in any order), as shown on the left. You may also play up to three rounds of trivia with the assistant.  [instruction 1 of 9]",
+      "UnixTime": 1590197216
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I would like to reserve a table at a restaurant.",
+      "UnixTime": 1590197260
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "your name",
+      "UnixTime": 1590197275
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590197284
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure my name is John",
+      "UnixTime": 1590197298
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "restaurant name",
+      "UnixTime": 1590197313
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_restaurant",
+      "ActionLabelOptions": [
+        "restaurant_ask_restaurant",
+        "ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "What restaurant would you like to go to?",
+      "UnixTime": 1590197316
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to go to The Porch",
+      "UnixTime": 1590197327
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590197327
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "time",
+      "UnixTime": 1590197337
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590197340
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1pm",
+      "UnixTime": 1590197348
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "party size",
+      "UnixTime": 1590197363
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_size",
+      "ActionLabelOptions": [
+        "restaurant_ask_size",
+        "restaurant_inform_unavailable",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "For how many people should the reservation be made?",
+      "UnixTime": 1590197367
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "4, I am taking my girlfriend and her parents out to lunch!",
+      "UnixTime": 1590197401
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"1 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590197411
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590197422
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590197425
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh can you try Legume instead?",
+      "UnixTime": 1590197441
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590197441
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Legume\""
+        },
+        {
+          "Time": "\"1 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "UnixTime": 1590197450
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590197464
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590197469
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh okay, what about pehaps dinner instead? And can you also help me check my bank balance",
+      "UnixTime": 1590197519
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Legume\""
+        },
+        {
+          "Time": "\"1 pm\""
+        },
+        {
+          "PartySize": "7"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "UnixTime": 1590197540
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"1 pm\""
+        },
+        {
+          "PartySize": "7"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Legume"
+      },
+      "UnixTime": 1590197554
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "The Porch"
+      },
+      "UnixTime": 1590197589
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "avialable",
+      "UnixTime": 1590197600
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_ask_confirm_booking",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Great, the The Porch is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590197607
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, that is fine! What about my bank balance? ",
+      "UnixTime": 1590197634
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590197634
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590197634
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "your name",
+      "UnixTime": 1590197644
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ask_name",
+        "bank_ask_dob",
+        "anything_else",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1590197647
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure it is John Smith",
+      "UnixTime": 1590197673
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for a game of trivia at any point. But don't play more than three rounds. [instruction 5 of 9]",
+      "UnixTime": 1590197673
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "account",
+      "UnixTime": 1590197692
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_ask_account_number",
+        "restaurant_inform_booking_successful",
+        "anything_else",
+        "restaurant_inform_unavailable",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1590197698
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure it is 153531981",
+      "UnixTime": 1590197715
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "pin",
+      "UnixTime": 1590197726
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "ask_name",
+        "restaurant_inform_booking_failed",
+        "out_of_scope",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1590197730
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes that would be 1596",
+      "UnixTime": 1590197744
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590197744
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "153531981"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "The Porch"
+      },
+      "UnixTime": 1590197760
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "6241",
+      "UnixTime": 1590197767
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "Your current balance is 6241 in credit.",
+      "UnixTime": 1590197770
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "6421... Hmm that doesn't sound right? Are you sure? I just checked it yesterday. Ugh, I hope my girlfriend likes the restaurant.",
+      "UnixTime": 1590197826
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590197826
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Task": "bank_fraud_report",
+      "UnixTime": 1590197852
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "fraud report",
+      "UnixTime": 1590197861
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_inform_cannot_authenticate",
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1590197871
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Well I don't want to cause trouble, but i guess I will have to file a fraud report.",
+      "UnixTime": 1590197910
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant, bank balance checking, and bank fraud report). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590197910
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "fraud report",
+      "UnixTime": 1590197935
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_inform_cannot_authenticate",
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1590197944
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes. ",
+      "UnixTime": 1590197950
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "I need a detailed fraud report to make note of, please.",
+      "UnixTime": 1590198016
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "Text": "I need a detailed fraud report to make note of, please.",
+      "UnixTime": 1590198026
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes I lost 1000 credits",
+      "UnixTime": 1590198058
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590198058
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\" lost 1000 credits\""
+        },
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "153531981"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6241,
+        "BankName": "Chase",
+        "id": 543
+      },
+      "UnixTime": 1590198076
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "success",
+      "UnixTime": 1590198083
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_nothing_found",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590198087
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, will my account number perhaps be changed or anything? I was planning on surprising my girlfriend this week...",
+      "UnixTime": 1590198125
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "I don't know",
+      "UnixTime": 1590198142
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "bank_ask_pin",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you issue fraud reports.",
+      "UnixTime": 1590198148
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh ok. Can I play a game of triva? ",
+      "UnixTime": 1590198179
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "start number",
+      "UnixTime": 1590198195
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Sure thing! What number would you like to start at?",
+      "UnixTime": 1590198225
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hmm lets start at number 5?",
+      "UnixTime": 1590198262
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant, bank balance checking, and bank fraud report) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590198262
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Task": "trivia",
+      "UnixTime": 1590198262
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "5"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "UnixTime": 1590198269
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "A",
+      "UnixTime": 1590198273
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "A 'sirocco' refers to a type of ____",
+      "UnixTime": 1590198275
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hmmm... A wind?",
+      "UnixTime": 1590198283
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "correct",
+      "UnixTime": 1590198290
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590198295
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No thanks I should go call my girlfriend and let her know! thanks.",
+      "UnixTime": 1590198313
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Okay",
+      "UnixTime": 1590198331
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Would you like me to reserve the table at the restaurant?",
+      "UnixTime": 1590198382
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please!",
+      "UnixTime": 1590198403
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590198403
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "UnixTime": 1590198406
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "confirm",
+      "UnixTime": 1590198413
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_ask_confirm_booking",
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Excellent, your reservation at the The Porch is confirmed!",
+      "UnixTime": 1590198418
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much!",
+      "UnixTime": 1590198424
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Is there anything",
+      "UnixTime": 1590198435
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "restaurant_ask_restaurant",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590198438
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No thanks! Goodbye!",
+      "UnixTime": 1590198471
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Thank ",
+      "UnixTime": 1590198479
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1590198491
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590198495
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John Smith\n- Your bank account: 153531981, with PIN 1596\n- Today is Monday the 3rd of June, 11 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Filing a bank fraud report\n- Reserving a table at a restaurant (e.g. Legume or The Porch) for today\n- A game of trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Monday the 3rd of June, 11 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

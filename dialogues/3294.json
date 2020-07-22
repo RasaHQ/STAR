@@ -1,0 +1,211 @@
+{
+  "AnonymizedUserWorkerID": "3e489804-5a5c-0422-f71f-c3df0ed166b8",
+  "AnonymizedWizardWorkerID": "14919914-710a-eee6-acf9-4a4b56ee1641",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3294,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Explain the general situation to the robot and ask some question. [instruction 1 of 3]",
+      "UnixTime": 1589565681
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Robot.  I need you to get to the engineering deck",
+      "UnixTime": 1589565710
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make lots of typos [instruction 2 of 3]",
+      "UnixTime": 1589565710
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Lock Manufacturer",
+      "UnixTime": 1589565737
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_lock_manufacturer",
+      "ActionLabelOptions": [
+        "spaceship_ask_lock_manufacturer",
+        "spaceship_bye",
+        "spaceship_ask_colour_top_cable"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the name of the lock manufacturer.",
+      "UnixTime": 1589565741
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I ned u to lok at the loc.  it's made my Ingersoll",
+      "UnixTime": 1589565770
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the life support system is repaired (not earlier!), you can end the conversation.  [instruction 3 of 3]",
+      "UnixTime": 1589565770
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Color of Top Cable",
+      "UnixTime": 1589565811
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_colour_top_cable",
+      "ActionLabelOptions": [
+        "spaceship_ask_colour_top_cable",
+        "spaceship_inform_nothing_found",
+        "spaceship_ask_colour_second_cable"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the color of the first cable.",
+      "UnixTime": 1589565817
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "There's a lak of air.   the blck and yellew cables need to be swapped",
+      "UnixTime": 1589565855
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "LockManufacturer": "\"Ingersoll\""
+        },
+        {
+          "ColorOfTopCable": "\"Black\""
+        },
+        {
+          "ColorOfSecondCable": "\"Yellow\""
+        }
+      ],
+      "UnixTime": 1589565966
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "LockManufacturer": "\"Ingersoll\""
+        },
+        {
+          "ColorOfTopCable": "\"Black\""
+        },
+        {
+          "ColorOfSecondCable": "\"Yellow\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "UnixTime": 1589566012
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Your request was a success.",
+      "UnixTime": 1589566069
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "spaceship_inform_nothing_found",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Ok, I can reach the control panel now... Successful! Life support was recovered.",
+      "UnixTime": 1589566075
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589566095
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "The life support on your spaceship is failing! To save the lives of the crew, the ship's repair-robot has to get into the engineering deck, which is sealed due to a lack of air. Help the robot to enter the engineering deck! It has to temper with the lock (manufactured by 'Ingersoll') and swap the positions of the Black cable and the Yellow cable. It already reached the door.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_life_support.jpg",
+        "Task": "spaceship_life_support"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard robot and help the user recover the life support."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the robot help successfully recover the life support?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the robot stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

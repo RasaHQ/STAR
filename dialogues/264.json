@@ -1,0 +1,295 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "1777b3e5-9e12-0a4d-288e-a8708b011a07",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 264,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hello to the AI assistant and ask for help (see instructions on the left). [instruction 1 of 6]",
+      "UnixTime": 1589472752
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is John and I would like to make an appointment with Dr. Johnson for Tuesday. I have had a runny nose, sneezing, and a general lack of energy for two days now.",
+      "UnixTime": 1589472800
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Try to get an appointment as soon as possible (right now it is 11 am on Tuesday). [instruction 2 of 6]",
+      "UnixTime": 1589472800
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What time would you like",
+      "UnixTime": 1589472850
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_start_time",
+      "ActionLabelOptions": [
+        "doctor_ask_start_time",
+        "doctor_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time can you be at the clinic?",
+      "UnixTime": 1589472853
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "As soon as possible",
+      "UnixTime": 1589472864
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep asking for other times until the assistant has found a slot for you. Engage in smalltalk once this is done. [instruction 3 of 6]",
+      "UnixTime": 1589472864
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "api.is_equal_to(\"12 am\")"
+        },
+        {
+          "Symptoms": "\"runny nose, tired\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589472875
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": ""
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"9 am\""
+        },
+        {
+          "Symptoms": "\"runny nose, tired\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": ""
+      },
+      "UnixTime": 1589472885
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "9 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "9 am"
+      },
+      "Text": "Dr. Johnson is available at 9 am",
+      "UnixTime": 1589472903
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_available",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_available",
+        "doctor_inform_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "9 am"
+      },
+      "Text": "Alright, Dr. Johnson is available at 9 am. Can I book the appointment for you?",
+      "UnixTime": 1589472907
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sounds great, thank you.",
+      "UnixTime": 1589472921
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say something about Dr. Johnson, the AI Assistant, or something that has happened to you today. Be creative! [instruction 4 of 6]",
+      "UnixTime": 1589472921
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"9 am\""
+        },
+        {
+          "Symptoms": "\"runny nose, tired\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "9 am"
+      },
+      "UnixTime": 1589472928
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "9 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "9 am"
+      },
+      "Text": "Your appointment",
+      "UnixTime": 1589472939
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_successful",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_successful",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "9 am"
+      },
+      "Text": "Great, your appointment with Dr. Johnson is booked for you!",
+      "UnixTime": 1589472943
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you, will that be free parking?",
+      "UnixTime": 1589472965
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that you also want to make an appointment to get your kid Angela vaccinated. Perhaps you can schedule a second appointment at the same time? [instruction 5 of 6]",
+      "UnixTime": 1589472965
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "9 am"
+      },
+      "Text": "Yes there is free parking if you get your ticket validated.",
+      "UnixTime": 1589473013
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John and would like to make an appointment with Dr. Johnson for today (Tuesday). You have had a runny nose, sneezing, and a general lack of energy for two days now.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "book_doctor_appointment.jpg",
+        "Task": "book_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* Right now it is Tuesday, 11 am"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

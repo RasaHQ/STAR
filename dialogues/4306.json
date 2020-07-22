@@ -1,0 +1,224 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4306,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589564310
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello, can you please give me your name, hotel name and your desired start and end stay dates? Also, do you have any special requests?",
+      "UnixTime": 1589564371
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, can you please give me your name, hotel name and your desired start and end stay dates? Also, do you have any special requests?",
+      "UnixTime": 1589564378
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela, I want a reservation for the Shadyside Inn from May 7th to the 27th. I need a balcony.",
+      "UnixTime": 1589564414
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"7th\""
+        },
+        {
+          "EndDate": "\"27th\""
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        },
+        {
+          "CustomerRequest": "\"balcony\""
+        }
+      ],
+      "UnixTime": 1589564458
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "This is available ",
+      "UnixTime": 1589564468
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_ask_date_to",
+        "hotel_ask_customer_request"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Shadyside Inn ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1589564471
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please",
+      "UnixTime": 1589564503
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"7th\""
+        },
+        {
+          "EndDate": "\"27th\""
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        },
+        {
+          "CustomerRequest": "\"balcony\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "UnixTime": 1589564512
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Your reservation is confirmed with all your desired criteria. ",
+      "UnixTime": 1589564533
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_succeeded",
+      "ActionLabelOptions": [
+        "hotel_reservation_succeeded",
+        "hotel_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "OK, I've successfully completed this Hotel booking for you!",
+      "UnixTime": 1589564538
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589564567
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Make a reservation at Shadyside Inn from May 7th to 27th. Your name is Angela. Please request a balcony. It is ok if the room is not available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

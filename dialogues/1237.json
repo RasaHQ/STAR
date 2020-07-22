@@ -1,0 +1,223 @@
+{
+  "AnonymizedUserWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1237,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Read the instructions on the left. In this dialogue, either act like a very annoying/grumpy person, or like a wise/serene person who'se constantly talking in profound-sounding riddles. [instruction 1 of 3]",
+      "UnixTime": 1590453124
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello!!! Hurry up please!",
+      "UnixTime": 1590453133
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how can i help",
+      "UnixTime": 1590453141
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1590453142
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to reserve a flight right now!!! My name is Mark!!!!!",
+      "UnixTime": 1590453151
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "The flight ID was actually 542. [instruction 2 of 3]",
+      "UnixTime": 1590453151
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "id",
+      "UnixTime": 1590453157
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "flight id",
+      "UnixTime": 1590453160
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_flight_id",
+      "ActionLabelOptions": [
+        "plane_ask_flight_id",
+        "plane_inform_nothing_found",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can I have your flight ID, please?",
+      "UnixTime": 1590453162
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "542, and it better work!",
+      "UnixTime": 1590453169
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once you've booked the flight 542 (or learned that booking is not possible), you can end the conversation. You can also keep writing for a bit, if you like :) [instruction 3 of 3]",
+      "UnixTime": 1590453169
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "542"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590453187
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 542
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 542
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590453190
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "plane_reservation_failed",
+        "plane_ask_flight_id"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 542
+      },
+      "Text": "Sorry, but the flight with id '542' is not available any more.",
+      "UnixTime": 1590453192
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OH MY GOD. I can't take it anymore! Good bye!",
+      "UnixTime": 1590453204
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 542
+      },
+      "Text": "Bye",
+      "UnixTime": 1590453208
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "hello",
+        "plane_ask_flight_id"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 542
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590453209
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590453212
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 307. Your name is Mark.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

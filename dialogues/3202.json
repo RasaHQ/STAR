@@ -1,0 +1,163 @@
+{
+  "AnonymizedUserWorkerID": "eae96765-3d74-8647-cc03-fc417533d9b1",
+  "AnonymizedWizardWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3202,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I need to follow up with Dr. Morgan about my meds.",
+      "UnixTime": 1589590645
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What s your name?",
+      "UnixTime": 1589590653
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_bye",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589590655
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Alexis",
+      "UnixTime": 1589590660
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Morgan\""
+        },
+        {
+          "PatientName": "\"Alexis\""
+        }
+      ],
+      "UnixTime": 1589590674
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately.",
+      "UnixTime": 1589590683
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "doctor_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1589590687
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you!",
+      "UnixTime": 1589590692
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else?",
+      "UnixTime": 1589590700
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "doctor_inform_doctors_instructions",
+        "doctor_ask_doctor_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589590701
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589590709
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You (Alexis) just finished your appointment with Dr. Morgan. Unfortunately, you forgot to write down the instructions the doctor gave you. Please followup and find out how often to take your medicine.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Inform the user of his/her doctor's orders."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

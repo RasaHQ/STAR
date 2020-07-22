@@ -1,0 +1,321 @@
+{
+  "AnonymizedUserWorkerID": "cd16c4d4-79bc-8ba3-bf47-368689966c2c",
+  "AnonymizedWizardWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1841,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Contact your ship's onboard computer (AI Assistant) and ask for help or explain the situation. (See instructions on the left panel.) [instruction 1 of 5]",
+      "UnixTime": 1589834284
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm locked out of the combat deck! I need that door opened asap!!",
+      "UnixTime": 1589834326
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your username?",
+      "UnixTime": 1589834343
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "spaceship_ask_code",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your name.",
+      "UnixTime": 1589834346
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Luke, Chief Engineer",
+      "UnixTime": 1589834357
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Boom! You hear explosions all around you. [instruction 2 of 5]",
+      "UnixTime": 1589834357
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code",
+      "UnixTime": 1589834370
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589834373
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Dang it, I can hear the enemy missle explosions! I don't have the code, if I did the door wouldn't still be locked",
+      "UnixTime": 1589834412
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You get a message on your communicator. Apparently you just got promoted to acting captain. [instruction 3 of 5]",
+      "UnixTime": 1589834412
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code type",
+      "UnixTime": 1589834427
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code_type",
+      "ActionLabelOptions": [
+        "spaceship_ask_code_type",
+        "spaceship_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please specify the code type.",
+      "UnixTime": 1589834430
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wait, I just got a message. Oh no, I've been promoted to acting captain. That must mean Jim is...  Clearance code. I need the clearance code.",
+      "UnixTime": 1589834466
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "For some reason (imagine something) you now know that the Clearance Code is 9315831. [instruction 4 of 5]",
+      "UnixTime": 1589834466
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Luke\""
+        },
+        {
+          "UserRank": "\"Captain\""
+        },
+        {
+          "Code": "\"Jim\""
+        },
+        {
+          "CodeType": "api.is_equal_to(\"Clearance\")"
+        }
+      ],
+      "UnixTime": 1589834491
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "The door is unlocked",
+      "UnixTime": 1589834500
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "anything_else",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "The door is now unlocked.",
+      "UnixTime": 1589834502
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is it?  They brought me Jim's communicator. He has the clearance code on it, 9315831",
+      "UnixTime": 1589834533
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the door is open (not before!), you can enter the combat deck and save the ship by ending the conversation. [instruction 5 of 5]",
+      "UnixTime": 1589834533
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Luke\""
+        },
+        {
+          "UserRank": "\"Captain\""
+        },
+        {
+          "Code": "9315831"
+        },
+        {
+          "CodeType": "api.is_equal_to(\"Clearance\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "UnixTime": 1589834550
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "unlocked",
+      "UnixTime": 1589834556
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "anything_else",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "The door is now unlocked.",
+      "UnixTime": 1589834558
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok, yes, I've opened the door. wish us luck.",
+      "UnixTime": 1589834575
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1589834581
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_bye",
+      "ActionLabelOptions": [
+        "spaceship_bye",
+        "ask_name",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "Goodbye.",
+      "UnixTime": 1589834583
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589834585
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Luke) are the ship's Chief Engineer. But you don't know the Clearance Code (yet).",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

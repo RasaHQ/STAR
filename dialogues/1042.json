@@ -1,0 +1,315 @@
+{
+  "AnonymizedUserWorkerID": "71f8d498-7034-65f3-de7c-7ac126139a2e",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1042,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hallo to the AI Assistant. [instruction 1 of 6]",
+      "UnixTime": 1590438841
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello!",
+      "UnixTime": 1590438853
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello",
+      "UnixTime": 1590438866
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "apartment_ask_day",
+        "apartment_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1590438868
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to schedule a viewing at the North Hill apartments please",
+      "UnixTime": 1590438896
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You suddenly remember that you have a friend's wedding on Thursday at 8 pm. [instruction 2 of 6]",
+      "UnixTime": 1590438896
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Your name",
+      "UnixTime": 1590438926
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "apartment_ask_custom_message",
+        "apartment_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you give me your name, please?",
+      "UnixTime": 1590438929
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure, I'm Mark and I was hoping Thursday at 8 would work",
+      "UnixTime": 1590438950
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ask something about the apartment, or engage in smalltalk, or make a joke. [instruction 3 of 6]",
+      "UnixTime": 1590438950
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Application fee",
+      "UnixTime": 1590438983
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_inform_viewing_available",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1590438986
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think so but I really don't recall.  I need to change the time of the viewing.  I just checked my calendar again and my friend is getting married on Thursday.  Who get's married on a Thursday??",
+      "UnixTime": 1590439045
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You cannot remember if you had payed the application fee. Find a way to make an appointment anyway. If no date is available, change date and/or time until something works. If you already got the appointment, engage in smalltalk. [instruction 4 of 6]",
+      "UnixTime": 1590439045
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Day",
+      "UnixTime": 1590439063
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_day",
+      "ActionLabelOptions": [
+        "apartment_ask_day",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "What day would you like to make the booking for?",
+      "UnixTime": 1590439065
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's try Wednesday at 8 please",
+      "UnixTime": 1590439078
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once you've scheduled the viewing, say something about your friend's wedding. [instruction 5 of 6]",
+      "UnixTime": 1590439078
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Hill Apartments\""
+        },
+        {
+          "RenterName": "\"Mark\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"8 am\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "UnixTime": 1590439117
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "Your apartment viewing has been",
+      "UnixTime": 1590439129
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_booking_successful",
+      "ActionLabelOptions": [
+        "apartment_inform_booking_successful",
+        "apartment_inform_nothing_found",
+        "apartment_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "Excellent, the viewing is scheduled now!",
+      "UnixTime": 1590439133
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's great!  I'm looking at all these texts from my friends, no one is really excited about this wedding.  It's Thursday night, they're not serving food, and we don't like who he's marrying.  I think we'll end up going out for a late dinner after the wedding",
+      "UnixTime": 1590439226
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done with all the instructions, bring the conversation to a natural close.  [instruction 6 of 6]",
+      "UnixTime": 1590439226
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "Sorry I cant",
+      "UnixTime": 1590439239
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "apartment_inform_viewing_unavailable",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you book apartment viewings.",
+      "UnixTime": 1590439243
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's okay dude, just needed to vent.  Thanks for the help.  Bye",
+      "UnixTime": 1590439265
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "Thanks g2",
+      "UnixTime": 1590439275
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_bye",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and Bank Statement with you."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590439278
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590439280
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at North Hill Apartments for Thursday at 8 pm. Your name is Mark. You cannot remember if you had payed the application fee. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

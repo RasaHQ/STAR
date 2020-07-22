@@ -1,0 +1,385 @@
+{
+  "AnonymizedUserWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "AnonymizedWizardWorkerID": "6ca4ce6b-c601-d2e3-da9b-d5b12a7ad9d7",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1916,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589836239
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hi how can i help?",
+      "UnixTime": 1589836250
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "doctor_ask_symptoms"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589836253
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to make a doctor appointment.",
+      "UnixTime": 1589836265
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have your name?",
+      "UnixTime": 1589836286
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "doctor_ask_day",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I have your name, please?",
+      "UnixTime": 1589836303
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1589836309
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "doctor name?",
+      "UnixTime": 1589836320
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_doctor_name",
+      "ActionLabelOptions": [
+        "doctor_ask_doctor_name",
+        "ask_name",
+        "doctor_ask_symptoms"
+      ],
+      "Agent": "Wizard",
+      "Text": "What doctor would you like to see?",
+      "UnixTime": 1589836322
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Dr. Johnson is my primary doctor.",
+      "UnixTime": 1589836334
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "day?",
+      "UnixTime": 1589836346
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_day",
+      "ActionLabelOptions": [
+        "doctor_ask_day",
+        "doctor_ask_symptoms",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "What day of the week would you like to schedule the appointment for?",
+      "UnixTime": 1589836348
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sunday. I have an opening in my schedule.",
+      "UnixTime": 1589836363
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time?",
+      "UnixTime": 1589836370
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_start_time",
+      "ActionLabelOptions": [
+        "doctor_ask_start_time",
+        "doctor_ask_end_time",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time can you be at the clinic?",
+      "UnixTime": 1589836373
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "5PM",
+      "UnixTime": 1589836381
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "symptoms?",
+      "UnixTime": 1589836443
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_symptoms",
+      "ActionLabelOptions": [
+        "doctor_ask_symptoms",
+        "doctor_inform_nothing_found",
+        "doctor_ask_day"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you describe your symptoms, please?",
+      "UnixTime": 1589836444
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am not too worried. I just ran my seventh marathon in six days. I have dizziness, headache, and muscle weakness.",
+      "UnixTime": 1589836478
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "Symptoms": "\"Dizziness, headache and muscle weakness. Ran marathon.\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589836514
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "5 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "5 pm"
+      },
+      "Text": "availabnle, chall I book?",
+      "UnixTime": 1589836522
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_available",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_available",
+        "ask_name",
+        "doctor_ask_symptoms"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "5 pm"
+      },
+      "Text": "Alright, Dr. Johnson is available at 5 pm. Can I book the appointment for you?",
+      "UnixTime": 1589836524
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, please.",
+      "UnixTime": 1589836536
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "Symptoms": "\"Dizziness, headache and muscle weakness. Ran marathon.\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The time slot is available.",
+        "Time": "5 pm"
+      },
+      "UnixTime": 1589836554
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "5 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "5 pm"
+      },
+      "Text": "booked!",
+      "UnixTime": 1589836560
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_successful",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_successful",
+        "doctor_ask_doctor_name",
+        "doctor_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "5 pm"
+      },
+      "Text": "Great, your appointment with Dr. Johnson is booked for you!",
+      "UnixTime": 1589836562
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much.",
+      "UnixTime": 1589836571
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "5 pm"
+      },
+      "Text": "anything elsr?",
+      "UnixTime": 1589836622
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "doctor_ask_symptoms",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "5 pm"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589836624
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589836629
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Angela and would like to make an appointment with Dr. Johnson for Sunday at 5 pm. Your symptoms are headache, dizziness and muscle weakness. If no appointment can be made, just say goodbye.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "book_doctor_appointment.jpg",
+        "Task": "book_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Help the user book a doctor appointment!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

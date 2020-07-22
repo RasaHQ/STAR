@@ -1,0 +1,476 @@
+{
+  "AnonymizedUserWorkerID": "9cfed8ec-54a9-f0f7-8327-15f6470d4a6c",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5045,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking the status of -- and changing your booked taxi/Uber/Lyft ride' and 'party RSVP' (in any order), as shown on the left. You may also play up to two rounds of trivia with the assistant.  [instruction 1 of 5]",
+      "UnixTime": 1590262691
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll like to change the status of my ride. ID is 630. My name is John",
+      "UnixTime": 1590262751
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 5]",
+      "UnixTime": 1590262751
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "630"
+        },
+        {
+          "CustomerName": "\"John\""
+        }
+      ],
+      "UnixTime": 1590262779
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "1 minutes",
+      "UnixTime": 1590262793
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your driver",
+      "UnixTime": 1590262803
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your driver is arriving 1 minutes away",
+      "UnixTime": 1590262837
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll like to change the status. I need an Uber instead of ",
+      "UnixTime": 1590262921
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590262931
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "630"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "ChangeDescription": "\"Need an uber\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "1 minutes away"
+      },
+      "UnixTime": 1590262962
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "We are unable ",
+      "UnixTime": 1590262971
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_failed",
+      "ActionLabelOptions": [
+        "ride_inform_changes_failed",
+        "out_of_scope",
+        "ride_ask_change"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately I wasn't able to update your booking, sorry.",
+      "UnixTime": 1590262978
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll like to RSVP to a party  at North Heights Venue",
+      "UnixTime": 1590263022
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 3 of 5]",
+      "UnixTime": 1590263022
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Task": "party_rsvp",
+      "UnixTime": 1590263029
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Arrival",
+      "UnixTime": 1590263041
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_parking_needed",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hello",
+        "party_ask_arrival_time",
+        "out_of_scope",
+        "ride_inform_changes_failed",
+        "party_ask_parking_needed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Do you require parking at the venue?",
+      "UnixTime": 1590263054
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590263068
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 4 of 5]",
+      "UnixTime": 1590263068
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Guest",
+      "UnixTime": 1590263076
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "ride_inform_changes_successful",
+        "ride_inform_changes_failed",
+        "party_bye",
+        "party_confirm_rsvp",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "How many guests will you be bringing with you?",
+      "UnixTime": 1590263080
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "3",
+      "UnixTime": 1590263122
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Time",
+      "UnixTime": 1590263142
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_arrival_time",
+      "ActionLabelOptions": [
+        "party_ask_arrival_time",
+        "ride_bye",
+        "anything_else",
+        "hello",
+        "party_ask_venue",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "When are you planning to arrive at the party?",
+      "UnixTime": 1590263151
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "8pm",
+      "UnixTime": 1590263203
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking the status of -- and changing your booked taxi/Uber/Lyft ride' and 'party RSVP') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 5 of 5]",
+      "UnixTime": 1590263203
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Guest name",
+      "UnixTime": 1590263224
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"John\""
+        },
+        {
+          "GuestName": "\"Jihn\""
+        },
+        {
+          "ArrivalTime": "\"8 pm\""
+        },
+        {
+          "NumberGuests": "3"
+        },
+        {
+          "NeedParking": "api.is_equal_to(\"Yes\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1590263276
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Thank you ",
+      "UnixTime": 1590263286
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Rsvp",
+      "UnixTime": 1590263298
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_arrival_time",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1590263302
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks",
+      "UnixTime": 1590263319
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Thanks",
+      "UnixTime": 1590263331
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "hello",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590263334
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590263377
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "ride",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John\n- You've booked a ride with id 630\n- Today is Friday the 15th, 6 pm\n\n The AI Assistant can handle:\n- Check the status of your ride (id 630)\n- Change something about your booked ride\n- RSVP you to a party (Example venues: North Heights Venue or West Bay Venue)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      },
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Friday the 15th, 6 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "d34dc4ee-d0cc-e26c-c50e-d9729ef3d723",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4690,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name Sarah Brown and I would like to check your bank balance. Unfortunately, I don't remember my account number or my PIN. My date of birth is 15/09/1940. For my security questions, my mother's maiden name is Cooper and my childhood pet is Buddy.",
+      "UnixTime": 1589594745
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "DateOfBirth": "\"15/09/1940\""
+        },
+        {
+          "SecurityAnswer1": "\"Cooper\""
+        },
+        {
+          "SecurityAnswer2": "\"Buddy\""
+        }
+      ],
+      "UnixTime": 1589594798
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 6061,
+        "BankName": "PNC",
+        "id": 30
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6061,
+        "BankName": "PNC",
+        "id": 30
+      },
+      "Text": "Your bank balance at PNC is 6061",
+      "UnixTime": 1589594815
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_ask_pin",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6061,
+        "BankName": "PNC",
+        "id": 30
+      },
+      "Text": "Your current balance is 6061 in credit.",
+      "UnixTime": 1589594819
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594825
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Sarah Brown and would like to check your bank balance. Unfortunately, you don't remember your account number or your PIN. Your date of birth is 15/09/1940. For your security questions, your mother's maiden name is Cooper and your childhood pet is Buddy.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

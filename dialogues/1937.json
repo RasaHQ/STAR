@@ -1,0 +1,175 @@
+{
+  "AnonymizedUserWorkerID": "66c768ec-c1a7-affc-8806-fa55a561e851",
+  "AnonymizedWizardWorkerID": "3edcce52-bbdf-48d8-3d95-d45dad2e0182",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1937,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589838778
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how can i help ",
+      "UnixTime": 1589838791
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "How can i help you?",
+      "UnixTime": 1589838796
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Ben and i would like want to reserve a room at the Old Town Inn from May 4th to 21st",
+      "UnixTime": 1589838828
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "StartDate": "\"4th\""
+        },
+        {
+          "EndDate": "\"21st\""
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589838857
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "The old town inn is unavailable",
+      "UnixTime": 1589838863
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "hotel_bye",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Old Town Inn for your requested dates.",
+      "UnixTime": 1589838864
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok, goodbye",
+      "UnixTime": 1589838885
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "bye",
+      "UnixTime": 1589838923
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_reservation_failed",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589838925
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589838928
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Old Town Inn from May 4th to 21st. Your name is Ben. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

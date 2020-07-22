@@ -1,0 +1,212 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2754,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589593887
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello how many i help",
+      "UnixTime": 1589593893
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "anything_else",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589593894
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like to check my balance please",
+      "UnixTime": 1589593905
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name?",
+      "UnixTime": 1589593911
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1589593913
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John Smith",
+      "UnixTime": 1589593922
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account number?",
+      "UnixTime": 1589593928
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589593930
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "84318931431 ",
+      "UnixTime": 1589593941
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin?",
+      "UnixTime": 1589593952
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589593954
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "9503",
+      "UnixTime": 1589593974
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "84318931431"
+        },
+        {
+          "PIN": "9503"
+        }
+      ],
+      "UnixTime": 1589593980
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 995,
+        "BankName": "Wells Fargo",
+        "id": 183
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 995,
+        "BankName": "Wells Fargo",
+        "id": 183
+      },
+      "Text": "Your balance at Wells Fargo is 995",
+      "UnixTime": 1589593989
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_ask_mothers_maiden_name",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 995,
+        "BankName": "Wells Fargo",
+        "id": 183
+      },
+      "Text": "Your current balance is 995 in credit.",
+      "UnixTime": 1589593991
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594000
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John Smith and would like to check your bank balance. Your account number is 84318931431 and your PIN is 9503.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

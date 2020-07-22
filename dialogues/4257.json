@@ -1,0 +1,244 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "6ca4ce6b-c601-d2e3-da9b-d5b12a7ad9d7",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4257,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. My name is Tyler Jones. I need to file a fraud report",
+      "UnixTime": 1589582550
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have your account number?",
+      "UnixTime": 1589582592
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_ask_pin",
+        "bank_ask_fraud_details"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589582595
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "95381901",
+      "UnixTime": 1589582660
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin #?",
+      "UnixTime": 1589582698
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "bank_ask_dob",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589582700
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1596",
+      "UnixTime": 1589582712
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "date of birth",
+      "UnixTime": 1589582727
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_inform_cannot_authenticate",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589582729
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no. I cannot",
+      "UnixTime": 1589582793
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Details of the fraud please?",
+      "UnixTime": 1589582807
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_inform_fraud_report_submitted",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1589582810
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "There has been suspicious activity. There has been frequent transfers of $10 over the past week leaving my account. ",
+      "UnixTime": 1589582856
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Suspicious activity, frequent $10 transfers.\""
+        },
+        {
+          "AccountNumber": "95381901"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "UnixTime": 1589582911
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Suspicious activity, frequent $10 transfers.\""
+        },
+        {
+          "AccountNumber": "95381901"
+        },
+        {
+          "PIN": "1596"
+        },
+        {
+          "FullName": "\"tyler jones\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589582940
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Fraud report submitted",
+      "UnixTime": 1589582953
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_fraud_details",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1589582957
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589582962
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Tyler Jones and would like to submit a fraud report. There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week. Your account number is 95381901 and your PIN is 1596.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Authenticate the user and submit a fraud report"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant succesfully report fraud on your account?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

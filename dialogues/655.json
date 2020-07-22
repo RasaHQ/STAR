@@ -1,0 +1,641 @@
+{
+  "AnonymizedUserWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "AnonymizedWizardWorkerID": "6ca4ce6b-c601-d2e3-da9b-d5b12a7ad9d7",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 655,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Not again! You took the wrong bus and got totally lost in the middle of the city. But you have to get to your hot date in time! Ask you personal AI assistant for help. [instruction 1 of 5]",
+      "UnixTime": 1590451738
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I'm lost in the middle of the city I have a hot date soon",
+      "UnixTime": 1590451776
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "The hot date is somewhere near University. If you can get there, you should know your way again. [instruction 2 of 5]",
+      "UnixTime": 1590451776
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "travel mode",
+      "UnixTime": 1590451790
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_travel_mode",
+      "ActionLabelOptions": [
+        "trip_ask_travel_mode",
+        "trip_inform_simple_step_ask_proceed",
+        "trip_instructions_done"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you want to drive, walk, or use public transit?",
+      "UnixTime": 1590451793
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Drive",
+      "UnixTime": 1590451812
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Follow the way-instructions of the assistant and imagine you do what it says. But your sense of orientation is pretty bad and you cannot deal with instructions involving 'North', 'West', 'South', 'East'. So if that comes up, ask for more details. [instruction 3 of 5]",
+      "UnixTime": 1590451812
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "arrival location",
+      "UnixTime": 1590451822
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_arrival_location",
+      "ActionLabelOptions": [
+        "trip_ask_arrival_location",
+        "trip_ask_travel_mode",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Where do you need to go?",
+      "UnixTime": 1590451824
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "University",
+      "UnixTime": 1590451846
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "departure tinme",
+      "UnixTime": 1590451862
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_time",
+      "ActionLabelOptions": [
+        "trip_instructions_done",
+        "trip_bye",
+        "trip_ask_departure_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you going to start your trip?",
+      "UnixTime": 1590451866
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Now",
+      "UnixTime": 1590451879
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureLocation": "\"hospital\""
+        },
+        {
+          "ArrivalLocation": "\"university\""
+        },
+        {
+          "TravelMode": "api.is_equal_to(\"Driving\")"
+        },
+        {
+          "DepartureTime": "\"1 pm\""
+        }
+      ],
+      "UnixTime": 1590451889
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "turn right on el camino real",
+      "UnixTime": 1590451900
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_travel_mode"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Turn right on El Camino Real. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590451902
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed ",
+      "UnixTime": 1590451914
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Complain about the general situation, make a joke, or say something about the environment you imagine yourself in right now. [instruction 4 of 5]",
+      "UnixTime": 1590451914
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "after 5 kilometers turn right",
+      "UnixTime": 1590451931
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_ask_arrival_location",
+        "trip_ask_departure_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "After 5 kilometers, turn right on Castro St. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590451933
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "This place looks so dirty",
+      "UnixTime": 1590451945
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "drive for 3 blocks",
+      "UnixTime": 1590451963
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_ask_arrival_location",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Drive for 3 blocks and turn left. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590451965
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceeed",
+      "UnixTime": 1590451980
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've reached University. Then you can end the conversation. [instruction 5 of 5]",
+      "UnixTime": 1590451980
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "your desintation will be on the left",
+      "UnixTime": 1590452000
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_last_step_and_done",
+      "ActionLabelOptions": [
+        "trip_inform_last_step_and_done",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Your destination will be on the left. Do you know how to reach your destination or would you require more detailed instructions?",
+      "UnixTime": 1590452001
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "More details ",
+      "UnixTime": 1590452009
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "your destination will be on the left",
+      "UnixTime": 1590452032
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "your desintation will be on the left opposite a bar",
+      "UnixTime": 1590452055
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_last_step_and_done",
+      "ActionLabelOptions": [
+        "trip_inform_last_step_and_done",
+        "anything_else",
+        "trip_ask_travel_mode"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Your destination will be on the left opposite a bar. Do you know how to reach your destination or would you require more detailed instructions?",
+      "UnixTime": 1590452058
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks",
+      "UnixTime": 1590452068
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "anything",
+      "UnixTime": 1590452072
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "trip_bye",
+        "trip_instructions_done"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590452074
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No goodbye ",
+      "UnixTime": 1590452095
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "bye",
+      "UnixTime": 1590452098
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_bye",
+      "ActionLabelOptions": [
+        "trip_bye",
+        "trip_ask_arrival_location",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Turn right at the subway station onto El Camino Real.",
+          "After 5 kilometers, you will see another subway station. Turn right onto Castro St, which is a one-way street.",
+          "Drive for 3 blocks and turn left just after you pass a park.",
+          "Your destination will be on the left opposite a bar."
+        ],
+        "DrivingInstructions": [
+          "Turn right on El Camino Real",
+          "After 5 kilometers, turn right on Castro St.",
+          "Drive for 3 blocks and turn left",
+          "Your destination will be on the left."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 87,
+        "id": 905
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590452100
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590452103
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "trip"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* At the beginning of the conversation, the user's location is Hospital\n* At the beginning of the conversation it is 1pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

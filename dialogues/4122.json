@@ -1,0 +1,214 @@
+{
+  "AnonymizedUserWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4122,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I am John and I would like to schedule a meeting with John on Friday at 8",
+      "UnixTime": 1589596319
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "end time",
+      "UnixTime": 1589596335
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_end_time",
+      "ActionLabelOptions": [
+        "meeting_ask_end_time",
+        "meeting_bye",
+        "meeting_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "When do you expect the meeting to wrap up?",
+      "UnixTime": 1589596337
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2 hours",
+      "UnixTime": 1589596364
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "was that 8 pm or am?",
+      "UnixTime": 1589596397
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "was that 8 am or 8 pm?",
+      "UnixTime": 1589596415
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "8pm",
+      "UnixTime": 1589596420
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"John\")"
+        },
+        {
+          "UserName": "\"John\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"8 pm\""
+        },
+        {
+          "EndTimeHour": "\"10 pm\""
+        }
+      ],
+      "UnixTime": 1589596430
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "10 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "8 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "10 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "8 pm"
+      },
+      "Text": "your meeting was successfully scheduled. ",
+      "UnixTime": 1589596446
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_inform_nothing_found",
+        "meeting_inform_unavailable_ask_different_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "10 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "8 pm"
+      },
+      "Text": "Fantastic, your meeting with John has been successfully scheduled for Friday, 8 pm-10 pm.",
+      "UnixTime": 1589596448
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "thank you",
+      "UnixTime": 1589596453
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "10 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "8 pm"
+      },
+      "Text": "thank you",
+      "UnixTime": 1589596459
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_bye",
+      "ActionLabelOptions": [
+        "meeting_bye",
+        "out_of_scope",
+        "meeting_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Friday",
+        "EndTime": "10 pm",
+        "GuestName": "John",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "8 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589596460
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589596464
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are John and would like to schedule a two-hour meeting with John for Friday at 8 pm. The meeting reason is 'allocate department budgets'. If that time does not work, you can also do 4 pm or 11 am on Sunday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      }
+    ],
+    "WizardTask": "Help the user schedule a meeting!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant schedule your meeting?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

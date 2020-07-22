@@ -1,0 +1,1293 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "62eeec70-6c47-578d-fd46-fef2b9b6d543",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5334,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find restaurant', 'followup on doctor appointment' and 'changing a ride' (in any order), as shown on the left. You may also ask the assistant to check on the status of a booked ride.  [instruction 1 of 8]",
+      "UnixTime": 1590278383
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alexis and I would like to find a restaurant in the center of town",
+      "UnixTime": 1590278452
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "followup_doctor_appointment",
+      "UnixTime": 1590278452
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "ride_change",
+      "UnixTime": 1590278452
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "ride_status",
+      "UnixTime": 1590278452
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "restaurant_search",
+      "UnixTime": 1590278452
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "cuisine",
+      "UnixTime": 1590278473
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_food_type",
+      "ActionLabelOptions": [
+        "restaurant_ask_food_type",
+        "out_of_scope",
+        "restaurant_ask_continue_searching"
+      ],
+      "Agent": "Wizard",
+      "Text": "What cuisine are you looking for?",
+      "UnixTime": 1590278474
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Chinese",
+      "UnixTime": 1590278484
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590278484
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "location",
+      "UnixTime": 1590278486
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_location",
+      "ActionLabelOptions": [
+        "restaurant_ask_location",
+        "restaurant_inform_search_criteria",
+        "restaurant_ask_restaurant"
+      ],
+      "Agent": "Wizard",
+      "Text": "In what part of town should the restaurant be located?",
+      "UnixTime": 1590278489
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Center or North",
+      "UnixTime": 1590278495
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "cost",
+      "UnixTime": 1590278499
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_search_criteria",
+      "ActionLabelOptions": [
+        "restaurant_inform_search_criteria",
+        "out_of_scope",
+        "restaurant_ask_restaurant"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can filter restaurants by name, location, food type, its average rating, whether or not they take reservations, and whether or not they have a delivery service.",
+      "UnixTime": 1590278502
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "okay",
+      "UnixTime": 1590278521
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Food": "api.is_equal_to(\"Pizza\")"
+        },
+        {
+          "Location": "api.is_one_of([\"North\",\"Center\"])"
+        }
+      ],
+      "UnixTime": 1590278528
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "TotalItems": 51
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "Text": "I found The Porch that serves Pizza in the North. The cost is Cheap and they have an average rating of 5. ",
+      "UnixTime": 1590278567
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "Text": "I found The Porch that serves Pizza in the North. The cost is Cheap and they have an average rating of 5. ",
+      "UnixTime": 1590278570
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I thought I asked for Chinese food? Never mind, that's fine. I would like to follow up on my doctor's appointment with Dr. Alexis.",
+      "UnixTime": 1590278638
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590278638
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "Task": "followup_doctor_appointment",
+      "UnixTime": 1590278652
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "Text": "name",
+      "UnixTime": 1590278658
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_inform_search_criteria",
+        "hello",
+        "restaurant_ask_restaurant",
+        "doctor_inform_nothing_found",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1590278660
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Alexis",
+      "UnixTime": 1590278671
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"Alexis\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 53,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "The Porch",
+        "OpenTimeHour": "9 am",
+        "TakesReservations": false,
+        "id": 399
+      },
+      "UnixTime": 1590278676
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "take meds",
+      "UnixTime": 1590278680
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Your instructions are: You must take your medicine 2 times a day before meals..",
+      "UnixTime": 1590278682
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to change the details of my Uber ride, ID 444.",
+      "UnixTime": 1590278712
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590278712
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590278712
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590278722
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "what change",
+      "UnixTime": 1590278725
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_change",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "ride_ask_change",
+        "ride_inform_changes_failed",
+        "out_of_scope",
+        "doctor_ask_doctor_name",
+        "ride_ask_booking_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "Text": "Sure, what can I change for you?",
+      "UnixTime": 1590278728
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to request a BMW ride.",
+      "UnixTime": 1590278784
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "444"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"request BMW\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "You must take your medicine 2 times a day before meals."
+      },
+      "UnixTime": 1590278795
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "sorry",
+      "UnixTime": 1590278798
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_failed",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "ask_name",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately I wasn't able to update your booking, sorry.",
+      "UnixTime": 1590278801
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can I check the status of the booked ride then? ID 444.",
+      "UnixTime": 1590278831
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590278831
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590278841
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "444"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1590278844
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your ride is on its way. It is 1 minute away. ",
+      "UnixTime": 1590278855
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Your ride is on its way. It is 1 minute away. ",
+      "UnixTime": 1590278858
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. Thanks.",
+      "UnixTime": 1590278881
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "anything elese",
+      "UnixTime": 1590278887
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "else",
+      "UnixTime": 1590278890
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_inform_nothing_found",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590278892
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Not at the moment.",
+      "UnixTime": 1590278908
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590278908
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Let me know ",
+      "UnixTime": 1590278920
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "enjoy your ride",
+      "UnixTime": 1590278931
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590278932
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am not too fond of pizza. I prefer Chinese food personally.",
+      "UnixTime": 1590278977
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590278985
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Food": "\"Chinese\""
+        },
+        {
+          "Location": "api.is_one_of([\"North\",\"Center\"])"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "1 minutes away"
+      },
+      "UnixTime": 1590278987
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "TotalItems": 48
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "Text": "I  found the restaurant The Porch in Center. They serve Chinese food and have an average rating of 3. The cost is expensive. ",
+      "UnixTime": 1590279018
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "Text": "I found The Porch in Center. They serve Chinese food and has an average rating of 3. The cost is expensive. ",
+      "UnixTime": 1590279055
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's fine.",
+      "UnixTime": 1590279076
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590279076
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "Text": "would you like to seach",
+      "UnixTime": 1590279087
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_search_criteria",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "restaurant_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "Text": "I can filter restaurants by name, location, food type, its average rating, whether or not they take reservations, and whether or not they have a delivery service.",
+      "UnixTime": 1590279094
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to try and change the details of my Uber ride again. Ride ID 444. I would like to change the departure location to the University.",
+      "UnixTime": 1590279132
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590279138
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "444"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"departure to University \""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 5,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Chinese",
+        "Location": "Center",
+        "MaxPartySize": 28,
+        "Name": "The Porch",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 707
+      },
+      "UnixTime": 1590279150
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "changed",
+      "UnixTime": 1590279156
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "ride_ask_change",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1590279158
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great thanks",
+      "UnixTime": 1590279167
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590279167
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "anything else",
+      "UnixTime": 1590279174
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590279176
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is there a cheap Chinese restaurant in the North or Center of town?",
+      "UnixTime": 1590279206
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590279214
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Food": "\"Chinese\""
+        },
+        {
+          "Location": "api.is_one_of([\"North\",\"Center\"])"
+        },
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "UnixTime": 1590279219
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "TotalItems": 14
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "I found The Porch in the North. They serve Chinese and has an average rating of 5. The cost is Cheap. ",
+      "UnixTime": 1590279244
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "I found The Porch in the North. They serve Chinese and has an average rating of 5. The cost is Cheap. ",
+      "UnixTime": 1590279246
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Fantastic!",
+      "UnixTime": 1590279255
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "anything else",
+      "UnixTime": 1590279262
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "restaurant_inform_search_criteria",
+        "restaurant_ask_food_type"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590279264
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think I'm good, thanks.",
+      "UnixTime": 1590279282
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590279282
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "goodbye",
+      "UnixTime": 1590279296
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "Thank you and goodbye. ",
+      "UnixTime": 1590279301
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "bye",
+      "UnixTime": 1590279313
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590279320
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "bye ",
+      "UnixTime": 1590279322
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "hello",
+        "out_of_scope",
+        "hello",
+        "restaurant_ask_rating"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 5,
+        "AverageWaitMinutes": 57,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 38,
+        "Name": "The Porch",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 227
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590279324
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590279328
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor",
+      "restaurant",
+      "ride"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Alexis\n- Today is Tuesday\n\n The AI Assistant can handle:\n- Find a restaurant (e.g. in the Center or North of town)\n- Followup on doctor appointment (e.g. with Dr. Alexis or Dr. Morgan) \n- Changing details about a Taxi/Uber/Lyft ride (e.g. ride id 444) \n- Checking the status of a booked ride",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Tuesday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

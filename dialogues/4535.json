@@ -1,0 +1,205 @@
+{
+  "AnonymizedUserWorkerID": "58be375a-caa2-7735-72af-2683a9d7dda2",
+  "AnonymizedWizardWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4535,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi someone is transferring money on my account of over 10 dollars over the past week. my name is Katarina Miller",
+      "UnixTime": 1589582247
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "CAn I have your account number",
+      "UnixTime": 1589582260
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_inform_cannot_authenticate",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589582262
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "84318931431 and my pin is 1596",
+      "UnixTime": 1589582277
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"someone is transferring money on my account of over 10 dollars over the past week\""
+        },
+        {
+          "FullName": "\"Katarina Miller\""
+        },
+        {
+          "AccountNumber": "84318931431"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "UnixTime": 1589582315
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "The fraud report has been submitted.",
+      "UnixTime": 1589582323
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_fraud_details",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1589582324
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "thank you!",
+      "UnixTime": 1589582337
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Is there anything else",
+      "UnixTime": 1589582343
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_ask_childhood_pets_name",
+        "bank_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589582345
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "thats all",
+      "UnixTime": 1589582396
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Thank yo and goodbye",
+      "UnixTime": 1589582415
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_fraud_report_submitted",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589582416
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589582420
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Katarina Miller and would like to submit a fraud report. There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week. Your account number is 84318931431 and your PIN is 1596.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Authenticate the user and submit a fraud report"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant succesfully report fraud on your account?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

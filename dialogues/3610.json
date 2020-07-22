@@ -1,0 +1,399 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3610,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I need to schedule a meeting with Michael for 2 hours on Sunday. ",
+      "UnixTime": 1589595479
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589595503
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hello",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can I get your name, please?",
+      "UnixTime": 1589595504
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Ben",
+      "UnixTime": 1589595522
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What time",
+      "UnixTime": 1589595532
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_start_time",
+      "ActionLabelOptions": [
+        "meeting_ask_start_time",
+        "meeting_ask_day",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what time should the meeting be scheduled?",
+      "UnixTime": 1589595535
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "3 pm. The reason for the meeting is to plan project",
+      "UnixTime": 1589595562
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Michael\""
+        },
+        {
+          "UserName": "\"Ben\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"3 pm\""
+        },
+        {
+          "EndTimeHour": "\"5 pm\""
+        },
+        {
+          "MeetingReason": "\"Plan project\""
+        }
+      ],
+      "UnixTime": 1589595594
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "Text": "conflicting meeting",
+      "UnixTime": 1589595603
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_unavailable_ask_different_time",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "Text": "Unfortunately Michael is not able to make Sunday @ 3 pm.\nWould you like to try scheduling the meeting for a different day or time?",
+      "UnixTime": 1589595608
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Does he have 6 pm that day?",
+      "UnixTime": 1589595651
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "Text": "end time?",
+      "UnixTime": 1589595674
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_end_time",
+      "ActionLabelOptions": [
+        "meeting_ask_end_time",
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "Text": "When do you expect the meeting to wrap up?",
+      "UnixTime": 1589595676
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2 hours, so 8 pm",
+      "UnixTime": 1589595708
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Michael\""
+        },
+        {
+          "UserName": "\"Ben\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "EndTimeHour": "\"8 pm\""
+        },
+        {
+          "MeetingReason": "\"Plan project\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "5 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "3 pm"
+      },
+      "UnixTime": 1589595716
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "8 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "6 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "8 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "6 pm"
+      },
+      "Text": "conflicting",
+      "UnixTime": 1589595720
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_unavailable_ask_different_time",
+      "ActionLabelOptions": [
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_ask_end_time",
+        "meeting_inform_confirmed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "8 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "6 pm"
+      },
+      "Text": "Unfortunately Michael is not able to make Sunday @ 6 pm.\nWould you like to try scheduling the meeting for a different day or time?",
+      "UnixTime": 1589595723
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about 10 pm?",
+      "UnixTime": 1589595744
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Michael\""
+        },
+        {
+          "UserName": "\"Ben\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"10 pm\""
+        },
+        {
+          "EndTimeHour": "\"12 am\""
+        },
+        {
+          "MeetingReason": "\"Plan project\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "8 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "6 pm"
+      },
+      "UnixTime": 1589595763
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "12 am",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "12 am",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 pm"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1589595773
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_ask_end_time",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "12 am",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "10 pm"
+      },
+      "Text": "Fantastic, your meeting with Michael has been successfully scheduled for Sunday, 10 pm-12 am.",
+      "UnixTime": 1589595776
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589595804
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Ben and would like to schedule a two-hour meeting with Michael for Sunday at 3 pm. The meeting reason is 'plan project'. If that time does not work, you can also do 10 pm or 6 pm the same day.",
+    "WizardCapabilities": [
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      }
+    ],
+    "WizardTask": "Help the user schedule a meeting!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant schedule your meeting?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

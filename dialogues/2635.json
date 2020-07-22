@@ -1,0 +1,198 @@
+{
+  "AnonymizedUserWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "AnonymizedWizardWorkerID": "f25604a3-cd06-e656-a118-d995d3f29cd2",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2635,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, can I make a service request? My name is John.",
+      "UnixTime": 1589823465
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello",
+      "UnixTime": 1589823484
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "hotel_ask_room_number",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589823485
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like more towels for my room.",
+      "UnixTime": 1589823497
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "which hotel",
+      "UnixTime": 1589823518
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "out_of_scope",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589823520
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Old Town Inn, room 351.",
+      "UnixTime": 1589823527
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time",
+      "UnixTime": 1589823558
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_time",
+      "ActionLabelOptions": [
+        "hotel_ask_time",
+        "ask_name",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time would you like us to provide the service?",
+      "UnixTime": 1589823563
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "10 am please.",
+      "UnixTime": 1589823567
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "RoomNumber": "351"
+        },
+        {
+          "Time": "\"10 am\""
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "CustomerRequest": "\"More towel\""
+        }
+      ],
+      "UnixTime": 1589823581
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "10 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "10 am"
+      },
+      "Text": "Your service request has been confirmed. ",
+      "UnixTime": 1589823595
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "hotel_inform_service_request_failed",
+        "hotel_ask_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "10 am"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 351 at 10 am!",
+      "UnixTime": 1589823600
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589823605
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John and you are staying in room 351 of the Old Town Inn. You would like to make a service request for 10 am. Your request is: I need more towels.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully submit your service request?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "AnonymizedUserWorkerID": "6e385cf7-9271-d0c6-3927-e0888894cc2d",
+  "AnonymizedWizardWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3352,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OMG I have been waiting forever for my ride what is going on?!",
+      "UnixTime": 1589591093
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "can i have your name",
+      "UnixTime": 1589591101
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hello",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589591114
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yeah, it's Ben. Do I have to wait much longer?",
+      "UnixTime": 1589591125
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Need your ride id please",
+      "UnixTime": 1589591137
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "ride_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1589591139
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It's 572? I think?",
+      "UnixTime": 1589591151
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "572"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        }
+      ],
+      "UnixTime": 1589591155
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "Your ride is 7 minutes away",
+      "UnixTime": 1589591163
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "Your ride is 7 minutes away",
+      "UnixTime": 1589591167
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "So you all didn't forget about me?",
+      "UnixTime": 1589591175
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "No they got delayed",
+      "UnixTime": 1589591186
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "No they got delayed",
+      "UnixTime": 1589591188
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok, thank you. Have a good day",
+      "UnixTime": 1589591197
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "okay thank you",
+      "UnixTime": 1589591204
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "ride_ask_booking_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "7 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1589591206
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589591208
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You (Ben) have been waiting ages for your ride! Perhaps the car company forgot about your booking (id 572? Ask the assistant what is going on.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Help the user stay informed about the status of his/her ride. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the status of your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

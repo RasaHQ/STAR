@@ -1,0 +1,694 @@
+{
+  "AnonymizedUserWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "AnonymizedWizardWorkerID": "1777b3e5-9e12-0a4d-288e-a8708b011a07",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6492,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking ride status', 'getting directions', and 'schedule a meeting' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590522455
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hey there I need to schedule a meeting",
+      "UnixTime": 1590522478
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "trip_directions",
+      "UnixTime": 1590522478
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "schedule_meeting",
+      "UnixTime": 1590522482
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name please",
+      "UnixTime": 1590522488
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "meeting_ask_guest_name",
+        "meeting_ask_start_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can I get your name, please?",
+      "UnixTime": 1590522491
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben",
+      "UnixTime": 1590522496
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "schedule_meeting",
+      "UnixTime": 1590522503
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "meeting guest",
+      "UnixTime": 1590522521
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_guest_name",
+      "ActionLabelOptions": [
+        "meeting_ask_guest_name",
+        "meeting_ask_end_time",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "With whom would you like to schedule the meeting?",
+      "UnixTime": 1590522524
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": " and arrange a ride to get there Lol Let me have monday at 9 please. Is john available?",
+      "UnixTime": 1590522540
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590522540
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What day and time",
+      "UnixTime": 1590522564
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_day",
+      "ActionLabelOptions": [
+        "meeting_ask_day",
+        "meeting_ask_start_time",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "What day did you have in mind for the meeting?",
+      "UnixTime": 1590522567
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Monday. Even though I hate mondays. uggh who doesn't",
+      "UnixTime": 1590522585
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time end",
+      "UnixTime": 1590522613
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_end_time",
+      "ActionLabelOptions": [
+        "meeting_ask_start_time",
+        "meeting_bye",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "When do you expect the meeting to wrap up?",
+      "UnixTime": 1590522618
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "jon gets long winded so lets say 10",
+      "UnixTime": 1590522634
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590522634
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"John\")"
+        },
+        {
+          "UserName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"9 am\""
+        },
+        {
+          "EndTimeHour": "\"10 am\""
+        }
+      ],
+      "UnixTime": 1590522642
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "there is a conflict",
+      "UnixTime": 1590522656
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_unavailable_ask_different_time",
+      "ActionLabelOptions": [
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_inform_confirmed",
+        "meeting_ask_reason"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "Unfortunately John is not able to make Monday @ 9 am.\nWould you like to try scheduling the meeting for a different day or time?",
+      "UnixTime": 1590522660
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "actually i need directions there not a ride. It'll be at 5th and main and I'll be coming from University and Price.",
+      "UnixTime": 1590522698
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590522698
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "Dont you want to schedule the meeting",
+      "UnixTime": 1590522724
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590522734
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "mode of transport",
+      "UnixTime": 1590522753
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "travel mode",
+      "UnixTime": 1590522769
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_travel_mode",
+      "ActionLabelOptions": [
+        "trip_ask_travel_mode",
+        "meeting_ask_reason",
+        "ask_name",
+        "meeting_inform_confirmed",
+        "trip_inform_simple_step_ask_proceed",
+        "trip_instructions_done"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Text": "Do you want to drive, walk, or use public transit?",
+      "UnixTime": 1590522774
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": ". I'll be driving.is john available at 10? You can send me the directions now and I'll save them for later",
+      "UnixTime": 1590522787
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('checking ride status', 'getting directions', and 'schedule a meeting'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590522787
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590522796
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"John\")"
+        },
+        {
+          "UserName": "\"Ben\""
+        },
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "StartTimeHour": "\"10 am\""
+        },
+        {
+          "EndTimeHour": "\"11 am\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "10 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "9 am"
+      },
+      "UnixTime": 1590522804
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "11 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "10 am"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "11 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "10 am"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590522815
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_nothing_found",
+        "meeting_inform_confirmed",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "11 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "10 am"
+      },
+      "Text": "Fantastic, your meeting with John has been successfully scheduled for Monday, 10 am-11 am.",
+      "UnixTime": 1590522834
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "good can you check on my ride i've got vcoming now? Id 947",
+      "UnixTime": 1590522858
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "11 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "10 am"
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590522866
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "947"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Monday",
+        "EndTime": "11 am",
+        "GuestName": "John",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "10 am"
+      },
+      "UnixTime": 1590522883
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "your driver",
+      "UnixTime": 1590522891
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver will be there in 10 minutes",
+      "UnixTime": 1590522906
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver will be there in 10 minutes",
+      "UnixTime": 1590522909
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "excellent ok can you send me the directions? please",
+      "UnixTime": 1590522928
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking ride status', 'getting directions', and 'schedule a meeting') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590522928
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590522935
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "departure",
+      "UnixTime": 1590522954
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "where dapart",
+      "UnixTime": 1590522963
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "From where are you departing?",
+      "UnixTime": 1590522976
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "have you heard about John? He's quite the lothario. University and Price I don't want to take the 451 freeway though",
+      "UnixTime": 1590523043
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "travel mode",
+      "UnixTime": 1590523066
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_travel_mode",
+      "ActionLabelOptions": [
+        "trip_ask_travel_mode",
+        "ride_ask_booking_number",
+        "out_of_scope",
+        "ride_inform_nothing_found",
+        "trip_inform_simple_step_ask_proceed",
+        "trip_instructions_done"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Do you want to drive, walk, or use public transit?",
+      "UnixTime": 1590523068
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's ok I'll get the directions another time. Thanks have a good one.",
+      "UnixTime": 1590523099
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "may I help you",
+      "UnixTime": 1590523111
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "hello",
+        "hello",
+        "anything_else",
+        "anything_else",
+        "trip_ask_departure_location",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590523114
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590523117
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting",
+      "ride",
+      "trip",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Ben\n\n The AI Assistant can handle:\n- Check your ride's status (e.g. ride id 947)\n- Get walking/driving/transit directions (e.g. from 'Forbes and Murray' to 'Craig and Center') \n- Schedule a meeting\n- Checking the weather forecast in different Cities (e.g. Pittsburgh or Chicago)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

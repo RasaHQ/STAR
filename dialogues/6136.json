@@ -1,0 +1,174 @@
+{
+  "AnonymizedUserWorkerID": "a36b0bfb-b70b-ed8a-aa44-347240d05b0a",
+  "AnonymizedWizardWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 6136,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant' and 'Bank balance checking' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590096773
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi,  my name is Jane.",
+      "UnixTime": 1590096814
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hi",
+      "UnixTime": 1590096825
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_ask_size",
+        "restaurant_ask_time"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1590096827
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm looking for an expensive priced restaurant that does deliveries, maybe amarind or Legume for tonight.",
+      "UnixTime": 1590096878
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time",
+      "UnixTime": 1590096900
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "ask_name",
+        "restaurant_ask_restaurant"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590096902
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Maybe 7pm for 7 people.",
+      "UnixTime": 1590096937
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590096937
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "7"
+        },
+        {
+          "CustomerName": "\"Jane\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590096947
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Tamarind available",
+      "UnixTime": 1590096954
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Great, the Tamarind is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590097031
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please. It's a bridal shower so I need to check my bank balance to make sure I can get enough cash to cover the check.",
+      "UnixTime": 1590097079
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Jane Doe\n- Your bank account: 84318931431, with PIN 9503\n- Today is Sunday the 5th of June, 1 pm\n\n The AI Assistant can handle:\n- Checking bank balance\n- Reserving a table at a restaurant (e.g. Tamarind or Legume) for today\n- Checking the weather forecast in different Cities (e.g. New York City or Pittsburgh)",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Sunday the 5th of June, 1 pm"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

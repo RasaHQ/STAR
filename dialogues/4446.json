@@ -1,0 +1,157 @@
+{
+  "AnonymizedUserWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "AnonymizedWizardWorkerID": "8fd82cbd-c563-20d6-55e1-f6598e35808c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4446,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. My name is Mark I would like to stay at the Shadyside inn from May 13th-16th.",
+      "UnixTime": 1589609045
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"13th\""
+        },
+        {
+          "EndDate": "\"16th\""
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589609064
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "unavail",
+      "UnixTime": 1589609070
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_failed",
+      "ActionLabelOptions": [
+        "hotel_reservation_failed",
+        "hotel_ask_confirm_booking",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm sorry, but your booking request failed.",
+      "UnixTime": 1589609074
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay. Thanks anyway. Goodbye.",
+      "UnixTime": 1589609086
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "bye",
+      "UnixTime": 1589609090
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_reservation_failed",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589609092
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589609096
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Shadyside Inn from May 13th to 16th. Your name is Mark. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

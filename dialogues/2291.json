@@ -1,0 +1,234 @@
+{
+  "AnonymizedUserWorkerID": "804d857e-47ad-db37-19b1-ecdd331f0a69",
+  "AnonymizedWizardWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2291,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi there!",
+      "UnixTime": 1589833854
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello how ma",
+      "UnixTime": 1589833860
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "hotel_ask_room_number"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589833862
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela and I am staying in room 351.  the AC is not working.",
+      "UnixTime": 1589833887
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what hotel",
+      "UnixTime": 1589833918
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "hotel_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589833919
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am in the shadyside Inn",
+      "UnixTime": 1589833930
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what time",
+      "UnixTime": 1589833950
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_time",
+      "ActionLabelOptions": [
+        "hotel_ask_time",
+        "ask_name",
+        "hotel_ask_hotel"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what time would you like us to provide the service?",
+      "UnixTime": 1589833953
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "11 pm please",
+      "UnixTime": 1589833963
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "RoomNumber": "351"
+        },
+        {
+          "Time": "\"11 pm\""
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "CustomerRequest": "\"The AC is not working.\""
+        }
+      ],
+      "UnixTime": 1589833986
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "11 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "11 pm"
+      },
+      "Text": "request confirmed",
+      "UnixTime": 1589833990
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "hotel_ask_time",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "11 pm"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 351 at 11 pm!",
+      "UnixTime": 1589833992
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "great, thank you",
+      "UnixTime": 1589834014
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "11 pm"
+      },
+      "Text": "anything else",
+      "UnixTime": 1589834018
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hotel_bye",
+        "hotel_inform_service_request_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 351,
+        "Time": "11 pm"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589834020
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589834023
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Angela and you are staying in room 351 of the Shadyside Inn. You would like to make a service request for 11 pm. Your request is: The AC isn't working in my room. I need it fixed immediately!.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully submit your service request?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

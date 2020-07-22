@@ -1,0 +1,1556 @@
+{
+  "AnonymizedUserWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "AnonymizedWizardWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5513,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find apartment', 'Schedule apartment viewing' and 'Calling a ride' (in any order), as shown on the left. You may also ask the assistant to check the weather.  [instruction 1 of 8]",
+      "UnixTime": 1590205818
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey AI! need you to help me find a studio apartment. please",
+      "UnixTime": 1590205854
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "i can filter",
+      "UnixTime": 1590205869
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_criteria",
+      "ActionLabelOptions": [
+        "apartment_inform_search_criteria",
+        "apartment_ask_balcony",
+        "apartment_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can apply the following filters: number of bedrooms, price, floor, balcony, elevator and nearby POIs.",
+      "UnixTime": 1590205871
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "what are POIs about?",
+      "UnixTime": 1590205885
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590205885
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pois",
+      "UnixTime": 1590205899
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "It's for if you want an apartment by specific surroundings.",
+      "UnixTime": 1590205913
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "sounds like something I'd get at a luau. ha! like what?",
+      "UnixTime": 1590205928
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how many rooms",
+      "UnixTime": 1590205939
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_num_bedrooms",
+      "ActionLabelOptions": [
+        "apartment_ask_num_bedrooms",
+        "apartment_ask_balcony",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many bedrooms does the apartment need to have?",
+      "UnixTime": 1590205941
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1 how about by a park but I don't want to be by that rowdy museum crowd,",
+      "UnixTime": 1590205983
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NearbyPOIs": "api.contains(\"School\")"
+        },
+        {
+          "NumRooms": "1"
+        },
+        {
+          "NearbyPOIs": "api.contains_not(\"Museum\")"
+        }
+      ],
+      "UnixTime": 1590206011
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "TotalItems": 34
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "one on center",
+      "UnixTime": 1590206015
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_inform_nothing_found",
+        "apartment_ask_balcony"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "OK, I found a free flat in One on Center Apartments, located near a School and a University, that is matching your search criteria.\nIt is on level 12, has 19 square meters and 1 bedrooms.\nIt does not have a balcony and has an elevator, and comes at the price of 308 per month.",
+      "UnixTime": 1590206016
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That sounds good. Can you set up a viewing for me>",
+      "UnixTime": 1590206034
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590206034
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590206041
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "name",
+      "UnixTime": 1590206045
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "apartment_inform_search_result",
+        "apartment_inform_nothing_found",
+        "apartment_bye",
+        "apartment_ask_start_time",
+        "apartment_ask_apartment_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "Could you give me your name, please?",
+      "UnixTime": 1590206047
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1590206056
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "what day",
+      "UnixTime": 1590206072
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_day",
+      "ActionLabelOptions": [
+        "apartment_ask_day",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_price",
+        "apartment_bye",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "What day would you like to make the booking for?",
+      "UnixTime": 1590206074
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "tomorrow morning? friday",
+      "UnixTime": 1590206091
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "what time",
+      "UnixTime": 1590206104
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_start_time",
+      "ActionLabelOptions": [
+        "apartment_ask_nearby_pois",
+        "apartment_ask_end_time",
+        "apartment_inform_viewing_unavailable",
+        "apartment_ask_start_time",
+        "anything_else",
+        "apartment_ask_num_bedrooms"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "When would you like the viewing to start?",
+      "UnixTime": 1590206107
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh hey can you hook me up with a ride to get there too? 8am",
+      "UnixTime": 1590206128
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Task": "book_ride",
+      "UnixTime": 1590206138
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "departing from",
+      "UnixTime": 1590206149
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_departure",
+      "ActionLabelOptions": [
+        "ride_ask_departure",
+        "apartment_bye",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_elevator",
+        "ride_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "OK, and where are you departing from?",
+      "UnixTime": 1590206150
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hogwarts",
+      "UnixTime": 1590206163
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590206163
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"Hogwarts\""
+        },
+        {
+          "ArrivalLocation": "\"One on Center Apartments\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "UnixTime": 1590206170
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "uber",
+      "UnixTime": 1590206176
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "ride_ask_destination",
+        "ride_ask_confirm_booking",
+        "ride_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "I found a Uber ride for you from 'Hogwarts' to 'One on Center Apartments' for 14 credits\nthat could pick you up in 7 minutes. Should I book that for you?",
+      "UnixTime": 1590206178
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please!",
+      "UnixTime": 1590206188
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"Hogwarts\""
+        },
+        {
+          "ArrivalLocation": "\"One on Center Apartments\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "UnixTime": 1590206201
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "UnixTime": 1590206203
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "booked",
+      "UnixTime": 1590206205
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_confirm_booking",
+      "ActionLabelOptions": [
+        "ride_confirm_booking",
+        "hello",
+        "ride_provide_driver_details"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "Ok, I have booked you a ride with licence plate '031 NGA'. Your booking ID is '877'.",
+      "UnixTime": 1590206207
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you. What cities do you have the weather for?",
+      "UnixTime": 1590206230
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590206230
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Task": "book_ride",
+      "UnixTime": 1590206249
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Task": "weather",
+      "UnixTime": 1590206250
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "what day",
+      "UnixTime": 1590206254
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "ride_ask_destination",
+        "ride_confirm_booking",
+        "anything_else",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Text": "For what day would you like the weather forecast?",
+      "UnixTime": 1590206256
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "wow you got me an apt viewing a ride there excellent thank you! I'm impressed.How about Saturday?",
+      "UnixTime": 1590206298
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590206324
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "Task": "weather",
+      "UnixTime": 1590206330
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "One on Center Apartments",
+        "CarModel": "Corolla",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hogwarts",
+        "DriverName": "Dave",
+        "LicensePlate": "031 NGA",
+        "MinutesTillPickup": 7,
+        "Price": 14,
+        "ServiceProvider": "Uber",
+        "id": 877
+      },
+      "UnixTime": 1590206335
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "snowing",
+      "UnixTime": 1590206338
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "hello",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "It will be Snowing all day on Saturday in Los Angeles, with temperatures of around 13 degrees celsius.",
+      "UnixTime": 1590206339
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Do you have into on any cities in the south?",
+      "UnixTime": 1590206385
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590206385
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "i don't",
+      "UnixTime": 1590206402
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "weather_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to tell you the weather.",
+      "UnixTime": 1590206404
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "what's the weather in baltimore?",
+      "UnixTime": 1590206445
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "i am sorry",
+      "UnixTime": 1590206456
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "anything_else",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590206463
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "maybe i should check out a few apartments. what other ones are aroung a park?",
+      "UnixTime": 1590206518
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590206518
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "Task": "apartment_search",
+      "UnixTime": 1590206524
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "1"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"Park\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "UnixTime": 1590206534
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "TotalItems": 43
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "Text": "shadyside",
+      "UnixTime": 1590206537
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "UnixTime": 1590206542
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 13,
+        "Weather": "Snowing",
+        "id": 2
+      },
+      "UnixTime": 1590206544
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "Text": "shadyside apartments",
+      "UnixTime": 1590206549
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_ask_nearby_pois",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "Text": "OK, I found a free flat in Shadyside Apartments, located near a Park and a Club, that is matching your search criteria.\nIt is on level 13, has 36 square meters and 1 bedrooms.\nIt has a south facing balcony and does not have an elevator, and comes at the price of 568 per month.",
+      "UnixTime": 1590206550
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oooh level 16 and no elevator. I'm going to pass on that. Next.",
+      "UnixTime": 1590206587
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "1"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"Park\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 36,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 13,
+        "MaxLevel": 15,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Club"
+        ],
+        "NumRooms": 1,
+        "Price": 568,
+        "id": 803
+      },
+      "UnixTime": 1590206599
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 22,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Museum"
+        ],
+        "NumRooms": 1,
+        "Price": 354,
+        "id": 10
+      },
+      "TotalItems": 43
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 22,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Museum"
+        ],
+        "NumRooms": 1,
+        "Price": 354,
+        "id": 10
+      },
+      "Text": "north hill",
+      "UnixTime": 1590206603
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_ask_nearby_pois",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 22,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Museum"
+        ],
+        "NumRooms": 1,
+        "Price": 354,
+        "id": 10
+      },
+      "Text": "OK, I found a free flat in North Hill Apartments, located near a Park and a Museum, that is matching your search criteria.\nIt is on level 12, has 22 square meters and 1 bedrooms.\nIt does not have a balcony and has an elevator, and comes at the price of 354 per month.",
+      "UnixTime": 1590206604
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That sounds good. I'll put that on my list. Thanks",
+      "UnixTime": 1590206632
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 22,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Museum"
+        ],
+        "NumRooms": 1,
+        "Price": 354,
+        "id": 10
+      },
+      "Text": "apartment viewing",
+      "UnixTime": 1590206645
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 22,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "Park",
+          "Museum"
+        ],
+        "NumRooms": 1,
+        "Price": 354,
+        "id": 10
+      },
+      "UnixTime": 1590206652
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "apartment viewing",
+      "UnixTime": 1590206656
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "Would you like to finish your apartment viewing booking?",
+      "UnixTime": 1590206666
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "probably not. ",
+      "UnixTime": 1590206687
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590206687
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "anything else",
+      "UnixTime": 1590206699
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "apartment_inform_nothing_found",
+        "apartment_ask_nearby_pois"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590206701
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you and good bye",
+      "UnixTime": 1590206709
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "bye",
+      "UnixTime": 1590206713
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "apartment_inform_nothing_found",
+        "apartment_ask_nearby_pois"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 19,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 12,
+        "MaxLevel": 13,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "University"
+        ],
+        "NumRooms": 1,
+        "Price": 308,
+        "id": 273
+      },
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1590206715
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590206718
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment",
+      "ride",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Angela\n- Today is Thursday\n\n The AI Assistant can handle:\n- Find an apartment (prices are in 'credits')\n- Schedule an apartment viewing \n- Calling a Taxi/Uber/Lyft ride \n- Checking the weather forecast in different Cities (e.g. San Francisco or New York City)",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      },
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Thursday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

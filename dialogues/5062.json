@@ -1,0 +1,943 @@
+{
+  "AnonymizedUserWorkerID": "5279cf01-d151-44ce-b806-dd2536b8c8bd",
+  "AnonymizedWizardWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5062,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking ride status', 'getting directions', and 'schedule a meeting' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590265311
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, my name is Mark.  Can you check ride status?",
+      "UnixTime": 1590265338
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "id",
+      "UnixTime": 1590265346
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1590265350
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "145",
+      "UnixTime": 1590265358
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "145"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        }
+      ],
+      "UnixTime": 1590265369
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "driver",
+      "UnixTime": 1590265375
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver is dropping off another passenger. He is 10 minutes away.",
+      "UnixTime": 1590265397
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's too long for me.  I would rather walk.  Can you check directions from Hospital to Craig and Center?",
+      "UnixTime": 1590265425
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590265425
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590265425
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "time",
+      "UnixTime": 1590265437
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_time",
+      "ActionLabelOptions": [
+        "trip_instructions_done",
+        "trip_ask_departure_time",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "When are you going to start your trip?",
+      "UnixTime": 1590265440
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "5 PM.  Hey, did you know that a period is a prisoner's favorite punctuation mark? It marks the end of their sentence.",
+      "UnixTime": 1590265467
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureLocation": "\"Hospital\""
+        },
+        {
+          "ArrivalLocation": "\"Craig\""
+        },
+        {
+          "TravelMode": "\"Walking\""
+        },
+        {
+          "DepartureTime": "\"5 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "10 minutes away"
+      },
+      "UnixTime": 1590265481
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Haha Sir. May I give you your directions now?",
+      "UnixTime": 1590265507
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Haha Sir. May I give you your directions now?",
+      "UnixTime": 1590265512
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure, please proceed.",
+      "UnixTime": 1590265532
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590265532
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Walk 2 blocks east on Forbes Avenue, towards Murray",
+      "UnixTime": 1590265535
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_arrival_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Walk 2 blocks east on Forbes Avenue, towards Murray. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590265538
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, proceed",
+      "UnixTime": 1590265550
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590265550
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn right and walk for 3 blocks until you arrive at the church",
+      "UnixTime": 1590265557
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_inform_detailed_step",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn right and walk for 3 blocks until you arrive at the church. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590265561
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed",
+      "UnixTime": 1590265566
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('checking ride status', 'getting directions', and 'schedule a meeting'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590265566
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn left and walk for 5 minutes until you see the park on your left.",
+      "UnixTime": 1590265570
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_inform_detailed_step",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn left and walk for 5 minutes until you see the park on your left. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590265573
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed",
+      "UnixTime": 1590265578
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn left and walk for 5 minutes until you see the park on your left.",
+      "UnixTime": 1590265581
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_inform_detailed_step",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Turn left and walk for 5 minutes until you see the park on your left. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590265584
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed",
+      "UnixTime": 1590265588
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking ride status', 'getting directions', and 'schedule a meeting') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590265588
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Your destination will be on the right",
+      "UnixTime": 1590265599
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_last_step_and_done",
+      "ActionLabelOptions": [
+        "trip_inform_last_step_and_done",
+        "trip_ask_travel_mode",
+        "trip_ask_arrival_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "Your destination will be on the right. Do you know how to reach your destination or would you require more detailed instructions?",
+      "UnixTime": 1590265608
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope. That's good.  I also need to schedule with someone on my sales team.  I need to meet with anyone but John as I already met with him.  Can you set that up?",
+      "UnixTime": 1590265636
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590265636
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "time",
+      "UnixTime": 1590265648
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "start",
+      "UnixTime": 1590265659
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_start_time",
+      "ActionLabelOptions": [
+        "meeting_ask_start_time",
+        "trip_ask_departure_location",
+        "out_of_scope",
+        "meeting_bye",
+        "trip_instructions_done",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "Text": "For what time should the meeting be scheduled?",
+      "UnixTime": 1590265662
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2 PM",
+      "UnixTime": 1590265670
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Michael\",\"Fred\",\"George\"])"
+        },
+        {
+          "UserName": "\"Mark\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "api.is_equal_to(\"12 am\")"
+        },
+        {
+          "EndTimeHour": "\"2 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedWalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue towards Murray. You will pass a fire station on your left.",
+          "Turn right and walk for 3 blocks until you arrive at the tall brown church. Cross the street after arriving at the church.",
+          "Turn left and walk for 5 minutes. You will pass a school on your right. Keep going until you see the park on your left.",
+          "Your destination will be on the right besides the Starbucks."
+        ],
+        "TravelMode": "Walking",
+        "TripLengthMinutes": 89,
+        "WalkingInstructions": [
+          "Walk 2 blocks east on Forbes Avenue, towards Murray",
+          "Turn right and walk for 3 blocks until you arrive at the church",
+          "Turn left and walk for 5 minutes until you see the park on your left.",
+          "Your destination will be on the right"
+        ],
+        "id": 143
+      },
+      "UnixTime": 1590265684
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": ""
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Michael\",\"Fred\",\"George\"])"
+        },
+        {
+          "UserName": "\"Mark\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "api.is_equal_to(\"12 am\")"
+        },
+        {
+          "EndTimeHour": "\"2 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": ""
+      },
+      "UnixTime": 1590265690
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "scheduled",
+      "UnixTime": 1590265701
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "ask_name",
+        "meeting_ask_reason"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "Fantastic, your meeting with Michael has been successfully scheduled for Sunday, -2 pm.",
+      "UnixTime": 1590265704
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, that's it thanks!",
+      "UnixTime": 1590265715
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "anything",
+      "UnixTime": 1590265722
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590265727
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "anything",
+      "UnixTime": 1590265731
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "2 pm",
+        "GuestName": "Michael",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "Is there anything else I can do for you?",
+      "UnixTime": 1590265742
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590265745
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting",
+      "ride",
+      "trip",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Mark\n\n The AI Assistant can handle:\n- Check your ride's status (e.g. ride id 132)\n- Get walking/driving/transit directions (e.g. from 'Hospital' to 'Craig and Center') \n- Schedule a meeting\n- Checking the weather forecast in different Cities (e.g. Detroit or San Francisco)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

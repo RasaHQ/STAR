@@ -1,0 +1,365 @@
+{
+  "AnonymizedUserWorkerID": "14919914-710a-eee6-acf9-4a4b56ee1641",
+  "AnonymizedWizardWorkerID": "62eeec70-6c47-578d-fd46-fef2b9b6d543",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2558,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589846360
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi how to help",
+      "UnixTime": 1589846378
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "hotel_ask_name",
+        "hotel_ask_location"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589846380
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to find an expensive hotel with a rating of 4 or more.",
+      "UnixTime": 1589846421
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        },
+        {
+          "AverageRating": "api.is_at_least(4)"
+        }
+      ],
+      "UnixTime": 1589846449
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 779
+      },
+      "TotalItems": 142
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "\"Expensive\""
+        },
+        {
+          "AverageRating": "api.is_at_least(4)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 779
+      },
+      "UnixTime": 1589846452
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "TotalItems": 142
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "Text": "I found the Hilton Hotel at the west",
+      "UnixTime": 1589846461
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_provide_search_result",
+        "hotel_inform_name",
+        "hotel_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "Text": "OK, I have found the 'Hilton Hotel', located West. It is in the Expensive price category and has an average rating of 4.",
+      "UnixTime": 1589846463
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you.",
+      "UnixTime": 1589846507
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "Text": "anything else",
+      "UnixTime": 1589846514
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hotel_inform_nothing_found",
+        "hotel_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589846516
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm sorry, I need the rating to be higher than 4",
+      "UnixTime": 1589846588
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "\"Expensive\""
+        },
+        {
+          "AverageRating": "api.is_greater_than(4)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 287
+      },
+      "UnixTime": 1589846598
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": true,
+        "id": 769
+      },
+      "TotalItems": 73
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": true,
+        "id": 769
+      },
+      "Text": "I found the Hilton Hotel ",
+      "UnixTime": 1589846605
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_provide_search_result",
+        "hotel_ask_search_more",
+        "hotel_inform_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": true,
+        "id": 769
+      },
+      "Text": "OK, I have found the 'Hilton Hotel', located West. It is in the Expensive price category and has an average rating of 5.",
+      "UnixTime": 1589846607
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. Thank you for your help.",
+      "UnixTime": 1589846634
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": true,
+        "id": 769
+      },
+      "Text": "goodbye",
+      "UnixTime": 1589846647
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_inform_nothing_found",
+        "hotel_inform_rating"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": true,
+        "id": 769
+      },
+      "Text": "Goodbye!",
+      "UnixTime": 1589846649
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589846654
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Find a Expensive hotel with a rating higher than 4 and note its name and the part of town it is in.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific hotel. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant find you a suitable hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

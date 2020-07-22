@@ -1,0 +1,162 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "1777b3e5-9e12-0a4d-288e-a8708b011a07",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 6518,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hello and ask for directions (see left panel). [instruction 1 of 4]",
+      "UnixTime": 1590526369
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1590526401
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1590526408
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "trip_inform_nothing_found",
+        "trip_ask_departure_location"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1590526411
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Trivia time",
+      "UnixTime": 1590526491
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What question",
+      "UnixTime": 1590526503
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "trivia",
+      "UnixTime": 1590526509
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "question number",
+      "UnixTime": 1590526516
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question_number",
+      "ActionLabelOptions": [
+        "trivia_ask_question_number",
+        "trivia_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what question would you like to start?",
+      "UnixTime": 1590526518
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2",
+      "UnixTime": 1590526546
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, start a game of trivia with the assistant while you're getting directions (see left panel). [instruction 2 of 4]",
+      "UnixTime": 1590526546
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "2"
+        }
+      ],
+      "UnixTime": 1590526552
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A_is",
+      "UnixTime": 1590526561
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "hello",
+        "trivia_inform_answer_2_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A ____ is the blue field behind the stars",
+      "UnixTime": 1590526563
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "trip",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You want directions from 'Forbes and Murray' to 'Craig and Center', leaving now (10 pm). As the assistant gives you the directions, alternate randomly between (i) asking for the next instruction, (ii) asking for more details, and (iii) asking for the next trivia question (start at question 1)\n\n The AI Assistant can handle:\n- Giving trip directions\n- Playing trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Sunday the 19th, 10 pm"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

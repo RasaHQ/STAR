@@ -1,0 +1,217 @@
+{
+  "AnonymizedUserWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "AnonymizedWizardWorkerID": "cd977bea-cf5f-e55d-dd23-dcad7db29be1",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2119,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "please help. my spaceship is under attack!",
+      "UnixTime": 1589844930
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "username",
+      "UnixTime": 1589844962
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "spaceship_ask_code",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your name.",
+      "UnixTime": 1589844964
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Han",
+      "UnixTime": 1589844987
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "user rank",
+      "UnixTime": 1589845007
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_rank",
+      "ActionLabelOptions": [
+        "spaceship_ask_rank",
+        "spaceship_bye",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your rank.",
+      "UnixTime": 1589845009
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Chief Engineer.",
+      "UnixTime": 1589845059
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code",
+      "UnixTime": 1589845069
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589845071
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "031431",
+      "UnixTime": 1589845082
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code type",
+      "UnixTime": 1589845105
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code_type",
+      "ActionLabelOptions": [
+        "spaceship_ask_code_type",
+        "spaceship_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please specify the code type.",
+      "UnixTime": 1589845107
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Clearance Code",
+      "UnixTime": 1589845113
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Han\""
+        },
+        {
+          "UserRank": "\"Chief Engineer\""
+        },
+        {
+          "Code": "031431"
+        },
+        {
+          "CodeType": "api.is_equal_to(\"Clearance\")"
+        }
+      ],
+      "UnixTime": 1589845126
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "I am not authorized",
+      "UnixTime": 1589845136
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "spaceship_inform_nothing_found",
+        "spaceship_ask_code"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain.",
+      "UnixTime": 1589845140
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589845150
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Han) are the ship's Chief Engineer. You have been a given a Clearance Code: 031431.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

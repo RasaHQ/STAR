@@ -1,0 +1,247 @@
+{
+  "AnonymizedUserWorkerID": "8ab18024-f8bc-06b2-8ddf-1d683d5cd277",
+  "AnonymizedWizardWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 419,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. I need to make a reservation today.",
+      "UnixTime": 1589466412
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your name?",
+      "UnixTime": 1589466445
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589466447
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is John.",
+      "UnixTime": 1589466456
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what is the hotel name?",
+      "UnixTime": 1589466471
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "What hotel would you like to stay at?",
+      "UnixTime": 1589466473
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "They Hyatt sounds good.",
+      "UnixTime": 1589466484
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "from when do you want to book?",
+      "UnixTime": 1589466505
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_date_from",
+      "ActionLabelOptions": [
+        "hotel_ask_date_from",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you arriving?",
+      "UnixTime": 1589466508
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "May 12th.",
+      "UnixTime": 1589466518
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "when will you leave?",
+      "UnixTime": 1589466532
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_date_to",
+      "ActionLabelOptions": [
+        "hotel_ask_date_to",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "When will you be leaving again?",
+      "UnixTime": 1589466535
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I will leave on May 17th. Also, make sure to list that I want extra towels in the room.",
+      "UnixTime": 1589466556
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"12th\""
+        },
+        {
+          "EndDate": "\"17th\""
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589466634
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "Sorry it is unavaillable.",
+      "UnixTime": 1589466650
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Hyatt Hotel for your requested dates.",
+      "UnixTime": 1589466655
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh, okay. Well thanks anyway. Goodbye.",
+      "UnixTime": 1589466672
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "goodbye.",
+      "UnixTime": 1589466684
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589466687
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589466691
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Make a reservation at Hyatt Hotel from May 12th to 17th. Your name is John. Please request extra towels. It is ok if the room is not available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

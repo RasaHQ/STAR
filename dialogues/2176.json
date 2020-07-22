@@ -1,0 +1,278 @@
+{
+  "AnonymizedUserWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2176,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Get me a room at the Shadyside ASAP",
+      "UnixTime": 1589843542
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "your name",
+      "UnixTime": 1589843550
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "anything_else",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589843552
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1589843564
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "start date",
+      "UnixTime": 1589843574
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_date_from",
+      "ActionLabelOptions": [
+        "hotel_ask_date_from",
+        "hotel_reservation_succeeded",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you arriving?",
+      "UnixTime": 1589843576
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "May 15th. I'll leave hungover May 19th",
+      "UnixTime": 1589843597
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"15th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589843617
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "available",
+      "UnixTime": 1589843625
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_reservation_failed",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Shadyside Inn ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1589843627
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Do it. I'm pumped",
+      "UnixTime": 1589843643
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Shadyside Inn\")"
+        },
+        {
+          "StartDate": "\"15th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "UnixTime": 1589843701
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1589843707
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_succeeded",
+      "ActionLabelOptions": [
+        "hotel_reservation_succeeded",
+        "hello",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "OK, I've successfully completed this Hotel booking for you!",
+      "UnixTime": 1589843710
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you",
+      "UnixTime": 1589843729
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "bye",
+      "UnixTime": 1589843751
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_reservation_failed",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589843754
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589843757
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Shadyside Inn from May 15th to 19th. Your name is Angela. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

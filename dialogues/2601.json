@@ -1,0 +1,164 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2601,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "This is Sarah Brown. I would like to check my balance. ",
+      "UnixTime": 1589842334
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "number",
+      "UnixTime": 1589842351
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_ask_dob",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589842354
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "85731890",
+      "UnixTime": 1589842370
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin",
+      "UnixTime": 1589842386
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589842388
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1596",
+      "UnixTime": 1589842393
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "AccountNumber": "85731890"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "UnixTime": 1589842399
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 7748,
+        "BankName": "Wells Fargo",
+        "id": 986
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 7748,
+        "BankName": "Wells Fargo",
+        "id": 986
+      },
+      "Text": "7748",
+      "UnixTime": 1589842402
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 7748,
+        "BankName": "Wells Fargo",
+        "id": 986
+      },
+      "Text": "Your current balance is 7748 in credit.",
+      "UnixTime": 1589842404
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589842425
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Sarah Brown and would like to check your bank balance. Your account number is 85731890 and your PIN is 1596.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

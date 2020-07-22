@@ -1,0 +1,148 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2407,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela I need to plan a party at Southside for Tuesday at 11am, 85 guests. Three course meal with steak and vegan options.",
+      "UnixTime": 1589827043
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"11 am\""
+        },
+        {
+          "NumberGuests": "85"
+        },
+        {
+          "RequestType": "\"Check\""
+        },
+        {
+          "FoodRequest": "\"Three course meal with steak and vegan options.\""
+        }
+      ],
+      "UnixTime": 1589827071
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "11 am",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "11 am",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The venue is booked at that time. Try another meeting time or another venue.",
+      "UnixTime": 1589827077
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "11 am",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The venue is booked at that time",
+      "UnixTime": 1589827084
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_venue_not_available",
+      "ActionLabelOptions": [
+        "party_venue_not_available",
+        "party_no_venue_available",
+        "party_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "11 am",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "I am sorry, but it looks like the Southside Venue is not available then.",
+      "UnixTime": 1589827086
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589827106
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Angela and would like to plan a party. For the venue, you'd like to reserve Southside Venue for Tuesday from 11 am. You are anticipating 85 guests. For the food please request three course meal, with steak and a vegan option.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      }
+    ],
+    "WizardTask": "Help the user plan a party!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant reserve your venue for the party?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

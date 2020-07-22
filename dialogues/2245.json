@@ -1,0 +1,226 @@
+{
+  "AnonymizedUserWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "AnonymizedWizardWorkerID": "e03de663-924e-e06c-fe83-e6e0c2879489",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2245,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello I am Alexis.",
+      "UnixTime": 1589840936
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How many I help you Alexis?",
+      "UnixTime": 1589840951
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Can I get your ride/booking ID please?",
+      "UnixTime": 1589840985
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My ride id is 111. I need to change my departure location to 5th and Main",
+      "UnixTime": 1589841003
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "111"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"change my departure location to 5th and Main\""
+        }
+      ],
+      "UnixTime": 1589841020
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "111"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"5th and Main\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1589841028
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately, we are unable to change your trip",
+      "UnixTime": 1589841041
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_failed",
+      "ActionLabelOptions": [
+        "ride_inform_changes_failed",
+        "ride_ask_change",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately I wasn't able to update your booking, sorry.",
+      "UnixTime": 1589841045
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Drat! Ok thanks.",
+      "UnixTime": 1589841055
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "111"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"departure location to 5th and Main\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1589841059
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "I was able to successfully change your trip",
+      "UnixTime": 1589841080
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "ride_inform_changes_failed",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1589841084
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589841085
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Alexis and your ride ID is 111. You must change your departure location to 5th and Main, if possible.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      }
+    ],
+    "WizardTask": "The user had booked a ride. Help him/her make changes to his/her booking. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant successfully change your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": true,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

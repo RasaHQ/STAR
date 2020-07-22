@@ -1,0 +1,170 @@
+{
+  "AnonymizedUserWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "AnonymizedWizardWorkerID": "f76f8d4d-5223-f6a7-71bb-8abf87118490",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "EarlyDisconnectDuringDialogue",
+  "DialogueID": 5421,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find apartment', 'Schedule apartment viewing' and 'Calling a ride' (in any order), as shown on the left. You may also ask the assistant to check the weather.  [instruction 1 of 8]",
+      "UnixTime": 1590191172
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. My name is Ben and I would like to find an apartment please. I would like one that is around 1500 credits.",
+      "UnixTime": 1590191214
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Location",
+      "UnixTime": 1590191235
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_criteria",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "apartment_ask_nearby_pois",
+        "apartment_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can apply the following filters: number of bedrooms, price, floor, balcony, elevator and nearby POIs.",
+      "UnixTime": 1590191239
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, I would like a price of around 1500",
+      "UnixTime": 1590191261
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590191261
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Price": "api.is_at_most(1500)"
+        }
+      ],
+      "UnixTime": 1590191265
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 97,
+        "HasBalcony": false,
+        "HasElevator": false,
+        "Level": 7,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Club"
+        ],
+        "NumRooms": 2,
+        "Price": 1224,
+        "id": 110
+      },
+      "TotalItems": 351
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 97,
+        "HasBalcony": false,
+        "HasElevator": false,
+        "Level": 7,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Club"
+        ],
+        "NumRooms": 2,
+        "Price": 1224,
+        "id": 110
+      },
+      "Text": "One on Cedar",
+      "UnixTime": 1590191271
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_ask_nearby_pois",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 97,
+        "HasBalcony": false,
+        "HasElevator": false,
+        "Level": 7,
+        "MaxLevel": 15,
+        "Name": "One on Center Apartments",
+        "NearbyPOIs": [
+          "School",
+          "Club"
+        ],
+        "NumRooms": 2,
+        "Price": 1224,
+        "id": 110
+      },
+      "Text": "OK, I found a free flat in One on Center Apartments, located near a School and a Club, that is matching your search criteria.\nIt is on level 7, has 97 square meters and 2 bedrooms.\nIt does not have a balcony and does not have an elevator, and comes at the price of 1224 per month.",
+      "UnixTime": 1590191274
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment",
+      "ride",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Ben\n- Today is Sunday\n\n The AI Assistant can handle:\n- Find an apartment (prices are in 'credits')\n- Schedule an apartment viewing \n- Calling a Taxi/Uber/Lyft ride \n- Checking the weather forecast in different Cities (e.g. San Francisco or Chicago)",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      },
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Sunday"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

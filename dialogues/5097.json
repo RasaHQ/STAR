@@ -1,0 +1,1141 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5097,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'finding a hotel' and 'reserving a room at a hotel' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590297301
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Tyler Jones and I want to search for a hotel in the south of town",
+      "UnixTime": 1590297325
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "api.is_equal_to(\"South\")"
+        }
+      ],
+      "UnixTime": 1590297346
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "8 pm",
+        "TakesReservations": false,
+        "id": 252
+      },
+      "TotalItems": 205
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "8 pm",
+        "TakesReservations": false,
+        "id": 252
+      },
+      "Text": "shadyside",
+      "UnixTime": 1590297350
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_price",
+      "ActionLabelOptions": [
+        "hotel_inform_location",
+        "hotel_bye",
+        "hotel_inform_price"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "8 pm",
+        "TakesReservations": false,
+        "id": 252
+      },
+      "Text": "The 'Shadyside Inn' is in the Expensive price range",
+      "UnixTime": 1590297352
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I see. I want to book a Hyatt hotel from 5th to 19th.",
+      "UnixTime": 1590297385
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "8 pm",
+        "TakesReservations": false,
+        "id": 252
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590297395
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "8 pm",
+        "TakesReservations": false,
+        "id": 252
+      },
+      "UnixTime": 1590297407
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590297410
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "hotel_ask_hotel",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Hyatt Hotel for your requested dates.",
+      "UnixTime": 1590297412
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "any other hotel would do",
+      "UnixTime": 1590297427
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590297427
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297442
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "available",
+      "UnixTime": 1590297445
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_reservation_failed",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Shadyside Inn ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1590297446
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please",
+      "UnixTime": 1590297454
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Available"
+      },
+      "UnixTime": 1590297460
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "failed",
+      "UnixTime": 1590297463
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_failed",
+      "ActionLabelOptions": [
+        "hotel_reservation_failed",
+        "hotel_bye",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "Text": "I'm sorry, but your booking request failed.",
+      "UnixTime": 1590297464
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "could you try again?",
+      "UnixTime": 1590297471
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590297471
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Reservation Failed"
+      },
+      "UnixTime": 1590297479
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Reservation Confirmed"
+      },
+      "UnixTime": 1590297485
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297490
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590297496
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "hotel_ask_hotel",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Hilton Hotel for your requested dates.",
+      "UnixTime": 1590297497
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is there any hotel available from the 5th to the 19th?",
+      "UnixTime": 1590297527
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590297527
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Old Town Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297538
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "no",
+      "UnixTime": 1590297543
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "out_of_scope",
+        "hotel_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Old Town Inn for your requested dates.",
+      "UnixTime": 1590297548
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "any other hotel?",
+      "UnixTime": 1590297560
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('finding a hotel' and 'reserving a room at a hotel'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590297560
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "i can filter",
+      "UnixTime": 1590297567
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Old Town Inn",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297571
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297576
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Inn\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297580
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590297585
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_unavailable",
+      "ActionLabelOptions": [
+        "hotel_unavailable",
+        "hotel_ask_hotel",
+        "hotel_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Text": "I'm very sorry, but there is no room available at the Shadyside Inn for your requested dates.",
+      "UnixTime": 1590297587
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "We'll get back to that later. What will the weather be like in Detroit and Pittsburgh on Saturday?",
+      "UnixTime": 1590297646
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "Task": "weather",
+      "UnixTime": 1590297650
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "City": "\"Detroit\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Shadyside Inn",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590297656
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Saturday",
+        "TemperatureCelsius": 30,
+        "Weather": "Cloudy",
+        "id": 150
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Saturday",
+        "TemperatureCelsius": 30,
+        "Weather": "Cloudy",
+        "id": 150
+      },
+      "Text": "cloudy",
+      "UnixTime": 1590297659
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Saturday",
+        "TemperatureCelsius": 30,
+        "Weather": "Cloudy",
+        "id": 150
+      },
+      "Text": "It will be Cloudy all day on Saturday in Detroit, with temperatures of around 30 degrees celsius.",
+      "UnixTime": 1590297661
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "what about Pittsburgh?",
+      "UnixTime": 1590297671
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('finding a hotel' and 'reserving a room at a hotel') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590297671
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "City": "\"Pittsburgh\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Saturday",
+        "TemperatureCelsius": 30,
+        "Weather": "Cloudy",
+        "id": 150
+      },
+      "UnixTime": 1590297674
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Text": "snowing",
+      "UnixTime": 1590297677
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "hello",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Text": "It will be Snowing all day on Saturday in Pittsburgh, with temperatures of around 1 degrees celsius.",
+      "UnixTime": 1590297679
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Could you try finding a hotel for me from the 5th to the 19th please?",
+      "UnixTime": 1590297699
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Task": "hotel_search",
+      "UnixTime": 1590297703
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590297705
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Task": "hotel_search",
+      "UnixTime": 1590297706
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590297709
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Saturday",
+        "TemperatureCelsius": 1,
+        "Weather": "Snowing",
+        "id": 824
+      },
+      "UnixTime": 1590297715
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Available"
+      },
+      "Text": "available",
+      "UnixTime": 1590297719
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_reservation_failed",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Hyatt Hotel ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1590297721
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please",
+      "UnixTime": 1590297726
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"5th\""
+        },
+        {
+          "EndDate": "\"19th\""
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Available"
+      },
+      "UnixTime": 1590297728
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1590297731
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_succeeded",
+      "ActionLabelOptions": [
+        "hotel_reservation_succeeded",
+        "hello",
+        "hotel_ask_date_to"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "OK, I've successfully completed this Hotel booking for you!",
+      "UnixTime": 1590297732
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590297741
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Tyler Jones\n- Today is Friday the 2nd, 2 pm\n\n The AI Assistant can handle:\n- Search for a hotel (e.g. in the South of town`)\n- Book a room at a hotel (e.g. Hyatt Hotel or whatever the assistant can find for you; e.g. from 5th to 19th)\n- Checking the weather forecast in different Cities (e.g. Detroit or Pittsburgh)",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Friday the 2nd, 2 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "AnonymizedUserWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5290,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking ride status', 'getting directions', and 'schedule a meeting' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590286507
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello I need to check the status of my ride.  Can you help?",
+      "UnixTime": 1590286523
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "NAME",
+      "UnixTime": 1590286540
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590286542
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes I am John.  My ride id is 806 if you need that.",
+      "UnixTime": 1590286558
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "806"
+        },
+        {
+          "CustomerName": "\"John\""
+        }
+      ],
+      "UnixTime": 1590286571
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Your driver is dropping off another passenger.",
+      "UnixTime": 1590286578
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Your driver is dropping off another passenger and is 6 minutes away.",
+      "UnixTime": 1590286588
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok great.  The driver is so bad he always asks me for directions.  I'm going to write them down.  Can you give me directions from the Hospital to Broadway and Main?",
+      "UnixTime": 1590286618
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590286618
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590286632
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "what time",
+      "UnixTime": 1590286656
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_time",
+      "ActionLabelOptions": [
+        "trip_ask_departure_time",
+        "ride_ask_booking_number",
+        "anything_else",
+        "out_of_scope",
+        "hello",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "When are you going to start your trip?",
+      "UnixTime": 1590286660
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Right about now.  9 pm.",
+      "UnixTime": 1590286674
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureLocation": "\"Hospital\""
+        },
+        {
+          "ArrivalLocation": "\"Broadway and Main\""
+        },
+        {
+          "TravelMode": "api.is_equal_to(\"Driving\")"
+        },
+        {
+          "DepartureTime": "\"9 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is dropping off another passenger.",
+        "RideWait": "6 minutes away"
+      },
+      "UnixTime": 1590286678
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Go east on Forbes towards Murray",
+      "UnixTime": 1590286688
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_inform_detailed_step",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Go east on Forbes towards Murray. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590286691
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed I'm a fast writer.",
+      "UnixTime": 1590286704
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590286704
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Turn right and drive for 1.6 kilometers and turn left on Murray",
+      "UnixTime": 1590286717
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "trip_ask_departure_time",
+        "trip_inform_detailed_step"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Turn right and drive for 1.6 kilometers and turn left on Murray. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590286720
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Proceed.",
+      "UnixTime": 1590286747
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590286747
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Drive for 700 meters until you reach Wilkins Avenue",
+      "UnixTime": 1590286766
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_inform_detailed_step"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Drive for 700 meters until you reach Wilkins Avenue. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590286768
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Procced. I'm getting writers cramp but proceed.",
+      "UnixTime": 1590286781
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('checking ride status', 'getting directions', and 'schedule a meeting'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590286781
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Your destination will be on the right",
+      "UnixTime": 1590286803
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_last_step_and_done",
+      "ActionLabelOptions": [
+        "trip_inform_last_step_and_done",
+        "trip_ask_travel_mode",
+        "trip_ask_arrival_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Text": "Your destination will be on the right. Do you know how to reach your destination or would you require more detailed instructions?",
+      "UnixTime": 1590286805
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Got it.  Ok ride is here we are on our way.  Can you help me schedule a quick meeting with Fred for Saturday between 7 pm and 9 pm?",
+      "UnixTime": 1590286834
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590286839
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"John\""
+        },
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "EndTimeHour": "\"9 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive east (towards the tall brown building) on Forbes towards Murray",
+          "Turn right at the Starbucks and drive for 1.6 kilometers. Once you see a brown church, turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue. It will be the first traffic light you see.",
+          "Your destination will be on the right just after the fire station."
+        ],
+        "DrivingInstructions": [
+          "Go east on Forbes towards Murray",
+          "Turn right and drive for 1.6 kilometers and turn left on Murray",
+          "Drive for 700 meters until you reach Wilkins Avenue",
+          "Your destination will be on the right"
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 59,
+        "id": 590
+      },
+      "UnixTime": 1590286868
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "Text": "Your meeting has been successfuly scheduled.",
+      "UnixTime": 1590286873
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_inform_nothing_found",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "Text": "Fantastic, your meeting with Fred has been successfully scheduled for Saturday, 7 pm-9 pm.",
+      "UnixTime": 1590286874
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Awesome wow you are efficient!  Can you really quickly help me check some weather?",
+      "UnixTime": 1590286892
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking ride status', 'getting directions', and 'schedule a meeting') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590286892
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "Task": "weather",
+      "UnixTime": 1590286895
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "Text": "what day",
+      "UnixTime": 1590286900
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "meeting_ask_day",
+        "meeting_bye",
+        "meeting_ask_guest_name",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "Text": "For what day would you like the weather forecast?",
+      "UnixTime": 1590286902
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Friday in Chicago please!",
+      "UnixTime": 1590286909
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "9 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "7 pm"
+      },
+      "UnixTime": 1590286919
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Friday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 762
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Friday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 762
+      },
+      "Text": "raining in Chicago",
+      "UnixTime": 1590286924
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Friday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 762
+      },
+      "Text": "It will be Raining all day on Friday in Chicago, with temperatures of around -2 degrees celsius.",
+      "UnixTime": 1590286926
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great.  We need the moisture!  It's pouring at my house right now.  Well thanks for all your amazing help!",
+      "UnixTime": 1590286947
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Friday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 762
+      },
+      "Text": "anything else",
+      "UnixTime": 1590286968
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "weather_inform_forecast",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Friday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 762
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590286970
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590286972
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting",
+      "ride",
+      "trip",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John\n\n The AI Assistant can handle:\n- Check your ride's status (e.g. ride id 806)\n- Get walking/driving/transit directions (e.g. from 'Hospital' to 'Broadway and Main') \n- Schedule a meeting\n- Checking the weather forecast in different Cities (e.g. New York City or New York City)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3436,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Sarah Brown and I would like to report fraud",
+      "UnixTime": 1589582331
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi, what is the report",
+      "UnixTime": 1589582353
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_inform_fraud_report_submitted",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1589582355
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week",
+      "UnixTime": 1589582365
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "okay what is account number",
+      "UnixTime": 1589582424
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_ask_fraud_details",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589582426
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't remember, or my pin. my DOB is 12/12/2001",
+      "UnixTime": 1589582451
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Mother's maiden name",
+      "UnixTime": 1589582475
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_mothers_maiden_name",
+      "ActionLabelOptions": [
+        "bank_ask_mothers_maiden_name",
+        "bank_inform_cannot_authenticate",
+        "bank_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "What was your mother's maiden name?",
+      "UnixTime": 1589582477
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sanchez ",
+      "UnixTime": 1589582495
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pet",
+      "UnixTime": 1589582506
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_childhood_pets_name",
+      "ActionLabelOptions": [
+        "bank_ask_childhood_pets_name",
+        "bank_bye",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "Text": "And what was the name of the pet you had as a child?",
+      "UnixTime": 1589582508
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nemo",
+      "UnixTime": 1589582537
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"frequent money transfers of $10 over past week\""
+        },
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "DateOfBirth": "\"12/12/2001\""
+        },
+        {
+          "SecurityAnswer1": "\"Sanchez\""
+        },
+        {
+          "SecurityAnswer2": "\"Nemo\""
+        }
+      ],
+      "UnixTime": 1589582543
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "submitted",
+      "UnixTime": 1589582548
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_inform_fraud_report_submitted",
+        "bank_bye",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1589582549
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589582572
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Sarah Brown and would like to report fraud on your bank account. There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week.. Unfortunately, you don't remember your account number nor your PIN. Your date of birth is 12/12/2001. For your security questions, your mother's maiden name is Sanchez and your childhood pet is Nemo.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Authenticate the user and submit a fraud report"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant succesfully report fraud on your account?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

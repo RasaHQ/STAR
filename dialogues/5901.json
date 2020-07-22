@@ -1,0 +1,1040 @@
+{
+  "AnonymizedUserWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "AnonymizedWizardWorkerID": "9cfed8ec-54a9-f0f7-8327-15f6470d4a6c",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5901,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Maybe the AI Assistant can help? Say hello and ask if it can help you plan the party. [instruction 1 of 7]",
+      "UnixTime": 1590090153
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. My name is John, my friend Ben and I want to organize a birthday party for Wednesday, there should be 17 people.",
+      "UnixTime": 1590090193
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ben says: 'I think the Southside Venue is quite nice'. [instruction 2 of 7]",
+      "UnixTime": 1590090193
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Start Time Hou",
+      "UnixTime": 1590090331
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_starting_time",
+      "ActionLabelOptions": [
+        "party_ask_starting_time",
+        "party_ask_food",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "When would you like your party to kick off?",
+      "UnixTime": 1590090333
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben likes the Southside Venue, lets try to book it for 2:00pm.",
+      "UnixTime": 1590090339
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben \""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "17"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590090370
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "The venue is available.",
+      "UnixTime": 1590090380
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_venue_not_available",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "OK, the Southside Venue would be happy to accommodate you on Wednesday @ 2 pm.\nCan I book it for you now?",
+      "UnixTime": 1590090382
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": " Can you first tell me the weather for that day?",
+      "UnixTime": 1590090406
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that if the weather is nice, you might just have the party outside somewhere. Ask your assistant what the weather will be like on Wednesday. [instruction 3 of 7]",
+      "UnixTime": 1590090406
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Task": "weather",
+      "UnixTime": 1590090449
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590090455
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 18,
+        "Weather": "Cloudy",
+        "id": 423
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 18,
+        "Weather": "Cloudy",
+        "id": 423
+      },
+      "Text": "what city?",
+      "UnixTime": 1590090471
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "out_of_scope",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 18,
+        "Weather": "Cloudy",
+        "id": 423
+      },
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1590090474
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Chicago, we may sit outside if the weather is nice.",
+      "UnixTime": 1590090478
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ben says: 'Yeah, actually, if the weather is good, we could just go out to the park and book a restaurant for the evening'. You agree. So depending on the weather, either continue searching / booking the venue, or ask your assistant to help you find and book a restaurant for Wednesday evening. [instruction 4 of 7]",
+      "UnixTime": 1590090478
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 18,
+        "Weather": "Cloudy",
+        "id": 423
+      },
+      "UnixTime": 1590090504
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 26,
+        "Weather": "Cloudy",
+        "id": 616
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 26,
+        "Weather": "Cloudy",
+        "id": 616
+      },
+      "UnixTime": 1590090507
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 24,
+        "Weather": "Cloudy",
+        "id": 406
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 24,
+        "Weather": "Cloudy",
+        "id": 406
+      },
+      "UnixTime": 1590090510
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Wednesday",
+        "TemperatureCelsius": -5,
+        "Weather": "Sunny",
+        "id": 567
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Wednesday",
+        "TemperatureCelsius": -5,
+        "Weather": "Sunny",
+        "id": 567
+      },
+      "UnixTime": 1590090517
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "Text": "Snowing",
+      "UnixTime": 1590090528
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "hello",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "Text": "It will be Snowing all day on Wednesday in Chicago, with temperatures of around 0 degrees celsius.",
+      "UnixTime": 1590090532
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben said if the weather is good he would like to go to the park. ",
+      "UnixTime": 1590090544
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Note: You are located in the West of town, which you may or may not take into account if you search for a restaurant. [instruction 5 of 7]",
+      "UnixTime": 1590090544
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "Text": "sounds good",
+      "UnixTime": 1590090566
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "Text": "sounds good",
+      "UnixTime": 1590090572
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, that does not sound good. That is WAY to cold for me. We will have to book the venue. But I am located on the West side of town anything close to me you can find?",
+      "UnixTime": 1590090616
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When the question comes up: you both like Indian food and Chinese food, but no Steak. [instruction 6 of 7]",
+      "UnixTime": 1590090616
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590090692
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 0,
+        "Weather": "Snowing",
+        "id": 690
+      },
+      "UnixTime": 1590090707
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "TotalItems": 204
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "Cactus Club",
+      "UnixTime": 1590090718
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "342",
+      "UnixTime": 1590090744
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_rating",
+      "ActionLabelOptions": [
+        "restaurant_ask_rating",
+        "restaurant_ask_continue_searching",
+        "restaurant_ask_takes_reservations"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "Any minimum rating that the restaurant should have?",
+      "UnixTime": 1590090750
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "We both like Indian Food, and Chinese food. We can not eat steak, is there Chinese food? Rating doesnt matter.",
+      "UnixTime": 1590090770
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_rating",
+      "ActionLabelOptions": [
+        "restaurant_ask_rating",
+        "restaurant_ask_continue_searching",
+        "restaurant_ask_takes_reservations"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "Any minimum rating that the restaurant should have?",
+      "UnixTime": 1590090770
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Rating does not matter.",
+      "UnixTime": 1590090787
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "Name:\tCactus Club Cost:\tCheap Takes Reservations:\tno Does Delivery:\tno Average Rating:\t4 Food:\tPizza Average Wait Minutes:\t52 Open Time Hour:\t1 pm Close Time Hour:\t11 pm Max Party Size:\t2 Location:\tWest",
+      "UnixTime": 1590090822
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "n",
+      "UnixTime": 1590090835
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "Name:\tCactus Club Cost:\tCheap Takes Reservations:\tno Does Delivery:\tno Average Rating:\t4 Food:\tPizza Average Wait Minutes:\t52 Open Time Hour:\t1 pm Close Time Hour:\t11 pm Max Party Size:\t2 Location:\tWest",
+      "UnixTime": 1590090841
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Catctus Club will be fine. 17 people......",
+      "UnixTime": 1590090861
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done booking (not just finding!) either a restaurant or a party venue, you can say goodbye and end the dialogue. This might take a while though, e.g. in case the venue is not available. [instruction 7 of 7]",
+      "UnixTime": 1590090861
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590090886
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "time",
+      "UnixTime": 1590090911
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "restaurant_ask_continue_searching",
+        "hello",
+        "restaurant_ask_rating",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590090914
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Lets just book the southside venue from earlier. That will be just fine.",
+      "UnixTime": 1590090941
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590090976
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "am sorry",
+      "UnixTime": 1590090989
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "restaurant_ask_rating",
+        "restaurant_ask_continue_searching"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you search for restaurants.",
+      "UnixTime": 1590090992
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Lets book the Southside Venue, today for 17 people 1:00pm.",
+      "UnixTime": 1590091041
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "Task": "party_plan",
+      "UnixTime": 1590091041
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben \""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"1 pm\""
+        },
+        {
+          "NumberGuests": "17"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "11 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Pizza",
+        "Location": "West",
+        "MaxPartySize": 2,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": false,
+        "id": 342
+      },
+      "UnixTime": 1590091086
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "1 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "1 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Your event has been successfully scheduled.",
+      "UnixTime": 1590091098
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_successful",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "hello",
+        "party_ask_food"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "1 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Great, your party has been successfully booked at the Southside Venue on Wednesday at 1 pm!",
+      "UnixTime": 1590091100
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you. Goodbye",
+      "UnixTime": 1590091119
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "1 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590091151
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "out_of_scope",
+        "party_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Wednesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "1 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590091154
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590091155
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You (John) and your friend Ben want to organize a birthday party on Wednesday. You expect 17 guests to come.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Note: If the user already knows a restaurant name, use 'restaurant reserve', otherwise use 'restaurant search'."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

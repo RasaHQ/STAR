@@ -1,0 +1,773 @@
+{
+  "AnonymizedUserWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "AnonymizedWizardWorkerID": "750c3b94-faf8-5308-8f53-b3ede1581787",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4267,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a Hilton Hotel near the North part of town. ",
+      "UnixTime": 1589591218
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589591246
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "cost",
+      "UnixTime": 1589591275
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_price",
+      "ActionLabelOptions": [
+        "hotel_ask_price",
+        "out_of_scope",
+        "hotel_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "What price range are you looking for?",
+      "UnixTime": 1589591277
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am pretty open on price.",
+      "UnixTime": 1589591288
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You just remember from a previous visit that the North of town is typically very noisy. Make sure to check whether there is a Hilton Hotel in the Center part of town and note down its rating. [instruction 1 of 6]",
+      "UnixTime": 1589591288
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "rating",
+      "UnixTime": 1589591303
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_rating",
+      "ActionLabelOptions": [
+        "hotel_ask_rating",
+        "hotel_bye",
+        "hotel_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you have any preferences ratingwise?",
+      "UnixTime": 1589591305
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, but I want to know them. I do remember from a previous visit that the North of town is very noisy. Is there a Hilton Hotel in the Central part of town? If so, what is its rating?",
+      "UnixTime": 1589591341
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Actually, you remember reading on a blog that the West of town is very trendy at the moment, check whether there is a Hilton Hotel in the West part of town and note down its rating. [instruction 2 of 6]",
+      "UnixTime": 1589591341
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"Center\""
+        },
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "Cost": "\"Moderate\""
+        },
+        {
+          "AverageRating": "3"
+        }
+      ],
+      "UnixTime": 1589591369
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Moderate",
+        "Location": "Center",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "9 am",
+        "ServiceStopHour": "5 pm",
+        "TakesReservations": false,
+        "id": 54
+      },
+      "TotalItems": 2
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Moderate",
+        "Location": "Center",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "9 am",
+        "ServiceStopHour": "5 pm",
+        "TakesReservations": false,
+        "id": 54
+      },
+      "Text": "Hilton hotel moderate",
+      "UnixTime": 1589591382
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_inform_price",
+        "hotel_provide_search_result",
+        "hotel_inform_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Moderate",
+        "Location": "Center",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "9 am",
+        "ServiceStopHour": "5 pm",
+        "TakesReservations": false,
+        "id": 54
+      },
+      "Text": "OK, I have found the 'Hilton Hotel', located Center. It is in the Moderate price category and has an average rating of 3.",
+      "UnixTime": 1589591387
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "You know, I remember reading on a blog that the West is very trendy. Is there a Hilton Hotel in the West? If so, what rating?",
+      "UnixTime": 1589591445
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You remember that your partner is not a fan of the franchise to which the Hilton Hotel belongs to. Ask the assistant about the rating of the Hyatt Hotel in the West part of town. [instruction 3 of 6]",
+      "UnixTime": 1589591445
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "Cost": "\"Moderate\""
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Moderate",
+        "Location": "Center",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "9 am",
+        "ServiceStopHour": "5 pm",
+        "TakesReservations": false,
+        "id": 54
+      },
+      "UnixTime": 1589591472
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 679
+      },
+      "TotalItems": 27
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 679
+      },
+      "Text": "hilton",
+      "UnixTime": 1589591487
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_nothing_found",
+      "ActionLabelOptions": [
+        "hotel_inform_location",
+        "hotel_inform_price",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 679
+      },
+      "Text": "Unfortunately there are no hotels that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589591499
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That is fine because my partner is not a Hilton fan. What about a Hyatt in the West?",
+      "UnixTime": 1589591518
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make some smalltalk about things you're planning to do in town such as museums you want to see, concerts you want to go to, or bars and restaurants you are excited about. Be creative. [instruction 4 of 6]",
+      "UnixTime": 1589591518
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "Cost": "\"Moderate\""
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 679
+      },
+      "UnixTime": 1589591532
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "7 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": false,
+        "id": 752
+      },
+      "TotalItems": 14
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "Cost": "\"Cheap\""
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 4,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "7 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": false,
+        "id": 752
+      },
+      "UnixTime": 1589591547
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 236
+      },
+      "TotalItems": 23
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "Cost": "api.is_one_of([\"Moderate\"])"
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 236
+      },
+      "UnixTime": 1589591557
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 235
+      },
+      "TotalItems": 14
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "Cost": "api.is_one_of([\"Expensive\"])"
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 235
+      },
+      "UnixTime": 1589591563
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "TotalItems": 11
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "Text": "id 210",
+      "UnixTime": 1589591572
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "Text": "hyatt expensive west",
+      "UnixTime": 1589591590
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_inform_name",
+        "hotel_inform_price",
+        "hotel_provide_search_result"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "Text": "OK, I have found the 'Hyatt Hotel', located West. It is in the Expensive price category and has an average rating of 5.",
+      "UnixTime": 1589591592
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That sounds really nice. I am very excited about visiting the museum. They have a real moon rock there!",
+      "UnixTime": 1589591621
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You remember a friend stayed at the Shadyside Inn before - compare the rating of the Hyatt Hotel to that of the Shadyside Inn in the West part of town. [instruction 5 of 6]",
+      "UnixTime": 1589591621
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "Text": "That sounds interesting indeed.",
+      "UnixTime": 1589591640
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "Text": "That sounds interesting indeed!",
+      "UnixTime": 1589591654
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I just remembered that a friend stayed at Shadytime before. What is the rating of the Hyatt hotel as compared to the Shadyside in the West part of town?",
+      "UnixTime": 1589591720
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Thank the assistant for their help and bring the conversation to a natural end. [instruction 6 of 6]",
+      "UnixTime": 1589591720
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Name": "\"Shadyside Inn\""
+        },
+        {
+          "Cost": "api.is_one_of([\"Moderate\"])"
+        },
+        {
+          "AverageRating": "api.is_at_least(1)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": true,
+        "ServiceStartHour": "12 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": false,
+        "id": 210
+      },
+      "UnixTime": 1589591739
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "TotalItems": 16
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "Text": "shadyside inn moderate",
+      "UnixTime": 1589591750
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "Text": "shadyside inn moderate 2 rating west",
+      "UnixTime": 1589591767
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_rating",
+      "ActionLabelOptions": [
+        "hotel_inform_location",
+        "hotel_inform_rating",
+        "hotel_inform_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "Text": "The 'Shadyside Inn' has an average rating of 2",
+      "UnixTime": 1589591772
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you for your help. I will consider all of this. Have a nice night.",
+      "UnixTime": 1589591792
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "Text": "thank you",
+      "UnixTime": 1589591799
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 2,
+        "Cost": "Moderate",
+        "Location": "West",
+        "Name": "Shadyside Inn",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 313
+      },
+      "Text": "Goodbye!",
+      "UnixTime": 1589591806
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589591809
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for Hilton Hotel near the North part of town and note its rating. Follow the instructions on the left for now.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific hotel."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,1195 @@
+{
+  "AnonymizedUserWorkerID": "750c3b94-faf8-5308-8f53-b3ede1581787",
+  "AnonymizedWizardWorkerID": "00f54eab-f813-a79e-fabe-cbdd3da9441d",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5261,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find restaurant', 'followup on doctor appointment' and 'changing a ride' (in any order), as shown on the left. You may also ask the assistant to check on the status of a booked ride.  [instruction 1 of 8]",
+      "UnixTime": 1590265483
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh man I have got a busy week.  First I need to check the status of a ride I booked yesterday",
+      "UnixTime": 1590265529
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "ride_status",
+      "UnixTime": 1590265536
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590265540
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590265542
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Alexis",
+      "UnixTime": 1590265547
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590265547
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Ride ID",
+      "UnixTime": 1590265553
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "out_of_scope",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1590265556
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "882",
+      "UnixTime": 1590265561
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "882"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        }
+      ],
+      "UnixTime": 1590265567
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver is 10 minutes away.",
+      "UnixTime": 1590265575
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver is 10 minutes away.",
+      "UnixTime": 1590265577
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok can I change drivers please?",
+      "UnixTime": 1590265603
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590265608
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "What driver would you prefer?",
+      "UnixTime": 1590265628
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_change",
+      "ActionLabelOptions": [
+        "ride_ask_change",
+        "ride_ask_booking_number",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Sure, what can I change for you?",
+      "UnixTime": 1590265631
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like a different driver, I forgot this one gave me a bad experience, any other driver will do",
+      "UnixTime": 1590265656
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590265656
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "882"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"Different driver\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "UnixTime": 1590265667
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "We are unable to change",
+      "UnixTime": 1590265674
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_failed",
+      "ActionLabelOptions": [
+        "ride_inform_changes_failed",
+        "hello",
+        "ride_ask_change"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Unfortunately I wasn't able to update your booking, sorry.",
+      "UnixTime": 1590265676
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Well ok, I'll just be quiet around him.",
+      "UnixTime": 1590265696
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "How can i help?",
+      "UnixTime": 1590265706
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "What else can I do for you?",
+      "UnixTime": 1590265717
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_ask_change",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590265720
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes.  I need to followup on a doctor's appointment with Dr. Johnson please",
+      "UnixTime": 1590265747
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Task": "followup_doctor_appointment",
+      "UnixTime": 1590265751
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Alexis\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1590265761
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your doctor's advice is to take your medicine",
+      "UnixTime": 1590265775
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "doctor_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1590265777
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hmm ok, no nausea as yet so that's good.",
+      "UnixTime": 1590265803
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else",
+      "UnixTime": 1590265810
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "doctor_inform_doctors_instructions",
+        "doctor_ask_doctor_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590265812
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think to celebrate my triumph, I need to stuff my face.  Let's find a restaraunt",
+      "UnixTime": 1590265841
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590265841
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590265855
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Where?",
+      "UnixTime": 1590265859
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_location",
+      "ActionLabelOptions": [
+        "doctor_ask_doctor_name",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_location",
+        "out_of_scope",
+        "restaurant_ask_rating",
+        "doctor_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "In what part of town should the restaurant be located?",
+      "UnixTime": 1590265863
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Good question.  Not North or West anywhere else is fine",
+      "UnixTime": 1590265892
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "cuisine",
+      "UnixTime": 1590265916
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_food_type",
+      "ActionLabelOptions": [
+        "restaurant_ask_food_type",
+        "doctor_ask_doctor_name",
+        "ask_name",
+        "hello",
+        "out_of_scope",
+        "restaurant_ask_continue_searching"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "What cuisine are you looking for?",
+      "UnixTime": 1590265918
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Another good one.... hmmm no chinese food or pizza, this medicine is finicky",
+      "UnixTime": 1590265944
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590265944
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "price",
+      "UnixTime": 1590265968
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Do you need delivery?",
+      "UnixTime": 1590265983
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_delivery",
+      "ActionLabelOptions": [
+        "restaurant_ask_delivery",
+        "anything_else",
+        "hello",
+        "doctor_inform_doctors_instructions",
+        "anything_else",
+        "restaurant_ask_food_type"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Are you looking for a restaurant that offers a delivery service?",
+      "UnixTime": 1590265987
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No I would like to dine in",
+      "UnixTime": 1590265999
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "reservations?",
+      "UnixTime": 1590266005
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_takes_reservations",
+      "ActionLabelOptions": [
+        "restaurant_ask_takes_reservations",
+        "doctor_ask_doctor_name",
+        "ask_name",
+        "out_of_scope",
+        "restaurant_ask_continue_searching",
+        "restaurant_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Are you looking for restaurants that offer a reservation service?",
+      "UnixTime": 1590266008
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Today is Wednesday... I would think so, so yes",
+      "UnixTime": 1590266027
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590266027
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "api.is_one_of([\"South\",\"East\",\"Center\"])"
+        },
+        {
+          "Food": "api.is_one_of([\"Indian\",\"Burgers\",\"Italian\",\"Thai\",\"Steak\"])"
+        },
+        {
+          "TakesReservations": "True"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "UnixTime": 1590266046
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "East",
+        "MaxPartySize": 45,
+        "Name": "Lucca",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 34
+      },
+      "TotalItems": 211
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "East",
+        "MaxPartySize": 45,
+        "Name": "Lucca",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 34
+      },
+      "Text": "Lucca is located in East and is rated",
+      "UnixTime": 1590266055
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_rating",
+      "ActionLabelOptions": [
+        "restaurant_ask_rating",
+        "restaurant_ask_location",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "East",
+        "MaxPartySize": 45,
+        "Name": "Lucca",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 34
+      },
+      "Text": "Any minimum rating that the restaurant should have?",
+      "UnixTime": 1590266059
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's try 3 or better and cross my fingers",
+      "UnixTime": 1590266084
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "api.is_one_of([\"South\",\"East\",\"Center\"])"
+        },
+        {
+          "Food": "api.is_one_of([\"Indian\",\"Burgers\",\"Italian\",\"Thai\",\"Steak\"])"
+        },
+        {
+          "TakesReservations": "True"
+        },
+        {
+          "AverageRating": "api.is_greater_than(2)"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 52,
+        "CloseTimeHour": "6 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Indian",
+        "Location": "East",
+        "MaxPartySize": 45,
+        "Name": "Lucca",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 34
+      },
+      "UnixTime": 1590266097
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "TotalItems": 115
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Tamarind is located in South and is rated 3.",
+      "UnixTime": 1590266108
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Tamarind is located in South. It specializes in steak and has an average rating of 3. The price is moderate and they do take reservations.",
+      "UnixTime": 1590266148
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Tamarind is located in South and specializes in steak. They are priced moderate and have a rating of 3.",
+      "UnixTime": 1590266177
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh steak sounds great, try to book please",
+      "UnixTime": 1590266207
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590266207
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "I am unable to book.",
+      "UnixTime": 1590266218
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "I can search for restaurants however I am unable to book one using this feature. Is there anything else I can do for you?",
+      "UnixTime": 1590266254
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ah ok my bad.  I'll save it on the phone.",
+      "UnixTime": 1590266280
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "anything else?",
+      "UnixTime": 1590266288
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "restaurant_inform_search_criteria",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590266290
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is there a way I can change some details about a future ride I have?  I believe it is 916",
+      "UnixTime": 1590266329
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590266337
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "What would you like to change?",
+      "UnixTime": 1590266343
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_change",
+      "ActionLabelOptions": [
+        "ride_ask_change",
+        "anything_else",
+        "restaurant_ask_food_type",
+        "restaurant_inform_nothing_found",
+        "ride_ask_booking_number",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Sure, what can I change for you?",
+      "UnixTime": 1590266345
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I forget what car is supposed to pick me up but I didnt like, can you change cars?",
+      "UnixTime": 1590266367
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590266367
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Sure. What car would you like?",
+      "UnixTime": 1590266385
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "Text": "Sure. What car would you like?",
+      "UnixTime": 1590266391
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Toyota would be nice",
+      "UnixTime": 1590266406
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "916"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "ChangeDescription": "\"Toyota\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 38,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": false,
+        "Food": "Steak",
+        "Location": "South",
+        "MaxPartySize": 30,
+        "Name": "Tamarind",
+        "OpenTimeHour": "10 am",
+        "TakesReservations": true,
+        "id": 690
+      },
+      "UnixTime": 1590266413
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your trip has been successfully changed.",
+      "UnixTime": 1590266422
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "ride_inform_changes_failed",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1590266425
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh super.  Thanks so much!  That is all, my day is complete",
+      "UnixTime": 1590266441
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Thank you. Anything else?",
+      "UnixTime": 1590266451
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_bye",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590266453
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590266459
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor",
+      "restaurant",
+      "ride"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Alexis\n- Today is Wednesday\n\n The AI Assistant can handle:\n- Find a restaurant (e.g. in the Center or South of town)\n- Followup on doctor appointment (e.g. with Dr. Alexis or Dr. Johnson) \n- Changing details about a Taxi/Uber/Lyft ride (e.g. ride id 916) \n- Checking the status of a booked ride",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Wednesday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

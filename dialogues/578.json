@@ -1,0 +1,707 @@
+{
+  "AnonymizedUserWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1590426434",
+  "CompletionLevel": "Complete",
+  "DialogueID": 578,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You (Ben) want to organize a surprise party for your friend Alexis, who just got a degree in Engineering. Talk to your personal AI assistant. Maybe it can help? [instruction 1 of 6]",
+      "UnixTime": 1590450714
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm organizing a party. I've already got strippers on the way",
+      "UnixTime": 1590450739
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ideally, the thing should happen on Sunday at the West Bay Venue, 7 pm, and you'd expect about 64 to show up. [instruction 2 of 6]",
+      "UnixTime": 1590450739
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590450747
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "party_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590450749
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben",
+      "UnixTime": 1590450763
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "day",
+      "UnixTime": 1590450772
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_day",
+      "ActionLabelOptions": [
+        "party_ask_day",
+        "party_ask_number_of_guests",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "On what day would you like your party organised?",
+      "UnixTime": 1590450773
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sunday at 7 pm. ",
+      "UnixTime": 1590450797
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "guests",
+      "UnixTime": 1590450805
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "out_of_scope",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many people would you like to invite?",
+      "UnixTime": 1590450808
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "64. 20 are strippers",
+      "UnixTime": 1590450821
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Interrupt the conversation with a little small talk [instruction 3 of 6]",
+      "UnixTime": 1590450821
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590450834
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "available",
+      "UnixTime": 1590450836
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_day",
+        "party_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "OK, the Southside Venue would be happy to accommodate you on Sunday @ 7 pm.\nCan I book it for you now?",
+      "UnixTime": 1590450838
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Huh? I want it at the West Bay though",
+      "UnixTime": 1590450867
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You just learn that on Sunday Alexis will be away. So you have to plan the party for a different day. [instruction 4 of 6]",
+      "UnixTime": 1590450867
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"West Bay Venue\""
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590450894
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "avail able",
+      "UnixTime": 1590450897
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_day",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "OK, the West Bay Venue would be happy to accommodate you on Sunday @ 7 pm.\nCan I book it for you now?",
+      "UnixTime": 1590450899
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Actually, Alexis is busy on Sunday. Let's do Saturday instead. The party never stops",
+      "UnixTime": 1590450939
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"West Bay Venue\""
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "UnixTime": 1590450961
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Saturday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Saturday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "error",
+      "UnixTime": 1590450965
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_failed",
+      "ActionLabelOptions": [
+        "party_booking_failed",
+        "party_ask_end_time",
+        "party_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Saturday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "I am sorry, but your booking request failed.",
+      "UnixTime": 1590450967
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Try Friday then. And then Thursday",
+      "UnixTime": 1590450984
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Either make some more smalltalk, tell a joke, or say something about the West Bay Venue. [instruction 5 of 6]",
+      "UnixTime": 1590450984
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"West Bay Venue\""
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Saturday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "UnixTime": 1590450988
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "available",
+      "UnixTime": 1590450991
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_day",
+        "party_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "OK, the West Bay Venue would be happy to accommodate you on Friday @ 7 pm.\nCan I book it for you now?",
+      "UnixTime": 1590450992
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's do it. Ain't no party like a Friday party",
+      "UnixTime": 1590451005
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make sure you have booked a venue. If nothing was available, change the day or reduce the number of guests until it works. Then you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590451005
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"West Bay Venue\""
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "The venue is available.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "UnixTime": 1590451030
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1590451033
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_booking_successful",
+        "party_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "OK, the West Bay Venue would be happy to accommodate you on Friday @ 7 pm.\nCan I book it for you now?",
+      "UnixTime": 1590451035
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "...Yes.",
+      "UnixTime": 1590451052
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590451059
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"West Bay Venue\""
+        },
+        {
+          "HostName": "\"Ben\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "64"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "UnixTime": 1590451065
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "booked",
+      "UnixTime": 1590451067
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_successful",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "party_ask_confirm_booking",
+        "party_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "Great, your party has been successfully booked at the West Bay Venue on Friday at 7 pm!",
+      "UnixTime": 1590451069
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay.Bye",
+      "UnixTime": 1590451076
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590451097
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "ask_name",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Friday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "7 pm",
+        "VenueName": "West Bay Venue"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590451098
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590451100
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user plan a party."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

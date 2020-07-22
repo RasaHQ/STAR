@@ -1,0 +1,1124 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6005,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant', 'Bank balance checking' and 'Filing a bank fraud report' (in any order), as shown on the left. You may also play up to three rounds of trivia with the assistant.  [instruction 1 of 9]",
+      "UnixTime": 1590097840
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, I would like to make reservation at Lucca for tonight. I've heard it's to die for.",
+      "UnixTime": 1590097877
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590097889
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_ask_restaurant",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590097891
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes it's John Smith. I've been wanting to take my partner out for a nice dinner, I can't wait!",
+      "UnixTime": 1590097926
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590097938
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "available",
+      "UnixTime": 1590097940
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Great, the Lucca is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590097942
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Before I do, I would like to check my bank account balance. I received a suspicious email.",
+      "UnixTime": 1590097989
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590097989
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590097995
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "account",
+      "UnixTime": 1590098003
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_ask_account_number",
+        "restaurant_inform_booking_successful",
+        "anything_else",
+        "restaurant_inform_unavailable",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1590098005
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "153531981 and the PIN 3941",
+      "UnixTime": 1590098021
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "153531981"
+        },
+        {
+          "PIN": "3941"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590098028
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "Text": "2372",
+      "UnixTime": 1590098031
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "Text": "Your current balance is 2372 in credit.",
+      "UnixTime": 1590098033
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh no that is not right! I should have at least 15000 credits. I think I need to file a report.",
+      "UnixTime": 1590098063
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "Task": "bank_fraud_report",
+      "UnixTime": 1590098063
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "Text": "detailed",
+      "UnixTime": 1590098078
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_ask_fraud_details",
+        "bank_ask_dob",
+        "ask_name",
+        "bank_ask_dob",
+        "bank_inform_balance"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1590098080
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Someone got my account information and spent 12,628",
+      "UnixTime": 1590098128
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590098128
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Someone got my account information and spent 12,628\""
+        },
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "PIN": "3941"
+        },
+        {
+          "AccountNumber": "153531981"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2372,
+        "BankName": "Wells Fargo",
+        "id": 675
+      },
+      "UnixTime": 1590098150
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "success",
+      "UnixTime": 1590098152
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_inform_nothing_found",
+        "bank_inform_fraud_report_submitted"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590098154
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much. I guess I still have enough for the restaurant tonight.. I just won't mention this.",
+      "UnixTime": 1590098190
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590098198
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "UnixTime": 1590098202
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "booked",
+      "UnixTime": 1590098205
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_time",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Excellent, your reservation at the Lucca is confirmed!",
+      "UnixTime": 1590098206
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you. I would like to play a few rounds of trivia if that's okay.",
+      "UnixTime": 1590098283
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590098283
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Task": "trivia",
+      "UnixTime": 1590098283
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "what start",
+      "UnixTime": 1590098298
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question_number",
+      "ActionLabelOptions": [
+        "trivia_ask_question_number",
+        "out_of_scope",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_size",
+        "trivia_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "At what question would you like to start?",
+      "UnixTime": 1590098300
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1",
+      "UnixTime": 1590098304
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for a game of trivia at any point. But don't play more than three rounds. [instruction 5 of 9]",
+      "UnixTime": 1590098304
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "1"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590098320
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "a",
+      "UnixTime": 1590098321
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "A ____ atom in an atomic clock beats 9,192,631,770 times a second",
+      "UnixTime": 1590098322
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "cesium",
+      "UnixTime": 1590098339
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "correct",
+      "UnixTime": 1590098350
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590098352
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes a few more rounds",
+      "UnixTime": 1590098360
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590098360
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "2"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "UnixTime": 1590098371
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "a",
+      "UnixTime": 1590098372
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A ____ is the blue field behind the stars",
+      "UnixTime": 1590098373
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "canton ?",
+      "UnixTime": 1590098383
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "correct",
+      "UnixTime": 1590098393
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590098394
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I better tell my partner what happened, it wasn't my fault.. ",
+      "UnixTime": 1590098463
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant, bank balance checking, and bank fraud report). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590098463
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "ANYTHING ELSE",
+      "UnixTime": 1590098486
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_inform_answer_correct_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590098487
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh yes let's keep playing please",
+      "UnixTime": 1590098510
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "3"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "UnixTime": 1590098568
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "a",
+      "UnixTime": 1590098570
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "A ____ takes 33 hours to crawl one mile",
+      "UnixTime": 1590098571
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "snail",
+      "UnixTime": 1590098585
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590098585
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "correct",
+      "UnixTime": 1590098589
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590098590
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please, a few more rounds.",
+      "UnixTime": 1590098626
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "4"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "UnixTime": 1590098637
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "a",
+      "UnixTime": 1590098638
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "A ____ written to celebrate a wedding is called a epithalamium",
+      "UnixTime": 1590098640
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "poem!",
+      "UnixTime": 1590098645
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "correct",
+      "UnixTime": 1590098648
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590098649
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "next one",
+      "UnixTime": 1590098676
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant, bank balance checking, and bank fraud report) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590098676
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "5"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "UnixTime": 1590098680
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "a",
+      "UnixTime": 1590098682
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "A 'sirocco' refers to a type of ____",
+      "UnixTime": 1590098683
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "wind",
+      "UnixTime": 1590098686
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "correct",
+      "UnixTime": 1590098689
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590098690
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's all, thanks!",
+      "UnixTime": 1590098697
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "bye",
+      "UnixTime": 1590098700
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "trivia_ask_question",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "wind",
+        "Question": "A 'sirocco' refers to a type of ____"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590098701
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590098704
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John Smith\n- Your bank account: 153531981, with PIN 3941\n- Today is Tuesday the 19th of June, 11 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Filing a bank fraud report\n- Reserving a table at a restaurant (e.g. Lucca or Tamarind) for today\n- A game of trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Tuesday the 19th of June, 11 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

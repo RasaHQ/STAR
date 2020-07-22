@@ -1,0 +1,756 @@
+{
+  "AnonymizedUserWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "AnonymizedWizardWorkerID": "7fd15aa1-0368-5c6b-075a-13b3696d4627",
+  "BatchID": "woz_1589997353",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1663,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant' and 'Bank balance checking' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590034646
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello I need to check my account balance please.",
+      "UnixTime": 1590034670
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "bank_balance",
+      "UnixTime": 1590034673
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Full name, account number, and PIN please.",
+      "UnixTime": 1590034699
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Full name, account number, and PIN please.",
+      "UnixTime": 1590034703
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Jane Doe.  Account number is 68318931 and PIN is 5380.",
+      "UnixTime": 1590034724
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "AccountNumber": " 68318931"
+        },
+        {
+          "PIN": "5380"
+        },
+        {
+          "FullName": "\" Jane Doe\""
+        }
+      ],
+      "UnixTime": 1590034746
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "Text": "You have 5537 credit",
+      "UnixTime": 1590034757
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_ask_pin",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "Text": "Your current balance is 5537 in credit.",
+      "UnixTime": 1590034759
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nice I'm loaded!  I might as well reserve a table at a restaurant and go blow it!",
+      "UnixTime": 1590034788
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590034788
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590034793
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "Text": "Restaurant Name, Time, and Party Size please.",
+      "UnixTime": 1590034842
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "Text": "Restaurant Name, Time, and Party Size please.",
+      "UnixTime": 1590034845
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tamirand sounds good.  I'm not picky on the time.  Sometime in the evening and there will be 32 of us.",
+      "UnixTime": 1590034872
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "api.is_equal_to(\"12 am\")"
+        },
+        {
+          "PartySize": "32"
+        },
+        {
+          "CustomerName": "\"Jane Doe\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5537,
+        "BankName": "Chase",
+        "id": 542
+      },
+      "UnixTime": 1590034885
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"2 pm\""
+        },
+        {
+          "PartySize": "32"
+        },
+        {
+          "CustomerName": "\"Jane Doe\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590034890
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"3 pm\""
+        },
+        {
+          "PartySize": "32"
+        },
+        {
+          "CustomerName": "\"Jane Doe\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590034894
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Would you like me to book the Tamarind for 3:00pm for 32 people?",
+      "UnixTime": 1590034923
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Would you like me to book the Tamarind for 3:00pm for 32 people?",
+      "UnixTime": 1590034926
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yeah that would be awesome!  I know it's a bad idea with the coronavirus going around to meet in large groups.  I hope we don't get arrested.",
+      "UnixTime": 1590034950
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590034950
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"3 pm\""
+        },
+        {
+          "PartySize": "32"
+        },
+        {
+          "CustomerName": "\"Jane Doe\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590034952
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Your reservation is confirmed",
+      "UnixTime": 1590034967
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Excellent, your reservation at the Tamarind is confirmed!",
+      "UnixTime": 1590034969
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey that's great!  Thank you!  It's so nice out today.  Can you check the weather for me for Saturday?",
+      "UnixTime": 1590034998
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590034998
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Tamarind"
+      },
+      "Task": "weather",
+      "UnixTime": 1590034998
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590035014
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 12,
+        "Weather": "Partly Cloudy",
+        "id": 823
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 12,
+        "Weather": "Partly Cloudy",
+        "id": 823
+      },
+      "Text": "Partly Cloudy",
+      "UnixTime": 1590035023
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 12,
+        "Weather": "Partly Cloudy",
+        "id": 823
+      },
+      "Text": "It will be Partly Cloudy all day on Saturday in Los Angeles, with temperatures of around 12 degrees celsius.",
+      "UnixTime": 1590035025
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great.  How about Sunday?",
+      "UnixTime": 1590035034
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant and bank balance checking). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590035034
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Sunday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Saturday",
+        "TemperatureCelsius": 12,
+        "Weather": "Partly Cloudy",
+        "id": 823
+      },
+      "UnixTime": 1590035038
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Sunday",
+        "TemperatureCelsius": 4,
+        "Weather": "Sunny",
+        "id": 990
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Sunday",
+        "TemperatureCelsius": 4,
+        "Weather": "Sunny",
+        "id": 990
+      },
+      "Text": "Sunday will be sunny 4",
+      "UnixTime": 1590035047
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_day",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Sunday",
+        "TemperatureCelsius": 4,
+        "Weather": "Sunny",
+        "id": 990
+      },
+      "Text": "It will be Sunny all day on Sunday in Pittsburgh, with temperatures of around 4 degrees celsius.",
+      "UnixTime": 1590035050
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nice no rain or snow!  Might as well check and see what the weather will be like on Monday too.",
+      "UnixTime": 1590035082
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Monday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Pittsburgh",
+        "Day": "Sunday",
+        "TemperatureCelsius": 4,
+        "Weather": "Sunny",
+        "id": 990
+      },
+      "UnixTime": 1590035097
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "Cloudy 2",
+      "UnixTime": 1590035103
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "weather_inform_forecast",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "It will be Cloudy all day on Monday in San Francisco, with temperatures of around 2 degrees celsius.",
+      "UnixTime": 1590035106
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Well at least no rain or snow still!  Looks like summer is on its way finally!",
+      "UnixTime": 1590035131
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant and bank balance checking) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590035131
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "Anything else I can help you with?",
+      "UnixTime": 1590035145
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "weather_inform_forecast",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590035147
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I think I'm good!  We accomplished a lot here!  I bet you're exhausted!  Thank you so much for all the help!",
+      "UnixTime": 1590035181
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "You are welcome. Goodbye",
+      "UnixTime": 1590035193
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_bye",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_inform_forecast",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Monday",
+        "TemperatureCelsius": 2,
+        "Weather": "Cloudy",
+        "id": 26
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590035195
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590035215
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Jane Doe\n- Your bank account: 68318931, with PIN 5380\n- Today is Monday the 27th of June, 11 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Reserving a table at a restaurant (e.g. Tamarind or The Porch) for today\n- Checking the weather forecast in different Cities (e.g. Chicago or New York City)",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Monday the 27th of June, 11 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

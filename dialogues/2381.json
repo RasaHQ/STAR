@@ -1,0 +1,511 @@
+{
+  "AnonymizedUserWorkerID": "0760d47a-5910-1dcd-5054-850633c994ce",
+  "AnonymizedWizardWorkerID": "348e8d2f-ab94-60d9-68e4-3b9a35a75d8b",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2381,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hello to the AI assistant and ask for help (see instructions on the left). [instruction 1 of 6]",
+      "UnixTime": 1589841650
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, My name is Mark and I need your help.",
+      "UnixTime": 1589841668
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Try to get an appointment as soon as possible (right now it is 6 pm on Wednesday). [instruction 2 of 6]",
+      "UnixTime": 1589841668
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "sure what can I do?",
+      "UnixTime": 1589841674
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "How can I help you?",
+      "UnixTime": 1589841681
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to make an appointment with Dr. Alexis today as soon as possible.",
+      "UnixTime": 1589841711
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep asking for other times until the assistant has found a slot for you. Engage in smalltalk once this is done. [instruction 3 of 6]",
+      "UnixTime": 1589841711
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what are your symptoms?",
+      "UnixTime": 1589841726
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_symptoms",
+      "ActionLabelOptions": [
+        "doctor_ask_symptoms",
+        "doctor_ask_doctor_name",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you describe your symptoms, please?",
+      "UnixTime": 1589841729
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I've had a runny nose and have been sneezing a lot. I've also been pretty lethargic over the past two days.",
+      "UnixTime": 1589841770
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say something about Dr. Alexis, the AI Assistant, or something that has happened to you today. Be creative! [instruction 4 of 6]",
+      "UnixTime": 1589841770
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Mark\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "Symptoms": "\"Runny Nose, Sneezing, Lethargic for 2 days \""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589841784
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "6 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "6 pm"
+      },
+      "Text": "I can get you in at 6pm with Dr Johnson",
+      "UnixTime": 1589841792
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_available",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_available",
+        "doctor_inform_booking_successful",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "6 pm"
+      },
+      "Text": "Alright, Dr. Johnson is available at 6 pm. Can I book the appointment for you?",
+      "UnixTime": 1589841794
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I needed an appointment with Dr. Alexis. Hopefully today, Wednesday, at 6 pm. Dr Alexis is the best and knows me well.",
+      "UnixTime": 1589841842
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that you also want to make an appointment to get your kid Ben vaccinated. Perhaps you can schedule a second appointment at the same time? [instruction 5 of 6]",
+      "UnixTime": 1589841842
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"Mark\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "Symptoms": "\"Runny Nose, Sneezing, Lethargic for 2 days \""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "6 pm"
+      },
+      "UnixTime": 1589841851
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "6 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "6 pm"
+      },
+      "Text": "Dr Alexis is available",
+      "UnixTime": 1589841858
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_available",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_available",
+        "doctor_inform_booking_successful",
+        "doctor_ask_doctor_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "6 pm"
+      },
+      "Text": "Alright, Dr. Alexis is available at 6 pm. Can I book the appointment for you?",
+      "UnixTime": 1589841860
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes please. I just realized that my son Ben needs his vaccinations. Can you schedule an appointment at the same time?",
+      "UnixTime": 1589841907
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"Mark\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"6 pm\""
+        },
+        {
+          "Symptoms": "\"Runny Nose, Sneezing, Lethargic for 2 days \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "6 pm"
+      },
+      "UnixTime": 1589841914
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "6 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"Ben\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "Symptoms": "\"vaccinations\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "6 pm"
+      },
+      "UnixTime": 1589841928
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "7 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "7 pm"
+      },
+      "Text": "I can get ben in at 7pm",
+      "UnixTime": 1589841936
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "7 pm"
+      },
+      "Text": "Dr Alexis is available at 7pm should I book the appointment for Ben?",
+      "UnixTime": 1589841955
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That would be fine.",
+      "UnixTime": 1589841989
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until both yours and your kid's appointments are made (this should take a few more turns). Then say goodbye. [instruction 6 of 6]",
+      "UnixTime": 1589841989
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Dr. Alexis\""
+        },
+        {
+          "PatientName": "\"Ben\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"7 pm\""
+        },
+        {
+          "Symptoms": "\"vaccinations\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "The time slot is available.",
+        "Time": "7 pm"
+      },
+      "UnixTime": 1589841994
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "7 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "7 pm"
+      },
+      "Text": "Okay all booked",
+      "UnixTime": 1589842003
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "7 pm"
+      },
+      "Text": "I have a appointment for you booked at 6 with Dr. Alexis and Ben at 7",
+      "UnixTime": 1589842023
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great. Thanks, goodbye.",
+      "UnixTime": 1589842038
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "7 pm"
+      },
+      "Text": "goodbye",
+      "UnixTime": 1589842045
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_bye",
+      "ActionLabelOptions": [
+        "doctor_bye",
+        "doctor_ask_end_time",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Alexis",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "7 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589842047
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589842048
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "You are Mark and would like to make an appointment with Dr. Alexis for today (Wednesday). You have had a runny nose, sneezing, and a general lack of energy for two days now.",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "book_doctor_appointment.jpg",
+        "Task": "book_doctor_appointment"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* Right now it is Wednesday, 6 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,1014 @@
+{
+  "AnonymizedUserWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "AnonymizedWizardWorkerID": "8829abee-d7b6-d749-1f21-2eee378e34bb",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6321,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'making a doctor appointment', 'booking a flight', and 'reserving a table at a restaurant' (in any order), as shown on the left. You may also ask the assistant to request something from the room service.  [instruction 1 of 6]",
+      "UnixTime": 1590520474
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey, this is a bit of a longshot but can Dr Johnson fit me in at 4 pm?",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 2 of 6]",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "hotel_service_request",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "plane_reserve",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "book_doctor_appointment",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "plane_reserve",
+      "UnixTime": 1590520534
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "book_doctor_appointment",
+      "UnixTime": 1590520539
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Your name?",
+      "UnixTime": 1590520563
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hello",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I have your name, please?",
+      "UnixTime": 1590520565
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John",
+      "UnixTime": 1590520570
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Symptom?",
+      "UnixTime": 1590520579
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_ask_symptoms",
+      "ActionLabelOptions": [
+        "doctor_ask_symptoms",
+        "hello",
+        "doctor_ask_doctor_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you describe your symptoms, please?",
+      "UnixTime": 1590520581
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I've got a rash on my...just write personal.",
+      "UnixTime": 1590520607
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "Symptoms": "\"Rash on his personal parts.\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590520619
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "4 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "4 pm"
+      },
+      "Text": "The doctor is not available at that time.  Would you like to try another time or doctor?",
+      "UnixTime": 1590520635
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_unavailable",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_unavailable",
+        "doctor_ask_end_time",
+        "doctor_inform_booking_available"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "4 pm"
+      },
+      "Text": "Unfortunately Dr. Johnson has no appointment available at 4 pm.",
+      "UnixTime": 1590520640
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "How about Dr. Morgan? Or anyone at that practice except Dr. Alexis. She's a quack.",
+      "UnixTime": 1590520680
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 3 of 6]",
+      "UnixTime": 1590520680
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Morgan\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "Symptoms": "\"Rash on his personal parts.\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Johnson",
+        "Message": "The doctor has a conflicting appointment at that time. Try another time or another doctor.",
+        "Time": "4 pm"
+      },
+      "UnixTime": 1590520696
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "The time slot is available.",
+        "Time": "4 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "The time slot is available.",
+        "Time": "4 pm"
+      },
+      "Text": "Dr. Morgan is available at 4pm.  Should I book this appointment?",
+      "UnixTime": 1590520710
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_available",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_available",
+        "doctor_inform_booking_successful",
+        "doctor_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "The time slot is available.",
+        "Time": "4 pm"
+      },
+      "Text": "Alright, Dr. Morgan is available at 4 pm. Can I book the appointment for you?",
+      "UnixTime": 1590520713
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "perfect, thanks.",
+      "UnixTime": 1590520721
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 4 of 6]",
+      "UnixTime": 1590520721
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Morgan\")"
+        },
+        {
+          "PatientName": "\"John\""
+        },
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "Symptoms": "\"Rash on his personal parts.\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "The time slot is available.",
+        "Time": "4 pm"
+      },
+      "UnixTime": 1590520728
+    },
+    {
+      "APIName": "book_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Text": "Your appointment has been successfuly scheduled.",
+      "UnixTime": 1590520733
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_booking_successful",
+      "ActionLabelOptions": [
+        "doctor_inform_booking_successful",
+        "doctor_ask_doctor_name",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Text": "Great, your appointment with Dr. Morgan is booked for you!",
+      "UnixTime": 1590520736
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Very cool, now I have to try to make it to Chicago for a wedding on Sunday. Can you book a flight for me?",
+      "UnixTime": 1590520788
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Task": "plane_reserve",
+      "UnixTime": 1590520788
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590520788
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Task": "plane_reserve",
+      "UnixTime": 1590520798
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Text": "What is the flight ID?",
+      "UnixTime": 1590520809
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_flight_id",
+      "ActionLabelOptions": [
+        "plane_ask_flight_id",
+        "doctor_ask_doctor_name",
+        "ask_name",
+        "doctor_ask_symptoms",
+        "plane_inform_nothing_found",
+        "plane_reservation_succeeded"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "Text": "Can I have your flight ID, please?",
+      "UnixTime": 1590520812
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "391",
+      "UnixTime": 1590520823
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('making a doctor appointment', 'booking a flight', and 'reserving a table at a restaurant'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590520823
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "391"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_doctor_appointment",
+        "DoctorName": "Dr. Morgan",
+        "Message": "Your appointment has been successfuly scheduled.",
+        "Time": "4 pm"
+      },
+      "UnixTime": 1590520830
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 391
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 391
+      },
+      "Text": "Flight available.  Book it for you?",
+      "UnixTime": 1590520838
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "plane_ask_flight_id",
+        "plane_flight_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 391
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1590520846
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590520854
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "391"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 391
+      },
+      "UnixTime": 1590520857
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Text": "Reservation Confirmed",
+      "UnixTime": 1590520865
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_succeeded",
+      "ActionLabelOptions": [
+        "plane_reservation_succeeded",
+        "plane_inform_nothing_found",
+        "plane_ask_flight_id"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Text": "Right, your flight is now reserved!",
+      "UnixTime": 1590520867
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, I hope the wedding is fun. I love to dance, do you like to dance? I can see you being a great dancer.",
+      "UnixTime": 1590520905
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('making a doctor appointment', 'booking a flight', and 'reserving a table at a restaurant') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590520905
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590520905
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Task": "hotel_service_request",
+      "UnixTime": 1590520905
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Text": "I do like to dance.  I've been complimented on my dancing, though not often.  Can I help you with anything else?",
+      "UnixTime": 1590520938
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Text": "I do like to dance.  I've been complimented on my dancing, though not often.  Can I help you with anything else?",
+      "UnixTime": 1590520942
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I thought so! I just need to make a dinner reservation for tonight. Nothing too fancy and I don't really care where. Just try to book it for 7 pm for four of us.",
+      "UnixTime": 1590520999
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590521004
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Cactus Club\",\"Tamarind\",\"Legume\",\"Lucca\",\"The Porch\"])"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 391
+      },
+      "UnixTime": 1590521034
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "The Cactus Club is available at 7pm.  Should I reserve you a table?",
+      "UnixTime": 1590521057
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_ask_confirm_booking",
+        "restaurant_ask_time",
+        "restaurant_ask_size"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Great, the Cactus Club is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590521060
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "perfect",
+      "UnixTime": 1590521068
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Cactus Club\",\"Tamarind\",\"Legume\",\"Lucca\",\"The Porch\"])"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590521074
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to([\"Cactus Club\"])"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590521085
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "select_primary",
+      "Agent": "Wizard",
+      "UnixTime": 1590521105
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Reservation failed.",
+      "UnixTime": 1590521110
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590521112
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh no, try it one more time, pretty please!",
+      "UnixTime": 1590521132
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Cactus Club\",\"Tamarind\",\"Legume\",\"Lucca\",\"The Porch\"])"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590521138
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Reservation Confirmed",
+      "UnixTime": 1590521144
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590521149
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great job. That's all for now.",
+      "UnixTime": 1590521162
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Anything else?",
+      "UnixTime": 1590521170
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "restaurant_ask_restaurant",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590521172
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope, c ya later.",
+      "UnixTime": 1590521181
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Thanks and goodbye.",
+      "UnixTime": 1590521187
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590521197
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590521199
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor",
+      "hotel",
+      "plane",
+      "restaurant"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John\n- Your current location: Old Town Inn\n- Today is Friday the 5th, 2 pm\n\n The AI Assistant can handle:\n- Make an appointment with a doctor (e.g. Dr. Johnson or Dr. Morgan)\n- Book a flight (e.g. flight ID 391)\n- Reserving a table at a restaurant (e.g. The Porch or Lucca) for today\n- Request room service",
+    "WizardCapabilities": [
+      {
+        "Domain": "doctor",
+        "SchemaImage": "book_doctor_appointment.jpg",
+        "Task": "book_doctor_appointment"
+      },
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Friday the 5th, 2 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

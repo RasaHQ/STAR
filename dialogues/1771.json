@@ -1,0 +1,170 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1771,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I'm Alexis, I need to schedule a two-hour meeting.",
+      "UnixTime": 1589837378
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "guest",
+      "UnixTime": 1589837391
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_guest_name",
+      "ActionLabelOptions": [
+        "meeting_ask_guest_name",
+        "meeting_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "With whom would you like to schedule the meeting?",
+      "UnixTime": 1589837392
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "George for Wednesday at 9pm.",
+      "UnixTime": 1589837405
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"George\""
+        },
+        {
+          "UserName": "\"Alexis\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"9 pm\""
+        },
+        {
+          "EndTimeHour": "\"11 pm\""
+        }
+      ],
+      "UnixTime": 1589837421
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "11 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "9 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "11 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "9 pm"
+      },
+      "Text": "available",
+      "UnixTime": 1589837424
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "11 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "9 pm"
+      },
+      "Text": "scheduled",
+      "UnixTime": 1589837433
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "ask_name",
+        "meeting_ask_reason"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "11 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "9 pm"
+      },
+      "Text": "Fantastic, your meeting with George has been successfully scheduled for Wednesday, 9 pm-11 pm.",
+      "UnixTime": 1589837435
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589837448
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Alexis and would like to schedule a two-hour meeting with George for Wednesday at 9 pm. The meeting reason is 'plan project'. If that time does not work, you can also do 2 pm on Tuesday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      }
+    ],
+    "WizardTask": "Help the user schedule a meeting!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant schedule your meeting?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

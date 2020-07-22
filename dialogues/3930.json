@@ -1,0 +1,228 @@
+{
+  "AnonymizedUserWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "AnonymizedWizardWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3930,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi",
+      "UnixTime": 1589571640
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "How can I hel",
+      "UnixTime": 1589571654
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_ask_time",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your name, please?",
+      "UnixTime": 1589571658
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben",
+      "UnixTime": 1589571683
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what hotel ben",
+      "UnixTime": 1589571697
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "out_of_scope",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589571700
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Room 483 the Hilton hotel",
+      "UnixTime": 1589571721
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what was your request and the time please?",
+      "UnixTime": 1589571757
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "what was your request and the time please?",
+      "UnixTime": 1589571761
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Order a medium-rare steak and glass of red wine at 8pm",
+      "UnixTime": 1589571843
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "RoomNumber": "483"
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "CustomerRequest": "\"Order a medium-rare steak and glass of red wine\""
+        }
+      ],
+      "UnixTime": 1589571868
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 483,
+        "Time": "8 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 483,
+        "Time": "8 pm"
+      },
+      "Text": "confirmed",
+      "UnixTime": 1589571876
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_service_request_successful",
+      "ActionLabelOptions": [
+        "hotel_inform_service_request_successful",
+        "hotel_bye",
+        "hotel_inform_service_request_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 483,
+        "Time": "8 pm"
+      },
+      "Text": "Your request has been submitted successfully.\nA member of the service team will knock on the door of room 483 at 8 pm!",
+      "UnixTime": 1589571880
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks",
+      "UnixTime": 1589571950
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 483,
+        "Time": "8 pm"
+      },
+      "Text": "goodbye",
+      "UnixTime": 1589571961
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Confirmed",
+        "RoomNumber": 483,
+        "Time": "8 pm"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589571963
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589571967
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Ben and you are staying in room 483 of the Hilton Hotel. You would like to make a service request for 8 pm. Your request is: I'd like to order a medium-rare steak and glass of red wine..",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant successfully submit your service request?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

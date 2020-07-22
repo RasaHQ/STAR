@@ -1,0 +1,156 @@
+{
+  "AnonymizedUserWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "AnonymizedWizardWorkerID": "dafaf3b5-ecb1-93eb-584e-3238e912182c",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1829,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, My name is Mark and would like to schedule a two-hour meeting with Fred for Saturday at 1 pm.",
+      "UnixTime": 1589838008
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "end",
+      "UnixTime": 1589838029
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_end_time",
+      "ActionLabelOptions": [
+        "meeting_ask_end_time",
+        "meeting_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "When do you expect the meeting to wrap up?",
+      "UnixTime": 1589838031
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "at 3",
+      "UnixTime": 1589838080
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Mark\""
+        },
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "StartTimeHour": "\"1 pm\""
+        },
+        {
+          "EndTimeHour": "\"3 pm\""
+        }
+      ],
+      "UnixTime": 1589838088
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "3 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "1 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "3 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "1 pm"
+      },
+      "Text": "conflicting",
+      "UnixTime": 1589838096
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_unavailable_ask_different_time",
+      "ActionLabelOptions": [
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_ask_end_time",
+        "meeting_inform_confirmed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Saturday",
+        "EndTime": "3 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "1 pm"
+      },
+      "Text": "Unfortunately Fred is not able to make Saturday @ 1 pm.\nWould you like to try scheduling the meeting for a different day or time?",
+      "UnixTime": 1589838099
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589838110
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Mark and would like to schedule a two-hour meeting with Fred for Saturday at 1 pm. The meeting reason is 'allocate department budgets'. If that time does not work, you can also do 10 pm on Wednesday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      }
+    ],
+    "WizardTask": "Help the user schedule a meeting!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant schedule your meeting?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

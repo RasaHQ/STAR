@@ -1,0 +1,105 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2048,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like to search for a first seat flight between Detroit to Pittsburgh for May 10th.",
+      "UnixTime": 1589843034
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Detroit\""
+        },
+        {
+          "ArrivalCity": "\"Pittsburgh\""
+        },
+        {
+          "Date": "\"10th\""
+        },
+        {
+          "Class": "api.is_equal_to(\"First\")"
+        }
+      ],
+      "UnixTime": 1589843072
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "There are no flights",
+      "UnixTime": 1589843079
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_inform_nothing_found",
+        "plane_ask_arrival_city",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589843081
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589843102
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight between Detroit to Pittsburgh for May 10th. You want an First seat.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant find you a suitable flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

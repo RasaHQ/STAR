@@ -1,0 +1,176 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2102,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589845729
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589845755
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_ask_childhood_pets_name",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1589845756
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tyler Jones. I'd like to  check my balance. Account number is 9931939443153 and my PIN is 3941",
+      "UnixTime": 1589845775
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Tyler Jones\""
+        },
+        {
+          "AccountNumber": "9931939443153"
+        },
+        {
+          "PIN": "3941"
+        }
+      ],
+      "UnixTime": 1589845814
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 1920,
+        "BankName": "Chase",
+        "id": 27
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1920,
+        "BankName": "Chase",
+        "id": 27
+      },
+      "Text": "1920",
+      "UnixTime": 1589845819
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_ask_dob",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1920,
+        "BankName": "Chase",
+        "id": 27
+      },
+      "Text": "Your current balance is 1920 in credit.",
+      "UnixTime": 1589845820
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks so much.",
+      "UnixTime": 1589845828
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1920,
+        "BankName": "Chase",
+        "id": 27
+      },
+      "Text": "anything else",
+      "UnixTime": 1589845851
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_ask_dob",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1920,
+        "BankName": "Chase",
+        "id": 27
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589845852
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589845857
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Tyler Jones and would like to check your bank balance. Your account number is 9931939443153 and your PIN is 3941.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

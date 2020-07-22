@@ -1,0 +1,176 @@
+{
+  "AnonymizedUserWorkerID": "62eeec70-6c47-578d-fd46-fef2b9b6d543",
+  "AnonymizedWizardWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2680,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi! My name is Brian White and I need to check my balance. ",
+      "UnixTime": 1589834736
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account number",
+      "UnixTime": 1589834756
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589834758
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My account number is 95381901, and my PIN is 7402.",
+      "UnixTime": 1589834776
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Brian White\""
+        },
+        {
+          "AccountNumber": "95381901"
+        },
+        {
+          "PIN": "7402"
+        }
+      ],
+      "UnixTime": 1589834788
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2177,
+        "BankName": "Chase",
+        "id": 745
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2177,
+        "BankName": "Chase",
+        "id": 745
+      },
+      "Text": "balance",
+      "UnixTime": 1589834792
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_bye",
+        "bank_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2177,
+        "BankName": "Chase",
+        "id": 745
+      },
+      "Text": "Your current balance is 2177 in credit.",
+      "UnixTime": 1589834794
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok, that looks good. Thanks for your help!",
+      "UnixTime": 1589834811
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2177,
+        "BankName": "Chase",
+        "id": 745
+      },
+      "Text": "is that all",
+      "UnixTime": 1589834832
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_bye",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2177,
+        "BankName": "Chase",
+        "id": 745
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589834834
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589834838
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Brian White and would like to check your bank balance. Your account number is 95381901 and your PIN is 7402.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

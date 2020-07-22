@@ -1,0 +1,215 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2997,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi",
+      "UnixTime": 1589601651
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello",
+      "UnixTime": 1589601658
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "weather_ask_day",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589601659
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want to know the weather for Tuesday.",
+      "UnixTime": 1589601678
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what city",
+      "UnixTime": 1589601691
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "out_of_scope",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1589601693
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Chicago",
+      "UnixTime": 1589601732
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "UnixTime": 1589601737
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 14,
+        "Weather": "Sunny",
+        "id": 161
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 14,
+        "Weather": "Sunny",
+        "id": 161
+      },
+      "Text": "chicago",
+      "UnixTime": 1589601743
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "out_of_scope",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 14,
+        "Weather": "Sunny",
+        "id": 161
+      },
+      "Text": "It will be Sunny all day on Tuesday in Chicago, with temperatures of around 14 degrees celsius.",
+      "UnixTime": 1589601747
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you a bunch!",
+      "UnixTime": 1589601802
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 14,
+        "Weather": "Sunny",
+        "id": 161
+      },
+      "Text": "what else",
+      "UnixTime": 1589601807
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "weather_ask_location",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 14,
+        "Weather": "Sunny",
+        "id": 161
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589601809
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589601811
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Tuesday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

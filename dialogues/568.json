@@ -1,0 +1,235 @@
+{
+  "AnonymizedUserWorkerID": "3edcce52-bbdf-48d8-3d95-d45dad2e0182",
+  "AnonymizedWizardWorkerID": "6cb66f0b-1a8b-fec4-b481-96b6da01d513",
+  "BatchID": "woz_1589384245",
+  "CompletionLevel": "Complete",
+  "DialogueID": 568,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589387860
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi how can i help",
+      "UnixTime": 1589387869
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589387871
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to RSVP to a party at the NOrth Heights Venuel. ",
+      "UnixTime": 1589387903
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what is the host",
+      "UnixTime": 1589387911
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_host",
+      "ActionLabelOptions": [
+        "party_ask_host",
+        "party_ask_venue"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide me with the name of the host, please?",
+      "UnixTime": 1589387914
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John and my name is Ben ",
+      "UnixTime": 1589387942
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Great, what time will you be arriving and with how many guest?",
+      "UnixTime": 1589387971
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Great, what time will you be arriving and with how many guest?",
+      "UnixTime": 1589387974
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "7 pm ",
+      "UnixTime": 1589387987
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "guest",
+      "UnixTime": 1589387995
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many guests will you be bringing with you?",
+      "UnixTime": 1589387997
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "10 , i also need parking",
+      "UnixTime": 1589388032
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Dietary restriction",
+      "UnixTime": 1589388047
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_dietary_restrictions",
+      "ActionLabelOptions": [
+        "party_ask_dietary_restrictions",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you have any dietary restrictions?",
+      "UnixTime": 1589388049
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "vegan please!",
+      "UnixTime": 1589388055
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"John\""
+        },
+        {
+          "GuestName": "\"Ben\""
+        },
+        {
+          "ArrivalTime": "\"7 pm\""
+        },
+        {
+          "NumberGuests": "10"
+        },
+        {
+          "NeedParking": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "DietaryRestrictions": "\"Vegan\""
+        }
+      ],
+      "UnixTime": 1589388061
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Thank you for your RSVP. See you there.",
+      "UnixTime": 1589388067
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_arrival_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1589388069
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589388076
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Ben and would like to RSVP to a party. The host is John and the venue is North Heights Venue. You will be arriving at 7 pm and will bring 10 guests with you. You need parking. You can only eat vegan food.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      }
+    ],
+    "WizardTask": "Help the user RSVP for a party."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant submit your RSVP for the party?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

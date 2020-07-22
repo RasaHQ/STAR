@@ -1,0 +1,182 @@
+{
+  "AnonymizedUserWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "AnonymizedWizardWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3996,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I wanna know how much money I have",
+      "UnixTime": 1589594010
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I'll just need to get a bit of information from you. Can I start by getting your full name?",
+      "UnixTime": 1589594053
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "I'll just need to get a bit of information from you. Can I start by getting your full name?",
+      "UnixTime": 1589594058
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Brian White",
+      "UnixTime": 1589594068
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account",
+      "UnixTime": 1589594077
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "anything_else",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589594079
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm pretty sure it's 84318931431.",
+      "UnixTime": 1589594093
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin",
+      "UnixTime": 1589594104
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589594106
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "3941",
+      "UnixTime": 1589594129
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Brian White\""
+        },
+        {
+          "AccountNumber": "84318931431"
+        },
+        {
+          "PIN": "3941"
+        }
+      ],
+      "UnixTime": 1589594142
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2778,
+        "BankName": "Wells Fargo",
+        "id": 489
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2778,
+        "BankName": "Wells Fargo",
+        "id": 489
+      },
+      "Text": "Alright sir, your current balance is 2778 units.",
+      "UnixTime": 1589594175
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "anything_else",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2778,
+        "BankName": "Wells Fargo",
+        "id": 489
+      },
+      "Text": "Your current balance is 2778 in credit.",
+      "UnixTime": 1589594178
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594192
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Brian White and would like to check your bank balance. Your account number is 84318931431 and your PIN is 3941.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

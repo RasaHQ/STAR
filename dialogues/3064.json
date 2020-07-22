@@ -1,0 +1,210 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "e93abc6d-54fb-1791-f6ce-c0d7732abc64",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3064,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Explain the general situation to the robot and ask some question. [instruction 1 of 3]",
+      "UnixTime": 1589565821
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The life support is failing!",
+      "UnixTime": 1589565840
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Make lots of typos [instruction 2 of 3]",
+      "UnixTime": 1589565840
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the situation?",
+      "UnixTime": 1589565871
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_lock_manufacturer",
+      "ActionLabelOptions": [
+        "ask_name",
+        "out_of_scope",
+        "spaceship_ask_lock_manufacturer"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the name of the lock manufacturer.",
+      "UnixTime": 1589565882
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Deiblod",
+      "UnixTime": 1589565893
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Once the life support system is repaired (not earlier!), you can end the conversation.  [instruction 3 of 3]",
+      "UnixTime": 1589565893
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "d",
+      "UnixTime": 1589565912
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "What is the color of the top cable",
+      "UnixTime": 1589565937
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yellow and Orange!",
+      "UnixTime": 1589565948
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Is the cable dual-colored?",
+      "UnixTime": 1589565985
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_colour_second_cable",
+      "ActionLabelOptions": [
+        "spaceship_ask_colour_top_cable",
+        "spaceship_ask_colour_second_cable",
+        "spaceship_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide the color of the second cable.",
+      "UnixTime": 1589565991
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Orange",
+      "UnixTime": 1589565997
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "query SpaceshipLifeSupport",
+      "UnixTime": 1589566015
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Query SpaceshipLifeSupport",
+      "UnixTime": 1589566038
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "LockManufacturer": "\"Diebold\""
+        },
+        {
+          "ColorOfTopCable": "\"Yellow\""
+        },
+        {
+          "ColorOfSecondCable": "\"Orange\""
+        }
+      ],
+      "UnixTime": 1589566068
+    },
+    {
+      "APIName": "spaceship_life_support",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "d",
+      "UnixTime": 1589566081
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "spaceship_inform_outcome",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_life_support",
+        "Message": "Successful! Life support was recovered."
+      },
+      "Text": "Ok, I can reach the control panel now... Successful! Life support was recovered.",
+      "UnixTime": 1589566084
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589566090
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "The life support on your spaceship is failing! To save the lives of the crew, the ship's repair-robot has to get into the engineering deck, which is sealed due to a lack of air. Help the robot to enter the engineering deck! It has to temper with the lock (manufactured by 'Diebold') and swap the positions of the Yellow cable and the Orange cable. It already reached the door.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_life_support.jpg",
+        "Task": "spaceship_life_support"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard robot and help the user recover the life support."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the robot help successfully recover the life support?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the robot stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

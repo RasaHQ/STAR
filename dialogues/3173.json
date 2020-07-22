@@ -1,0 +1,225 @@
+{
+  "AnonymizedUserWorkerID": "e9fa7e8e-d139-9e5e-e5c1-e91880f700fb",
+  "AnonymizedWizardWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3173,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi! can you help me schedule a meeting?",
+      "UnixTime": 1589596351
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Of course, may I please have your name?",
+      "UnixTime": 1589596374
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Of course, may I please have your name?",
+      "UnixTime": 1589596377
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela, and I want to meet with George",
+      "UnixTime": 1589596387
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What day",
+      "UnixTime": 1589596393
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_day",
+      "ActionLabelOptions": [
+        "meeting_ask_day",
+        "meeting_bye",
+        "meeting_ask_guest_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "What day did you have in mind for the meeting?",
+      "UnixTime": 1589596396
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tuesday at noon",
+      "UnixTime": 1589596400
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how long",
+      "UnixTime": 1589596412
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_end_time",
+      "ActionLabelOptions": [
+        "meeting_ask_end_time",
+        "hello",
+        "meeting_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "When do you expect the meeting to wrap up?",
+      "UnixTime": 1589596413
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I expect it to be two hours long",
+      "UnixTime": 1589596424
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "reason",
+      "UnixTime": 1589596433
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_reason",
+      "ActionLabelOptions": [
+        "meeting_ask_reason",
+        "ask_name",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Would you like to note down an optional reason for the meeting?",
+      "UnixTime": 1589596435
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please. to discuss quarterly reports",
+      "UnixTime": 1589596442
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"George\""
+        },
+        {
+          "UserName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"12 pm\""
+        },
+        {
+          "EndTimeHour": "\"2 pm\""
+        },
+        {
+          "MeetingReason": "\"to discuss quarterly reports\""
+        }
+      ],
+      "UnixTime": 1589596458
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "2 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "12 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "2 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "12 pm"
+      },
+      "Text": "your meeting is scheduled.",
+      "UnixTime": 1589596471
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_ask_guest_name",
+        "meeting_inform_unavailable_ask_different_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "2 pm",
+        "GuestName": "George",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "12 pm"
+      },
+      "Text": "Fantastic, your meeting with George has been successfully scheduled for Tuesday, 12 pm-2 pm.",
+      "UnixTime": 1589596476
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589596482
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Angela and would like to schedule a two-hour meeting with George for Tuesday at 12 pm. The meeting reason is 'to discuss the quarterly reports'. If that time does not work, you can also do 3 pm on Wednesday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      }
+    ],
+    "WizardTask": "Help the user schedule a meeting!"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant schedule your meeting?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

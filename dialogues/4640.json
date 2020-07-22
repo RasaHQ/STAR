@@ -1,0 +1,116 @@
+{
+  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "AnonymizedWizardWorkerID": "7e46c32f-64e8-9560-702e-82f6b52463d7",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4640,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am Jane Doe and would like to check my bank balance. My account number is 84318931431 and my PIN is 7402.",
+      "UnixTime": 1589594147
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "AccountNumber": "84318931431"
+        },
+        {
+          "FullName": "\"Jane Doe\""
+        },
+        {
+          "PIN": "7402"
+        }
+      ],
+      "UnixTime": 1589594186
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2897,
+        "BankName": "Wells Fargo",
+        "id": 192
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2897,
+        "BankName": "Wells Fargo",
+        "id": 192
+      },
+      "Text": "balance 2897",
+      "UnixTime": 1589594203
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_bye",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2897,
+        "BankName": "Wells Fargo",
+        "id": 192
+      },
+      "Text": "Your current balance is 2897 in credit.",
+      "UnixTime": 1589594206
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594216
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Jane Doe and would like to check your bank balance. Your account number is 84318931431 and your PIN is 7402.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

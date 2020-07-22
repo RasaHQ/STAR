@@ -1,0 +1,302 @@
+{
+  "AnonymizedUserWorkerID": "f76f8d4d-5223-f6a7-71bb-8abf87118490",
+  "AnonymizedWizardWorkerID": "29460cea-cd22-bb2d-8c7b-b206609fd10e",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3077,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a hotel reservation. Can you help?",
+      "UnixTime": 1589609460
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name?",
+      "UnixTime": 1589609468
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_inform_nothing_found",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589609469
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It's Ben.",
+      "UnixTime": 1589609480
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hotel?",
+      "UnixTime": 1589609494
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "What hotel would you like to stay at?",
+      "UnixTime": 1589609495
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want the Hilton. I have this Hilton Honors points account, and I want my points.",
+      "UnixTime": 1589609539
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "start",
+      "UnixTime": 1589609566
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_date_from",
+      "ActionLabelOptions": [
+        "hotel_ask_date_from",
+        "hotel_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you arriving?",
+      "UnixTime": 1589609568
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It will be from May 10-16th.",
+      "UnixTime": 1589609585
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "StartDate": "\"10th\""
+        },
+        {
+          "EndDate": "\"16th\""
+        },
+        {
+          "CustomerName": "\"ben\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589609605
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Available"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Available"
+      },
+      "Text": "avail",
+      "UnixTime": 1589609608
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "hotel_ask_confirm_booking",
+        "hotel_reservation_failed",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Available"
+      },
+      "Text": "Alright, the Hilton Hotel ticks all of your boxes, can I book this room for you?",
+      "UnixTime": 1589609610
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, please do that. And I might get enough points for a free vacation with this booking.",
+      "UnixTime": 1589609648
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hilton Hotel\""
+        },
+        {
+          "StartDate": "\"10th\""
+        },
+        {
+          "EndDate": "\"16th\""
+        },
+        {
+          "CustomerName": "\"ben\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Available"
+      },
+      "UnixTime": 1589609678
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Reservation Failed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Reservation Failed"
+      },
+      "Text": "reservation",
+      "UnixTime": 1589609685
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_reservation_failed",
+      "ActionLabelOptions": [
+        "hotel_ask_date_from",
+        "hotel_reservation_failed",
+        "hotel_reservation_succeeded"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Reservation Failed"
+      },
+      "Text": "I'm sorry, but your booking request failed.",
+      "UnixTime": 1589609687
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh no! I guess crap happens. It's ok. I will call the hotel. I am diamond. They will make room for me.",
+      "UnixTime": 1589609731
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Reservation Failed"
+      },
+      "Text": "bye",
+      "UnixTime": 1589609740
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_reservation_failed",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hilton Hotel",
+        "Message": "Reservation Failed"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589609742
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589609747
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want to reserve a room at the Hilton Hotel from May 10th to 16th. Your name is Ben. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      }
+    ],
+    "WizardTask": "Help the user reserve a hotel room. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the assistant reserve your hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

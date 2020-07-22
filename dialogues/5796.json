@@ -1,0 +1,949 @@
+{
+  "AnonymizedUserWorkerID": "dafaf3b5-ecb1-93eb-584e-3238e912182c",
+  "AnonymizedWizardWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5796,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'finding a hotel' and 'reserving a room at a hotel' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590184690
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I need to book a hotel room. Can you help me?",
+      "UnixTime": 1590184712
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590184720
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_name",
+      "ActionLabelOptions": [
+        "hotel_inform_search_criteria",
+        "hotel_ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "What Hotel would you like to stay at?",
+      "UnixTime": 1590184728
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Anything but the Hilton. It's for my friend's birthday party and she hates the Hiltons, so as long as it's not a Hilton Hotel we're fine.",
+      "UnixTime": 1590184753
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Shadyside Inn\",\"Hyatt Hotel\",\"Old Town Inn\"])"
+        },
+        {
+          "Location": "api.is_equal_to(\"South\")"
+        },
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        }
+      ],
+      "UnixTime": 1590184802
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Old Town Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "3 pm",
+        "TakesReservations": true,
+        "id": 628
+      },
+      "TotalItems": 53
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Old Town Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "3 pm",
+        "TakesReservations": true,
+        "id": 628
+      },
+      "Text": "old",
+      "UnixTime": 1590184811
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_location",
+      "ActionLabelOptions": [
+        "hotel_ask_location",
+        "anything_else",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Old Town Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "3 pm",
+        "TakesReservations": true,
+        "id": 628
+      },
+      "Text": "Any particular location you would like to stay at?",
+      "UnixTime": 1590184816
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Try the West Side of town since it's supposed to be the cleanest. Let's do the 25th to the 27th so we have time to party and get over the hangover.",
+      "UnixTime": 1590184865
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590184865
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Shadyside Inn\",\"Hyatt Hotel\",\"Old Town Inn\"])"
+        },
+        {
+          "Location": "\"West\""
+        },
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "South",
+        "Name": "Old Town Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "3 pm",
+        "TakesReservations": true,
+        "id": 628
+      },
+      "UnixTime": 1590184881
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "TotalItems": 56
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Text": "hyatt",
+      "UnixTime": 1590184892
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Text": "The Hyatt Hotel is on the West side would you like me to book it for you?",
+      "UnixTime": 1590184937
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Text": "Checking availability of the Hyatt on the West side.",
+      "UnixTime": 1590184960
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, cool. You know, she's the last of group to turn 30 years old. We don't recover as quick now from partying as we used to. The end of an era, man.",
+      "UnixTime": 1590184991
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590184991
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Text": "name",
+      "UnixTime": 1590185001
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hotel_inform_search_criteria",
+        "hotel_ask_name",
+        "hotel_inform_name",
+        "hotel_inform_nothing_found",
+        "hotel_ask_date_from"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590185003
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tyler Jones.",
+      "UnixTime": 1590185012
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590185012
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"25th\""
+        },
+        {
+          "EndDate": "api.is_equal_to(\"1st\")"
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Cheap",
+        "Location": "West",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 379
+      },
+      "UnixTime": 1590185026
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Text": "sorry",
+      "UnixTime": 1590185033
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "Task": "hotel_search",
+      "UnixTime": 1590185047
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_one_of([\"Shadyside Inn\",\"Hyatt Hotel\",\"Old Town Inn\"])"
+        },
+        {
+          "Location": "\"Center\""
+        },
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Unavailable"
+      },
+      "UnixTime": 1590185056
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "TotalItems": 60
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590185066
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Text": "The Hyatt in Center of town is available. Shall I book it for you?",
+      "UnixTime": 1590185128
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Text": "Hyatt at town center is available. Shall I book it for you",
+      "UnixTime": 1590185153
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let me check the weather in Los Angeles first, can you do that for me?",
+      "UnixTime": 1590185170
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590185170
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Text": "day",
+      "UnixTime": 1590185177
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Task": "weather",
+      "UnixTime": 1590185188
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Text": "For what day?",
+      "UnixTime": 1590185206
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "hotel_ask_price",
+        "hotel_ask_rating",
+        "hotel_ask_name",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "Text": "For what day would you like the weather forecast?",
+      "UnixTime": 1590185210
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Friday.",
+      "UnixTime": 1590185221
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('finding a hotel' and 'reserving a room at a hotel'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590185221
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 1,
+        "Cost": "Cheap",
+        "Location": "Center",
+        "Name": "Hyatt Hotel",
+        "Service": false,
+        "TakesReservations": false,
+        "id": 834
+      },
+      "UnixTime": 1590185226
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "Text": "friday",
+      "UnixTime": 1590185232
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "Text": "cloudy",
+      "UnixTime": 1590185248
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "Text": "It will be Cloudy all day on Friday in Los Angeles, with temperatures of around 19 degrees celsius.",
+      "UnixTime": 1590185250
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, now how about San Francisco? ",
+      "UnixTime": 1590185273
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590185273
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "Task": "weather",
+      "UnixTime": 1590185278
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "City": "\"San Francisco\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 19,
+        "Weather": "Cloudy",
+        "id": 577
+      },
+      "UnixTime": 1590185282
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Friday",
+        "TemperatureCelsius": 8,
+        "Weather": "Raining",
+        "id": 64
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Friday",
+        "TemperatureCelsius": 8,
+        "Weather": "Raining",
+        "id": 64
+      },
+      "Text": "rain",
+      "UnixTime": 1590185287
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Friday",
+        "TemperatureCelsius": 8,
+        "Weather": "Raining",
+        "id": 64
+      },
+      "Text": "It will be Raining all day on Friday in San Francisco, with temperatures of around 8 degrees celsius.",
+      "UnixTime": 1590185289
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay. So, back to the hotel now. Can you put a note in there that my friend hates Thai food? That's the only thing she won't like. Go ahead and book the room if they can do that.",
+      "UnixTime": 1590185342
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('finding a hotel' and 'reserving a room at a hotel') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590185342
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Friday",
+        "TemperatureCelsius": 8,
+        "Weather": "Raining",
+        "id": 64
+      },
+      "Task": "hotel_reserve",
+      "UnixTime": 1590185355
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "StartDate": "\"25th\""
+        },
+        {
+          "EndDate": "api.is_equal_to(\"1st\")"
+        },
+        {
+          "CustomerName": "\"Tyler Jones\""
+        },
+        {
+          "RequestType": "\"Book\""
+        },
+        {
+          "CustomerRequest": "\"No Thai food\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Friday",
+        "TemperatureCelsius": 8,
+        "Weather": "Raining",
+        "id": 64
+      },
+      "UnixTime": 1590185381
+    },
+    {
+      "APIName": "hotel_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Reservation confirmed. No Thai food.",
+      "UnixTime": 1590185404
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Reservation confirmed. No Thai food.",
+      "UnixTime": 1590185417
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks, man. Have a good one now.",
+      "UnixTime": 1590185429
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "any",
+      "UnixTime": 1590185438
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Is there anything else I can help you with?",
+      "UnixTime": 1590185458
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's it. Bye now.",
+      "UnixTime": 1590185464
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "good",
+      "UnixTime": 1590185470
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_bye",
+      "ActionLabelOptions": [
+        "hotel_bye",
+        "hotel_unavailable",
+        "hotel_reservation_succeeded"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_reserve",
+        "HotelName": "Hyatt Hotel",
+        "Message": "Reservation Confirmed"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590185472
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590185476
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Tyler Jones\n- Today is Tuesday the 21st, 6 pm\n\n The AI Assistant can handle:\n- Search for a hotel (e.g. in the East of town`)\n- Book a room at a hotel (e.g. Hilton Hotel or whatever the assistant can find for you; e.g. from 3rd to 26th)\n- Checking the weather forecast in different Cities (e.g. Los Angeles or San Francisco)",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_reserve.jpg",
+        "Task": "hotel_reserve"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Tuesday the 21st, 6 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

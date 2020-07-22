@@ -1,0 +1,228 @@
+{
+  "AnonymizedUserWorkerID": "eae96765-3d74-8647-cc03-fc417533d9b1",
+  "AnonymizedWizardWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3764,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I need to check my balance. My name is Sarah Brown.",
+      "UnixTime": 1589594257
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Can I get your account number and your PIN please?",
+      "UnixTime": 1589594280
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Can I get your account number and your PIN please?",
+      "UnixTime": 1589594291
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sorry, I forgot those!",
+      "UnixTime": 1589594298
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Can I have your date of birth, your mother's maiden name and the name of your childhood pet then?",
+      "UnixTime": 1589594345
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Can I have your date of birth, your mother's maiden name and the name of your childhood pet then?",
+      "UnixTime": 1589594348
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "12/12/2001. Mother's maiden is Miller and my pet was Nemo (he was found).",
+      "UnixTime": 1589594377
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        }
+      ],
+      "UnixTime": 1589594406
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "DateOfBirth": "\"12/12/2001\""
+        },
+        {
+          "SecurityAnswer1": "\"Miller\""
+        },
+        {
+          "SecurityAnswer2": "\"Nemo\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589594451
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "Text": "\t9238",
+      "UnixTime": 1589594457
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "Text": "You have 9238 in balance.",
+      "UnixTime": 1589594467
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_ask_mothers_maiden_name",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "Text": "Your current balance is 9238 in credit.",
+      "UnixTime": 1589594471
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Perfect, thank you!",
+      "UnixTime": 1589594492
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "Text": "goodbye",
+      "UnixTime": 1589594519
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "anything_else",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9238,
+        "BankName": "Bank of America",
+        "id": 782
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589594523
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594534
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Sarah Brown and would like to check your bank balance. Unfortunately, you don't remember your account number or your PIN. Your date of birth is 12/12/2001. For your security questions, your mother's maiden name is Miller and your childhood pet is Nemo.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

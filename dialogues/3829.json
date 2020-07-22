@@ -1,0 +1,236 @@
+{
+  "AnonymizedUserWorkerID": "ef43f87b-badc-34f5-e103-d10f2d852aed",
+  "AnonymizedWizardWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3829,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi this is Tyler Jones. I would like to check on my bank balance.",
+      "UnixTime": 1589594410
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account number",
+      "UnixTime": 1589594414
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589594416
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That would be 351531510",
+      "UnixTime": 1589594439
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pin",
+      "UnixTime": 1589594444
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1589594446
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "You got it! It's 0314",
+      "UnixTime": 1589594455
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "AccountNumber": "351531510"
+        },
+        {
+          "FullName": "\"Tyler Jones\""
+        },
+        {
+          "PIN": "0314"
+        }
+      ],
+      "UnixTime": 1589594460
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "9863",
+      "UnixTime": 1589594463
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "Your current balance is 9863 in credit.",
+      "UnixTime": 1589594465
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sweet! Thanks.",
+      "UnixTime": 1589594478
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "anything else",
+      "UnixTime": 1589594481
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_ask_dob",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589594483
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, thanks. Goodbye!",
+      "UnixTime": 1589594490
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "good bye",
+      "UnixTime": 1589594492
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "bank_ask_account_number",
+        "bank_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9863,
+        "BankName": "Chase",
+        "id": 721
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589594493
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594497
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Tyler Jones and would like to check your bank balance. Your account number is 351531510 and your PIN is 0314.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

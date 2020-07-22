@@ -1,0 +1,306 @@
+{
+  "AnonymizedUserWorkerID": "66c768ec-c1a7-affc-8806-fa55a561e851",
+  "AnonymizedWizardWorkerID": "6cb66f0b-1a8b-fec4-b481-96b6da01d513",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2887,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589585122
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589585129
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "apartment_ask_balcony",
+        "apartment_ask_num_bedrooms"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589585130
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Searching for a 2 bedroom apartment on floor 13 or higher. and my budget is 5041",
+      "UnixTime": 1589585199
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "balcony",
+      "UnixTime": 1589585207
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_balcony",
+      "ActionLabelOptions": [
+        "apartment_ask_balcony",
+        "hello",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Does the apartment need to have a balcony?",
+      "UnixTime": 1589585209
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes i would like it to have one and be near my gym",
+      "UnixTime": 1589585235
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "side of baclony",
+      "UnixTime": 1589585261
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "East, west, north or south",
+      "UnixTime": 1589585270
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "MaxLevel": "api.is_at_least(13)"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"User's gym\")"
+        },
+        {
+          "HasBalcony": "True"
+        }
+      ],
+      "UnixTime": 1589585299
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 53,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 12,
+        "MaxLevel": 14,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1029,
+        "id": 654
+      },
+      "TotalItems": 11
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 53,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 12,
+        "MaxLevel": 14,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1029,
+        "id": 654
+      },
+      "Text": "north hill",
+      "UnixTime": 1589585308
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_ask_nearby_pois",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 53,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 12,
+        "MaxLevel": 14,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1029,
+        "id": 654
+      },
+      "Text": "OK, I found a free flat in North Hill Apartments, located near a University and a User's gym, that is matching your search criteria.\nIt is on level 12, has 53 square meters and 2 bedrooms.\nIt has a east facing balcony and does not have an elevator, and comes at the price of 1029 per month.",
+      "UnixTime": 1589585311
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, great! Thank you for your help!",
+      "UnixTime": 1589585380
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "MaxLevel": "api.is_greater_than(13)"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"User's gym\")"
+        },
+        {
+          "HasBalcony": "True"
+        },
+        {
+          "Price": "5041"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "east",
+        "FloorSquareMeters": 53,
+        "HasBalcony": true,
+        "HasElevator": false,
+        "Level": 12,
+        "MaxLevel": 14,
+        "Name": "North Hill Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 2,
+        "Price": 1029,
+        "id": 654
+      },
+      "UnixTime": 1589585385
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "anything else",
+      "UnixTime": 1589585391
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "apartment_inform_nothing_found",
+        "apartment_ask_nearby_pois"
+      ],
+      "Agent": "Wizard",
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589585393
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no that will be all, have a good day. Goodbye",
+      "UnixTime": 1589585411
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "thanks ",
+      "UnixTime": 1589585416
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "apartment_ask_num_bedrooms",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589585418
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589585434
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 2 bedroom apartment. The unit should be on floor 13 or higher. Your price budget is 5041 credits. You would like the building to have a balcony and be near your gym.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

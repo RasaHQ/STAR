@@ -1,0 +1,771 @@
+{
+  "AnonymizedUserWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "AnonymizedWizardWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5876,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Maybe the AI Assistant can help? Say hello and ask if it can help you plan the party. [instruction 1 of 7]",
+      "UnixTime": 1590099810
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1590099817
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Mark says: 'I think the North Heights Venue is quite nice'. [instruction 2 of 7]",
+      "UnixTime": 1590099817
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "assist",
+      "UnixTime": 1590099920
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "How can I help?",
+      "UnixTime": 1590099926
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want to organize a birthday party for my friend.",
+      "UnixTime": 1590099960
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "guests",
+      "UnixTime": 1590100000
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "out_of_scope",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many people would you like to invite?",
+      "UnixTime": 1590100001
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "26 guests",
+      "UnixTime": 1590100012
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that if the weather is nice, you might just have the party outside somewhere. Ask your assistant what the weather will be like on Tuesday. [instruction 3 of 7]",
+      "UnixTime": 1590100012
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590100027
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "party_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590100028
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela, how is the weather on Tuesday in Los Angeles? If it's nice I might just have a picnic instead.",
+      "UnixTime": 1590100057
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Mark says: 'Yeah, actually, if the weather is good, we could just go out to the park and book a restaurant for the evening'. You agree. So depending on the weather, either continue searching / booking the venue, or ask your assistant to help you find and book a restaurant for Tuesday evening. [instruction 4 of 7]",
+      "UnixTime": 1590100057
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "weather",
+      "UnixTime": 1590100067
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "UnixTime": 1590100071
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "snowing",
+      "UnixTime": 1590100074
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "hello",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "It will be Snowing all day on Tuesday in Los Angeles, with temperatures of around 6 degrees celsius.",
+      "UnixTime": 1590100075
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh gross, snow. Okay, let's continue with booking the North Heights Venue",
+      "UnixTime": 1590100101
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Note: You are located in the Center of town, which you may or may not take into account if you search for a restaurant. [instruction 5 of 7]",
+      "UnixTime": 1590100101
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Task": "party_plan",
+      "UnixTime": 1590100106
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "day",
+      "UnixTime": 1590100110
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "party_ask_day",
+        "party_ask_number_of_guests",
+        "party_bye",
+        "weather_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "On what day would you like your party organised?",
+      "UnixTime": 1590100113
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tuesday",
+      "UnixTime": 1590100119
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When the question comes up: you both like Chinese food and Burgers, but no Pizza. [instruction 6 of 7]",
+      "UnixTime": 1590100119
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "time",
+      "UnixTime": 1590100146
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_starting_time",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "party_ask_starting_time",
+        "weather_bye",
+        "party_bye",
+        "out_of_scope",
+        "party_inform_food_drink_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "Text": "When would you like your party to kick off?",
+      "UnixTime": 1590100150
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "4pm",
+      "UnixTime": 1590100164
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "NumberGuests": "26"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Tuesday",
+        "TemperatureCelsius": 6,
+        "Weather": "Snowing",
+        "id": 241
+      },
+      "UnixTime": 1590100179
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "4 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "4 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "small",
+      "UnixTime": 1590100182
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_no_venue_available",
+      "ActionLabelOptions": [
+        "hello",
+        "party_no_venue_available",
+        "party_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "4 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "I am very sorry, but it looks like all venues are booked out then.",
+      "UnixTime": 1590100185
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Try 5pm. By the way my friend and I both like Chinese food and Burgers, but no Pizza",
+      "UnixTime": 1590100206
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "NumberGuests": "26"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is too small for your party. Try another venue.",
+        "Time": "4 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "UnixTime": 1590100214
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "5 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "5 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590100218
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_no_venue_available",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "party_no_venue_available",
+        "party_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "5 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "I am very sorry, but it looks like all venues are booked out then.",
+      "UnixTime": 1590100220
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is there anytime available between 12pm and 10pm?",
+      "UnixTime": 1590100242
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done booking (not just finding!) either a restaurant or a party venue, you can say goodbye and end the dialogue. This might take a while though, e.g. in case the venue is not available. [instruction 7 of 7]",
+      "UnixTime": 1590100242
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"1 pm\""
+        },
+        {
+          "NumberGuests": "26"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "5 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "UnixTime": 1590100259
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "1 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"3 pm\""
+        },
+        {
+          "NumberGuests": "26"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is booked at that time. Try another meeting time or another venue.",
+        "Time": "1 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "UnixTime": 1590100263
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is available.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is available.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "available",
+      "UnixTime": 1590100266
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_day",
+        "party_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is available.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "OK, the North Heights Venue would be happy to accommodate you on Tuesday @ 3 pm.\nCan I book it for you now?",
+      "UnixTime": 1590100267
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes!",
+      "UnixTime": 1590100271
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"3 pm\""
+        },
+        {
+          "NumberGuests": "26"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "The venue is available.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "UnixTime": 1590100305
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "booked",
+      "UnixTime": 1590100308
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_successful",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "party_ask_confirm_booking",
+        "party_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "Great, your party has been successfully booked at the North Heights Venue on Tuesday at 3 pm!",
+      "UnixTime": 1590100309
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, thanks for your help, Bye!",
+      "UnixTime": 1590100322
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "thank you",
+      "UnixTime": 1590100364
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_bye",
+      "ActionLabelOptions": [
+        "party_bye",
+        "ask_name",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Tuesday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "3 pm",
+        "VenueName": "North Heights Venue"
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590100365
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590100380
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You (Angela) and your friend Mark want to organize a birthday party on Tuesday. You expect 26 guests to come.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Note: If the user already knows a restaurant name, use 'restaurant reserve', otherwise use 'restaurant search'."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

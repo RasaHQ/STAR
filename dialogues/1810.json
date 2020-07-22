@@ -1,0 +1,129 @@
+{
+  "AnonymizedUserWorkerID": "58be375a-caa2-7735-72af-2683a9d7dda2",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1810,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi is there a flight between pittsburgh and chicago for may 25? i want a first seat",
+      "UnixTime": 1589838150
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Pittsburgh\""
+        },
+        {
+          "ArrivalCity": "\"Chicago\""
+        },
+        {
+          "Date": "\"25th\""
+        },
+        {
+          "Class": "api.is_equal_to(\"First\")"
+        }
+      ],
+      "UnixTime": 1589838180
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "There are none available for that request. Would you like me to continue searching?",
+      "UnixTime": 1589838214
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_ask_more_questions",
+        "plane_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589838218
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no its ok thanks",
+      "UnixTime": 1589838285
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Thanks and goodbye!",
+      "UnixTime": 1589838304
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "hello",
+        "plane_ask_date"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589838307
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589838319
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight between Pittsburgh to Chicago for May 25th. You want an First seat.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant find you a suitable flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

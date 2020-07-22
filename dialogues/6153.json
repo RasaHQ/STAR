@@ -1,0 +1,1131 @@
+{
+  "AnonymizedUserWorkerID": "5d99ecec-8924-cc09-6519-ccb1eb7eb585",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6153,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant', 'Bank balance checking' and 'Filing a bank fraud report' (in any order), as shown on the left. You may also play up to three rounds of trivia with the assistant.  [instruction 1 of 9]",
+      "UnixTime": 1590099390
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I like to reserve a table at Cactus",
+      "UnixTime": 1590099486
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "May I have your name, restaurant, time and party size?",
+      "UnixTime": 1590099532
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "May I have your name, restaurant, time and party size?",
+      "UnixTime": 1590099535
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "susan Brown, Cactus,4",
+      "UnixTime": 1590099801
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"4 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Susan Brown\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590099848
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "It's available. Book?",
+      "UnixTime": 1590099869
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_ask_confirm_booking",
+        "restaurant_ask_time",
+        "restaurant_inform_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Great, the Cactus Club is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590099872
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can i check my bank balance first?",
+      "UnixTime": 1590099901
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590099901
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590099924
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Yes. Can I get your account number and PIN?",
+      "UnixTime": 1590099943
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Yes. Can I get your account number and PIN?",
+      "UnixTime": 1590099949
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Cactus can be expensive so i want to make sure I have enough. bank account: 9931939443153, with PIN 7402",
+      "UnixTime": 1590099994
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Susan brown\""
+        },
+        {
+          "AccountNumber": "9931939443153"
+        },
+        {
+          "PIN": "7402"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590100074
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "Text": "Your balance",
+      "UnixTime": 1590100081
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_bye",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "Text": "Your current balance is 5466 in credit.",
+      "UnixTime": 1590100083
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "oh no thats 400 short can i make a bank fraud report",
+      "UnixTime": 1590100136
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "Task": "bank_fraud_report",
+      "UnixTime": 1590100156
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "Text": "What are the details for the fraud report?",
+      "UnixTime": 1590100191
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_ask_account_number",
+        "bank_inform_cannot_authenticate",
+        "anything_else",
+        "bank_inform_fraud_report_submitted",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1590100196
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "its short 400",
+      "UnixTime": 1590100217
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590100217
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"short 400\""
+        },
+        {
+          "FullName": "\"Susan Brown\""
+        },
+        {
+          "AccountNumber": "9931939443153"
+        },
+        {
+          "PIN": "7402"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 5466,
+        "BankName": "Wells Fargo",
+        "id": 169
+      },
+      "UnixTime": 1590100299
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "It was submitted.",
+      "UnixTime": 1590100306
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_inform_fraud_report_submitted",
+        "bank_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590100309
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I still have enough for Cactus can you book the restaurant?",
+      "UnixTime": 1590100352
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590100376
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"4 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Susan Brown\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "UnixTime": 1590100382
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "It's confirmed",
+      "UnixTime": 1590100389
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_size"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590100391
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "great can we play some trivia",
+      "UnixTime": 1590100410
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590100410
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "trivia",
+      "UnixTime": 1590100464
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Which question",
+      "UnixTime": 1590100471
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question_number",
+      "ActionLabelOptions": [
+        "trivia_ask_question_number",
+        "out_of_scope",
+        "trivia_inform_nothing_found",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_restaurant",
+        "trivia_inform_answer_correct_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "At what question would you like to start?",
+      "UnixTime": 1590100473
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1",
+      "UnixTime": 1590100480
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for a game of trivia at any point. But don't play more than three rounds. [instruction 5 of 9]",
+      "UnixTime": 1590100480
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "1"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590100492
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": " A atom",
+      "UnixTime": 1590100497
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "A ____ atom in an atomic clock beats 9,192,631,770 times a second",
+      "UnixTime": 1590100499
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "red",
+      "UnixTime": 1590100521
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "Sorry. the answer",
+      "UnixTime": 1590100541
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_2_ask_next",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "The answer to this question would have been 'cesium'. Would you like to continue playing?",
+      "UnixTime": 1590100545
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590100553
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590100553
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "2"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "UnixTime": 1590100577
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": " A is",
+      "UnixTime": 1590100583
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A ____ is the blue field behind the stars",
+      "UnixTime": 1590100586
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "space. I love the steak at Cactus",
+      "UnixTime": 1590100612
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Do you need ",
+      "UnixTime": 1590100652
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "I'm sorry the answer was canton. Do you want to continue playing?",
+      "UnixTime": 1590100672
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590100679
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant, bank balance checking, and bank fraud report). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590100679
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Task": "trivia",
+      "UnixTime": 1590100715
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "3"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "UnixTime": 1590100720
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": " A takes",
+      "UnixTime": 1590100725
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "hello",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "A ____ takes 33 hours to crawl one mile",
+      "UnixTime": 1590100727
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "sloth",
+      "UnixTime": 1590100739
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Snail. I'm sorry do you ",
+      "UnixTime": 1590100767
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_2_ask_next",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "trivia_bye",
+        "trivia_inform_answer_2_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "The answer to this question would have been 'snail'. Would you like to continue playing?",
+      "UnixTime": 1590100771
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no thanks",
+      "UnixTime": 1590100781
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590100781
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Do you nee",
+      "UnixTime": 1590100810
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Text": "Do you need anything else?",
+      "UnixTime": 1590100821
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "can you make the reservation for 6pm instead at Cactus?",
+      "UnixTime": 1590100851
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590100871
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Susan Brown\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "snail",
+        "Question": "A ____ takes 33 hours to crawl one mile"
+      },
+      "UnixTime": 1590100877
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "It failed.",
+      "UnixTime": 1590100884
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "ask_name",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590100885
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "4pm",
+      "UnixTime": 1590100896
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Susan Brown\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590100904
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "It's confirmed",
+      "UnixTime": 1590100913
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_size"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590100914
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok that should be it",
+      "UnixTime": 1590100928
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant, bank balance checking, and bank fraud report) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590100928
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Thank you.",
+      "UnixTime": 1590100962
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_ask_size",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590100966
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no thanks",
+      "UnixTime": 1590100973
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Okay thank you",
+      "UnixTime": 1590101004
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Okay thank you",
+      "UnixTime": 1590101011
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "goodbye",
+      "UnixTime": 1590101017
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "thanks good",
+      "UnixTime": 1590101047
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590101052
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590101054
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Sarah Brown\n- Your bank account: 9931939443153, with PIN 7402\n- Today is Sunday the 11th of June, 10 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Filing a bank fraud report\n- Reserving a table at a restaurant (e.g. Legume or Cactus Club) for today\n- A game of trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Sunday the 11th of June, 10 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

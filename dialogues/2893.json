@@ -1,0 +1,206 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "73075136-b637-6ae1-2978-d0164a49549e",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2893,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589584760
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi how i can help",
+      "UnixTime": 1589584775
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "apartment_ask_nearby_pois"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589584777
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a 2 bedroom apartment, on the 8th floor or higher. My price budget is 712 credits. I want a balcony",
+      "UnixTime": 1589584799
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you need an elevator?",
+      "UnixTime": 1589584914
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_elevator",
+      "ActionLabelOptions": [
+        "apartment_ask_elevator",
+        "apartment_ask_floor",
+        "apartment_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you require an elevator?",
+      "UnixTime": 1589584916
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I do not",
+      "UnixTime": 1589584922
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you need any pow",
+      "UnixTime": 1589584951
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Do you requiee any pios",
+      "UnixTime": 1589584966
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_nearby_pois",
+      "ActionLabelOptions": [
+        "apartment_ask_nearby_pois",
+        "apartment_bye",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Are you looking for an apartment near specific surroundings?",
+      "UnixTime": 1589584970
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Near my office, yes",
+      "UnixTime": 1589584976
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "HasBalcony": "True"
+        },
+        {
+          "Level": "8"
+        },
+        {
+          "Level": "api.is_greater_than(8)"
+        },
+        {
+          "Price": "api.is_at_most(712)"
+        },
+        {
+          "NumRooms": "api.is_at_least(2)"
+        }
+      ],
+      "UnixTime": 1589585015
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "There is nothing found",
+      "UnixTime": 1589585023
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_nothing_found",
+      "ActionLabelOptions": [
+        "apartment_inform_nothing_found",
+        "anything_else",
+        "apartment_ask_floor"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589585026
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I do not, this is what I require",
+      "UnixTime": 1589585034
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "So sorry, is there anything else i can help you with?",
+      "UnixTime": 1589585060
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "apartment_ask_nearby_pois",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589585062
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589585065
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 2 bedroom apartment. The unit should be on floor 8 or higher. Your price budget is 712 credits. You would like the building to have a balcony and be near your office.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

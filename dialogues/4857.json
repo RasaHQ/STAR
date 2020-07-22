@@ -1,0 +1,246 @@
+{
+  "AnonymizedUserWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "AnonymizedWizardWorkerID": "bdb1200a-cacd-8d8d-107d-932e4bffd026",
+  "BatchID": "woz_1589305371",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4857,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589313627
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "H",
+      "UnixTime": 1589313645
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589313648
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to reserve a flight.",
+      "UnixTime": 1589313662
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I",
+      "UnixTime": 1589313673
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "I can help with that. May I have your name please.",
+      "UnixTime": 1589313709
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure. My name is Ben. I was named after the kite and lightning founding father.",
+      "UnixTime": 1589313738
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Okay Ben, do you have a flight ID number?",
+      "UnixTime": 1589313869
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_flight_id",
+      "ActionLabelOptions": [
+        "plane_ask_flight_id",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can I have your flight ID, please?",
+      "UnixTime": 1589313872
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sure. My flight ID is 787.",
+      "UnixTime": 1589313889
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "787"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589313896
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "That flight doesn't seem to be available. Can you double check that ID for me please.",
+      "UnixTime": 1589313959
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_ask_flight_id",
+        "plane_flight_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "Sorry, but the flight with id '787' is not available any more.",
+      "UnixTime": 1589313968
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK. Thank you for helping.",
+      "UnixTime": 1589313992
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "Is there anyh",
+      "UnixTime": 1589314002
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "plane_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589314004
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That is all. Goodbye.",
+      "UnixTime": 1589314014
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "g",
+      "UnixTime": 1589314023
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "hello",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 787
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589314026
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589314029
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Reserve flight with id 787. Your name is Ben",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      }
+    ],
+    "WizardTask": "Help the user book their flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant book your flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,975 @@
+{
+  "AnonymizedUserWorkerID": "3e489804-5a5c-0422-f71f-c3df0ed166b8",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4995,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Maybe the AI Assistant can help? Say hello and ask if it can help you plan the party. [instruction 1 of 7]",
+      "UnixTime": 1590257750
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My friend Alexis and I need some help planning a party on Sunday",
+      "UnixTime": 1590257773
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Alexis says: 'I think the Southside Venue is quite nice'. [instruction 2 of 7]",
+      "UnixTime": 1590257773
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what venue",
+      "UnixTime": 1590257777
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "party_booking_failed",
+        "party_ask_drinks"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what venue would you like to have your party organised?",
+      "UnixTime": 1590257779
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's go with 2 pm.  And Alexis mentioned Southside is a good venue",
+      "UnixTime": 1590257801
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "guests",
+      "UnixTime": 1590257812
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "out_of_scope",
+        "party_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many people would you like to invite?",
+      "UnixTime": 1590257813
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Go with 46",
+      "UnixTime": 1590257822
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "It occurs to you that if the weather is nice, you might just have the party outside somewhere. Ask your assistant what the weather will be like on Sunday. [instruction 3 of 7]",
+      "UnixTime": 1590257822
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Alexis\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "46"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590257824
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "available",
+      "UnixTime": 1590257827
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "party_ask_confirm_booking",
+        "party_ask_day",
+        "party_booking_successful"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "OK, the Southside Venue would be happy to accommodate you on Sunday @ 2 pm.\nCan I book it for you now?",
+      "UnixTime": 1590257828
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What's the weather for Sunday?   We might want to shift outside if it's good",
+      "UnixTime": 1590257847
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Alexis says: 'Yeah, actually, if the weather is good, we could just go out to the park and book a restaurant for the evening'. You agree. So depending on the weather, either continue searching / booking the venue, or ask your assistant to help you find and book a restaurant for Sunday evening. [instruction 4 of 7]",
+      "UnixTime": 1590257847
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Task": "weather",
+      "UnixTime": 1590257858
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "city",
+      "UnixTime": 1590257861
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "party_no_venue_available",
+        "hello",
+        "party_ask_confirm_booking",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1590257862
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Los Angelese",
+      "UnixTime": 1590257868
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Note: You are located in the East of town, which you may or may not take into account if you search for a restaurant. [instruction 5 of 7]",
+      "UnixTime": 1590257868
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "The venue is available.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590257872
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 8,
+        "Weather": "Partly Cloudy",
+        "id": 11
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 8,
+        "Weather": "Partly Cloudy",
+        "id": 11
+      },
+      "Text": "cloudy",
+      "UnixTime": 1590257875
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 8,
+        "Weather": "Partly Cloudy",
+        "id": 11
+      },
+      "Text": "It will be Partly Cloudy all day on Sunday in Los Angeles, with temperatures of around 8 degrees celsius.",
+      "UnixTime": 1590257876
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's book for now.  We can always cancel later.   ",
+      "UnixTime": 1590257912
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When the question comes up: you both like Italian food and Pizza, but no Thai food. [instruction 6 of 7]",
+      "UnixTime": 1590257912
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 8,
+        "Weather": "Partly Cloudy",
+        "id": 11
+      },
+      "Task": "party_plan",
+      "UnixTime": 1590257915
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Southside Venue\")"
+        },
+        {
+          "HostName": "\"Alexis\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"2 pm\""
+        },
+        {
+          "NumberGuests": "46"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Sunday",
+        "TemperatureCelsius": 8,
+        "Weather": "Partly Cloudy",
+        "id": 11
+      },
+      "UnixTime": 1590257917
+    },
+    {
+      "APIName": "party_plan",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "booked",
+      "UnixTime": 1590257919
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_booking_successful",
+      "ActionLabelOptions": [
+        "party_booking_successful",
+        "party_ask_confirm_booking",
+        "party_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Text": "Great, your party has been successfully booked at the Southside Venue on Sunday at 2 pm!",
+      "UnixTime": 1590257921
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's also grab a dinner reservation on the East side at 7 PM for after the party.   But no Thai",
+      "UnixTime": 1590257955
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590257964
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [],
+      "PrimaryItem": {
+        "APIName": "party_plan",
+        "Day": "Sunday",
+        "Message": "Your event has been successfully scheduled.",
+        "Time": "2 pm",
+        "VenueName": "Southside Venue"
+      },
+      "UnixTime": 1590257973
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 26,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Italian",
+        "Location": "South",
+        "MaxPartySize": 7,
+        "Name": "Legume",
+        "OpenTimeHour": "7 am",
+        "TakesReservations": true,
+        "id": 132
+      },
+      "TotalItems": 1000
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"East\""
+        },
+        {
+          "Food": "api.is_one_of([\"Pizza\",\"Chinese\",\"Indian\",\"Burgers\",\"Italian\",\"Steak\"])"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 26,
+        "CloseTimeHour": "7 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": false,
+        "Food": "Italian",
+        "Location": "South",
+        "MaxPartySize": 7,
+        "Name": "Legume",
+        "OpenTimeHour": "7 am",
+        "TakesReservations": true,
+        "id": 132
+      },
+      "UnixTime": 1590257992
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 9,
+        "CloseTimeHour": "8 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "East",
+        "MaxPartySize": 17,
+        "Name": "Lucca",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 389
+      },
+      "TotalItems": 173
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 9,
+        "CloseTimeHour": "8 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "East",
+        "MaxPartySize": 17,
+        "Name": "Lucca",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 389
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590257994
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 9,
+        "CloseTimeHour": "8 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "East",
+        "MaxPartySize": 17,
+        "Name": "Lucca",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 389
+      },
+      "Text": "name",
+      "UnixTime": 1590258013
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_inform_search_criteria",
+        "hello",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_restaurant",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 9,
+        "CloseTimeHour": "8 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "East",
+        "MaxPartySize": 17,
+        "Name": "Lucca",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 389
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590258015
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Mark",
+      "UnixTime": 1590258019
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "46"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 4,
+        "AverageWaitMinutes": 9,
+        "CloseTimeHour": "8 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "East",
+        "MaxPartySize": 17,
+        "Name": "Lucca",
+        "OpenTimeHour": "1 pm",
+        "TakesReservations": true,
+        "id": 389
+      },
+      "UnixTime": 1590258027
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590258031
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_unavailable",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_unavailable",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "I am sorry, but it looks like the restaurant is not able to accomodate you.",
+      "UnixTime": 1590258033
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Try 8 pm please for 4.   I like Italian and Pizza.  ",
+      "UnixTime": 1590258056
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "When you are done booking (not just finding!) either a restaurant or a party venue, you can say goodbye and end the dialogue. This might take a while though, e.g. in case the venue is not available. [instruction 7 of 7]",
+      "UnixTime": 1590258056
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Unavailable",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590258067
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "available",
+      "UnixTime": 1590258070
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Great, the Lucca is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590258072
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I love Lucca.   Grab the reservation quickly",
+      "UnixTime": 1590258087
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590258090
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "failed",
+      "UnixTime": 1590258094
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590258095
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What about 6 pm?",
+      "UnixTime": 1590258109
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"6 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Mark\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590258116
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "failed",
+      "UnixTime": 1590258118
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590258119
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That stinks.  Let me talk to Alexis about how we want to go from here.",
+      "UnixTime": 1590258141
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "anything else",
+      "UnixTime": 1590258147
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ask_name",
+        "restaurant_inform_booking_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590258148
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590258152
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "You (Mark) and your friend Alexis want to organize a birthday party on Sunday. You expect 46 guests to come.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_plan.jpg",
+        "Task": "party_plan"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Note: If the user already knows a restaurant name, use 'restaurant reserve', otherwise use 'restaurant search'."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

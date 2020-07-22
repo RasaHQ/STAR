@@ -1,0 +1,177 @@
+{
+  "AnonymizedUserWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
+  "AnonymizedWizardWorkerID": "4b56e0fa-e086-4b01-d3c6-840b91b26164",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3379,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I would like a flight from Pittsburgh to New York City.",
+      "UnixTime": 1589574552
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "when?",
+      "UnixTime": 1589574590
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_date",
+      "ActionLabelOptions": [
+        "plane_ask_date",
+        "plane_ask_departure_city",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "On what day do you want the plane to arrive?",
+      "UnixTime": 1589574595
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "May 12th on Virgin airlines.",
+      "UnixTime": 1589574612
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "anything else?",
+      "UnixTime": 1589574642
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "plane_ask_more_questions",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589574651
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, just that flight, thanks.",
+      "UnixTime": 1589574662
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Pittsburgh\""
+        },
+        {
+          "ArrivalCity": "\"New York City\""
+        },
+        {
+          "Date": "\"12th\""
+        },
+        {
+          "Airline": "\"Virgin\""
+        }
+      ],
+      "UnixTime": 1589574667
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I couldn't find anything",
+      "UnixTime": 1589574676
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_inform_nothing_found",
+        "plane_ask_more_questions",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589574678
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No thank you, thanks for checking.",
+      "UnixTime": 1589574702
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "okay. bye",
+      "UnixTime": 1589574711
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "plane_ask_date",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589574714
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589574720
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight between Pittsburgh to New York City for May 12th. Your flight should be with Virgin airline.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant find you a suitable flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

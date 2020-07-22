@@ -1,0 +1,174 @@
+{
+  "AnonymizedUserWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "AnonymizedWizardWorkerID": "3cc630e5-76c2-84bc-4ce5-7f998a003124",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 360,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Say hallo to the AI Assistant. [instruction 1 of 6]",
+      "UnixTime": 1589462407
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Good morning!",
+      "UnixTime": 1589462413
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589462417
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "apartment_ask_day"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589462420
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alexis and I would like to schedule a viewing at Shadyside Apartments on Tuesday, 4pm. Is this available?",
+      "UnixTime": 1589462444
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You suddenly remember that you have a job interview on Tuesday at 4 pm. [instruction 2 of 6]",
+      "UnixTime": 1589462444
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "application fee",
+      "UnixTime": 1589462461
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_inform_viewing_available"
+      ],
+      "Agent": "Wizard",
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1589462467
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't remember if I already paid. And I just remembered that I have a job interview on Tuesday at 4pm... What other times are available?",
+      "UnixTime": 1589462489
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ask something about the apartment, or engage in smalltalk, or make a joke. [instruction 3 of 6]",
+      "UnixTime": 1589462489
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Apartments\""
+        },
+        {
+          "RenterName": "\"Alexis\""
+        },
+        {
+          "Day": "api.is_one_of([\"Tuesday\"])"
+        },
+        {
+          "StartTimeHour": "api.is_one_of([\"12 am\",\"1 am\",\"2 am\",\"3 am\",\"4 am\",\"5 am\",\"6 am\",\"7 am\",\"8 am\",\"9 am\",\"10 am\",\"11 am\",\"12 pm\",\"1 pm\",\"2 pm\",\"3 pm\",\"5 pm\",\"6 pm\",\"7 pm\",\"8 pm\",\"9 pm\",\"10 pm\",\"11 pm\"])"
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589462544
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Apartments\""
+        },
+        {
+          "RenterName": "\"Alexis\""
+        },
+        {
+          "Day": "api.is_one_of([\"Tuesday\"])"
+        },
+        {
+          "StartTimeHour": "api.is_equal_to([\"12 am\",\"1 am\",\"2 am\",\"3 am\",\"4 am\",\"5 am\",\"6 am\",\"7 am\",\"8 am\",\"9 am\",\"10 am\",\"11 am\",\"12 pm\",\"1 pm\",\"2 pm\",\"3 pm\",\"5 pm\",\"6 pm\",\"7 pm\",\"8 pm\",\"9 pm\",\"10 pm\",\"11 pm\"])"
+        },
+        {
+          "ApplicationFeePaid": "api.is_one_of([\"Yes\",\"No\"])"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1589462558
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are interested in viewing an apartment. Please schedule a viewing at Shadyside Apartments for Tuesday at 4 pm. Your name is Alexis. You cannot remember if you had payed the application fee. ",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      }
+    ],
+    "WizardTask": "Help the user schedule an apartment viewing."
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

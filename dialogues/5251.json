@@ -1,0 +1,1261 @@
+{
+  "AnonymizedUserWorkerID": "3e489804-5a5c-0422-f71f-c3df0ed166b8",
+  "AnonymizedWizardWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5251,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find apartment', 'Schedule apartment viewing' and 'Calling a ride' (in any order), as shown on the left. You may also ask the assistant to check the weather.  [instruction 1 of 8]",
+      "UnixTime": 1590269418
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What's the weather in San francisco?",
+      "UnixTime": 1590269440
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "weather",
+      "UnixTime": 1590269443
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "For what day please",
+      "UnixTime": 1590269461
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_day",
+      "ActionLabelOptions": [
+        "weather_ask_day",
+        "hello",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what day would you like the weather forecast?",
+      "UnixTime": 1590269463
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "today.   It's Sunday",
+      "UnixTime": 1590269483
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590269483
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "City": "\"San Francisco\""
+        }
+      ],
+      "UnixTime": 1590269490
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "Text": "raining",
+      "UnixTime": 1590269494
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_ask_location",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "Text": "It will be Raining all day on Sunday in San Francisco, with temperatures of around 17 degrees celsius.",
+      "UnixTime": 1590269498
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hmm.   Find me an apartment please",
+      "UnixTime": 1590269536
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "Task": "apartment_search",
+      "UnixTime": 1590269536
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "Text": "I can search for apartments based on number of bedrooms, location, balcony availability, etc. What kind of apartment would you like to find?",
+      "UnixTime": 1590269583
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_criteria",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "apartment_inform_search_criteria",
+        "apartment_ask_price",
+        "apartment_ask_balcony",
+        "out_of_scope",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "Text": "I can apply the following filters: number of bedrooms, price, floor, balcony, elevator and nearby POIs.",
+      "UnixTime": 1590269589
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2 bedrooms please.   with a balcony",
+      "UnixTime": 1590269605
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "HasBalcony": "True"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": 17,
+        "Weather": "Raining",
+        "id": 987
+      },
+      "UnixTime": 1590269634
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "TotalItems": 56
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Shadyside Apartments ",
+      "UnixTime": 1590269645
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_ask_nearby_pois",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "OK, I found a free flat in Shadyside Apartments, located near a Museum and a University, that is matching your search criteria.\nIt is on level 11, has 77 square meters and 2 bedrooms.\nIt has a south facing balcony and has an elevator, and comes at the price of 827 per month.",
+      "UnixTime": 1590269651
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's fantastic.",
+      "UnixTime": 1590269663
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590269663
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Is there anything else I can help you with?",
+      "UnixTime": 1590269673
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "apartment_ask_nearby_pois",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590269675
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Since it's raining book me a ride to see it",
+      "UnixTime": 1590269685
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Task": "book_ride",
+      "UnixTime": 1590269690
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "can i have your name please",
+      "UnixTime": 1590269699
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "hello",
+        "apartment_ask_price",
+        "anything_else",
+        "ride_inform_search_criteria",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590269701
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1590269704
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "what is your departure location",
+      "UnixTime": 1590269713
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_departure",
+      "ActionLabelOptions": [
+        "ride_ask_departure",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_price",
+        "apartment_bye",
+        "ride_ask_destination",
+        "ride_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "OK, and where are you departing from?",
+      "UnixTime": 1590269715
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Shoot for 4 PM today",
+      "UnixTime": 1590269725
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Task": "book_apartment_viewing",
+      "UnixTime": 1590269745
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Would you like me to make the reservation to see the apartment as well?",
+      "UnixTime": 1590269787
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Would you like me to reserve a showing for the apartment as well?",
+      "UnixTime": 1590269806
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes.  for 5",
+      "UnixTime": 1590269839
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590269839
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Has your application fee been paid?",
+      "UnixTime": 1590269851
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_application_fee_paid",
+      "ActionLabelOptions": [
+        "apartment_ask_application_fee_paid",
+        "apartment_ask_price",
+        "apartment_ask_num_bedrooms",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_end_time",
+        "apartment_inform_viewing_unavailable"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "Text": "Have you already paid the application fee for the apartment?",
+      "UnixTime": 1590269853
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590269856
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "BalconySide": "south",
+        "FloorSquareMeters": 77,
+        "HasBalcony": true,
+        "HasElevator": true,
+        "Level": 11,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "Museum",
+          "University"
+        ],
+        "NumRooms": 2,
+        "Price": 827,
+        "id": 49
+      },
+      "UnixTime": 1590269860
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "The apartment is unavailble at that time",
+      "UnixTime": 1590269876
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_viewing_unavailable",
+      "ActionLabelOptions": [
+        "apartment_inform_viewing_unavailable",
+        "apartment_inform_booking_successful",
+        "apartment_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "Text": "I am sorry, but there is no viewing available at your preferred time.",
+      "UnixTime": 1590269878
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "try 4 pm for the showing",
+      "UnixTime": 1590269921
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590269921
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "That time is unavailable. Please try another time."
+      },
+      "UnixTime": 1590269927
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Shadyside Apartments\""
+        },
+        {
+          "RenterName": "\"Angela\""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "\"4 pm\""
+        },
+        {
+          "ApplicationFeePaid": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "The time slot is available."
+      },
+      "UnixTime": 1590269942
+    },
+    {
+      "APIName": "book_apartment_viewing",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "OK, I have reserved the showing. Please bring a bank statement and SCHUFA certificate with you. Should I book that ride as well now?",
+      "UnixTime": 1590269975
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "OK, I have reserved the showing. Please bring a bank statement and SCHUFA certificate with you. Should I book that ride as well now?",
+      "UnixTime": 1590269978
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "wish it wasn't raining so hard.  I want to go rollerblading",
+      "UnixTime": 1590269997
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Task": "book_ride",
+      "UnixTime": 1590269997
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "Yes, the rain can be a bummer!",
+      "UnixTime": 1590270017
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "Yes, the rain can be a bummer!",
+      "UnixTime": 1590270020
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Of course book the showing.   And the car too for 3 PM",
+      "UnixTime": 1590270038
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590270038
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "What is your departure location?",
+      "UnixTime": 1590270053
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_departure",
+      "ActionLabelOptions": [
+        "ride_ask_departure",
+        "apartment_ask_apartment_name",
+        "apartment_ask_start_time",
+        "apartment_ask_custom_message",
+        "ride_inform_search_criteria",
+        "ride_ask_destination"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "Text": "OK, and where are you departing from?",
+      "UnixTime": 1590270055
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll leave from work, Hospital",
+      "UnixTime": 1590270067
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"hospital\""
+        },
+        {
+          "ArrivalLocation": "\"Shadyside apartments\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_apartment_viewing",
+        "Message": "Your apartment viewing has been successfuly scheduled. Please bring Bank Statement and SCHUFA certificate with you."
+      },
+      "UnixTime": 1590270075
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Shadyside apartments",
+        "CarModel": "Toyota",
+        "CustomerName": "Angela",
+        "DepartureLocation": "hospital",
+        "DriverName": "Alex",
+        "LicensePlate": "313 EA9",
+        "MinutesTillPickup": 8,
+        "Price": 37,
+        "ServiceProvider": "Uber",
+        "id": 544
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Shadyside apartments",
+        "CarModel": "Toyota",
+        "CustomerName": "Angela",
+        "DepartureLocation": "hospital",
+        "DriverName": "Alex",
+        "LicensePlate": "313 EA9",
+        "MinutesTillPickup": 8,
+        "Price": 37,
+        "ServiceProvider": "Uber",
+        "id": 544
+      },
+      "Text": "There is an Uber available. Should I reserve it for you now?",
+      "UnixTime": 1590270093
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "ride_ask_confirm_booking",
+        "ask_name",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Shadyside apartments",
+        "CarModel": "Toyota",
+        "CustomerName": "Angela",
+        "DepartureLocation": "hospital",
+        "DriverName": "Alex",
+        "LicensePlate": "313 EA9",
+        "MinutesTillPickup": 8,
+        "Price": 37,
+        "ServiceProvider": "Uber",
+        "id": 544
+      },
+      "Text": "I found a Uber ride for you from 'hospital' to 'Shadyside apartments' for 37 credits\nthat could pick you up in 8 minutes. Should I book that for you?",
+      "UnixTime": 1590270095
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes!   that's awesome",
+      "UnixTime": 1590270112
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590270112
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"hospital\""
+        },
+        {
+          "ArrivalLocation": "\"Shadyside apartments\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Shadyside apartments",
+        "CarModel": "Toyota",
+        "CustomerName": "Angela",
+        "DepartureLocation": "hospital",
+        "DriverName": "Alex",
+        "LicensePlate": "313 EA9",
+        "MinutesTillPickup": 8,
+        "Price": 37,
+        "ServiceProvider": "Uber",
+        "id": 544
+      },
+      "UnixTime": 1590270115
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your ride has been booked",
+      "UnixTime": 1590270126
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Your ride has been booked",
+      "UnixTime": 1590270130
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "you're on fire today",
+      "UnixTime": 1590270139
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Thank you!",
+      "UnixTime": 1590270149
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Thank you! Is there anything else I can do for you?",
+      "UnixTime": 1590270162
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope.   that will do it",
+      "UnixTime": 1590270173
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1590270181
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "ride_inform_search_criteria",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590270184
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "good by",
+      "UnixTime": 1590270195
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find apartment', 'Schedule apartment viewing' and 'Calling a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590270195
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Have a nice day!",
+      "UnixTime": 1590270206
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Have a nice day!",
+      "UnixTime": 1590270217
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "See you later alligator",
+      "UnixTime": 1590270229
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1590270238
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "ride_inform_search_criteria",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "Message": "Ride booked."
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590270240
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590270243
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment",
+      "ride",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Angela\n- Today is Sunday\n\n The AI Assistant can handle:\n- Find an apartment (prices are in 'credits')\n- Schedule an apartment viewing \n- Calling a Taxi/Uber/Lyft ride \n- Checking the weather forecast in different Cities (e.g. San Francisco or Chicago)",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      },
+      {
+        "Domain": "apartment",
+        "SchemaImage": "book_apartment_viewing.jpg",
+        "Task": "book_apartment_viewing"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. NOTE: When users give PRICE limits, you usually have to use the 'is at most' comparator, not 'is equal to'. Assume:\n\n- Today is Sunday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

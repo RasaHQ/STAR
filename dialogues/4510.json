@@ -1,0 +1,232 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4510,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi",
+      "UnixTime": 1589581789
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Full name account number and pin",
+      "UnixTime": 1589581827
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_fraud_details",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "bank_ask_account_number",
+        "bank_ask_fraud_details"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide a detailed fraud report now, please?",
+      "UnixTime": 1589581832
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "There has suspicious activity on my account. Frequent money transfers of $10 over the past week. I would like to report this as fraud. ",
+      "UnixTime": 1589581924
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Full name account number and pin",
+      "UnixTime": 1589582038
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Full name account number and pin",
+      "UnixTime": 1589582044
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Jane Doe. I do not know my account number or pin.",
+      "UnixTime": 1589582069
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "I need your date of bi",
+      "UnixTime": 1589582185
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Date of birth, and answers to your security questions ",
+      "UnixTime": 1589582208
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My date of birth is 15/09/1940. what are the security questions?",
+      "UnixTime": 1589582244
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Mother's maiden name and your childhood pet",
+      "UnixTime": 1589582279
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Your mother's maiden name and childhood pet",
+      "UnixTime": 1589582305
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sanchez Nemo",
+      "UnixTime": 1589582327
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Lost debit card \""
+        },
+        {
+          "FullName": "\"Jane doe\""
+        },
+        {
+          "SecurityAnswer1": "\"Sanchez \""
+        },
+        {
+          "SecurityAnswer2": "\"Nemo\""
+        }
+      ],
+      "UnixTime": 1589582364
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Lost debit card \""
+        },
+        {
+          "FullName": "\"Jane doe\""
+        },
+        {
+          "SecurityAnswer1": "\"Sanchez \""
+        },
+        {
+          "SecurityAnswer2": "\"Nemo\""
+        },
+        {
+          "DateOfBirth": "\"15/09/1940\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589582392
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Found",
+      "UnixTime": 1589582400
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "hello",
+        "bank_inform_fraud_report_submitted",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1589582426
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589582439
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Jane Doe and would like to report fraud on your bank account. There has been suspicious behavior on your account recently, with frequent money transfers of $10 over the past week.. Unfortunately, you don't remember your account number nor your PIN. Your date of birth is 15/09/1940. For your security questions, your mother's maiden name is Sanchez and your childhood pet is Nemo.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      }
+    ],
+    "WizardTask": "Authenticate the user and submit a fraud report"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant succesfully report fraud on your account?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

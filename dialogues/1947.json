@@ -1,0 +1,127 @@
+{
+  "AnonymizedUserWorkerID": "58be375a-caa2-7735-72af-2683a9d7dda2",
+  "AnonymizedWizardWorkerID": "cb97a040-7b86-f38b-609b-d02e964a24ba",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 1947,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hi what is the weather for friday in la",
+      "UnixTime": 1589838819
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Friday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "UnixTime": 1589838860
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 9,
+        "Weather": "Partly Cloudy",
+        "id": 471
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 9,
+        "Weather": "Partly Cloudy",
+        "id": 471
+      },
+      "Text": "partly cloudy",
+      "UnixTime": 1589838866
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Friday",
+        "TemperatureCelsius": 9,
+        "Weather": "Partly Cloudy",
+        "id": 471
+      },
+      "Text": "It will be Partly Cloudy all day on Friday in Los Angeles, with temperatures of around 9 degrees celsius.",
+      "UnixTime": 1589838869
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589838875
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Friday in Los Angeles.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

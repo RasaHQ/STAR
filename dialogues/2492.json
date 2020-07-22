@@ -1,0 +1,159 @@
+{
+  "AnonymizedUserWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2492,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, can you find me an expensive hotel that's not in the Center part of town?",
+      "UnixTime": 1589845066
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "N",
+      "UnixTime": 1589845070
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Your name",
+      "UnixTime": 1589845088
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Your name",
+      "UnixTime": 1589845105
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Mike",
+      "UnixTime": 1589845110
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "\"Expensive\""
+        },
+        {
+          "Location": "\"West\""
+        }
+      ],
+      "UnixTime": 1589845149
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": true,
+        "id": 305
+      },
+      "TotalItems": 65
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": true,
+        "id": 305
+      },
+      "Text": "Expensive ",
+      "UnixTime": 1589845158
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_inform_price",
+      "ActionLabelOptions": [
+        "hotel_inform_price",
+        "hotel_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 3,
+        "Cost": "Expensive",
+        "Location": "West",
+        "Name": "Hilton Hotel",
+        "Service": true,
+        "ServiceStartHour": "6 am",
+        "ServiceStopHour": "9 pm",
+        "TakesReservations": true,
+        "id": 305
+      },
+      "Text": "The 'Hilton Hotel' is in the Expensive price range",
+      "UnixTime": 1589845162
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589845169
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a Expensive hotel that is not in the Center part of town and note its name.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific hotel. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant find you a suitable hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

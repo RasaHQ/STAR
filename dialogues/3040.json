@@ -1,0 +1,141 @@
+{
+  "AnonymizedUserWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 3040,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to get a flight please.",
+      "UnixTime": 1589574440
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "departure city",
+      "UnixTime": 1589574469
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_departure_city",
+      "ActionLabelOptions": [
+        "plane_ask_departure_city",
+        "plane_bye",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "Where are you departing from?",
+      "UnixTime": 1589574472
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm leaving from Detroit and I'll be going to San Francisco on May 2nd.",
+      "UnixTime": 1589574494
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Detroit\""
+        },
+        {
+          "ArrivalCity": "\"San Francisco\""
+        },
+        {
+          "Date": "\"2nd\""
+        }
+      ],
+      "UnixTime": 1589574506
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "San Francisco",
+        "ArrivalTime": "6 pm",
+        "Class": "First",
+        "Date": "2nd",
+        "DepartureCity": "Detroit",
+        "DurationHours": 6,
+        "Price": 340,
+        "id": 815
+      },
+      "TotalItems": 1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "San Francisco",
+        "ArrivalTime": "6 pm",
+        "Class": "First",
+        "Date": "2nd",
+        "DepartureCity": "Detroit",
+        "DurationHours": 6,
+        "Price": 340,
+        "id": 815
+      },
+      "Text": "I have found a United flight, first class, 340 dollars, 6 hours.",
+      "UnixTime": 1589574692
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "plane_ask_arrival_city",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "San Francisco",
+        "ArrivalTime": "6 pm",
+        "Class": "First",
+        "Date": "2nd",
+        "DepartureCity": "Detroit",
+        "DurationHours": 6,
+        "Price": 340,
+        "id": 815
+      },
+      "Text": "Right, I found a First flight with United for 340 credits\n that takes 6 hours to get to San Francisco.",
+      "UnixTime": 1589574699
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's fine.Book it. and goodbye",
+      "UnixTime": 1589574717
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight from Detroit to San Francisco for May 2nd.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

@@ -1,0 +1,216 @@
+{
+  "AnonymizedUserWorkerID": "ee2276a1-53ce-a0ce-97a0-164c3f0f388c",
+  "AnonymizedWizardWorkerID": "ba5d80d9-b753-9dfd-8f0f-8985984d3ada",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 3690,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello! I'd like some help making sure I RSVP to a party.",
+      "UnixTime": 1589605675
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is the preferred venue name",
+      "UnixTime": 1589605688
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "party_inform_nothing_found",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what venue is the party taking place?",
+      "UnixTime": 1589605690
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "North Heights Venue",
+      "UnixTime": 1589605698
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your name",
+      "UnixTime": 1589605709
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "party_inform_nothing_found",
+        "party_ask_host"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589605712
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben.",
+      "UnixTime": 1589605726
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your arrival time?",
+      "UnixTime": 1589605752
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_arrival_time",
+      "ActionLabelOptions": [
+        "party_ask_arrival_time",
+        "party_ask_parking_needed",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "Text": "When are you planning to arrive at the party?",
+      "UnixTime": 1589605754
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I will be arriving at 4PM.",
+      "UnixTime": 1589605766
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "number of guests",
+      "UnixTime": 1589605776
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "party_bye",
+        "party_ask_host"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many guests will you be bringing with you?",
+      "UnixTime": 1589605779
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'll be arriving with 8 guests.",
+      "UnixTime": 1589605786
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Guest name?",
+      "UnixTime": 1589605802
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_host",
+      "ActionLabelOptions": [
+        "party_ask_host",
+        "ask_name",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide me with the name of the host, please?",
+      "UnixTime": 1589605820
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Mark.",
+      "UnixTime": 1589605828
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Mark\""
+        },
+        {
+          "GuestName": "\"Ben\""
+        },
+        {
+          "ArrivalTime": "\"4 pm\""
+        },
+        {
+          "NumberGuests": "8"
+        },
+        {
+          "NeedParking": "api.is_equal_to(\"Yes\")"
+        }
+      ],
+      "UnixTime": 1589605837
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "RSVP",
+      "UnixTime": 1589605845
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_arrival_time",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1589605849
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Ben and would like to RSVP to a party. The host is Mark and the venue is North Heights Venue. You will be arriving at 4 pm and will bring 8 guests with you. You need parking. You can only eat vegetarian food.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      }
+    ],
+    "WizardTask": "Help the user RSVP for a party."
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

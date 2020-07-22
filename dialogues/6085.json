@@ -1,0 +1,706 @@
+{
+  "AnonymizedUserWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "AnonymizedWizardWorkerID": "dafaf3b5-ecb1-93eb-584e-3238e912182c",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6085,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant' and 'Bank balance checking' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590090745
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, I wanna have a party at Cactus Club!",
+      "UnixTime": 1590090760
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "when",
+      "UnixTime": 1590090771
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "ask_name",
+        "restaurant_ask_restaurant"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what time should the reservation be made?",
+      "UnixTime": 1590090774
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Could we do 2pm?",
+      "UnixTime": 1590090781
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590090789
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "restaurant_ask_restaurant",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590090791
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John Smith",
+      "UnixTime": 1590090795
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590090795
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "many",
+      "UnixTime": 1590090804
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_size",
+      "ActionLabelOptions": [
+        "restaurant_ask_size",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "For how many people should the reservation be made?",
+      "UnixTime": 1590090806
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Lets do 6. Three couples! I love a triple date!",
+      "UnixTime": 1590090819
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"2 pm\""
+        },
+        {
+          "PartySize": "6"
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1590090824
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "available",
+      "UnixTime": 1590090830
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_ask_confirm_booking",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Great, the Cactus Club is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590090832
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Let's do it! Can you add a special request for vegan food? Cow meat is murder!",
+      "UnixTime": 1590090850
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590090850
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"2 pm\""
+        },
+        {
+          "PartySize": "6"
+        },
+        {
+          "CustomerName": "\"John Smith\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "Message": "Available",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590090876
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "failed",
+      "UnixTime": 1590090880
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590090883
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "They probably don't like my cow meat request. Vegan haters! Can we check my bank account balance? That might be the issue.",
+      "UnixTime": 1590090904
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590090904
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590090909
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "account",
+      "UnixTime": 1590090925
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "ask_name",
+        "bank_ask_account_number",
+        "restaurant_inform_booking_successful",
+        "anything_else",
+        "restaurant_inform_unavailable",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1590090928
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "351531510",
+      "UnixTime": 1590090931
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant and bank balance checking). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590090931
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "PIN",
+      "UnixTime": 1590090943
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_pin",
+      "ActionLabelOptions": [
+        "bank_ask_pin",
+        "ask_name",
+        "restaurant_inform_booking_failed",
+        "out_of_scope",
+        "out_of_scope",
+        "bank_ask_childhood_pets_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Right, and your PIN as well please.",
+      "UnixTime": 1590090945
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1596",
+      "UnixTime": 1590090948
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "351531510"
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590090956
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 9454,
+        "BankName": "Chase",
+        "id": 920
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9454,
+        "BankName": "Chase",
+        "id": 920
+      },
+      "Text": "9454",
+      "UnixTime": 1590090962
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "bank_inform_balance"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9454,
+        "BankName": "Chase",
+        "id": 920
+      },
+      "Text": "Your current balance is 9454 in credit.",
+      "UnixTime": 1590090964
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh wow. I think that's more money than I thought. I'd say let's make a fraud report, but NEVER MIND! <3 Can you check the weather for me?",
+      "UnixTime": 1590090987
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant and bank balance checking) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590090987
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9454,
+        "BankName": "Chase",
+        "id": 920
+      },
+      "Task": "weather",
+      "UnixTime": 1590090994
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 9454,
+        "BankName": "Chase",
+        "id": 920
+      },
+      "UnixTime": 1590091012
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 267
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 267
+      },
+      "Text": "raining",
+      "UnixTime": 1590091018
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_ask_location",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 267
+      },
+      "Text": "It will be Raining all day on Sunday in San Francisco, with temperatures of around -2 degrees celsius.",
+      "UnixTime": 1590091019
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Eww! Can we try Los Angeles? That's the last thing I need for today.",
+      "UnixTime": 1590091035
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Monday\""
+        },
+        {
+          "City": "api.is_equal_to(\"Los Angeles\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "San Francisco",
+        "Day": "Sunday",
+        "TemperatureCelsius": -2,
+        "Weather": "Raining",
+        "id": 267
+      },
+      "UnixTime": 1590091043
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "sunny",
+      "UnixTime": 1590091047
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_bye",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "It will be Sunny all day on Monday in Los Angeles, with temperatures of around 0 degrees celsius.",
+      "UnixTime": 1590091049
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Perfect! Thank you so much Mr/Mrs Assistant! Have a wonderful day~",
+      "UnixTime": 1590091062
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "else",
+      "UnixTime": 1590091068
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "anything_else",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590091070
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nope! Goodbye",
+      "UnixTime": 1590091073
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "goodbye",
+      "UnixTime": 1590091077
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_bye",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_inform_forecast",
+        "weather_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Los Angeles",
+        "Day": "Monday",
+        "TemperatureCelsius": 0,
+        "Weather": "Sunny",
+        "id": 795
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590091080
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590091081
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John Smith\n- Your bank account: 351531510, with PIN 1596\n- Today is Monday the 1st of June, 11 am\n\n The AI Assistant can handle:\n- Checking bank balance\n- Reserving a table at a restaurant (e.g. Cactus Club or Tamarind) for today\n- Checking the weather forecast in different Cities (e.g. New York City or Los Angeles)",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Monday the 1st of June, 11 am"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

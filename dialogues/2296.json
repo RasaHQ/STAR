@@ -1,0 +1,191 @@
+{
+  "AnonymizedUserWorkerID": "7e46c32f-64e8-9560-702e-82f6b52463d7",
+  "AnonymizedWizardWorkerID": "16097ca3-5946-ab85-b263-8bba736f47c3",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2296,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi.",
+      "UnixTime": 1589843259
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello, may I have your full name, account number and PIN?",
+      "UnixTime": 1589843282
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Hello, may I have your full name, account number and PIN?",
+      "UnixTime": 1589843288
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want to check my account, but I don't have my account number or PIN.",
+      "UnixTime": 1589843301
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Okay, I need your name, date of birth. I also need the answer to Security question 1: Mother's maiden name? 2. Name of childhood pet?",
+      "UnixTime": 1589843363
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Okay, I need your name, date of birth. I also need the answer to Security question 1: Mother's maiden name? 2. Name of childhood pet?",
+      "UnixTime": 1589843366
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay. I'm Jane Doe, DOB 20/02/1980. My mother's maiden name is Miller, and my pet's name was Nemo.",
+      "UnixTime": 1589843399
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Jane Doe\""
+        },
+        {
+          "DateOfBirth": "\"02/20/1980\""
+        },
+        {
+          "SecurityAnswer1": "\"Miller\""
+        },
+        {
+          "SecurityAnswer2": "\"Nemo\""
+        }
+      ],
+      "UnixTime": 1589843477
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 6085,
+        "BankName": "Chase",
+        "id": 982
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6085,
+        "BankName": "Chase",
+        "id": 982
+      },
+      "Text": "Great. I have your bank balance",
+      "UnixTime": 1589843497
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "bank_bye",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6085,
+        "BankName": "Chase",
+        "id": 982
+      },
+      "Text": "Your current balance is 6085 in credit.",
+      "UnixTime": 1589843502
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, that's all I need.",
+      "UnixTime": 1589843513
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6085,
+        "BankName": "Chase",
+        "id": 982
+      },
+      "Text": "Thanks for banking with us! Have a great day!",
+      "UnixTime": 1589843531
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_bye",
+      "ActionLabelOptions": [
+        "bank_bye",
+        "anything_else",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6085,
+        "BankName": "Chase",
+        "id": 982
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589843534
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589843537
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Jane Doe and would like to check your bank balance. Unfortunately, you don't remember your account number or your PIN. Your date of birth is 29/02/1980. For your security questions, your mother's maiden name is Miller and your childhood pet is Nemo.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

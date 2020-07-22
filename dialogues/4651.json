@@ -1,0 +1,144 @@
+{
+  "AnonymizedUserWorkerID": "29460cea-cd22-bb2d-8c7b-b206609fd10e",
+  "AnonymizedWizardWorkerID": "34240f9a-bd13-8ae1-c634-f07162c54b7c",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4651,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I am looking to RSVP for Marks party at the North Heights Venue. Looking to bring six guests and I will need parking.",
+      "UnixTime": 1589606268
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Can i have your name and time of arrival please?",
+      "UnixTime": 1589606321
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Can i have your name and time of arrival please?",
+      "UnixTime": 1589606324
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Alexis is my name, looking to get there at 3pm. Also wanted to note that I am vegan.",
+      "UnixTime": 1589606350
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Mark\""
+        },
+        {
+          "GuestName": "\"Alexis\""
+        },
+        {
+          "ArrivalTime": "\"3 pm\""
+        },
+        {
+          "NumberGuests": "6"
+        },
+        {
+          "NeedParking": "api.is_equal_to(\"Yes\")"
+        },
+        {
+          "DietaryRestrictions": "\"Vegan\""
+        }
+      ],
+      "UnixTime": 1589606379
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Ok, rsvp is complete",
+      "UnixTime": 1589606394
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1589606396
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589606402
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your are Alexis and would like to RSVP to a party. The host is Mark and the venue is North Heights Venue. You will be arriving at 3 pm and will bring 6 guests with you. You need parking. You can only eat vegan food.",
+    "WizardCapabilities": [
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      }
+    ],
+    "WizardTask": "Help the user RSVP for a party."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant submit your RSVP for the party?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

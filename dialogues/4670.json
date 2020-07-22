@@ -1,0 +1,215 @@
+{
+  "AnonymizedUserWorkerID": "a0362f23-a428-0712-805e-13fe4ea1da38",
+  "AnonymizedWizardWorkerID": "7e46c32f-64e8-9560-702e-82f6b52463d7",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4670,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello, can you help me check my balance? My name is Brian White.",
+      "UnixTime": 1589594710
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account number",
+      "UnixTime": 1589594716
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589594718
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Uh, I actually can't remember it. Come to think of it, can't remember my PIN either..",
+      "UnixTime": 1589594732
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "date of birth",
+      "UnixTime": 1589594738
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_inform_cannot_authenticate",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589594740
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "12/12/2001",
+      "UnixTime": 1589594742
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "mother's maiden name",
+      "UnixTime": 1589594747
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_mothers_maiden_name",
+      "ActionLabelOptions": [
+        "bank_ask_mothers_maiden_name",
+        "bank_inform_cannot_authenticate",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "What was your mother's maiden name?",
+      "UnixTime": 1589594749
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wong",
+      "UnixTime": 1589594751
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "pet name",
+      "UnixTime": 1589594755
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_childhood_pets_name",
+      "ActionLabelOptions": [
+        "bank_ask_childhood_pets_name",
+        "ask_name",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "And what was the name of the pet you had as a child?",
+      "UnixTime": 1589594757
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Poppy",
+      "UnixTime": 1589594759
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Brian White\""
+        },
+        {
+          "SecurityAnswer1": "\"Brian White\""
+        },
+        {
+          "SecurityAnswer2": "\"Wong\""
+        },
+        {
+          "DateOfBirth": "\"Poppy\""
+        }
+      ],
+      "UnixTime": 1589594762
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 6158,
+        "BankName": "Chase",
+        "id": 720
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6158,
+        "BankName": "Chase",
+        "id": 720
+      },
+      "Text": "6158 chase",
+      "UnixTime": 1589594769
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "out_of_scope",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 6158,
+        "BankName": "Chase",
+        "id": 720
+      },
+      "Text": "Your current balance is 6158 in credit.",
+      "UnixTime": 1589594771
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594773
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Brian White and would like to check your bank balance. Unfortunately, you don't remember your account number or your PIN. Your date of birth is 12/12/2001. For your security questions, your mother's maiden name is Wong and your childhood pet is Poppy.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

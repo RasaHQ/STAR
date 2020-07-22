@@ -1,0 +1,1289 @@
+{
+  "AnonymizedUserWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
+  "AnonymizedWizardWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5440,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Find restaurant', 'followup on doctor appointment' and 'changing a ride' (in any order), as shown on the left. You may also ask the assistant to check on the status of a booked ride.  [instruction 1 of 8]",
+      "UnixTime": 1590188037
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Alexis and I am hoping you can clarify some directions I got at an appointment with Dr Johnson.",
+      "UnixTime": 1590188075
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "followup_doctor_appointment",
+      "UnixTime": 1590188094
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Alexis \""
+        }
+      ],
+      "UnixTime": 1590188119
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "you should take your medication before bed",
+      "UnixTime": 1590188152
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "anything_else",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1590188156
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK, great. Can I also check the details about a ride. ride id 321.",
+      "UnixTime": 1590188190
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 8]",
+      "UnixTime": 1590188190
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590188255
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "321"
+        },
+        {
+          "CustomerName": "\"Alexis \""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "UnixTime": 1590188285
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "it is 5 minutes away.",
+      "UnixTime": 1590188308
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "Your ride is on its way. It is 5 minutes away.",
+      "UnixTime": 1590188359
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK ,great. I am hoping to get some dinner after I get done running some errands. Can you see if you can find me a restaurant on the north side of town.",
+      "UnixTime": 1590188394
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590188402
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "Any specific type of food you like?",
+      "UnixTime": 1590188429
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_food_type",
+      "ActionLabelOptions": [
+        "restaurant_ask_food_type",
+        "anything_else",
+        "ride_inform_nothing_found",
+        "ask_name",
+        "restaurant_inform_search_criteria",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "What cuisine are you looking for?",
+      "UnixTime": 1590188432
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Anything but Italian! I really don't like to eat Italian when I'm out. ",
+      "UnixTime": 1590188457
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "What is your budget?",
+      "UnixTime": 1590188474
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_rating",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "restaurant_ask_location",
+        "restaurant_ask_rating",
+        "ride_ask_booking_number",
+        "ride_bye",
+        "restaurant_ask_food_type"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "Text": "Any minimum rating that the restaurant should have?",
+      "UnixTime": 1590188489
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no, I'm not too picky.",
+      "UnixTime": 1590188499
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 8]",
+      "UnixTime": 1590188499
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"North\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "5 minutes away"
+      },
+      "UnixTime": 1590188546
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "TotalItems": 204
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "Cactus club fits you well",
+      "UnixTime": 1590188576
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "Cactus Club is a moderate restaurant in the North.",
+      "UnixTime": 1590188618
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That sounds good. I will check it out when I get there.",
+      "UnixTime": 1590188642
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "is there anything else I can help?",
+      "UnixTime": 1590188841
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "out_of_scope",
+        "restaurant_ask_continue_searching"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590188851
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Actually, I need to change some of the details for my ride. Could we change the pickup time?",
+      "UnixTime": 1590188874
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590188884
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "what is the change description?",
+      "UnixTime": 1590188904
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_change",
+      "ActionLabelOptions": [
+        "ride_ask_change",
+        "restaurant_ask_rating",
+        "out_of_scope",
+        "anything_else",
+        "ride_ask_booking_number",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "Text": "Sure, what can I change for you?",
+      "UnixTime": 1590188907
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The pickup time. Can we make it one hour later?",
+      "UnixTime": 1590188927
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "321"
+        },
+        {
+          "CustomerName": "\"Alexis \""
+        },
+        {
+          "ChangeDescription": "\"delay the ride for 5 minutes.\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 2,
+        "AverageWaitMinutes": 30,
+        "CloseTimeHour": "9 pm",
+        "Cost": "Moderate",
+        "DoesDelivery": true,
+        "Food": "Burgers",
+        "Location": "North",
+        "MaxPartySize": 33,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": false,
+        "id": 829
+      },
+      "UnixTime": 1590189026
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your trip has successfully changed.",
+      "UnixTime": 1590189055
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "ride_inform_changes_failed",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1590189060
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you very much. Can we look for another restaurant on the North side of town. I want to make sure I have options when I meet my friends.",
+      "UnixTime": 1590189114
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 8]",
+      "UnixTime": 1590189114
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Task": "restaurant_search",
+      "UnixTime": 1590189130
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Location": "\"North\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "UnixTime": 1590189145
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "TotalItems": 204
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Text": "Tamarind is an expensive restaurant serving Chinese food.",
+      "UnixTime": 1590189188
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Text": "Tamarind is an expensive restaurant in the North serving Chinese food.",
+      "UnixTime": 1590189240
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK, great. That sounds like something everyone will like.",
+      "UnixTime": 1590189322
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Text": "Is there something I can help?",
+      "UnixTime": 1590189364
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590189367
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am sorry, can we check that ride again, I want to make sure it isn't Lyft. I don't want to use Lyft.",
+      "UnixTime": 1590189414
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 5 of 8]",
+      "UnixTime": 1590189414
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590189436
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590189443
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "321"
+        },
+        {
+          "CustomerName": "\"Alexis \""
+        },
+        {
+          "ChangeDescription": "\"delay the ride for 5 minutes.\""
+        },
+        {
+          "ChangeDescription": "\"should not be lyft\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 1,
+        "AverageWaitMinutes": 35,
+        "CloseTimeHour": "10 pm",
+        "Cost": "Expensive",
+        "DoesDelivery": false,
+        "Food": "Chinese",
+        "Location": "North",
+        "MaxPartySize": 46,
+        "Name": "Tamarind",
+        "OpenTimeHour": "11 am",
+        "TakesReservations": true,
+        "id": 494
+      },
+      "UnixTime": 1590189471
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590189480
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590189491
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "Text": "sorry but we are unable to change ",
+      "UnixTime": 1590189536
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "321"
+        },
+        {
+          "CustomerName": "\"Alexis \""
+        },
+        {
+          "ChangeDescription": "\"delay the ride for 5 minutes.\""
+        },
+        {
+          "ChangeDescription": "\"should not be lyft\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "We are unable to change your trip."
+      },
+      "UnixTime": 1590189562
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your ride has been changed.",
+      "UnixTime": 1590189580
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "out_of_scope",
+        "ride_inform_changes_failed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1590189582
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, I am planning a big night out with my buddies. We haven't seen each other in months!",
+      "UnixTime": 1590189645
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Is there anything else I can do for you?",
+      "UnixTime": 1590189670
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "ride_inform_nothing_found",
+        "ride_ask_change"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590189673
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I apologize, can you give me the doctors instructions again, I forgot what they were after all the restaurant and ride talk.",
+      "UnixTime": 1590189717
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride'). The conversation should continue at least until the last instruction is given. [instruction 6 of 8]",
+      "UnixTime": 1590189717
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Task": "followup_doctor_appointment",
+      "UnixTime": 1590189731
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Dr. Johnson\")"
+        },
+        {
+          "PatientName": "\"Alexis \""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "UnixTime": 1590189736
+    },
+    {
+      "APIName": "followup_doctor_appointment",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "You should take your medicine before bed.",
+      "UnixTime": 1590189760
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "doctor_inform_doctors_instructions",
+      "ActionLabelOptions": [
+        "doctor_inform_doctors_instructions",
+        "anything_else",
+        "doctor_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Text": "Your instructions are: Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately..",
+      "UnixTime": 1590189763
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK, great. Can you check on the status of that ride. How long until it gets here now?",
+      "UnixTime": 1590189805
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "Task": "ride_status",
+      "UnixTime": 1590189886
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "321"
+        },
+        {
+          "CustomerName": "\"Alexis \""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "followup_doctor_appointment",
+        "Message": "Take your medicine before you go to sleep. If you experience nausea, please contact your doctor immediately."
+      },
+      "UnixTime": 1590189890
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Your driver is 6 minutes away",
+      "UnixTime": 1590189905
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Your driver is 6 minutes away",
+      "UnixTime": 1590189909
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great, I am almost ready. Thank you for your help today.",
+      "UnixTime": 1590189943
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 7 of 8]",
+      "UnixTime": 1590189943
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "welcome",
+      "UnixTime": 1590189958
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590189960
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you, before we go, was that Chinese food that Tamarind served?",
+      "UnixTime": 1590190005
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "yes Chinese food.",
+      "UnixTime": 1590190045
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "yes Chinese food.",
+      "UnixTime": 1590190051
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OK great, my ride should almost be here. I think I will head straight there.",
+      "UnixTime": 1590190078
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Is there anything I can do for you?",
+      "UnixTime": 1590190102
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hello",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590190104
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, that is all for today.",
+      "UnixTime": 1590190116
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('Find restaurant', 'followup on doctor appointment' and 'changing a ride') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 8 of 8]",
+      "UnixTime": 1590190116
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "good day",
+      "UnixTime": 1590190126
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590190128
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1590190136
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "goodbye",
+      "UnixTime": 1590190163
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "6 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1590190165
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590190168
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "doctor",
+      "restaurant",
+      "ride"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Alexis\n- Today is Thursday\n\n The AI Assistant can handle:\n- Find a restaurant (e.g. in the North or Center of town)\n- Followup on doctor appointment (e.g. with Dr. Johnson or Dr. Alexis) \n- Changing details about a Taxi/Uber/Lyft ride (e.g. ride id 321) \n- Checking the status of a booked ride",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      },
+      {
+        "Domain": "doctor",
+        "SchemaImage": "followup_doctor_appointment.jpg",
+        "Task": "followup_doctor_appointment"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Thursday"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

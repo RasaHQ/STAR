@@ -1,0 +1,993 @@
+{
+  "AnonymizedUserWorkerID": "1777b3e5-9e12-0a4d-288e-a8708b011a07",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5855,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant', 'Bank balance checking' and 'Filing a bank fraud report' (in any order), as shown on the left. You may also play up to three rounds of trivia with the assistant.  [instruction 1 of 9]",
+      "UnixTime": 1590188948
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi. My name is John Smith. i want to reserve a table at The Porch for 9 Pm tonight. There will be 4 people.",
+      "UnixTime": 1590189007
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"9 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"John Smith \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "UnixTime": 1590189081
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Reservation ",
+      "UnixTime": 1590189094
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_ask_time",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Great, the The Porch is happy to accommodate you.\nCan I confirm your reservation with them?",
+      "UnixTime": 1590189097
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Please. reserve it. But I also need to check my bank balance to make sure I can afford this",
+      "UnixTime": 1590189150
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Reserved",
+      "UnixTime": 1590189191
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "ask_name",
+        "restaurant_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Excellent, your reservation at the The Porch is confirmed!",
+      "UnixTime": 1590189194
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great! I need that balance though. Account number 351531510, PIN 5380, name John Smith",
+      "UnixTime": 1590189261
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590189261
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590189275
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "AccountNumber": "351531510"
+        },
+        {
+          "PIN": "5380"
+        },
+        {
+          "FullName": "\"John smith\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "The Porch"
+      },
+      "UnixTime": 1590189322
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 2003,
+        "BankName": "Wells Fargo",
+        "id": 961
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2003,
+        "BankName": "Wells Fargo",
+        "id": 961
+      },
+      "Text": "2003",
+      "UnixTime": 1590189329
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_ask_account_number",
+        "bank_inform_balance"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2003,
+        "BankName": "Wells Fargo",
+        "id": 961
+      },
+      "Text": "Your current balance is 2003 in credit.",
+      "UnixTime": 1590189334
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh my God. I've been robbed! I need to file a fraud report.",
+      "UnixTime": 1590189362
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2003,
+        "BankName": "Wells Fargo",
+        "id": 961
+      },
+      "Task": "bank_fraud_report",
+      "UnixTime": 1590189404
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FraudReport": "\"Debit alert\""
+        },
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "AccountNumber": "351531510"
+        },
+        {
+          "PIN": "5380"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 2003,
+        "BankName": "Wells Fargo",
+        "id": 961
+      },
+      "UnixTime": 1590189463
+    },
+    {
+      "APIName": "bank_fraud_report",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Report",
+      "UnixTime": 1590189472
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_fraud_report_submitted",
+      "ActionLabelOptions": [
+        "bank_ask_fraud_details",
+        "bank_inform_fraud_report_submitted",
+        "bank_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Your report has been successfully submitted.\nWe will have a look at the matter ASAP and will contact you with details in due course.",
+      "UnixTime": 1590189476
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks. I'm so stressed I want to play a trivia game to relax",
+      "UnixTime": 1590189506
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Task": "trivia",
+      "UnixTime": 1590189602
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "Number",
+      "UnixTime": 1590189605
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question_number",
+      "ActionLabelOptions": [
+        "trivia_ask_question_number",
+        "bank_ask_dob",
+        "bank_ask_pin",
+        "bank_ask_account_number",
+        "trivia_bye",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "At what question would you like to start?",
+      "UnixTime": 1590189610
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Are you a robot or a human?",
+      "UnixTime": 1590189629
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590189629
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "AI ",
+      "UnixTime": 1590189657
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "Text": "AI",
+      "UnixTime": 1590189666
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok. Give me question 4",
+      "UnixTime": 1590189680
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "4"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_fraud_report",
+        "Confirmation": "Fraud report submitted successfully."
+      },
+      "UnixTime": 1590189690
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "A written",
+      "UnixTime": 1590189699
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "A ____ written to celebrate a wedding is called a epithalamium",
+      "UnixTime": 1590189702
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "poem.",
+      "UnixTime": 1590189713
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590189713
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "Correct ",
+      "UnixTime": 1590189719
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590189722
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want a hard question. Another please.",
+      "UnixTime": 1590189745
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for a game of trivia at any point. But don't play more than three rounds. [instruction 5 of 9]",
+      "UnixTime": 1590189745
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "Number",
+      "UnixTime": 1590189755
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question_number",
+      "ActionLabelOptions": [
+        "trivia_ask_question_number",
+        "trivia_ask_question",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "Text": "At what question would you like to start?",
+      "UnixTime": 1590189759
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Whatever question is hard. No easy questions",
+      "UnixTime": 1590189787
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "6"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "poem",
+        "Question": "A ____ written to celebrate a wedding is called a epithalamium"
+      },
+      "UnixTime": 1590189793
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "A 3 1/2",
+      "UnixTime": 1590189805
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "hello",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "A 3 1/2' floppy disk measures ____ & 1/2 inches across",
+      "UnixTime": 1590189808
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "3. Too easy!",
+      "UnixTime": 1590189823
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590189823
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "Correct ",
+      "UnixTime": 1590189830
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590189833
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Do you like humans, or are they annoying?",
+      "UnixTime": 1590189867
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "No",
+      "UnixTime": 1590189879
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to play trivia with you.",
+      "UnixTime": 1590189883
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Another question please",
+      "UnixTime": 1590189895
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant, bank balance checking, and bank fraud report). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590189895
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "7"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "three",
+        "Question": "A 3 1/2' floppy disk measures ____ & 1/2 inches across"
+      },
+      "UnixTime": 1590189912
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "A 300 ",
+      "UnixTime": 1590189924
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_bye",
+        "trivia_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it",
+      "UnixTime": 1590189930
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Do not iron",
+      "UnixTime": 1590189941
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "Correct",
+      "UnixTime": 1590189952
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_correct_ask_next",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_correct_ask_next",
+        "out_of_scope",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "Your answer was correct! Great job! Would you like to continue playing?",
+      "UnixTime": 1590189955
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes",
+      "UnixTime": 1590189964
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590189964
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "Sorry",
+      "UnixTime": 1590189999
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "You can't do more than 3 sorry",
+      "UnixTime": 1590190015
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Seriously? ",
+      "UnixTime": 1590190041
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "Nice",
+      "UnixTime": 1590190061
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "trivia_inform_answer_correct_ask_next",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590190065
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to do one more question",
+      "UnixTime": 1590190089
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "3 ",
+      "UnixTime": 1590190104
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "Text": "3 is the highest",
+      "UnixTime": 1590190113
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "that's 3 rounds not questions. We can't finish until you do",
+      "UnixTime": 1590190145
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant, bank balance checking, and bank fraud report) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 9 of 9]",
+      "UnixTime": 1590190145
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "2"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "do not iron",
+        "Question": "A 300,000 pound wedding dress made of platinum was once exhibited, and in the instructions from the designer was a warning. What was it"
+      },
+      "UnixTime": 1590190177
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A is the",
+      "UnixTime": 1590190189
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_inform_answer_2_ask_next",
+        "trivia_ask_question",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "A ____ is the blue field behind the stars",
+      "UnixTime": 1590190192
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Canton. We're done now. Thanks and goodbye.",
+      "UnixTime": 1590190229
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Bhe",
+      "UnixTime": 1590190239
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "hello",
+        "trivia_ask_question"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "canton",
+        "Question": "A ____ is the blue field behind the stars"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590190243
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590190246
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: John Smith\n- Your bank account: 351531510, with PIN 5380\n- Today is Monday the 25th of June, 7 pm\n\n The AI Assistant can handle:\n- Checking bank balance\n- Filing a bank fraud report\n- Reserving a table at a restaurant (e.g. The Porch or Tamarind) for today\n- A game of trivia",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_fraud_report.jpg",
+        "Task": "bank_fraud_report"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Monday the 25th of June, 7 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

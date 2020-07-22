@@ -1,0 +1,225 @@
+{
+  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "AnonymizedWizardWorkerID": "eae96765-3d74-8647-cc03-fc417533d9b1",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3534,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "my spaceship is under attack and I can't get to the deck!",
+      "UnixTime": 1589587079
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589587084
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "spaceship_inform_nothing_found",
+        "spaceship_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your name.",
+      "UnixTime": 1589587085
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Leia",
+      "UnixTime": 1589587092
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "rank",
+      "UnixTime": 1589587094
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_rank",
+      "ActionLabelOptions": [
+        "spaceship_ask_rank",
+        "spaceship_bye",
+        "spaceship_ask_code_type"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your rank.",
+      "UnixTime": 1589587095
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "First Officer",
+      "UnixTime": 1589587101
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code",
+      "UnixTime": 1589587104
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589587105
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Clearance code 031431",
+      "UnixTime": 1589587112
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Leia\""
+        },
+        {
+          "UserRank": "\"First Officer\""
+        },
+        {
+          "Code": "031431"
+        },
+        {
+          "CodeType": "api.is_equal_to(\"Clearance\")"
+        }
+      ],
+      "UnixTime": 1589587118
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "unlock",
+      "UnixTime": 1589587122
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "anything_else",
+        "spaceship_ask_code"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "The door is now unlocked.",
+      "UnixTime": 1589587124
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you !",
+      "UnixTime": 1589587131
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "anything else?",
+      "UnixTime": 1589587136
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "spaceship_inform_outcome",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "The door is now unlocked."
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589587137
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589587140
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Leia) are the ship's First Officer. You have been a given a Clearance Code: 031431.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

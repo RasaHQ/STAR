@@ -1,0 +1,221 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4029,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello, I need a 4 bedroom apartment",
+      "UnixTime": 1589585297
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what is yoru budget",
+      "UnixTime": 1589585316
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_price",
+      "ActionLabelOptions": [
+        "apartment_ask_price",
+        "apartment_ask_nearby_pois",
+        "apartment_ask_elevator"
+      ],
+      "Agent": "Wizard",
+      "Text": "What is your budget?",
+      "UnixTime": 1589585318
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "1579, I would want one on the 11th floor or higher with an elevator",
+      "UnixTime": 1589585337
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "balcony",
+      "UnixTime": 1589585383
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_balcony",
+      "ActionLabelOptions": [
+        "apartment_ask_balcony",
+        "hello",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Does the apartment need to have a balcony?",
+      "UnixTime": 1589585385
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No",
+      "UnixTime": 1589585392
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "POI",
+      "UnixTime": 1589585399
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_nearby_pois",
+      "ActionLabelOptions": [
+        "hello",
+        "apartment_bye",
+        "apartment_ask_nearby_pois"
+      ],
+      "Agent": "Wizard",
+      "Text": "Are you looking for an apartment near specific surroundings?",
+      "UnixTime": 1589585403
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Not at all",
+      "UnixTime": 1589585410
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "4"
+        },
+        {
+          "Price": "api.is_at_most(1579)"
+        },
+        {
+          "MaxLevel": "api.is_at_least(11)"
+        },
+        {
+          "HasElevator": "True"
+        }
+      ],
+      "UnixTime": 1589585414
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 51,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 8,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 4,
+        "Price": 1559,
+        "id": 960
+      },
+      "TotalItems": 15
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 51,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 8,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 4,
+        "Price": 1559,
+        "id": 960
+      },
+      "Text": "apartment found",
+      "UnixTime": 1589585419
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_search_result",
+      "ActionLabelOptions": [
+        "apartment_inform_search_result",
+        "apartment_inform_nothing_found",
+        "apartment_ask_floor"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "apartment_search",
+        "FloorSquareMeters": 51,
+        "HasBalcony": false,
+        "HasElevator": true,
+        "Level": 8,
+        "MaxLevel": 14,
+        "Name": "Shadyside Apartments",
+        "NearbyPOIs": [
+          "University",
+          "User's gym"
+        ],
+        "NumRooms": 4,
+        "Price": 1559,
+        "id": 960
+      },
+      "Text": "OK, I found a free flat in Shadyside Apartments, located near a University and a User's gym, that is matching your search criteria.\nIt is on level 8, has 51 square meters and 4 bedrooms.\nIt does not have a balcony and has an elevator, and comes at the price of 1559 per month.",
+      "UnixTime": 1589585423
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589585429
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 4 bedroom apartment. The unit should be on floor 11 or higher. Your price budget is 1579 credits. You would like the building to have an elevator.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

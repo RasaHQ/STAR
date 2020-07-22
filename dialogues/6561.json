@@ -1,0 +1,689 @@
+{
+  "AnonymizedUserWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "AnonymizedWizardWorkerID": "eae96765-3d74-8647-cc03-fc417533d9b1",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6561,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'finding a flight from Los Angeles to Chicago' and 'reserving a flight' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590538777
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I really need to find and book a flight.  Can you help me out?",
+      "UnixTime": 1590538795
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "plane_reserve",
+      "UnixTime": 1590538902
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "Task": "plane_search",
+      "UnixTime": 1590538904
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "departur city",
+      "UnixTime": 1590538910
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_departure_city",
+      "ActionLabelOptions": [
+        "plane_ask_departure_city",
+        "plane_bye",
+        "plane_ask_date"
+      ],
+      "Agent": "Wizard",
+      "Text": "Where are you departing from?",
+      "UnixTime": 1590538912
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm going from Los Angeles to Chicago.  See if I can find Michael Jordan.",
+      "UnixTime": 1590538952
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "date?",
+      "UnixTime": 1590538966
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_date",
+      "ActionLabelOptions": [
+        "plane_ask_date",
+        "plane_request_optional",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "On what day do you want the plane to arrive?",
+      "UnixTime": 1590538967
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "On the 23rd please!  Just like his number!",
+      "UnixTime": 1590538980
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590538980
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "ArrivalCity": "\"Chicago\""
+        },
+        {
+          "Date": "\"23rd\""
+        }
+      ],
+      "UnixTime": 1590539014
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "nothing found",
+      "UnixTime": 1590539019
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_inform_nothing_found",
+        "out_of_scope",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1590539021
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yeah maybe the 8th then.",
+      "UnixTime": 1590539030
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "ArrivalCity": "\"Chicago\""
+        },
+        {
+          "Date": "\"8th\""
+        }
+      ],
+      "UnixTime": 1590539053
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "TotalItems": 2
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "Text": "flight 490",
+      "UnixTime": 1590539059
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "plane_request_optional",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "Text": "Right, I found an Economy flight with Virgin for 211 credits\n that takes 2 hours to get to Chicago.",
+      "UnixTime": 1590539061
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh wow that's a good price I can't pass that one up!  Can you book it for me?",
+      "UnixTime": 1590539078
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590539078
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "Task": "plane_reserve",
+      "UnixTime": 1590539188
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "Text": "name?",
+      "UnixTime": 1590539199
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "out_of_scope",
+        "plane_ask_arrival_city",
+        "plane_inform_nothing_found",
+        "plane_inform_nothing_found",
+        "plane_flight_available"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590539201
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes it is ALexis.",
+      "UnixTime": 1590539206
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590539206
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "490"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Chicago",
+        "ArrivalTime": "5 am",
+        "Class": "Economy",
+        "Date": "8th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 2,
+        "Price": 211,
+        "id": 490
+      },
+      "UnixTime": 1590539251
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 490
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 490
+      },
+      "Text": "unavailable",
+      "UnixTime": 1590539254
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_unavailable",
+      "ActionLabelOptions": [
+        "plane_flight_unavailable",
+        "plane_reservation_failed",
+        "plane_ask_flight_id"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 490
+      },
+      "Text": "Sorry, but the flight with id '490' is not available any more.",
+      "UnixTime": 1590539256
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh dang.  Well where did it go?  Can you try again?",
+      "UnixTime": 1590539271
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('finding a flight' and 'booking a flight'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590539271
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "490"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Unavailable",
+        "id": 490
+      },
+      "UnixTime": 1590539312
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 490
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 490
+      },
+      "Text": "available",
+      "UnixTime": 1590539318
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "anything_else",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 490
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1590539320
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes thank you so much!",
+      "UnixTime": 1590539327
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "490"
+        },
+        {
+          "CustomerName": "\"Alexis\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 490
+      },
+      "UnixTime": 1590539389
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 490
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 490
+      },
+      "Text": "confirm",
+      "UnixTime": 1590539392
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_succeeded",
+      "ActionLabelOptions": [
+        "plane_reservation_succeeded",
+        "plane_inform_nothing_found",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 490
+      },
+      "Text": "Right, your flight is now reserved!",
+      "UnixTime": 1590539394
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "OH awesome!  Can you check the weather in Chicago on Saturday for me now?",
+      "UnixTime": 1590539411
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('finding a flight' and 'booking a flight') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590539411
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 490
+      },
+      "Task": "weather",
+      "UnixTime": 1590539413
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Saturday\""
+        },
+        {
+          "City": "\"Chicago\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 490
+      },
+      "UnixTime": 1590539421
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 16,
+        "Weather": "Snowing",
+        "id": 758
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 16,
+        "Weather": "Snowing",
+        "id": 758
+      },
+      "Text": "snow",
+      "UnixTime": 1590539423
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "weather_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 16,
+        "Weather": "Snowing",
+        "id": 758
+      },
+      "Text": "It will be Snowing all day on Saturday in Chicago, with temperatures of around 16 degrees celsius.",
+      "UnixTime": 1590539424
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok I'll bring an umbrella and one for Michael Jordan too.  Thank you for all your help kind robot!",
+      "UnixTime": 1590539447
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 16,
+        "Weather": "Snowing",
+        "id": 758
+      },
+      "Text": "anythign else?",
+      "UnixTime": 1590539523
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "out_of_scope",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Saturday",
+        "TemperatureCelsius": 16,
+        "Weather": "Snowing",
+        "id": 758
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590539524
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590539528
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Alexis\n\n The AI Assistant can handle:\n- Search for a flight (e.g. from Los Angeles to Chicago)\n- Book a flight (e.g. with id 124)\n- Checking the weather forecast in different Cities (e.g. Los Angeles or Chicago)",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      },
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "AnonymizedUserWorkerID": "c06538fc-4352-5d92-9ced-53d9fa54e376",
+  "AnonymizedWizardWorkerID": "00f54eab-f813-a79e-fabe-cbdd3da9441d",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2027,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a flight between chicago and LA on may the 16th, it cannot cost more than 290",
+      "UnixTime": 1589841939
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"Chicago\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"16th\""
+        },
+        {
+          "Price": "api.is_less_than(290)"
+        }
+      ],
+      "UnixTime": 1589841970
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "7 am",
+        "Class": "Business",
+        "Date": "16th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 2,
+        "Price": 243,
+        "id": 932
+      },
+      "TotalItems": 1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "7 am",
+        "Class": "Business",
+        "Date": "16th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 2,
+        "Price": 243,
+        "id": 932
+      },
+      "Text": "There is a flight from Chicago to Los Angeles for 243 credits.",
+      "UnixTime": 1589841985
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "anything_else",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "7 am",
+        "Class": "Business",
+        "Date": "16th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 2,
+        "Price": 243,
+        "id": 932
+      },
+      "Text": "Right, I found a Business flight with United for 243 credits\n that takes 2 hours to get to Los Angeles.",
+      "UnixTime": 1589841989
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "book it",
+      "UnixTime": 1589842012
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "7 am",
+        "Class": "Business",
+        "Date": "16th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 2,
+        "Price": 243,
+        "id": 932
+      },
+      "Text": "I am unable to do that.",
+      "UnixTime": 1589842080
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "anything_else",
+        "plane_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "7 am",
+        "Class": "Business",
+        "Date": "16th",
+        "DepartureCity": "Chicago",
+        "DurationHours": 2,
+        "Price": 243,
+        "id": 932
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you search for flights.",
+      "UnixTime": 1589842085
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589842102
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a flight between Chicago to Los Angeles for May 16th. Your flight should cost no more than 290.",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      }
+    ],
+    "WizardTask": "Help the user find a suitable flight."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant find you a suitable flight?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

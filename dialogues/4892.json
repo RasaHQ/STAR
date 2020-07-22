@@ -1,0 +1,966 @@
+{
+  "AnonymizedUserWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 4892,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'looking for a flight', 'schedule a meeting', 'RSVP to a party' and 'book a table at a restaurant' (in any order), as shown on the left. You may also make a request to your hotel's room service.  [instruction 1 of 9]",
+      "UnixTime": 1590281812
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello can you help me book a flight please?",
+      "UnixTime": 1590281841
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Departure",
+      "UnixTime": 1590281905
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_departure_city",
+      "ActionLabelOptions": [
+        "plane_ask_departure_city",
+        "plane_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Where are you departing from?",
+      "UnixTime": 1590281910
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm going from Los Angeles to Pittsburgh.",
+      "UnixTime": 1590281924
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Date",
+      "UnixTime": 1590281930
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_date",
+      "ActionLabelOptions": [
+        "plane_ask_date",
+        "plane_request_optional",
+        "plane_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "On what day do you want the plane to arrive?",
+      "UnixTime": 1590281934
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "On the 8th please.",
+      "UnixTime": 1590281945
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You may attempt to do some smalltalk with the AI Assistant at any time. [instruction 2 of 9]",
+      "UnixTime": 1590281945
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "ArrivalCity": "\"Pittsburgh\""
+        },
+        {
+          "Date": "\"8th\""
+        }
+      ],
+      "UnixTime": 1590281955
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Nothing",
+      "UnixTime": 1590281961
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "plane_inform_nothing_found",
+        "plane_ask_departure_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1590281965
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Any date around there will work.  ",
+      "UnixTime": 1590281977
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "ArrivalCity": "\"Pittsburgh\""
+        },
+        {
+          "Date": "\"12th\""
+        }
+      ],
+      "UnixTime": 1590282010
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "TotalItems": 1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Confirmed ",
+      "UnixTime": 1590282020
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_ask_arrival_city",
+        "plane_inform_flight_details",
+        "plane_ask_more_questions"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Right, I found an Economy flight with Delta for 316 credits\n that takes 4 hours to get to Pittsburgh.",
+      "UnixTime": 1590282025
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Not bad.  I don't need to book it just wanted to get a feel for prices.  Can you help me schedule a meeting?",
+      "UnixTime": 1590282055
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590282134
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "With who",
+      "UnixTime": 1590282148
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_ask_guest_name",
+      "ActionLabelOptions": [
+        "meeting_ask_guest_name",
+        "plane_ask_arrival_city",
+        "plane_ask_departure_city",
+        "plane_ask_date",
+        "out_of_scope",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "With whom would you like to schedule the meeting?",
+      "UnixTime": 1590282154
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Fred.  He's been dodging me for months now.",
+      "UnixTime": 1590282162
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 9]",
+      "UnixTime": 1590282162
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Start time",
+      "UnixTime": 1590282228
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Start and end tome",
+      "UnixTime": 1590282240
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "3 pm start 4 pm end. ",
+      "UnixTime": 1590282250
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want', or 'anything but ...', etc.) [instruction 4 of 9]",
+      "UnixTime": 1590282250
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Your name",
+      "UnixTime": 1590282272
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "plane_inform_nothing_found",
+        "plane_ask_departure_city",
+        "plane_bye",
+        "hello",
+        "meeting_ask_reason"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "Text": "Can I get your name, please?",
+      "UnixTime": 1590282298
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes Sarah Brown.",
+      "UnixTime": 1590282304
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Sarah brown \""
+        },
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "StartTimeHour": "api.is_equal_to(\"12 am\")"
+        },
+        {
+          "EndTimeHour": "api.is_equal_to(\"12 am\")"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Pittsburgh",
+        "ArrivalTime": "7 am",
+        "Class": "Economy",
+        "Date": "12th",
+        "DepartureCity": "Los Angeles",
+        "DurationHours": 4,
+        "Price": 316,
+        "id": 186
+      },
+      "UnixTime": 1590282322
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "Scheduled ",
+      "UnixTime": 1590282332
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "ask_name",
+        "meeting_ask_reason"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Text": "Fantastic, your meeting with Fred has been successfully scheduled for Sunday, -.",
+      "UnixTime": 1590282335
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh great!  His dodging days are done.  Ok onto dinner tonight I would like a reservation at The Porch for 5pm.  Just 2 of us.",
+      "UnixTime": 1590282374
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you like, you can ask for room service at any point. This is not necessary, however. [instruction 5 of 9]",
+      "UnixTime": 1590282374
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590282382
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"The Porch\""
+        },
+        {
+          "Time": "\"5 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah brown \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Sunday",
+        "EndTime": "",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": ""
+      },
+      "UnixTime": 1590282466
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "The Porch"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "Failed",
+      "UnixTime": 1590282478
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "The Porch"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590282482
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok try Lucca then I hear it's nice as well.",
+      "UnixTime": 1590282498
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Lucca\""
+        },
+        {
+          "Time": "\"5 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah brown \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "The Porch"
+      },
+      "UnixTime": 1590282510
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "Failed",
+      "UnixTime": 1590282515
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590282518
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tamirand?",
+      "UnixTime": 1590282528
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going :) - don't forget some smalltalk. Perhaps say something related to the first topic you talked about. [instruction 6 of 9]",
+      "UnixTime": 1590282528
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Tamarind\""
+        },
+        {
+          "Time": "\"5 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah brown \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Lucca"
+      },
+      "UnixTime": 1590282548
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Tamarind"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "Failed",
+      "UnixTime": 1590282562
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Tamarind"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590282565
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can you change the time and get something to work for me?",
+      "UnixTime": 1590282599
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Cactus Club\""
+        },
+        {
+          "Time": "\"8 pm\""
+        },
+        {
+          "PartySize": "2"
+        },
+        {
+          "CustomerName": "\"Sarah brown \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Tamarind"
+      },
+      "UnixTime": 1590282649
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Confirmed",
+      "UnixTime": 1590282658
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "restaurant_inform_nothing_found",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590282662
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok great!  Do you think you could help me RSVP to a party also?",
+      "UnixTime": 1590282700
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('looking for a flight', 'schedule a meeting', 'RSVP to a party' and 'book a table at a restaurant'). The conversation should continue at least until the last instruction is given. [instruction 7 of 9]",
+      "UnixTime": 1590282700
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "party_rsvp",
+      "UnixTime": 1590282711
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Venue ",
+      "UnixTime": 1590282716
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "restaurant_ask_restaurant",
+        "restaurant_ask_time",
+        "ask_name",
+        "party_inform_nothing_found",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "At what venue is the party taking place?",
+      "UnixTime": 1590282788
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The Porch!",
+      "UnixTime": 1590282799
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Filter",
+      "UnixTime": 1590282888
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_parking_needed",
+      "ActionLabelOptions": [
+        "hello",
+        "party_ask_venue",
+        "party_bye",
+        "party_ask_parking_needed",
+        "restaurant_inform_nothing_found",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Do you require parking at the venue?",
+      "UnixTime": 1590282894
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nah we will all arrive in the limo probably.",
+      "UnixTime": 1590282934
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Almost there. A few more turns. [instruction 8 of 9]",
+      "UnixTime": 1590282934
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Time",
+      "UnixTime": 1590282956
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_arrival_time",
+      "ActionLabelOptions": [
+        "restaurant_ask_time",
+        "party_ask_arrival_time",
+        "party_ask_venue",
+        "party_ask_number_of_guests",
+        "hello",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "When are you planning to arrive at the party?",
+      "UnixTime": 1590282963
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "6 pm would be the best time.  But we are flexible.",
+      "UnixTime": 1590282980
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel",
+      "meeting",
+      "party",
+      "plane",
+      "restaurant"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Sarah Brown\n- Your current location: Hilton Hotel\n- Today is Thursday the 17th, 11 am\n\n The AI Assistant can handle:\n- Searching for flights (e.g. from Los Angeles to Pittsburgh or New York City)\n- Schedule a meeting\n- Reserving a table at a restaurant (e.g. The Porch or Lucca) for today\n- RSVP you to a party (Example venues: West Bay Venue or North Heights Venue)\n- Request room service",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      },
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Thursday the 17th, 11 am"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

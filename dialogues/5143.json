@@ -1,0 +1,880 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "91b16ed4-3c20-2cd4-e99c-ff1316c27cf2",
+  "BatchID": "woz_1590253362",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5143,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking ride status', 'getting directions', and 'schedule a meeting' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590296950
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey there AI! Can you check the status of my ride please?",
+      "UnixTime": 1590297003
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1590297018
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_bye",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590297019
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "sure, it's me Angela. ",
+      "UnixTime": 1590297054
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "ride ID",
+      "UnixTime": 1590297063
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "out_of_scope",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1590297064
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "252",
+      "UnixTime": 1590297073
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590297073
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "252"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        }
+      ],
+      "UnixTime": 1590297085
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "3 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "3 minutes away"
+      },
+      "Text": "Your",
+      "UnixTime": 1590297088
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "3 minutes away"
+      },
+      "Text": "Your driver is arriving.  Your ride is 3 minutes away.",
+      "UnixTime": 1590297097
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Perfect. Can I schedule a meeting with Fred while I wait for Tuesday from 5 - 6 pm?",
+      "UnixTime": 1590297161
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "3 minutes away"
+      },
+      "Task": "schedule_meeting",
+      "UnixTime": 1590297166
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Angela\""
+        },
+        {
+          "Day": "\"Tuesday\""
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "EndTimeHour": "\"6 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "3 minutes away"
+      },
+      "UnixTime": 1590297183
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "Text": "conflicting",
+      "UnixTime": 1590297187
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_unavailable_ask_different_time",
+      "ActionLabelOptions": [
+        "meeting_inform_unavailable_ask_different_time",
+        "meeting_ask_end_time",
+        "meeting_inform_confirmed"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "Text": "Unfortunately Fred is not able to make Tuesday @ 5 pm.\nWould you like to try scheduling the meeting for a different day or time?",
+      "UnixTime": 1590297189
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That Fred is probably   trying to blow me off. He hates my meetings. They never go well. Try Wednesday or Thurday please. ",
+      "UnixTime": 1590297251
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590297251
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Angela\""
+        },
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "EndTimeHour": "\"6 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Tuesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "UnixTime": 1590297268
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Fred\""
+        },
+        {
+          "UserName": "\"Angela\""
+        },
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "StartTimeHour": "\"5 pm\""
+        },
+        {
+          "EndTimeHour": "\"6 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Wednesday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "That person has a conflicting meeting at that time. Try another meeting time.",
+        "StartTime": "5 pm"
+      },
+      "UnixTime": 1590297273
+    },
+    {
+      "APIName": "schedule_meeting",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "your meeting has been",
+      "UnixTime": 1590297278
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "meeting_inform_confirmed",
+      "ActionLabelOptions": [
+        "meeting_inform_confirmed",
+        "meeting_ask_reason",
+        "meeting_ask_end_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "Fantastic, your meeting with Fred has been successfully scheduled for Thursday, 5 pm-6 pm.",
+      "UnixTime": 1590297280
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Trust me it is not fun for me either, but business is business. ",
+      "UnixTime": 1590297329
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590297329
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "im sorry",
+      "UnixTime": 1590297336
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "out_of_scope",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "meeting_bye",
+        "meeting_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "I am sorry, I don't quite understand what you mean. I am only able to help you with scheduling meetings.",
+      "UnixTime": 1590297338
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am glad you do  not understand. It is awful. Can you give me directions?",
+      "UnixTime": 1590297391
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('checking ride status', 'getting directions', and 'schedule a meeting'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590297391
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Task": "trip_directions",
+      "UnixTime": 1590297421
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "travel mode",
+      "UnixTime": 1590297427
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_travel_mode",
+      "ActionLabelOptions": [
+        "trip_ask_travel_mode",
+        "meeting_ask_reason",
+        "ask_name",
+        "meeting_inform_confirmed",
+        "trip_inform_simple_step_ask_proceed",
+        "trip_instructions_done"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "Do you want to drive, walk, or use public transit?",
+      "UnixTime": 1590297429
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am going to drive. ",
+      "UnixTime": 1590297450
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "location",
+      "UnixTime": 1590297455
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_location",
+      "ActionLabelOptions": [
+        "trip_ask_departure_location",
+        "trip_ask_arrival_location",
+        "meeting_inform_confirmed",
+        "meeting_inform_nothing_found",
+        "meeting_ask_end_time",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "Where are you departing from?",
+      "UnixTime": 1590297457
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I am going from the University to the airport. ",
+      "UnixTime": 1590297489
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking ride status', 'getting directions', and 'schedule a meeting') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590297489
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "what time",
+      "UnixTime": 1590297512
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_ask_departure_time",
+      "ActionLabelOptions": [
+        "trip_ask_departure_time",
+        "meeting_ask_start_time",
+        "meeting_ask_day",
+        "meeting_bye",
+        "hello",
+        "trip_bye"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "Text": "When are you going to start your trip?",
+      "UnixTime": 1590297514
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "5 pm",
+      "UnixTime": 1590297520
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureLocation": "\"University\""
+        },
+        {
+          "ArrivalLocation": "\"Airport\""
+        },
+        {
+          "TravelMode": "api.is_equal_to(\"Driving\")"
+        },
+        {
+          "DepartureTime": "\"5 pm\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "schedule_meeting",
+        "Day": "Thursday",
+        "EndTime": "6 pm",
+        "GuestName": "Fred",
+        "Message": "Your meeting has been successfuly scheduled.",
+        "StartTime": "5 pm"
+      },
+      "UnixTime": 1590297543
+    },
+    {
+      "APIName": "trip_directions",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "Drive south on Cassiar",
+      "UnixTime": 1590297548
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_arrival_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "Drive south on Cassiar for 3 blocks and turn left on Broadway. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590297550
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I got that, what is next?",
+      "UnixTime": 1590297564
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "After 3 kiometers, turn right",
+      "UnixTime": 1590297581
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_inform_simple_step_ask_proceed",
+      "ActionLabelOptions": [
+        "trip_inform_simple_step_ask_proceed",
+        "out_of_scope",
+        "trip_ask_travel_mode"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "After 3 kilometers, turn right on Commercial Drive. Can I proceed or do you require more detailed instructions?",
+      "UnixTime": 1590297583
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "proceed please",
+      "UnixTime": 1590297605
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "After 3 blocks, your des",
+      "UnixTime": 1590297642
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "After 3 blocks, your destination will be on the left opposite the park.",
+      "UnixTime": 1590297653
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thank you so much, you have been super helpful! Have a great night!",
+      "UnixTime": 1590297716
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "Thank you ",
+      "UnixTime": 1590297722
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trip_bye",
+      "ActionLabelOptions": [
+        "trip_bye",
+        "trip_ask_departure_time",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trip_directions",
+        "DetailedDrivingInstructions": [
+          "Drive south on Cassiar towards the school. After 3 blocks, turn left on Broadway.",
+          "After 3 kilometers, turn right on Commercial Drive at the subway station.",
+          "Drive for 3 blocks. You will pass a hospital on your right. Your destination will be on the left opposite the park."
+        ],
+        "DrivingInstructions": [
+          "Drive south on Cassiar for 3 blocks and turn left on Broadway",
+          "After 3 kilometers, turn right on Commercial Drive",
+          "After 3 blocks, your destination will be on the left opposite the park."
+        ],
+        "TravelMode": "Driving",
+        "TripLengthMinutes": 114,
+        "id": 272
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590297725
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590297741
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "meeting",
+      "ride",
+      "trip",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Angela\n\n The AI Assistant can handle:\n- Check your ride's status (e.g. ride id 329)\n- Get walking/driving/transit directions (e.g. from 'University' to 'Broadway and Main') \n- Schedule a meeting\n- Checking the weather forecast in different Cities (e.g. Detroit or Pittsburgh)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "trip",
+        "SchemaImage": "trip_directions.jpg",
+        "Task": "trip_directions"
+      },
+      {
+        "Domain": "meeting",
+        "SchemaImage": "schedule_meeting.jpg",
+        "Task": "schedule_meeting"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

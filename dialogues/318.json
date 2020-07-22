@@ -1,0 +1,217 @@
+{
+  "AnonymizedUserWorkerID": "9f21d8b6-df7e-edd4-ef00-9da97dbb279f",
+  "AnonymizedWizardWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 318,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589471457
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello, how can",
+      "UnixTime": 1589471462
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "restaurant_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589471464
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm looking for a cheap priced thai restaurant that take reservations",
+      "UnixTime": 1589471476
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "TakesReservations": "True"
+        },
+        {
+          "Cost": "api.is_equal_to(\"Cheap\")"
+        },
+        {
+          "Food": "\"Thai\""
+        }
+      ],
+      "UnixTime": 1589471501
+    },
+    {
+      "APIName": "restaurant_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 0,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": true,
+        "Food": "Thai",
+        "Location": "Center",
+        "MaxPartySize": 16,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 285
+      },
+      "TotalItems": 23
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 0,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": true,
+        "Food": "Thai",
+        "Location": "Center",
+        "MaxPartySize": 16,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 285
+      },
+      "Text": "I have found Cactus Club",
+      "UnixTime": 1589471511
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 0,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": true,
+        "Food": "Thai",
+        "Location": "Center",
+        "MaxPartySize": 16,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 285
+      },
+      "Text": "I have found a restaurant that matches your search: Cactus Club serves Thai food, is cheap, allows reservations, and is located in the Center of town.",
+      "UnixTime": 1589471551
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Great thank you",
+      "UnixTime": 1589471559
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 0,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": true,
+        "Food": "Thai",
+        "Location": "Center",
+        "MaxPartySize": 16,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 285
+      },
+      "Text": "Do you want me to keep searching?",
+      "UnixTime": 1589471568
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_ask_continue_searching",
+      "ActionLabelOptions": [
+        "restaurant_ask_continue_searching",
+        "restaurant_ask_takes_reservations"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_search",
+        "AverageRating": 3,
+        "AverageWaitMinutes": 0,
+        "CloseTimeHour": "4 pm",
+        "Cost": "Cheap",
+        "DoesDelivery": true,
+        "Food": "Thai",
+        "Location": "Center",
+        "MaxPartySize": 16,
+        "Name": "Cactus Club",
+        "OpenTimeHour": "6 am",
+        "TakesReservations": true,
+        "id": 285
+      },
+      "Text": "Would you like to search for any more restaurants?",
+      "UnixTime": 1589471571
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589471583
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "restaurant"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Find a Cheap priced Thai food restaurant that takes reservations.",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_search.jpg",
+        "Task": "restaurant_search"
+      }
+    ],
+    "WizardTask": "Help the user find a restaurant."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant find you a suitable restaurant?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

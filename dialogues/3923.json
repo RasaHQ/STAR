@@ -1,0 +1,215 @@
+{
+  "AnonymizedUserWorkerID": "5279cf01-d151-44ce-b806-dd2536b8c8bd",
+  "AnonymizedWizardWorkerID": "714682ad-f218-f762-7605-00e7c4baee47",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 3923,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'd like to check my bank balance. My name is Sarah Brown",
+      "UnixTime": 1589594042
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "account number?",
+      "UnixTime": 1589594057
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_account_number",
+      "ActionLabelOptions": [
+        "bank_ask_account_number",
+        "bank_bye",
+        "bank_ask_mothers_maiden_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Can you tell me your account number, please?",
+      "UnixTime": 1589594059
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I don't remember my account number or pin",
+      "UnixTime": 1589594067
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "date of birth?",
+      "UnixTime": 1589594076
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_dob",
+      "ActionLabelOptions": [
+        "bank_ask_dob",
+        "bank_inform_cannot_authenticate",
+        "bank_ask_pin"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your date of birth, please?",
+      "UnixTime": 1589594078
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "31/06/1996",
+      "UnixTime": 1589594083
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Mothers maiden name?",
+      "UnixTime": 1589594097
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_mothers_maiden_name",
+      "ActionLabelOptions": [
+        "bank_ask_mothers_maiden_name",
+        "bank_inform_cannot_authenticate",
+        "bank_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "What was your mother's maiden name?",
+      "UnixTime": 1589594098
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Wong",
+      "UnixTime": 1589594102
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "childhood pet?",
+      "UnixTime": 1589594112
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_childhood_pets_name",
+      "ActionLabelOptions": [
+        "bank_ask_childhood_pets_name",
+        "bank_ask_pin",
+        "bank_ask_dob"
+      ],
+      "Agent": "Wizard",
+      "Text": "And what was the name of the pet you had as a child?",
+      "UnixTime": 1589594113
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Charlie",
+      "UnixTime": 1589594116
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Sarah Brown\""
+        },
+        {
+          "DateOfBirth": "\"31/06/1996\""
+        },
+        {
+          "SecurityAnswer1": "\"Wong\""
+        },
+        {
+          "SecurityAnswer2": "\"Charlie\""
+        }
+      ],
+      "UnixTime": 1589594120
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 1665,
+        "BankName": "Wells Fargo",
+        "id": 705
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1665,
+        "BankName": "Wells Fargo",
+        "id": 705
+      },
+      "Text": "1665",
+      "UnixTime": 1589594123
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "anything_else",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 1665,
+        "BankName": "Wells Fargo",
+        "id": 705
+      },
+      "Text": "Your current balance is 1665 in credit.",
+      "UnixTime": 1589594124
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589594132
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Sarah Brown and would like to check your bank balance. Unfortunately, you don't remember your account number or your PIN. Your date of birth is 31/06/1996. For your security questions, your mother's maiden name is Wong and your childhood pet is Charlie.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

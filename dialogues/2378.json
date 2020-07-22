@@ -1,0 +1,191 @@
+{
+  "AnonymizedUserWorkerID": "ff344ac7-17f2-a634-e31d-1f27b14ae9f3",
+  "AnonymizedWizardWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2378,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi ",
+      "UnixTime": 1589821589
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hi",
+      "UnixTime": 1589821594
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "weather_ask_day",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589821596
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi I need the weather for Detroit on sunday please.",
+      "UnixTime": 1589821624
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        },
+        {
+          "City": "\"Detroit\""
+        }
+      ],
+      "UnixTime": 1589821631
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 10,
+        "Weather": "Cloudy",
+        "id": 845
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 10,
+        "Weather": "Cloudy",
+        "id": 845
+      },
+      "Text": "Detroit weather cloudy temperature Celsius 10 Sunday",
+      "UnixTime": 1589821701
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_day",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 10,
+        "Weather": "Cloudy",
+        "id": 845
+      },
+      "Text": "It will be Cloudy all day on Sunday in Detroit, with temperatures of around 10 degrees celsius.",
+      "UnixTime": 1589821704
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "ok thank you!",
+      "UnixTime": 1589821771
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 10,
+        "Weather": "Cloudy",
+        "id": 845
+      },
+      "Text": "thank you",
+      "UnixTime": 1589821800
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_bye",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_inform_nothing_found",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 10,
+        "Weather": "Cloudy",
+        "id": 845
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1589821802
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589821806
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Sunday in Detroit.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

@@ -1,0 +1,975 @@
+{
+  "AnonymizedUserWorkerID": "e9fa7e8e-d139-9e5e-e5c1-e91880f700fb",
+  "AnonymizedWizardWorkerID": "ab9f01dc-2cad-988e-9e96-f7509ea2a536",
+  "BatchID": "woz_1590513462",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6463,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'finding a flight from San Francisco to Los Angeles' and 'reserving a flight' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590533658
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can you help me book a flight from SF to LA?",
+      "UnixTime": 1590533685
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What date",
+      "UnixTime": 1590533693
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_ask_date",
+      "ActionLabelOptions": [
+        "plane_ask_date",
+        "plane_request_optional",
+        "plane_ask_arrival_city"
+      ],
+      "Agent": "Wizard",
+      "Text": "On what day do you want the plane to arrive?",
+      "UnixTime": 1590533695
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Friday the 30th",
+      "UnixTime": 1590533706
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"30th\""
+        }
+      ],
+      "UnixTime": 1590533714
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Unavailable",
+      "UnixTime": 1590533722
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_nothing_found",
+      "ActionLabelOptions": [
+        "plane_inform_nothing_found",
+        "plane_ask_departure_city",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no flights that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1590533725
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "sure, any day after today is fine",
+      "UnixTime": 1590533732
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590533732
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"31st\""
+        }
+      ],
+      "UnixTime": 1590533743
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "TotalItems": 2
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "Text": "ID 540 3pm United I found",
+      "UnixTime": 1590533760
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "plane_ask_arrival_city",
+        "plane_ask_more_questions"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "Text": "Right, I found a First flight with United for 432 credits\n that takes 5 hours to get to Los Angeles.",
+      "UnixTime": 1590533763
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "that sounds good. can you book it for me?",
+      "UnixTime": 1590533798
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "Task": "plane_reserve",
+      "UnixTime": 1590533806
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "Text": "what is your name",
+      "UnixTime": 1590533817
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "out_of_scope",
+        "hello",
+        "plane_ask_more_questions",
+        "plane_reservation_failed",
+        "plane_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590533820
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ben",
+      "UnixTime": 1590533823
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590533823
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "540"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "31st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 432,
+        "id": 540
+      },
+      "UnixTime": 1590533829
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 540
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 540
+      },
+      "Text": "available",
+      "UnixTime": 1590533834
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "anything_else",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 540
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1590533836
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please",
+      "UnixTime": 1590533845
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590533845
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "540"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 540
+      },
+      "UnixTime": 1590533850
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 540
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 540
+      },
+      "Text": "failed",
+      "UnixTime": 1590533855
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_failed",
+      "ActionLabelOptions": [
+        "plane_reservation_failed",
+        "plane_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 540
+      },
+      "Text": "I'm sorry, but your reservation request was unsuccessful.",
+      "UnixTime": 1590533857
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's okay, 5 hours from SF to LA sounds extreme. Can you find a shorter one?",
+      "UnixTime": 1590533872
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics ('finding a flight' and 'booking a flight'). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590533872
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 540
+      },
+      "Task": "plane_search",
+      "UnixTime": 1590533878
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"28th\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 540
+      },
+      "UnixTime": 1590533883
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "Business",
+        "Date": "28th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 466,
+        "id": 1
+      },
+      "TotalItems": 1
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"27th\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "Business",
+        "Date": "28th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 5,
+        "Price": 466,
+        "id": 1
+      },
+      "UnixTime": 1590533891
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "27th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 368,
+        "id": 942
+      },
+      "TotalItems": 1
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"22nd\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Virgin",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 pm",
+        "Class": "First",
+        "Date": "27th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 368,
+        "id": 942
+      },
+      "UnixTime": 1590533896
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "22nd",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 262,
+        "id": 117
+      },
+      "TotalItems": 3
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"19th\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "Delta",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "22nd",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 262,
+        "id": 117
+      },
+      "UnixTime": 1590533903
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "American",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 am",
+        "Class": "First",
+        "Date": "19th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 209,
+        "id": 491
+      },
+      "TotalItems": 1
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "DepartureCity": "\"San Francisco\""
+        },
+        {
+          "ArrivalCity": "api.is_equal_to(\"Los Angeles\")"
+        },
+        {
+          "Date": "\"1st\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "American",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "3 am",
+        "Class": "First",
+        "Date": "19th",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 6,
+        "Price": 209,
+        "id": 491
+      },
+      "UnixTime": 1590533910
+    },
+    {
+      "APIName": "plane_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "1st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 4,
+        "Price": 419,
+        "id": 398
+      },
+      "TotalItems": 3
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "1st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 4,
+        "Price": 419,
+        "id": 398
+      },
+      "Text": "I found ID 398 United",
+      "UnixTime": 1590533924
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_inform_flight_details",
+      "ActionLabelOptions": [
+        "plane_inform_flight_details",
+        "plane_inform_nothing_found",
+        "plane_ask_more_questions"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "1st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 4,
+        "Price": 419,
+        "id": 398
+      },
+      "Text": "Right, I found an Economy flight with United for 419 credits\n that takes 4 hours to get to Los Angeles.",
+      "UnixTime": 1590533927
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's a little better. Book that one please?",
+      "UnixTime": 1590534004
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "1st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 4,
+        "Price": 419,
+        "id": 398
+      },
+      "Task": "plane_reserve",
+      "UnixTime": 1590534010
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "398"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_search",
+        "Airline": "United",
+        "ArrivalCity": "Los Angeles",
+        "ArrivalTime": "11 pm",
+        "Class": "Economy",
+        "Date": "1st",
+        "DepartureCity": "San Francisco",
+        "DurationHours": 4,
+        "Price": 419,
+        "id": 398
+      },
+      "UnixTime": 1590534014
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 398
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "398"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "id": 398
+      },
+      "UnixTime": 1590534022
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 398
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 398
+      },
+      "Text": "available",
+      "UnixTime": 1590534028
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_flight_available",
+      "ActionLabelOptions": [
+        "plane_flight_available",
+        "anything_else",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 398
+      },
+      "Text": "The flight is available. Should I reserve it for you?",
+      "UnixTime": 1590534030
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "yes please",
+      "UnixTime": 1590534052
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('finding a flight' and 'booking a flight') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590534052
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "398"
+        },
+        {
+          "CustomerName": "\"Ben\""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "Message": "Available",
+        "id": 398
+      },
+      "UnixTime": 1590534059
+    },
+    {
+      "APIName": "plane_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 398
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 398
+      },
+      "Text": "confirmed",
+      "UnixTime": 1590534065
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_reservation_succeeded",
+      "ActionLabelOptions": [
+        "plane_reservation_succeeded",
+        "plane_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 398
+      },
+      "Text": "Right, your flight is now reserved!",
+      "UnixTime": 1590534068
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks so much. thats all I need!",
+      "UnixTime": 1590534085
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 398
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590534090
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "plane_bye",
+      "ActionLabelOptions": [
+        "plane_bye",
+        "plane_ask_flight_id",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "plane_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "id": 398
+      },
+      "Text": "Thank you and goodbye.",
+      "UnixTime": 1590534093
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590534103
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "plane",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Ben\n\n The AI Assistant can handle:\n- Search for a flight (e.g. from San Francisco to Los Angeles)\n- Book a flight (e.g. with id 970)\n- Checking the weather forecast in different Cities (e.g. Chicago or Los Angeles)",
+    "WizardCapabilities": [
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_search.jpg",
+        "Task": "plane_search"
+      },
+      {
+        "Domain": "plane",
+        "SchemaImage": "plane_reserve.jpg",
+        "Task": "plane_reserve"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

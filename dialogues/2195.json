@@ -1,0 +1,200 @@
+{
+  "AnonymizedUserWorkerID": "3e489804-5a5c-0422-f71f-c3df0ed166b8",
+  "AnonymizedWizardWorkerID": "5d99ecec-8924-cc09-6519-ccb1eb7eb585",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 2195,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi.  I'd like a ride from University ",
+      "UnixTime": 1589843393
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "to where at what time?",
+      "UnixTime": 1589843441
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_destination",
+      "ActionLabelOptions": [
+        "ride_ask_destination",
+        "ride_inform_search_criteria",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "Alright, where do you want to go?",
+      "UnixTime": 1589843446
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Sorry.  To University",
+      "UnixTime": 1589843463
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You remember, last time your driver was Connor and he got lost and you ended up missing an important appointment. Make sure you get another driver this time. [instruction 1 of 3]",
+      "UnixTime": 1589843463
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "From where",
+      "UnixTime": 1589843476
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_departure",
+      "ActionLabelOptions": [
+        "ride_ask_departure",
+        "ride_inform_search_criteria",
+        "ride_ask_destination"
+      ],
+      "Agent": "Wizard",
+      "Text": "OK, and where are you departing from?",
+      "UnixTime": 1589843479
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Broadway and Main",
+      "UnixTime": 1589843489
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You forgot that your friend told you to meet at the BrewLab cafe at Airport not University. Tell the assistant you want a ride to Airport. [instruction 2 of 3]",
+      "UnixTime": 1589843489
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "what's your name?",
+      "UnixTime": 1589843517
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_inform_search_criteria",
+        "ride_bye"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589843519
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm Mark.   Make sure the driver isn't Connor.  He got lost last time and I missed an appointment.   Can you see if a Ford is available?",
+      "UnixTime": 1589843552
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You are a big fan of classy European cars. Ask for the car to be a BMW. [instruction 3 of 3]",
+      "UnixTime": 1589843552
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"mark\""
+        },
+        {
+          "DepartureLocation": "\"Broadway and main\""
+        },
+        {
+          "ArrivalLocation": "\"university\""
+        },
+        {
+          "RequestType": "\"Check\""
+        },
+        {
+          "Price": "api.is_equal_to()"
+        },
+        {
+          "CarModel": "\"Ford\""
+        },
+        {
+          "CarModel": "\"Ford\""
+        }
+      ],
+      "UnixTime": 1589843610
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"mark\""
+        },
+        {
+          "DepartureLocation": "\"Broadway and main\""
+        },
+        {
+          "ArrivalLocation": "\"university\""
+        },
+        {
+          "RequestType": "\"Check\""
+        },
+        {
+          "Price": "api.is_equal_to()"
+        },
+        {
+          "CarModel": "\"Ford\""
+        },
+        {
+          "CarModel": "\"Ford\""
+        },
+        {
+          "DriverName": "api.is_equal_to(\"Mark\")"
+        },
+        {
+          "DriverName": "api.is_equal_to(\"Mark\")"
+        }
+      ],
+      "UnixTime": 1589843648
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": false,
+    "MultiTask": false,
+    "UserTask": "You are Mark and would like to travel to University from Broadway and Main (in a Ford car if possible). Please provide one piece of information at a time.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      }
+    ],
+    "WizardTask": "Help the user book a ride. (You can find the video tutorial under https://youtu.be/L7QpscLPTFM, in case you want to watch it again.)"
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

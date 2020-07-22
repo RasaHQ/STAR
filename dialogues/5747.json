@@ -1,0 +1,668 @@
+{
+  "AnonymizedUserWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "AnonymizedWizardWorkerID": "ac9c2dc2-a643-8ec0-d96c-1bc923b2777f",
+  "BatchID": "woz_1590168497",
+  "CompletionLevel": "Complete",
+  "DialogueID": 5747,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'Reserving a table at a restaurant' and 'Bank balance checking' (in any order), as shown on the left. You may also ask the assistant about the weather.  [instruction 1 of 6]",
+      "UnixTime": 1590175852
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "HEY AI can you book me a table at the Cacxtus club?",
+      "UnixTime": 1590175893
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Name",
+      "UnixTime": 1590175963
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "May I have your name, time and party size",
+      "UnixTime": 1590175985
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Tonight at 7 please Katarina Miller 4 people",
+      "UnixTime": 1590176013
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Katarina Miller \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "UnixTime": 1590176075
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Failed",
+      "UnixTime": 1590176083
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_failed",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_failed",
+        "restaurant_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "I am sorry, but the reservation request was not successful.",
+      "UnixTime": 1590176087
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Can you try again, please? What's tonights weather too ?",
+      "UnixTime": 1590176112
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 6]",
+      "UnixTime": 1590176112
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Task": "weather",
+      "UnixTime": 1590176128
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Failed",
+        "RestaurantName": "Cactus Club"
+      },
+      "UnixTime": 1590176140
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 22,
+        "Weather": "Raining",
+        "id": 336
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 22,
+        "Weather": "Raining",
+        "id": 336
+      },
+      "Text": "Raining",
+      "UnixTime": 1590176150
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_ask_location",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 22,
+        "Weather": "Raining",
+        "id": 336
+      },
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1590176155
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Detroit my friend will be heading there after dinner to go to a conference on drop bears.",
+      "UnixTime": 1590176201
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Wednesday\""
+        },
+        {
+          "City": "\"Detroit\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Chicago",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 22,
+        "Weather": "Raining",
+        "id": 336
+      },
+      "UnixTime": 1590176225
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "Raining ",
+      "UnixTime": 1590176255
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_bye",
+        "weather_ask_location",
+        "weather_inform_forecast"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "It will be Raining all day on Wednesday in Detroit, with temperatures of around 30 degrees celsius.",
+      "UnixTime": 1590176258
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oooh I better make sure I have enough funds to cover this outing tonight. What's my account balance?",
+      "UnixTime": 1590176267
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 3 of 6]",
+      "UnixTime": 1590176267
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590176282
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Task": "bank_balance",
+      "UnixTime": 1590176283
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "Your name",
+      "UnixTime": 1590176293
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "weather_inform_nothing_found",
+        "weather_bye",
+        "hello",
+        "bank_ask_dob",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "Could I get your full name, please?",
+      "UnixTime": 1590176297
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Katarina Miller",
+      "UnixTime": 1590176303
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 4 of 6]",
+      "UnixTime": 1590176303
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "Your pin and",
+      "UnixTime": 1590176363
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "Text": "Your account number and pin",
+      "UnixTime": 1590176377
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "84318931431, with PIN 1596 I don't ever want to encounter a drop bear and apparently they are here in the US now too. ",
+      "UnixTime": 1590176396
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Keep going until you've covered all the topics (reserving a table at a restaurant and bank balance checking). The conversation should continue at least until the last instruction is given. [instruction 5 of 6]",
+      "UnixTime": 1590176396
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Katarina Miller \""
+        },
+        {
+          "PIN": "1596"
+        },
+        {
+          "AccountNumber": "84318931431 "
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Wednesday",
+        "TemperatureCelsius": 30,
+        "Weather": "Raining",
+        "id": 206
+      },
+      "UnixTime": 1590176453
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 4130,
+        "BankName": "Bank of America",
+        "id": 912
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4130,
+        "BankName": "Bank of America",
+        "id": 912
+      },
+      "Text": "4130",
+      "UnixTime": 1590176461
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4130,
+        "BankName": "Bank of America",
+        "id": 912
+      },
+      "Text": "Your current balance is 4130 in credit.",
+      "UnixTime": 1590176464
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That should cover it. Did we ever get my table reserved at the cactus club?",
+      "UnixTime": 1590176469
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4130,
+        "BankName": "Bank of America",
+        "id": 912
+      },
+      "Task": "restaurant_reserve",
+      "UnixTime": 1590176494
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "api.is_equal_to(\"Cactus Club\")"
+        },
+        {
+          "Time": "\"7 pm\""
+        },
+        {
+          "PartySize": "4"
+        },
+        {
+          "CustomerName": "\"Katarina Miller \""
+        },
+        {
+          "RequestType": "\"Book\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4130,
+        "BankName": "Bank of America",
+        "id": 912
+      },
+      "UnixTime": 1590176497
+    },
+    {
+      "APIName": "restaurant_reserve",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Yes",
+      "UnixTime": 1590176514
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "restaurant_inform_booking_successful",
+      "ActionLabelOptions": [
+        "restaurant_inform_booking_successful",
+        "hello",
+        "restaurant_ask_size"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Excellent, your reservation at the Cactus Club is confirmed!",
+      "UnixTime": 1590176518
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Woot thank you and goodbye",
+      "UnixTime": 1590176532
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics (restaurant and bank balance checking) and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 6 of 6]",
+      "UnixTime": 1590176532
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Goodbye",
+      "UnixTime": 1590176555
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "hello",
+        "anything_else",
+        "restaurant_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1590176569
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "no thank you",
+      "UnixTime": 1590176585
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Alright",
+      "UnixTime": 1590176592
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "restaurant_reserve",
+        "ReservationStatus": "Reservation Confirmed",
+        "RestaurantName": "Cactus Club"
+      },
+      "Text": "Great",
+      "UnixTime": 1590176602
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590176605
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank",
+      "restaurant",
+      "weather"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Katarina Miller\n- Your bank account: 84318931431, with PIN 1596\n- Today is Wednesday the 28th of June, 4 pm\n\n The AI Assistant can handle:\n- Checking bank balance\n- Reserving a table at a restaurant (e.g. Cactus Club or Lucca) for today\n- Checking the weather forecast in different Cities (e.g. Detroit or Chicago)",
+    "WizardCapabilities": [
+      {
+        "Domain": "restaurant",
+        "SchemaImage": "restaurant_reserve.jpg",
+        "Task": "restaurant_reserve"
+      },
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      },
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Wednesday the 28th of June, 4 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

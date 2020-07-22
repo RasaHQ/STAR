@@ -1,0 +1,224 @@
+{
+  "AnonymizedUserWorkerID": "c1208bee-cdbb-9f1e-d0dc-1602f7771900",
+  "AnonymizedWizardWorkerID": "750c3b94-faf8-5308-8f53-b3ede1581787",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2486,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm looking for a new place to live.",
+      "UnixTime": 1589839522
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "number of bedrooms",
+      "UnixTime": 1589839535
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_num_bedrooms",
+      "ActionLabelOptions": [
+        "apartment_ask_num_bedrooms",
+        "apartment_inform_search_criteria",
+        "apartment_ask_balcony"
+      ],
+      "Agent": "Wizard",
+      "Text": "How many bedrooms does the apartment need to have?",
+      "UnixTime": 1589839537
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "2",
+      "UnixTime": 1589839543
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "price",
+      "UnixTime": 1589839578
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_price",
+      "ActionLabelOptions": [
+        "apartment_ask_price",
+        "apartment_inform_search_criteria",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "What is your budget?",
+      "UnixTime": 1589839579
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "522 credits but I want it high up. Like 11th floor or higher",
+      "UnixTime": 1589839616
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "balcony",
+      "UnixTime": 1589839660
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_balcony",
+      "ActionLabelOptions": [
+        "apartment_ask_balcony",
+        "hello",
+        "apartment_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "Does the apartment need to have a balcony?",
+      "UnixTime": 1589839663
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yeah. and be by the gym,",
+      "UnixTime": 1589839680
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "elevator",
+      "UnixTime": 1589839718
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_elevator",
+      "ActionLabelOptions": [
+        "apartment_ask_elevator",
+        "apartment_ask_floor",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Do you require an elevator?",
+      "UnixTime": 1589839720
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It doesn't matter",
+      "UnixTime": 1589839740
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "2"
+        },
+        {
+          "Price": "522"
+        },
+        {
+          "HasBalcony": "True"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"User's gym\")"
+        },
+        {
+          "Level": "api.is_at_least(11)"
+        }
+      ],
+      "UnixTime": 1589839757
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "nothing",
+      "UnixTime": 1589839791
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_nothing_found",
+      "ActionLabelOptions": [
+        "apartment_inform_nothing_found",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589839794
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Nah. I'll just stick here. Thanks",
+      "UnixTime": 1589839813
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "thank",
+      "UnixTime": 1589839820
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "hello",
+        "apartment_ask_num_bedrooms"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589839823
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589839827
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 2 bedroom apartment. The unit should be on floor 11 or higher. Your price budget is 522 credits. You would like the building to have a balcony and be near your gym.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

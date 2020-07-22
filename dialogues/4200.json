@@ -1,0 +1,166 @@
+{
+  "AnonymizedUserWorkerID": "34240f9a-bd13-8ae1-c634-f07162c54b7c",
+  "AnonymizedWizardWorkerID": "e9fa7e8e-d139-9e5e-e5c1-e91880f700fb",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4200,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I'd like to check the status of my ride. My name is John",
+      "UnixTime": 1589591016
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hi, John. What is your Ride ID?",
+      "UnixTime": 1589591044
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "ask_name",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1589591045
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It's 974. A cab was supposed to pick up my friend from the airport and he hasn't arrived yet.",
+      "UnixTime": 1589591073
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "974"
+        },
+        {
+          "CustomerName": "\"John\""
+        }
+      ],
+      "UnixTime": 1589591080
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver is in eoute and is 10 minutes away",
+      "UnixTime": 1589591088
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Your driver is arriving. Your ride is approximately 10 minutes away.",
+      "UnixTime": 1589591113
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Ok great thank you. That's all I needed",
+      "UnixTime": 1589591135
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Tahnks goodbye",
+      "UnixTime": 1589591147
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_bye",
+      "ActionLabelOptions": [
+        "ride_bye",
+        "out_of_scope",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your driver is arriving.",
+        "RideWait": "10 minutes away"
+      },
+      "Text": "Goodbye. Enjoy your ride!",
+      "UnixTime": 1589591149
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589591151
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Some hours ago you've booked a cab to pick up your friend from the airport. He's still not here. Ask the assistant about the status of his ride (booking id 974. You booked the ride under the name 'John'.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      }
+    ],
+    "WizardTask": "Help the user stay informed about the status of his/her ride. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the status of your ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

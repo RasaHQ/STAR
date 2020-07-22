@@ -1,0 +1,175 @@
+{
+  "AnonymizedUserWorkerID": "8829abee-d7b6-d749-1f21-2eee378e34bb",
+  "AnonymizedWizardWorkerID": "00f54eab-f813-a79e-fabe-cbdd3da9441d",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2105,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. ",
+      "UnixTime": 1589820185
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello. How can I help?",
+      "UnixTime": 1589820191
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589820193
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to know what the weather's going to be on Thursday.",
+      "UnixTime": 1589820202
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What city are you located in?",
+      "UnixTime": 1589820212
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_ask_location",
+      "ActionLabelOptions": [
+        "weather_ask_location",
+        "out_of_scope",
+        "weather_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "For what location would you like the weather forecast?",
+      "UnixTime": 1589820214
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My home in New York.",
+      "UnixTime": 1589820231
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "\"Thursday\""
+        },
+        {
+          "City": "\"New York City\""
+        }
+      ],
+      "UnixTime": 1589820234
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Thursday",
+        "TemperatureCelsius": 27,
+        "Weather": "Partly Cloudy",
+        "id": 600
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Thursday",
+        "TemperatureCelsius": 27,
+        "Weather": "Partly Cloudy",
+        "id": 600
+      },
+      "Text": "The weather in New York City on Thursday will be partly cloudy and 27 degrees.",
+      "UnixTime": 1589820253
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_ask_location",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "New York City",
+        "Day": "Thursday",
+        "TemperatureCelsius": 27,
+        "Weather": "Partly Cloudy",
+        "id": 600
+      },
+      "Text": "It will be Partly Cloudy all day on Thursday in New York City, with temperatures of around 27 degrees celsius.",
+      "UnixTime": 1589820256
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589820263
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Thursday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

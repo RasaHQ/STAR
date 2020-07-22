@@ -1,0 +1,217 @@
+{
+  "AnonymizedUserWorkerID": "239936e4-190b-4d6e-8038-57290b8802d4",
+  "AnonymizedWizardWorkerID": "6cb66f0b-1a8b-fec4-b481-96b6da01d513",
+  "BatchID": "woz_1589458635",
+  "CompletionLevel": "Complete",
+  "DialogueID": 299,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589478909
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello",
+      "UnixTime": 1589478915
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589478916
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a ride from the hospital to the airport please",
+      "UnixTime": 1589478939
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "name",
+      "UnixTime": 1589478944
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1589478946
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Angela",
+      "UnixTime": 1589478956
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "You notice a stand with electric scooters on the other side of the road and decide to take one them. Tell the assistant you have changed your mind and don't require a ride anymore. [instruction 1 of 1]",
+      "UnixTime": 1589478956
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "special requirements",
+      "UnixTime": 1589478969
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_search_criteria",
+      "ActionLabelOptions": [
+        "ride_inform_search_criteria",
+        "ride_ask_destination"
+      ],
+      "Agent": "Wizard",
+      "Text": "I can also filter for service provider, driver name, and the car\u2019s model.",
+      "UnixTime": 1589478971
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Oh never mind. I just saw the electric scooters across the street. I think I will just grab one of those. Thanks anyway!",
+      "UnixTime": 1589479017
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "DepartureLocation": "\"Hospital\""
+        },
+        {
+          "ArrivalLocation": "\"Airport\""
+        },
+        {
+          "RequestType": "\"Check\""
+        }
+      ],
+      "UnixTime": 1589479023
+    },
+    {
+      "APIName": "book_ride",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Airport",
+        "CarModel": "BMW",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Zoe",
+        "LicensePlate": "901 FSA",
+        "MinutesTillPickup": 25,
+        "Price": 50,
+        "ServiceProvider": "Uber",
+        "id": 951
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Airport",
+        "CarModel": "BMW",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Zoe",
+        "LicensePlate": "901 FSA",
+        "MinutesTillPickup": 25,
+        "Price": 50,
+        "ServiceProvider": "Uber",
+        "id": 951
+      },
+      "Text": "Ok, I did find a uber",
+      "UnixTime": 1589479037
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_confirm_booking",
+      "ActionLabelOptions": [
+        "ride_inform_nothing_found",
+        "ride_ask_confirm_booking"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "book_ride",
+        "AllowsChanges": true,
+        "ArrivalLocation": "Airport",
+        "CarModel": "BMW",
+        "CustomerName": "Angela",
+        "DepartureLocation": "Hospital",
+        "DriverName": "Zoe",
+        "LicensePlate": "901 FSA",
+        "MinutesTillPickup": 25,
+        "Price": 50,
+        "ServiceProvider": "Uber",
+        "id": 951
+      },
+      "Text": "I found a Uber ride for you from 'Hospital' to 'Airport' for 50 credits\nthat could pick you up in 25 minutes. Should I book that for you?",
+      "UnixTime": 1589479041
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589479059
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "ride"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You want a ride from 'Hospital' to 'Airport'. Your name is Angela.",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "book_ride.jpg",
+        "Task": "book_ride"
+      }
+    ],
+    "WizardTask": "Help the user book a ride. (You can find the video tutorial under https://youtu.be/USrWF1ZyNWw, in case you want to watch it again.)"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "...find you a suitable ride?"
+    },
+    {
+      "Answer": true,
+      "Question": "...stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "...change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "...become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

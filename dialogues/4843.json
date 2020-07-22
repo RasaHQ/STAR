@@ -1,0 +1,188 @@
+{
+  "AnonymizedUserWorkerID": "e1b3b54c-170c-2ae3-59c1-be0a72290b35",
+  "AnonymizedWizardWorkerID": "20cc34c1-d7be-8977-4bd6-47cbe93d3fbc",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4843,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589601534
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello. How can I help you?",
+      "UnixTime": 1589601547
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "weather_ask_location"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589601549
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "What is the weather supposed to be on Sunday?",
+      "UnixTime": 1589601562
+    },
+    {
+      "APIName": "weather",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Day": "api.is_equal_to(\"Sunday\")"
+        }
+      ],
+      "UnixTime": 1589601572
+    },
+    {
+      "APIName": "weather",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 12,
+        "Weather": "Raining",
+        "id": 301
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 12,
+        "Weather": "Raining",
+        "id": 301
+      },
+      "Text": "It will be raining with temperature of 12 Celsius on Sunday",
+      "UnixTime": 1589601605
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "weather_inform_forecast",
+      "ActionLabelOptions": [
+        "weather_inform_forecast",
+        "weather_bye",
+        "weather_ask_day"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 12,
+        "Weather": "Raining",
+        "id": 301
+      },
+      "Text": "It will be Raining all day on Sunday in Detroit, with temperatures of around 12 degrees celsius.",
+      "UnixTime": 1589601611
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hmm that sounds pretty terrible.  Thanks for the info",
+      "UnixTime": 1589601639
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 12,
+        "Weather": "Raining",
+        "id": 301
+      },
+      "Text": "Is there anything else I can help you with?",
+      "UnixTime": 1589601653
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "weather_inform_forecast",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "weather",
+        "City": "Detroit",
+        "Day": "Sunday",
+        "TemperatureCelsius": 12,
+        "Weather": "Raining",
+        "id": 301
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589601655
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589601660
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "weather"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Please find the weather for Sunday.",
+    "WizardCapabilities": [
+      {
+        "Domain": "weather",
+        "SchemaImage": "weather.jpg",
+        "Task": "weather"
+      }
+    ],
+    "WizardTask": "Tell the user the weather."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant tell you the weather?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant say something about rain?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

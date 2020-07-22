@@ -1,0 +1,204 @@
+{
+  "AnonymizedUserWorkerID": "3a5ea463-ded5-1b72-cab6-2e2ea04d6cf7",
+  "AnonymizedWizardWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2732,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello",
+      "UnixTime": 1589834551
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "how may I help",
+      "UnixTime": 1589834558
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "anything_else",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589834560
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need a Moderate hotel with a rating higher than 4 please",
+      "UnixTime": 1589834576
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Did you have a certain location?",
+      "UnixTime": 1589834643
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_location",
+      "ActionLabelOptions": [
+        "hotel_ask_location",
+        "hotel_ask_name",
+        "hotel_inform_search_criteria"
+      ],
+      "Agent": "Wizard",
+      "Text": "Any particular location you would like to stay at?",
+      "UnixTime": 1589834645
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No preference to the location",
+      "UnixTime": 1589834660
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Cost": "\"Moderate\""
+        },
+        {
+          "Location": "api.is_equal_to(\"South\")"
+        },
+        {
+          "AverageRating": "api.is_at_least(4)"
+        }
+      ],
+      "UnixTime": 1589834678
+    },
+    {
+      "APIName": "hotel_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Moderate",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": true,
+        "id": 914
+      },
+      "TotalItems": 40
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Moderate",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": true,
+        "id": 914
+      },
+      "Text": "I have a match",
+      "UnixTime": 1589834689
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Moderate",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": true,
+        "id": 914
+      },
+      "Text": "I have something at Shsdyside Inn",
+      "UnixTime": 1589834716
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_provide_search_result",
+      "ActionLabelOptions": [
+        "hotel_inform_name",
+        "hotel_provide_search_result",
+        "hotel_ask_location"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "hotel_search",
+        "AverageRating": 5,
+        "Cost": "Moderate",
+        "Location": "South",
+        "Name": "Shadyside Inn",
+        "Service": true,
+        "ServiceStartHour": "5 am",
+        "ServiceStopHour": "7 pm",
+        "TakesReservations": true,
+        "id": 914
+      },
+      "Text": "OK, I have found the 'Shadyside Inn', located South. It is in the Moderate price category and has an average rating of 5.",
+      "UnixTime": 1589834718
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589834737
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Find a Moderate hotel with a rating higher than 4 and note its name and the part of town it is in.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_search.jpg",
+        "Task": "hotel_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific hotel. "
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant find you a suitable hotel?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

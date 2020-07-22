@@ -1,0 +1,184 @@
+{
+  "AnonymizedUserWorkerID": "a4c9564b-06b9-37b4-27ca-fd6bf52c4154",
+  "AnonymizedWizardWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2497,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi, I am looking for a 6 bedroom apartment. It should be on floor 4 or higher. I can afford 2030 credits. I'd like a balcony and a location close to a train station. ",
+      "UnixTime": 1589845277
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "is that all",
+      "UnixTime": 1589845344
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "6"
+        },
+        {
+          "Level": "api.is_at_least(4)"
+        },
+        {
+          "Price": "2030"
+        },
+        {
+          "HasBalcony": "True"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"TrainStation\")"
+        }
+      ],
+      "UnixTime": 1589845353
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Nothing",
+      "UnixTime": 1589845369
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_inform_nothing_found",
+      "ActionLabelOptions": [
+        "apartment_inform_nothing_found",
+        "out_of_scope",
+        "anything_else"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately there are no apartments that match your search. Would you like to change any of your criteria?",
+      "UnixTime": 1589845372
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, that is the only one I wanted.",
+      "UnixTime": 1589845385
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "NumRooms": "6"
+        },
+        {
+          "Price": "2030"
+        },
+        {
+          "HasBalcony": "True"
+        },
+        {
+          "NearbyPOIs": "api.contains(\"TrainStation\")"
+        }
+      ],
+      "UnixTime": 1589845426
+    },
+    {
+      "APIName": "apartment_search",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "TotalItems": 0
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "i'm sorry",
+      "UnixTime": 1589845441
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_ask_search_more",
+      "ActionLabelOptions": [
+        "out_of_scope",
+        "apartment_bye",
+        "apartment_ask_search_more"
+      ],
+      "Agent": "Wizard",
+      "Text": "Would you like to search for any more apartments?",
+      "UnixTime": 1589845446
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, thank you. Goodbye.",
+      "UnixTime": 1589845463
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "thank",
+      "UnixTime": 1589845475
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "apartment_bye",
+      "ActionLabelOptions": [
+        "apartment_bye",
+        "hello",
+        "apartment_ask_num_bedrooms"
+      ],
+      "Agent": "Wizard",
+      "Text": "Thank you and goodbye!",
+      "UnixTime": 1589845477
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589845481
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "apartment"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Search for a 6 bedroom apartment. The unit should be on floor 4 or higher. Your price budget is 2030 credits. You would like the building to have a balcony and be near a train station.",
+    "WizardCapabilities": [
+      {
+        "Domain": "apartment",
+        "SchemaImage": "apartment_search.jpg",
+        "Task": "apartment_search"
+      }
+    ],
+    "WizardTask": "Help the user find a specific apartment."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

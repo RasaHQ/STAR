@@ -1,0 +1,212 @@
+{
+  "AnonymizedUserWorkerID": "73cd3146-78b3-8662-261e-62d39ac21292",
+  "AnonymizedWizardWorkerID": "cd977bea-cf5f-e55d-dd23-dcad7db29be1",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2731,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. My name is  Jane Doe ",
+      "UnixTime": 1589834768
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "hello. how can I help?",
+      "UnixTime": 1589834794
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope",
+        "bank_ask_account_number"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589834796
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I want to check my bank balance. My account number is  95381901 and the PIN is 0314.",
+      "UnixTime": 1589834852
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your mom's maiden name?",
+      "UnixTime": 1589834895
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_ask_mothers_maiden_name",
+      "ActionLabelOptions": [
+        "bank_ask_mothers_maiden_name",
+        "bank_inform_cannot_authenticate",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "What was your mother's maiden name?",
+      "UnixTime": 1589834898
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Why do I need that? I have given all that is needed to verify my account.",
+      "UnixTime": 1589834953
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "It is for security reasons before I can access your account. ",
+      "UnixTime": 1589834995
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "It is for security reasons before I can access your account. ",
+      "UnixTime": 1589835000
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Try with what I provided please",
+      "UnixTime": 1589835034
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "FullName": "\"Jane Doe\""
+        },
+        {
+          "AccountNumber": "95381901"
+        },
+        {
+          "PIN": "0314"
+        }
+      ],
+      "UnixTime": 1589835038
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 4447,
+        "BankName": "Bank of America",
+        "id": 407
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4447,
+        "BankName": "Bank of America",
+        "id": 407
+      },
+      "Text": "Ok. Looks like the system has given me access. Your balance is 4447. ",
+      "UnixTime": 1589835072
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4447,
+        "BankName": "Bank of America",
+        "id": 407
+      },
+      "Text": "Ok. Looks like the system has given me access. Your current balance is 4447 in credit.",
+      "UnixTime": 1589835091
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks . Have a great day.",
+      "UnixTime": 1589835138
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4447,
+        "BankName": "Bank of America",
+        "id": 407
+      },
+      "Text": "anything else I can do for you?",
+      "UnixTime": 1589835158
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "bank_inform_cannot_authenticate",
+        "bank_inform_balance"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 4447,
+        "BankName": "Bank of America",
+        "id": 407
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589835161
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589835175
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are Jane Doe and would like to check your bank balance. Your account number is 95381901 and your PIN is 0314.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

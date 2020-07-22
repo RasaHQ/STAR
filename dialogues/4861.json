@@ -1,0 +1,235 @@
+{
+  "AnonymizedUserWorkerID": "3edcce52-bbdf-48d8-3d95-d45dad2e0182",
+  "AnonymizedWizardWorkerID": "499421f9-490f-75f2-6cef-6ccb5b80b12a",
+  "BatchID": "woz_1589305371",
+  "CompletionLevel": "Complete",
+  "DialogueID": 4861,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hi THere!",
+      "UnixTime": 1589311597
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Hello, how may I help you?",
+      "UnixTime": 1589311606
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589311613
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I need to check my bank balance, can you help me?",
+      "UnixTime": 1589311627
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Sure, I'll need your full name, account number, and PIN.",
+      "UnixTime": 1589311638
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "Text": "Sure, I need your full name, account number, and PIN",
+      "UnixTime": 1589311655
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "John Smith, Account number: 68318931 and my pin is 1596",
+      "UnixTime": 1589311690
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Query BankBalance",
+      "UnixTime": 1589311701
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_nothing_found",
+      "ActionLabelOptions": [
+        "bank_inform_nothing_found",
+        "bank_inform_cannot_authenticate"
+      ],
+      "Agent": "Wizard",
+      "Text": "Unfortunately I cannot find a balance for your account.",
+      "UnixTime": 1589311725
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's odd!",
+      "UnixTime": 1589311734
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [],
+      "UnixTime": 1589311743
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "TotalItems": -1
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "AccountNumber": "68318931 "
+        },
+        {
+          "FullName": "\"John Smith\""
+        },
+        {
+          "PIN": "1596"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "Message": "You must provide either AccountNumber/FullName/PIN or FullName/DateOfBirth/SecurityAnswer1/SecurityAnswer2. We cannot authenticate the user otherwise."
+      },
+      "UnixTime": 1589311779
+    },
+    {
+      "APIName": "bank_balance",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "bank_balance",
+        "BankBalance": 8047,
+        "BankName": "Chase",
+        "id": 600
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 8047,
+        "BankName": "Chase",
+        "id": 600
+      },
+      "Text": "Your balance is $8,047",
+      "UnixTime": 1589311793
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "bank_inform_balance",
+      "ActionLabelOptions": [
+        "bank_inform_balance",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 8047,
+        "BankName": "Chase",
+        "id": 600
+      },
+      "Text": "Your current balance is 8047 in credit.",
+      "UnixTime": 1589311795
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "thank you!",
+      "UnixTime": 1589311800
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 8047,
+        "BankName": "Chase",
+        "id": 600
+      },
+      "Text": "You're welcome, do you need anything else?",
+      "UnixTime": 1589311818
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "anything_else",
+      "ActionLabelOptions": [
+        "anything_else",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "bank_balance",
+        "BankBalance": 8047,
+        "BankName": "Chase",
+        "id": 600
+      },
+      "Text": "Is there anything else that I can do for you?",
+      "UnixTime": 1589311820
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589311822
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "bank"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John Smith and would like to check your bank balance. Your account number is 68318931 and your PIN is 1596.",
+    "WizardCapabilities": [
+      {
+        "Domain": "bank",
+        "SchemaImage": "bank_balance.jpg",
+        "Task": "bank_balance"
+      }
+    ],
+    "WizardTask": "Authenticate the user and tell them their bank balance"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant authenticate your account and give you your bank balance?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the AI Assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue?"
+    }
+  ]
+}

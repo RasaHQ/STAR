@@ -1,0 +1,117 @@
+{
+  "AnonymizedUserWorkerID": "9cfed8ec-54a9-f0f7-8327-15f6470d4a6c",
+  "AnonymizedWizardWorkerID": "9f92fdec-85bc-1130-d832-fefd9dcb8b02",
+  "BatchID": "woz_1589554725",
+  "CompletionLevel": "DisconnectDuringDialogue",
+  "DialogueID": 3871,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "hello",
+      "UnixTime": 1589572120
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "HI how",
+      "UnixTime": 1589572127
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hello",
+      "ActionLabelOptions": [
+        "hello",
+        "hotel_ask_service_request",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Hello, how can I help?",
+      "UnixTime": 1589572128
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is John. I'll like to make a service request for 1AM. I need my room AC to be fixed immediately",
+      "UnixTime": 1589572202
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Which hotel",
+      "UnixTime": 1589572240
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "hotel_ask_hotel",
+      "ActionLabelOptions": [
+        "hotel_ask_hotel",
+        "out_of_scope",
+        "hotel_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "At what hotel are you currently staying?",
+      "UnixTime": 1589572242
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "room 301 of the Hyatt Hotel",
+      "UnixTime": 1589572253
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"Hyatt Hotel\""
+        },
+        {
+          "RoomNumber": "301"
+        },
+        {
+          "Time": "\"1 am\""
+        },
+        {
+          "CustomerName": "\"John \""
+        },
+        {
+          "CustomerRequest": "\"AC repair\""
+        }
+      ],
+      "UnixTime": 1589572281
+    },
+    {
+      "APIName": "hotel_service_request",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "hotel_service_request",
+        "RequestStatus": "Request Failed",
+        "RoomNumber": 301,
+        "Time": "1 am"
+      },
+      "TotalItems": -1
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "hotel"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "You are John and you are staying in room 301 of the Hyatt Hotel. You would like to make a service request for 1 am. Your request is: The AC isn't working in my room. I need it fixed immediately!.",
+    "WizardCapabilities": [
+      {
+        "Domain": "hotel",
+        "SchemaImage": "hotel_service_request.jpg",
+        "Task": "hotel_service_request"
+      }
+    ],
+    "WizardTask": "Help the user make a hotel service request. "
+  },
+  "UserQuestionnaire": [],
+  "WizardQuestionnaire": []
+}

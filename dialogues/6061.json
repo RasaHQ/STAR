@@ -1,0 +1,855 @@
+{
+  "AnonymizedUserWorkerID": "cb97a040-7b86-f38b-609b-d02e964a24ba",
+  "AnonymizedWizardWorkerID": "3edcce52-bbdf-48d8-3d95-d45dad2e0182",
+  "BatchID": "woz_1590081561",
+  "CompletionLevel": "Complete",
+  "DialogueID": 6061,
+  "Events": [
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Use your imagination to generate a conversation about the topics 'checking the status of -- and changing your booked taxi/Uber/Lyft ride' and 'party RSVP' (in any order), as shown on the left. You may also play up to two rounds of trivia with the assistant.  [instruction 1 of 5]",
+      "UnixTime": 1590090790
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hey I need to check the status of my ride.",
+      "UnixTime": 1590090821
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Please have some smalltalk with the AI Assistant at some point in this dialogue. [instruction 2 of 5]",
+      "UnixTime": 1590090821
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your name",
+      "UnixTime": 1590090843
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "ride_bye",
+        "ride_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "Text": "May I have your name, please?",
+      "UnixTime": 1590090844
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "My name is Angela.",
+      "UnixTime": 1590090858
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "ANd the ride id",
+      "UnixTime": 1590090999
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_ask_booking_number",
+      "ActionLabelOptions": [
+        "ride_ask_booking_number",
+        "ride_inform_nothing_found",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "Text": "Could you provide your booking ID, please?",
+      "UnixTime": 1590091000
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It is 605. Can you be a bit quicker please?",
+      "UnixTime": 1590091017
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If it makes sense, use some negations ('I don't want X', or 'anything but Y', etc.) [instruction 3 of 5]",
+      "UnixTime": 1590091017
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "605"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        }
+      ],
+      "UnixTime": 1590091159
+    },
+    {
+      "APIName": "ride_status",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "8 minutes away"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "8 minutes away"
+      },
+      "Text": "Your ride is 8 minutes away on the way",
+      "UnixTime": 1590091165
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "custom",
+      "ActionLabelOptions": [
+        "custom"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "8 minutes away"
+      },
+      "Text": "Your ride is 8 minutes away on the way",
+      "UnixTime": 1590091166
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Okay, what am I looking for? I don't want a taxi, and not with Dave either.",
+      "UnixTime": 1590091206
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "If you haven't yet, it's time to change topic. You can also go back and forth between topics. [instruction 4 of 5]",
+      "UnixTime": 1590091206
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "8 minutes away"
+      },
+      "Task": "ride_change",
+      "UnixTime": 1590091216
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "605"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "ChangeDescription": "\"NO TAxi\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_status",
+        "RideStatus": "Your ride is on its way.",
+        "RideWait": "8 minutes away"
+      },
+      "UnixTime": 1590091231
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your trip has been changed to not be a taxi and to be a nicer car",
+      "UnixTime": 1590091241
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your trip has been changed to not be a taxi and to be a nicer car",
+      "UnixTime": 1590091243
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Is it a BMW? I love European cars. Please send that instead. Also I need to RSVP for my party.",
+      "UnixTime": 1590091296
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "id": "605"
+        },
+        {
+          "CustomerName": "\"Angela\""
+        },
+        {
+          "ChangeDescription": "\"BMW\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "UnixTime": 1590091343
+    },
+    {
+      "APIName": "ride_change",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Your car is now a BMW",
+      "UnixTime": 1590091348
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ride_inform_changes_successful",
+      "ActionLabelOptions": [
+        "ride_inform_changes_successful",
+        "out_of_scope",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Alright, thats all changes done for you!",
+      "UnixTime": 1590091350
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks, now can we check on that RSVP?",
+      "UnixTime": 1590091377
+    },
+    {
+      "Action": "instruct",
+      "Agent": "UserGuide",
+      "Text": "Ok, once you've touched on all the topics ('checking the status of -- and changing your booked taxi/Uber/Lyft ride' and 'party RSVP') and engaged in some smalltalk, you can bring the conversation to a natural close. [instruction 5 of 5]",
+      "UnixTime": 1590091377
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Task": "party_rsvp",
+      "UnixTime": 1590091377
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Sure what is your venue name?",
+      "UnixTime": 1590091392
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_venue",
+      "ActionLabelOptions": [
+        "party_ask_venue",
+        "ask_name",
+        "ride_ask_booking_number",
+        "ride_ask_change",
+        "party_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "At what venue is the party taking place?",
+      "UnixTime": 1590091397
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "The North Heights Venue. And a BMW is coming, right?",
+      "UnixTime": 1590091440
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "It is coming, what is your hosts name",
+      "UnixTime": 1590091469
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "It is coming, what is your hosts name",
+      "UnixTime": 1590091471
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "I'm pretty sure it's Alexis. And I need to arrive in a BMW because I need to show off.",
+      "UnixTime": 1590091517
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "How many guests?",
+      "UnixTime": 1590091553
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_number_of_guests",
+      "ActionLabelOptions": [
+        "party_ask_number_of_guests",
+        "ride_ask_booking_number",
+        "ride_ask_change",
+        "ride_inform_nothing_found",
+        "party_ask_host",
+        "party_ask_arrival_time"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "How many guests will you be bringing with you?",
+      "UnixTime": 1590091555
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "It's my friend and I, so 2 guests total.",
+      "UnixTime": 1590091581
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "What time will you be arriving/",
+      "UnixTime": 1590091610
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_arrival_time",
+      "ActionLabelOptions": [
+        "party_ask_arrival_time",
+        "ride_ask_booking_number",
+        "ride_ask_change",
+        "ride_inform_changes_successful",
+        "party_ask_parking_needed",
+        "party_ask_number_of_guests"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "When are you planning to arrive at the party?",
+      "UnixTime": 1590091612
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Well, it's 4 pm now, so hopefully by the 5 pm start time.",
+      "UnixTime": 1590091656
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Do you need parking?",
+      "UnixTime": 1590091665
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_ask_parking_needed",
+      "ActionLabelOptions": [
+        "party_ask_parking_needed",
+        "anything_else",
+        "ride_ask_change",
+        "ride_ask_booking_number",
+        "party_ask_arrival_time",
+        "party_ask_host"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "Text": "Do you require parking at the venue?",
+      "UnixTime": 1590091666
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Um, no because I'm getting picked up by a BMW and dropped off.",
+      "UnixTime": 1590091693
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "Name": "\"North Heights Venue\""
+        },
+        {
+          "HostName": "\"Alexis\""
+        },
+        {
+          "GuestName": "\"Angela\""
+        },
+        {
+          "ArrivalTime": "\"5 pm\""
+        },
+        {
+          "NumberGuests": "3"
+        },
+        {
+          "NeedParking": "\"No\""
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "ride_change",
+        "ChangeStatus": "Your trip has been successfully changed."
+      },
+      "UnixTime": 1590091701
+    },
+    {
+      "APIName": "party_rsvp",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Your rsvp is confirmed",
+      "UnixTime": 1590091706
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "party_confirm_rsvp",
+      "ActionLabelOptions": [
+        "party_confirm_rsvp",
+        "party_ask_arrival_time",
+        "party_inform_nothing_found"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Text": "Great, your rsvp is all done and confirmed!",
+      "UnixTime": 1590091708
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Thanks! Now while I wait, let's play some trivia.",
+      "UnixTime": 1590091734
+    },
+    {
+      "Action": "select_task",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "Task": "trivia",
+      "UnixTime": 1590091738
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "1"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "party_rsvp",
+        "Message": "Thank you for your RSVP. See you there."
+      },
+      "UnixTime": 1590091741
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "atom in an atomic clock beats 9,192,631,770 times a second",
+      "UnixTime": 1590091744
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "hello",
+        "out_of_scope"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "A ____ atom in an atomic clock beats 9,192,631,770 times a second",
+      "UnixTime": 1590091745
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "That's tough, I don't know.",
+      "UnixTime": 1590091785
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "Celsium",
+      "UnixTime": 1590091826
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_incorrect_ask_next",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "trivia_inform_answer_incorrect_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "Unfortunately your answer was wrong. 'cesium' would have been correct.\nWould you like to continue playing?",
+      "UnixTime": 1590091830
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Yes, question 12 please.",
+      "UnixTime": 1590091848
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "Text": "Only 11 wuestions, ",
+      "UnixTime": 1590091858
+    },
+    {
+      "APIName": "trivia",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "QuestionNum": "11"
+        }
+      ],
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "cesium",
+        "Question": "A ____ atom in an atomic clock beats 9,192,631,770 times a second"
+      },
+      "UnixTime": 1590091863
+    },
+    {
+      "APIName": "trivia",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "A blunt thick needle for sewing with thick thread or tape. ",
+      "UnixTime": 1590091867
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_ask_question",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "trivia_inform_answer_2_ask_next",
+        "hello"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "A blunt thick needle for sewing with thick thread or tape",
+      "UnixTime": 1590091868
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "A yarn needle?",
+      "UnixTime": 1590091889
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "a bodkin!",
+      "UnixTime": 1590091896
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_inform_answer_2_ask_next",
+      "ActionLabelOptions": [
+        "trivia_ask_question",
+        "hello",
+        "trivia_inform_answer_2_ask_next"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "The answer to this question would have been 'bodkin'. Would you like to continue playing?",
+      "UnixTime": 1590091899
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "No, that's it. This is too difficult haha. I will be getting into the BMW soon too. Thanks again!",
+      "UnixTime": 1590091964
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "havea. godo day",
+      "UnixTime": 1590091968
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "trivia_bye",
+      "ActionLabelOptions": [
+        "trivia_bye",
+        "hello",
+        "trivia_ask_question"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "Nice playing with you, bye!",
+      "UnixTime": 1590091971
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Goodbye for now.",
+      "UnixTime": 1590091979
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "Bye",
+      "UnixTime": 1590092007
+    },
+    {
+      "Action": "utter",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "trivia",
+        "Answer": "bodkin",
+        "Question": "A blunt thick needle for sewing with thick thread or tape"
+      },
+      "Text": "Bye!",
+      "UnixTime": 1590092010
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1590092013
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "party",
+      "ride",
+      "trivia"
+    ],
+    "Happy": false,
+    "MultiTask": true,
+    "UserTask": "Come up with your own scenario!\n\nAbout you:\n- Your name: Angela\n- You've booked a ride with id 605\n- Today is Friday the 2nd, 4 pm\n\n The AI Assistant can handle:\n- Check the status of your ride (id 605)\n- Change something about your booked ride\n- RSVP you to a party (Example venues: North Heights Venue or West Bay Venue)",
+    "WizardCapabilities": [
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_status.jpg",
+        "Task": "ride_status"
+      },
+      {
+        "Domain": "ride",
+        "SchemaImage": "ride_change.jpg",
+        "Task": "ride_change"
+      },
+      {
+        "Domain": "party",
+        "SchemaImage": "party_rsvp.jpg",
+        "Task": "party_rsvp"
+      },
+      {
+        "Domain": "trivia",
+        "SchemaImage": "trivia.jpg",
+        "Task": "trivia"
+      }
+    ],
+    "WizardTask": "Follow the flow charts and help the user. Assume:\n\n- Today is Friday the 2nd, 4 pm"
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": true,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}

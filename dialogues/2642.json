@@ -1,0 +1,217 @@
+{
+  "AnonymizedUserWorkerID": "9cfed8ec-54a9-f0f7-8327-15f6470d4a6c",
+  "AnonymizedWizardWorkerID": "8829abee-d7b6-d749-1f21-2eee378e34bb",
+  "BatchID": "woz_1589820124",
+  "CompletionLevel": "Complete",
+  "DialogueID": 2642,
+  "Events": [
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Hello. The lifesupport in my spaceship is failing!! The engineering deck has been sealed due to lack of air. I need the repair-bot to help me,",
+      "UnixTime": 1589831885
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What's your name?",
+      "UnixTime": 1589831900
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "ask_name",
+      "ActionLabelOptions": [
+        "ask_name",
+        "spaceship_bye",
+        "spaceship_ask_code"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your name.",
+      "UnixTime": 1589831902
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Han",
+      "UnixTime": 1589831920
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "What is your rank?",
+      "UnixTime": 1589831932
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_rank",
+      "ActionLabelOptions": [
+        "spaceship_ask_rank",
+        "spaceship_bye",
+        "spaceship_ask_code_type"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please provide your rank.",
+      "UnixTime": 1589831934
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Chief Engineer",
+      "UnixTime": 1589831962
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "Provide code",
+      "UnixTime": 1589831970
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code",
+      "ActionLabelOptions": [
+        "spaceship_ask_code",
+        "spaceship_ask_code_type",
+        "spaceship_ask_rank"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please enter the code.",
+      "UnixTime": 1589831974
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "93103",
+      "UnixTime": 1589831983
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "Text": "code type",
+      "UnixTime": 1589831992
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_ask_code_type",
+      "ActionLabelOptions": [
+        "spaceship_ask_code_type",
+        "spaceship_inform_nothing_found",
+        "ask_name"
+      ],
+      "Agent": "Wizard",
+      "Text": "Please specify the code type.",
+      "UnixTime": 1589831994
+    },
+    {
+      "Action": "utter",
+      "Agent": "User",
+      "Text": "Access",
+      "UnixTime": 1589832006
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "query",
+      "Agent": "Wizard",
+      "Constraints": [
+        {
+          "UserName": "\"Han\""
+        },
+        {
+          "UserRank": "\"Chief Engineer\""
+        },
+        {
+          "Code": "93103"
+        },
+        {
+          "CodeType": "\"Access Code\""
+        }
+      ],
+      "UnixTime": 1589832013
+    },
+    {
+      "APIName": "spaceship_access_codes",
+      "Action": "return_item",
+      "Agent": "KnowledgeBase",
+      "Item": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "TotalItems": -1
+    },
+    {
+      "Action": "request_suggestions",
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain.",
+      "UnixTime": 1589832019
+    },
+    {
+      "Action": "pick_suggestion",
+      "ActionLabel": "spaceship_inform_outcome",
+      "ActionLabelOptions": [
+        "spaceship_inform_outcome",
+        "anything_else",
+        "spaceship_ask_code"
+      ],
+      "Agent": "Wizard",
+      "PrimaryItem": {
+        "APIName": "spaceship_access_codes",
+        "Message": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain."
+      },
+      "Text": "Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain.",
+      "UnixTime": 1589832022
+    },
+    {
+      "Action": "complete",
+      "Agent": "User",
+      "UnixTime": 1589832029
+    }
+  ],
+  "FORMAT-VERSION": 7,
+  "Scenario": {
+    "Domains": [
+      "spaceship"
+    ],
+    "Happy": true,
+    "MultiTask": false,
+    "UserTask": "Your spaceship is under attack! You must enter the combat deck to mount a counterattack. Unfortunately, you are locked out. Please work with the spaceship's onboard computer to unlock the door. You (Han) are the ship's Chief Engineer. You have been a given a Access Code: 93103.",
+    "WizardCapabilities": [
+      {
+        "Domain": "spaceship",
+        "SchemaImage": "spaceship_access_codes.jpg",
+        "Task": "spaceship_access_codes"
+      }
+    ],
+    "WizardTask": "Act as the spaceship's onboard computer and help the user unlock the combat deck."
+  },
+  "UserQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the ship's computer unlock the door to the combat deck?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did the ship's computer stay calm and helpful throughout the dialogue?"
+    },
+    {
+      "Answer": true,
+      "Question": "Did you enjoy this task?"
+    }
+  ],
+  "WizardQuestionnaire": [
+    {
+      "Answer": false,
+      "Question": "Did the user change his/her mind about what he/she wants at any time?"
+    },
+    {
+      "Answer": false,
+      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+    },
+    {
+      "Answer": false,
+      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+    }
+  ]
+}
