@@ -203,7 +203,7 @@ def generic_sample(api, constraints: Optional[Dict[Text, Any]] = None):
         raise LookupError("Nothing found for these constraints")
 
 
-def restaurant_reserve(restaurant_api, constraints: Dict[Text, Any]):
+def restaurant_book(restaurant_api, constraints: Dict[Text, Any]):
     name = getval(constraints, 'Name', restaurant_api)
 
     if constraints["RequestType"] != "Book":
@@ -216,7 +216,7 @@ def restaurant_reserve(restaurant_api, constraints: Dict[Text, Any]):
         return {"ReservationStatus": outputs[0], 'RestaurantName': name}, -1
 
 
-def hotel_reserve(hotel_api, constraints: Dict[Text, Any]):
+def hotel_book(hotel_api, constraints: Dict[Text, Any]):
     outputs = ["Reservation Confirmed", "Reservation Failed"]
 
     name = getval(constraints, 'Name', hotel_api)
@@ -247,7 +247,7 @@ def plane_search(plane_api, constraints: Dict[Text, Any]):
     return row._settings, count
 
 
-def plane_reserve(plane_api, constraints: Dict[Text, Any]):
+def plane_book(plane_api, constraints: Dict[Text, Any]):
     plane_id = getval(constraints, 'id', plane_api)
 
     if constraints["RequestType"] != "Book":
@@ -282,7 +282,7 @@ def trip_directions(trip_api, constraints: Dict[Text, Any]):
     return d, -1
 
 
-def book_ride(ride_api, constraints: Dict[Text, Any]):
+def ride_book(ride_api, constraints: Dict[Text, Any]):
     if constraints["RequestType"] == "Book":
       return dict(Message="Ride booked."), -1
 
@@ -398,7 +398,7 @@ def trivia(null_api, constraints: Dict[Text, Any]):
     return dict(Question=row[0], Answer=row[1]), -1
 
 
-def schedule_meeting(schedule_api, constraints: Dict[Text, Any]):
+def meeting_schedule(schedule_api, constraints: Dict[Text, Any]):
     outputs = [
         "Your meeting has been successfuly scheduled.",
         "That person has a conflicting meeting at that time. Try another meeting time."
@@ -415,7 +415,7 @@ def schedule_meeting(schedule_api, constraints: Dict[Text, Any]):
         return dict(Message=outputs[1], StartTime=starttime, EndTime=endtime, Day=day, GuestName=name), -1
 
 
-def book_doctor_appointment(
+def doctor_schedule(
     schedule_api, constraints: Dict[Text, Any]
 ):
     outputs = [
@@ -435,7 +435,7 @@ def book_doctor_appointment(
         return {"Message": outputs[1], "DoctorName": doctor, "Time": time}, -1
 
 
-def book_apartment_viewing(
+def apartment_schedule(
     schedule_api, constraints: Dict[Text, Any]
 ):
     outputs = [
@@ -465,7 +465,7 @@ def book_apartment_viewing(
         return dict(Message=outputs[1]), -1
 
 
-def followup_doctor_appointment(
+def doctor_followup(
     null_api, constraints: Dict[Text, Any]
 ):
     outputs = [
