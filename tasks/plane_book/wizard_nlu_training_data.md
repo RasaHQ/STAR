@@ -95,7 +95,7 @@
 - Right, May i know you name please?
 - Your name
 
-## intent:plane_bye
+## intent:goodbye_1
 - Perfect! Have a great stay!
 - okay good bye
 - Thank you for your time. Goodbye.

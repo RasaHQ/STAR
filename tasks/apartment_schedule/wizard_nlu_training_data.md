@@ -120,7 +120,7 @@
 - Awesome, the booking is done and the Dodgy Letting Company will welcome you at the Dumpster apartments.
 - Hooray, your booking went through alright and you'll see the construction site on Sunday. Bring wellies!
 
-## intent:apartment_bye
+## intent:goodbye_1
 - Perfect!
 - okay good bye
 - Thank you for your time. Goodbye.

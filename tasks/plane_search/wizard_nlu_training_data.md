@@ -87,7 +87,7 @@
 - Happy to search for any other flights if necessary.
 - Anything else I can look for you today?
 
-## intent:plane_bye
+## intent:goodbye_1
 - Perfect! Have a great stay!
 - okay good bye
 - Thank you for your time. Goodbye.

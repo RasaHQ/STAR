@@ -117,7 +117,7 @@
 - Anything else you are looking for today?
 - Do you want to look for something else?
 
-## intent:hotel_bye
+## intent:goodbye_1
 - Perfect!
 - okay good bye
 - Thank you for your time. Goodbye.

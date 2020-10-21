@@ -102,7 +102,7 @@
 - Any POIs that should be within walking distance from the apartment?
 - What would you like to see when you step out of the apartmenmt block?
 
-## intent:apartment_bye
+## intent:goodbye_1
 - Perfect!
 - okay good bye
 - Thank you for your time. Goodbye.

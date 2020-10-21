@@ -114,7 +114,7 @@
 - Your service request failed.
 - Service request could not be made. Sorry. 
 
-## intent:hotel_bye
+## intent:goodbye_1
 - Perfect!
 - okay good bye
 - Thank you for your time. Goodbye.
