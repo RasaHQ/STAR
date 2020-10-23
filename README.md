@@ -1,5 +1,7 @@
 # STAR: A Schema-Guided Dialog Dataset for Transfer Learning
 
+This dataset and how it came to be, along with some baseline models, are described [in this paper](https://arxiv.org/abs/2010.11853).
+
 ## Data Format
 
 Each JSON file in the `dialogues` directory contains one dialogue in the following format:
