@@ -18,3 +18,23 @@ Each JSON file in the `dialogues` directory contains one dialogue in the followi
 | "Scenario"                 | Dictionary containing information about the scenario of this dialogue             |
 | "UserQuestionnaire"        | List of question/answer pairs for questions given to the user                     |
 | "WizardQuestionnaire"      | List of question/answer pairs for questions given to the wizard                   |
+
+
+## Citation
+
+Please use the following bibtex entry if you are using STAR for your research:
+```
+
+@article{mosig2020star,
+  author = author={Johannes E. M. Mosig and Shikib Mehri and Thomas Kober},
+        title = "{STAR: A Schema-Guided Dialog Dataset for Transfer Learning}",
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Computation and Language},
+         year = 2020,
+        month = oct,
+          eid = {arXiv:2010.11853},
+archivePrefix = {arXiv},
+       eprint = {2010.11853},
+ primaryClass = {cs.CL},
+}
+```
