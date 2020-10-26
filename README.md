@@ -26,7 +26,7 @@ Please use the following bibtex entry if you are using STAR for your research:
 ```
 
 @article{mosig2020star,
-  author = author={Johannes E. M. Mosig and Shikib Mehri and Thomas Kober},
+  	   author = {Johannes E. M. Mosig and Shikib Mehri and Thomas Kober},
         title = "{STAR: A Schema-Guided Dialog Dataset for Transfer Learning}",
       journal = {arXiv e-prints},
      keywords = {Computer Science - Computation and Language},
