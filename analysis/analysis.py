@@ -53,7 +53,82 @@ def find_mislabelled_dialogues_unhappy_as_happy(input_path: Text, output_file: T
 				num_user_guide_instruct_events += 1
 
 		logging.debug(f'Encountered {num_user_guide_instruct_events} UserGuide/instruct events in {f}.')
-		if num_user_guide_instruct_events > threshold:
+		if num_user_guide_instruct_events > threshold and type_key == 'happy':
+			problematic_files.add(f.name)
+
+	logging.info(f'Found {len(problematic_files)} potentially mislabelled files!')
+	logging.info(f'Writing list of files to {output_file}...')
+	with open(output_file, 'w') as out_file:
+		out_file.write('\n'.join(problematic_files))
+	logging.info(f'Finished!')
+
+
+def find_mislabelled_dialogues_happy_as_unhappy(input_path: Text, output_file: Text, threshold: int):
+	problematic_files = set()
+	path = Path(input_path)
+
+	for f in path.glob('*.json'):
+		with f.open() as in_file:
+			data = json.load(in_file)
+		if data['CompletionLevel'] != 'Complete':
+			logging.debug(f'Skipping {f} as CompletionLevel="{data["CompletionLevel"]}"!')
+			continue
+
+		# Extract dialogue type key (either "happy", "unhappy", or "multitask")
+		if data['Scenario']['Happy']:
+			type_key = 'happy'
+		else:
+			if data['Scenario']['MultiTask']:
+				type_key = 'multitask'
+			else:
+				type_key = 'unhappy'
+		logging.info(f'Extracted type_key="{type_key}".')
+
+		num_user_guide_instruct_events = 0
+		for event in data['Events']:
+			agent_is_user_guide = event['Agent'] == 'UserGuide'
+			action_is_instruct = event['Action'] == 'instruct'
+			dialogue_is_unhappy = type_key == 'unhappy'
+
+			if dialogue_is_unhappy and (agent_is_user_guide or action_is_instruct):
+				num_user_guide_instruct_events += 1
+
+		logging.debug(f'Encountered {num_user_guide_instruct_events} UserGuide/instruct events in {f}.')
+		if num_user_guide_instruct_events <= threshold and type_key == 'unhappy':
+			problematic_files.add(f.name)
+
+	logging.info(f'Found {len(problematic_files)} potentially mislabelled files!')
+	logging.info(f'Writing list of files to {output_file}...')
+	with open(output_file, 'w') as out_file:
+		out_file.write('\n'.join(problematic_files))
+	logging.info(f'Finished!')
+
+
+def find_mislabelled_dialogues_multitask(input_path: Text, output_file: Text, threshold: int):
+	problematic_files = set()
+	path = Path(input_path)
+
+	for f in path.glob('*.json'):
+		with f.open() as in_file:
+			data = json.load(in_file)
+		if data['CompletionLevel'] != 'Complete':
+			logging.debug(f'Skipping {f} as CompletionLevel="{data["CompletionLevel"]}"!')
+			continue
+
+		# Extract dialogue type key (either "happy", "unhappy", or "multitask")
+		if data['Scenario']['Happy']:
+			type_key = 'happy'
+		else:
+			if data['Scenario']['MultiTask']:
+				type_key = 'multitask'
+			else:
+				type_key = 'unhappy'
+		logging.info(f'Extracted type_key="{type_key}".')
+
+		dialogue_is_multitask = type_key == 'multitask'
+		num_wizard_capabilities = len(data['Scenario']['WizardCapabilities'])
+
+		if not dialogue_is_multitask and num_wizard_capabilities > threshold:
 			problematic_files.add(f.name)
 
 	logging.info(f'Found {len(problematic_files)} potentially mislabelled files!')
@@ -81,6 +156,18 @@ if __name__ == '__main__':
 		if args.force_rewrite or not os.path.exists(os.path.join(args.output_path, args.output_file)):
 			find_mislabelled_dialogues_unhappy_as_happy(input_path=args.input_path, threshold=args.threshold,
 														output_file=os.path.join(args.output_path, args.output_file))
+		else:
+			logging.info(f'{args.output_file} already exists at {args.output_path}, skipping!')
+	elif args.action == 'find_mislabelled_dialogues_happy_as_unhappy':
+		if args.force_rewrite or not os.path.exists(os.path.join(args.output_path, args.output_file)):
+			find_mislabelled_dialogues_happy_as_unhappy(input_path=args.input_path, threshold=args.threshold,
+														output_file=os.path.join(args.output_path, args.output_file))
+		else:
+			logging.info(f'{args.output_file} already exists at {args.output_path}, skipping!')
+	elif args.action == 'find_mislabelled_dialogues_multitask':
+		if args.force_rewrite or not os.path.exists(os.path.join(args.output_path, args.output_file)):
+			find_mislabelled_dialogues_multitask(input_path=args.input_path, threshold=args.threshold,
+												 output_file=os.path.join(args.output_path, args.output_file))
 		else:
 			logging.info(f'{args.output_file} already exists at {args.output_path}, skipping!')
 	else:
