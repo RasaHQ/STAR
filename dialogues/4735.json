@@ -1,365 +1,365 @@
 {
-  "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
-  "AnonymizedWizardWorkerID": "f76f8d4d-5223-f6a7-71bb-8abf87118490",
-  "BatchID": "woz_1589554725",
-  "CompletionLevel": "Complete",
-  "DialogueID": 4735,
-  "Events": [
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Talk to your AI assistant to see what the weather will be like tomorrow. (Today is Sunday and you are in Chicago) [instruction 1 of 5]",
-      "UnixTime": 1589615087
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Hi what will the weather be in Chicago today, sunday?",
-      "UnixTime": 1589615118
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "If the weather is 'bad', figure out when it'll be nice again, and vice versa. [instruction 2 of 5]",
-      "UnixTime": 1589615118
-    },
-    {
-      "APIName": "weather",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
+    "AnonymizedUserWorkerID": "73bd63b7-5463-b221-d8f5-2611db2cf2a3",
+    "AnonymizedWizardWorkerID": "f76f8d4d-5223-f6a7-71bb-8abf87118490",
+    "BatchID": "woz_1589554725",
+    "CompletionLevel": "Complete",
+    "DialogueID": 4735,
+    "Events": [
         {
-          "Day": "api.is_equal_to(\"Sunday\")"
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Talk to your AI assistant to see what the weather will be like tomorrow. (Today is Sunday and you are in Chicago) [instruction 1 of 5]",
+            "UnixTime": 1589615087
         },
         {
-          "City": "\"Chicago\""
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Hi what will the weather be in Chicago today, sunday?",
+            "UnixTime": 1589615118
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "If the weather is 'bad', figure out when it'll be nice again, and vice versa. [instruction 2 of 5]",
+            "UnixTime": 1589615118
+        },
+        {
+            "APIName": "weather",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Day": "api.is_equal_to(\"Sunday\")"
+                },
+                {
+                    "City": "\"Chicago\""
+                }
+            ],
+            "UnixTime": 1589615124
+        },
+        {
+            "APIName": "weather",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Sunday",
+                "TemperatureCelsius": 21,
+                "Weather": "Sunny",
+                "id": 821
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Sunday",
+                "TemperatureCelsius": 21,
+                "Weather": "Sunny",
+                "id": 821
+            },
+            "Text": "The weather",
+            "UnixTime": 1589615131
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "weather_inform_forecast",
+            "ActionLabelOptions": [
+                "weather_ask_location",
+                "weather_inform_forecast",
+                "out_of_scope"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Sunday",
+                "TemperatureCelsius": 21,
+                "Weather": "Sunny",
+                "id": 821
+            },
+            "Text": "It will be Sunny all day on Sunday in Chicago, with temperatures of around 21 degrees celsius.",
+            "UnixTime": 1589615141
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Alright when will it rain?",
+            "UnixTime": 1589615204
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "If you've figured it out already, try to engage the assistant in some small talk. [instruction 3 of 5]",
+            "UnixTime": 1589615204
+        },
+        {
+            "APIName": "weather",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Day": "api.is_one_of([\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"])"
+                },
+                {
+                    "City": "\"Chicago\""
+                },
+                {
+                    "Weather": "api.is_equal_to(\"Raining\")"
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Sunday",
+                "TemperatureCelsius": 21,
+                "Weather": "Sunny",
+                "id": 821
+            },
+            "UnixTime": 1589615239
+        },
+        {
+            "APIName": "weather",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "Text": "It will be raining",
+            "UnixTime": 1589615249
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "weather_inform_forecast",
+            "ActionLabelOptions": [
+                "weather_inform_forecast",
+                "goodbye_1",
+                "weather_ask_location"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "Text": "It will be Raining all day on Friday in Chicago, with temperatures of around 8 degrees celsius.",
+            "UnixTime": 1589615252
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Okay thank you",
+            "UnixTime": 1589615257
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Now compare tomorrow's weather in Chicago to the weather in Detroit. [instruction 4 of 5]",
+            "UnixTime": 1589615257
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "Text": "anything else",
+            "UnixTime": 1589615264
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "anything_else",
+            "ActionLabelOptions": [
+                "anything_else",
+                "weather_inform_forecast",
+                "hello"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "Text": "Is there anything else that I can do for you?",
+            "UnixTime": 1589615266
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Would you compare Chicago and Detroit?",
+            "UnixTime": 1589615279
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Once you know when the weather will change (as described before), you can end the conversation. [instruction 5 of 5]",
+            "UnixTime": 1589615279
+        },
+        {
+            "APIName": "weather",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Day": "api.is_equal_to([\"Sunday\"])"
+                },
+                {
+                    "City": "\"Detroit\""
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "weather",
+                "City": "Chicago",
+                "Day": "Friday",
+                "TemperatureCelsius": 8,
+                "Weather": "Raining",
+                "id": 540
+            },
+            "UnixTime": 1589615303
+        },
+        {
+            "APIName": "weather",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "TotalItems": 0
+        },
+        {
+            "APIName": "weather",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Day": "api.is_equal_to([\"Sunday\"])"
+                },
+                {
+                    "City": "\"Detroit\""
+                }
+            ],
+            "UnixTime": 1589615310
+        },
+        {
+            "APIName": "weather",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "TotalItems": 0
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "Text": "nothing found",
+            "UnixTime": 1589615323
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "weather_inform_nothing_found",
+            "ActionLabelOptions": [
+                "weather_inform_nothing_found",
+                "weather_ask_location",
+                "out_of_scope"
+            ],
+            "Agent": "Wizard",
+            "Text": "Unfortunately there are no forecasts that match your search. Would you like to change any of your criteria?",
+            "UnixTime": 1589615327
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "No that is all.",
+            "UnixTime": 1589615333
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "Text": "thank you",
+            "UnixTime": 1589615341
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "goodbye_1",
+            "ActionLabelOptions": [
+                "goodbye_1",
+                "weather_inform_nothing_found",
+                "hello"
+            ],
+            "Agent": "Wizard",
+            "Text": "Thank you and goodbye.",
+            "UnixTime": 1589615343
+        },
+        {
+            "Action": "complete",
+            "Agent": "User",
+            "UnixTime": 1589615345
         }
-      ],
-      "UnixTime": 1589615124
-    },
-    {
-      "APIName": "weather",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Sunday",
-        "TemperatureCelsius": 21,
-        "Weather": "Sunny",
-        "id": 821
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Sunday",
-        "TemperatureCelsius": 21,
-        "Weather": "Sunny",
-        "id": 821
-      },
-      "Text": "The weather",
-      "UnixTime": 1589615131
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "weather_inform_forecast",
-      "ActionLabelOptions": [
-        "weather_ask_location",
-        "weather_inform_forecast",
-        "out_of_scope"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Sunday",
-        "TemperatureCelsius": 21,
-        "Weather": "Sunny",
-        "id": 821
-      },
-      "Text": "It will be Sunny all day on Sunday in Chicago, with temperatures of around 21 degrees celsius.",
-      "UnixTime": 1589615141
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Alright when will it rain?",
-      "UnixTime": 1589615204
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "If you've figured it out already, try to engage the assistant in some small talk. [instruction 3 of 5]",
-      "UnixTime": 1589615204
-    },
-    {
-      "APIName": "weather",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Day": "api.is_one_of([\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"])"
-        },
-        {
-          "City": "\"Chicago\""
-        },
-        {
-          "Weather": "api.is_equal_to(\"Raining\")"
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Sunday",
-        "TemperatureCelsius": 21,
-        "Weather": "Sunny",
-        "id": 821
-      },
-      "UnixTime": 1589615239
-    },
-    {
-      "APIName": "weather",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "Text": "It will be raining",
-      "UnixTime": 1589615249
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "weather_inform_forecast",
-      "ActionLabelOptions": [
-        "weather_inform_forecast",
-        "goodbye_1",
-        "weather_ask_location"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "Text": "It will be Raining all day on Friday in Chicago, with temperatures of around 8 degrees celsius.",
-      "UnixTime": 1589615252
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Okay thank you",
-      "UnixTime": 1589615257
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Now compare tomorrow's weather in Chicago to the weather in Detroit. [instruction 4 of 5]",
-      "UnixTime": 1589615257
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "Text": "anything else",
-      "UnixTime": 1589615264
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "anything_else",
-      "ActionLabelOptions": [
-        "anything_else",
-        "weather_inform_forecast",
-        "hello"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "Text": "Is there anything else that I can do for you?",
-      "UnixTime": 1589615266
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Would you compare Chicago and Detroit?",
-      "UnixTime": 1589615279
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Once you know when the weather will change (as described before), you can end the conversation. [instruction 5 of 5]",
-      "UnixTime": 1589615279
-    },
-    {
-      "APIName": "weather",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Day": "api.is_equal_to([\"Sunday\"])"
-        },
-        {
-          "City": "\"Detroit\""
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "weather",
-        "City": "Chicago",
-        "Day": "Friday",
-        "TemperatureCelsius": 8,
-        "Weather": "Raining",
-        "id": 540
-      },
-      "UnixTime": 1589615303
-    },
-    {
-      "APIName": "weather",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "TotalItems": 0
-    },
-    {
-      "APIName": "weather",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Day": "api.is_equal_to([\"Sunday\"])"
-        },
-        {
-          "City": "\"Detroit\""
-        }
-      ],
-      "UnixTime": 1589615310
-    },
-    {
-      "APIName": "weather",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "TotalItems": 0
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "Text": "nothing found",
-      "UnixTime": 1589615323
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "weather_inform_nothing_found",
-      "ActionLabelOptions": [
-        "weather_inform_nothing_found",
-        "weather_ask_location",
-        "out_of_scope"
-      ],
-      "Agent": "Wizard",
-      "Text": "Unfortunately there are no forecasts that match your search. Would you like to change any of your criteria?",
-      "UnixTime": 1589615327
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "No that is all.",
-      "UnixTime": 1589615333
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "Text": "thank you",
-      "UnixTime": 1589615341
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "goodbye_1",
-      "ActionLabelOptions": [
-        "goodbye_1",
-        "weather_inform_nothing_found",
-        "hello"
-      ],
-      "Agent": "Wizard",
-      "Text": "Thank you and goodbye.",
-      "UnixTime": 1589615343
-    },
-    {
-      "Action": "complete",
-      "Agent": "User",
-      "UnixTime": 1589615345
-    }
-  ],
-  "FORMAT-VERSION": 7,
-  "IntroducesConflicts": false,
-  "Scenario": {
-    "Domains": [
-      "weather"
     ],
-    "Happy": true,
-    "MultiTask": false,
-    "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
-    "WizardCapabilities": [
-      {
-        "Domain": "weather",
-        "SchemaImage": "weather.jpg",
-        "Task": "weather"
-      }
+    "FORMAT-VERSION": 7,
+    "IntroducesConflicts": false,
+    "Scenario": {
+        "Domains": [
+            "weather"
+        ],
+        "Happy": false,
+        "MultiTask": false,
+        "UserTask": "Follow the instructions and comments of the MTurk System bot (darker yellow boxes in the dialogue). Do not end the dialogue before the MTurk System bot (not the assistant) has told you to do so. ",
+        "WizardCapabilities": [
+            {
+                "Domain": "weather",
+                "SchemaImage": "weather.jpg",
+                "Task": "weather"
+            }
+        ],
+        "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* Today is Sunday\n* The user lives in Chicago"
+    },
+    "UserQuestionnaire": [
+        {
+            "Answer": true,
+            "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+        }
     ],
-    "WizardTask": "Follow the flow charts and help the user. Some facts you should be aware of: \n\n* Today is Sunday\n* The user lives in Chicago"
-  },
-  "UserQuestionnaire": [
-    {
-      "Answer": true,
-      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
-    }
-  ],
-  "WizardQuestionnaire": [
-    {
-      "Answer": true,
-      "Question": "Did the user change his/her mind about what he/she wants at any time?"
-    },
-    {
-      "Answer": false,
-      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
-    },
-    {
-      "Answer": false,
-      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
-    }
-  ]
+    "WizardQuestionnaire": [
+        {
+            "Answer": true,
+            "Question": "Did the user change his/her mind about what he/she wants at any time?"
+        },
+        {
+            "Answer": false,
+            "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+        },
+        {
+            "Answer": false,
+            "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+        }
+    ]
 }

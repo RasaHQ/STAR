@@ -1,558 +1,558 @@
 {
-  "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
-  "AnonymizedWizardWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
-  "BatchID": "woz_1589554725",
-  "CompletionLevel": "Complete",
-  "DialogueID": 3151,
-  "Events": [
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "My name is John and I want to reserve a room at the Hilton Hotel from May 1st to 30th.",
-      "UnixTime": 1589587524
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "You remember that your friend recommended the Old Town Inn. Tell the assistant you've changed your mind and want to stay at Old Town Inn. [instruction 1 of 5]",
-      "UnixTime": 1589587524
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
+    "AnonymizedUserWorkerID": "6f51e967-ce78-081f-da64-6595f6cdfeca",
+    "AnonymizedWizardWorkerID": "a2d15359-e691-350e-8034-7685cce53920",
+    "BatchID": "woz_1589554725",
+    "CompletionLevel": "Complete",
+    "DialogueID": 3151,
+    "Events": [
         {
-          "Name": "\"Hilton Hotel\""
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "My name is John and I want to reserve a room at the Hilton Hotel from May 1st to 30th.",
+            "UnixTime": 1589587524
         },
         {
-          "StartDate": "api.is_equal_to(\"1st\")"
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "You remember that your friend recommended the Old Town Inn. Tell the assistant you've changed your mind and want to stay at Old Town Inn. [instruction 1 of 5]",
+            "UnixTime": 1589587524
         },
         {
-          "EndDate": "\"30th\""
+            "APIName": "hotel_book",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Name": "\"Hilton Hotel\""
+                },
+                {
+                    "StartDate": "api.is_equal_to(\"1st\")"
+                },
+                {
+                    "EndDate": "\"30th\""
+                },
+                {
+                    "CustomerName": "\"John\""
+                },
+                {
+                    "RequestType": "\"Check\""
+                }
+            ],
+            "UnixTime": 1589587578
         },
         {
-          "CustomerName": "\"John\""
+            "APIName": "hotel_book",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "hotel_book",
+                "HotelName": "Hilton Hotel",
+                "Message": "Unavailable"
+            },
+            "TotalItems": -1
         },
         {
-          "RequestType": "\"Check\""
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hilton Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "The Hilton is unavailable",
+            "UnixTime": 1589587587
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "hotel_unavailable",
+            "ActionLabelOptions": [
+                "hotel_unavailable",
+                "hotel_ask_hotel",
+                "ask_name"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hilton Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "I'm very sorry, but there is no room available at the Hilton Hotel for your requested dates.",
+            "UnixTime": 1589587589
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "I want to stay at Old Town Inn instead.",
+            "UnixTime": 1589587605
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Name": "\"Old Town Inn\""
+                },
+                {
+                    "StartDate": "api.is_equal_to(\"1st\")"
+                },
+                {
+                    "EndDate": "\"30th\""
+                },
+                {
+                    "CustomerName": "\"John\""
+                },
+                {
+                    "RequestType": "\"Check\""
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hilton Hotel",
+                "Message": "Unavailable"
+            },
+            "UnixTime": 1589587612
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "Text": "I am sorry, Old Town is unavailable as well",
+            "UnixTime": 1589587624
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "hotel_unavailable",
+            "ActionLabelOptions": [
+                "hotel_unavailable",
+                "goodbye_1",
+                "out_of_scope"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "Text": "I'm very sorry, but there is no room available at the Old Town Inn for your requested dates.",
+            "UnixTime": 1589587626
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "goodbye then",
+            "UnixTime": 1589587639
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Actually, you recall that your friend stayed at Old Town Inn in another town. However you've read on a blog that the Hyatt Hotel is by long and far the most authentic one. Tell the assistant you've changed your mind and want to stay at Hyatt Hotel. [instruction 2 of 5]",
+            "UnixTime": 1589587639
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "Text": "Goodbye",
+            "UnixTime": 1589587651
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "goodbye_1",
+            "ActionLabelOptions": [
+                "goodbye_1",
+                "hotel_reservation_failed",
+                "hotel_ask_date_from"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "Text": "Thank you and goodbye.",
+            "UnixTime": 1589587653
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Actually, I've changed my mind. I want to stay at Hyatt Hotel.",
+            "UnixTime": 1589587668
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Talk to the assistant about this great travel blog that you rely on and that its never let you down on your journeys. Be creative! [instruction 3 of 5]",
+            "UnixTime": 1589587668
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Name": "\"Hyatt Hotel\""
+                },
+                {
+                    "StartDate": "api.is_equal_to(\"1st\")"
+                },
+                {
+                    "EndDate": "\"30th\""
+                },
+                {
+                    "CustomerName": "\"John\""
+                },
+                {
+                    "RequestType": "\"Check\""
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Old Town Inn",
+                "Message": "Unavailable"
+            },
+            "UnixTime": 1589587674
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "I am sorry the Hyatt is unavailable",
+            "UnixTime": 1589587685
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "hotel_unavailable",
+            "ActionLabelOptions": [
+                "hotel_unavailable",
+                "goodbye_1",
+                "hotel_reservation_failed"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "I'm very sorry, but there is no room available at the Hyatt Hotel for your requested dates.",
+            "UnixTime": 1589587687
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "There's this great travel blog that I rely on. It has never let me down.",
+            "UnixTime": 1589587732
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "You just received a text from your partner saying: 'Hey, my brother invited us to his wedding in London on the 30th and I already booked us a flight for the 1st!' Tell the assistant you would like to change your reservation to 14th-29th the following month. [instruction 4 of 5]",
+            "UnixTime": 1589587732
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "It's nice to have a great travel bag!",
+            "UnixTime": 1589587753
+        },
+        {
+            "Action": "utter",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "It's nice to have a great travel bag!",
+            "UnixTime": 1589587758
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "I would like to change my reservation to 14th-29th June.",
+            "UnixTime": 1589587781
+        },
+        {
+            "Action": "instruct",
+            "Agent": "UserGuide",
+            "Text": "Tell the assistant you don't really want to go to London because your partner's brother is a bit of a show-off, but obviously you'll be going to the wedding. Finish the booking and bring the conversation to an end. [instruction 5 of 5]",
+            "UnixTime": 1589587781
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "At which hotel?",
+            "UnixTime": 1589587798
+        },
+        {
+            "Action": "utter",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "At which hotel?",
+            "UnixTime": 1589587804
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Hyatt. I don't really want to go to London because my partner's brother is a bit of a show-off, but obviously I'll be going to the wedding",
+            "UnixTime": 1589587843
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "Weddings can be fun, which hotel would you like to stay at?",
+            "UnixTime": 1589587866
+        },
+        {
+            "Action": "utter",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "Text": "Weddings can be fun, which hotel would you like to stay at?",
+            "UnixTime": 1589587869
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "Hyatt",
+            "UnixTime": 1589587877
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Name": "\"Hyatt Hotel\""
+                },
+                {
+                    "StartDate": "\"14th\""
+                },
+                {
+                    "EndDate": "\"29th\""
+                },
+                {
+                    "CustomerName": "\"John\""
+                },
+                {
+                    "RequestType": "\"Check\""
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Unavailable"
+            },
+            "UnixTime": 1589587881
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Available"
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Available"
+            },
+            "Text": "It is available, should I book it now?",
+            "UnixTime": 1589587889
+        },
+        {
+            "Action": "pick_suggestion",
+            "ActionLabel": "hotel_ask_confirm_booking",
+            "ActionLabelOptions": [
+                "hotel_ask_confirm_booking",
+                "hotel_reservation_failed",
+                "hotel_ask_date_to"
+            ],
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Available"
+            },
+            "Text": "Alright, the Hyatt Hotel ticks all of your boxes, can I book this room for you?",
+            "UnixTime": 1589587890
+        },
+        {
+            "Action": "utter",
+            "Agent": "User",
+            "Text": "yes please",
+            "UnixTime": 1589587896
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "query",
+            "Agent": "Wizard",
+            "Constraints": [
+                {
+                    "Name": "\"Hyatt Hotel\""
+                },
+                {
+                    "StartDate": "\"14th\""
+                },
+                {
+                    "EndDate": "\"29th\""
+                },
+                {
+                    "CustomerName": "\"John\""
+                },
+                {
+                    "RequestType": "\"Book\""
+                }
+            ],
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Available"
+            },
+            "UnixTime": 1589587900
+        },
+        {
+            "APIName": "hotel_book",
+            "Action": "return_item",
+            "Agent": "KnowledgeBase",
+            "Item": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Reservation Confirmed"
+            },
+            "TotalItems": -1
+        },
+        {
+            "Action": "request_suggestions",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Reservation Confirmed"
+            },
+            "Text": "Your reservation is made, can I help with anything else?",
+            "UnixTime": 1589587914
+        },
+        {
+            "Action": "utter",
+            "Agent": "Wizard",
+            "PrimaryItem": {
+                "APIName": "hotel_book",
+                "HotelName": "Hyatt Hotel",
+                "Message": "Reservation Confirmed"
+            },
+            "Text": "Your reservation is complete for the Hyatt, can I help with anything else?",
+            "UnixTime": 1589587942
+        },
+        {
+            "Action": "complete",
+            "Agent": "User",
+            "UnixTime": 1589587947
         }
-      ],
-      "UnixTime": 1589587578
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "hotel_book",
-        "HotelName": "Hilton Hotel",
-        "Message": "Unavailable"
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hilton Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "The Hilton is unavailable",
-      "UnixTime": 1589587587
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "hotel_unavailable",
-      "ActionLabelOptions": [
-        "hotel_unavailable",
-        "hotel_ask_hotel",
-        "ask_name"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hilton Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "I'm very sorry, but there is no room available at the Hilton Hotel for your requested dates.",
-      "UnixTime": 1589587589
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "I want to stay at Old Town Inn instead.",
-      "UnixTime": 1589587605
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Name": "\"Old Town Inn\""
-        },
-        {
-          "StartDate": "api.is_equal_to(\"1st\")"
-        },
-        {
-          "EndDate": "\"30th\""
-        },
-        {
-          "CustomerName": "\"John\""
-        },
-        {
-          "RequestType": "\"Check\""
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hilton Hotel",
-        "Message": "Unavailable"
-      },
-      "UnixTime": 1589587612
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "Text": "I am sorry, Old Town is unavailable as well",
-      "UnixTime": 1589587624
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "hotel_unavailable",
-      "ActionLabelOptions": [
-        "hotel_unavailable",
-        "goodbye_1",
-        "out_of_scope"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "Text": "I'm very sorry, but there is no room available at the Old Town Inn for your requested dates.",
-      "UnixTime": 1589587626
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "goodbye then",
-      "UnixTime": 1589587639
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Actually, you recall that your friend stayed at Old Town Inn in another town. However you've read on a blog that the Hyatt Hotel is by long and far the most authentic one. Tell the assistant you've changed your mind and want to stay at Hyatt Hotel. [instruction 2 of 5]",
-      "UnixTime": 1589587639
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "Text": "Goodbye",
-      "UnixTime": 1589587651
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "goodbye_1",
-      "ActionLabelOptions": [
-        "goodbye_1",
-        "hotel_reservation_failed",
-        "hotel_ask_date_from"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "Text": "Thank you and goodbye.",
-      "UnixTime": 1589587653
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Actually, I've changed my mind. I want to stay at Hyatt Hotel.",
-      "UnixTime": 1589587668
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Talk to the assistant about this great travel blog that you rely on and that its never let you down on your journeys. Be creative! [instruction 3 of 5]",
-      "UnixTime": 1589587668
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Name": "\"Hyatt Hotel\""
-        },
-        {
-          "StartDate": "api.is_equal_to(\"1st\")"
-        },
-        {
-          "EndDate": "\"30th\""
-        },
-        {
-          "CustomerName": "\"John\""
-        },
-        {
-          "RequestType": "\"Check\""
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Old Town Inn",
-        "Message": "Unavailable"
-      },
-      "UnixTime": 1589587674
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "I am sorry the Hyatt is unavailable",
-      "UnixTime": 1589587685
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "hotel_unavailable",
-      "ActionLabelOptions": [
-        "hotel_unavailable",
-        "goodbye_1",
-        "hotel_reservation_failed"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "I'm very sorry, but there is no room available at the Hyatt Hotel for your requested dates.",
-      "UnixTime": 1589587687
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "There's this great travel blog that I rely on. It has never let me down.",
-      "UnixTime": 1589587732
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "You just received a text from your partner saying: 'Hey, my brother invited us to his wedding in London on the 30th and I already booked us a flight for the 1st!' Tell the assistant you would like to change your reservation to 14th-29th the following month. [instruction 4 of 5]",
-      "UnixTime": 1589587732
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "It's nice to have a great travel bag!",
-      "UnixTime": 1589587753
-    },
-    {
-      "Action": "utter",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "It's nice to have a great travel bag!",
-      "UnixTime": 1589587758
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "I would like to change my reservation to 14th-29th June.",
-      "UnixTime": 1589587781
-    },
-    {
-      "Action": "instruct",
-      "Agent": "UserGuide",
-      "Text": "Tell the assistant you don't really want to go to London because your partner's brother is a bit of a show-off, but obviously you'll be going to the wedding. Finish the booking and bring the conversation to an end. [instruction 5 of 5]",
-      "UnixTime": 1589587781
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "At which hotel?",
-      "UnixTime": 1589587798
-    },
-    {
-      "Action": "utter",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "At which hotel?",
-      "UnixTime": 1589587804
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Hyatt. I don't really want to go to London because my partner's brother is a bit of a show-off, but obviously I'll be going to the wedding",
-      "UnixTime": 1589587843
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "Weddings can be fun, which hotel would you like to stay at?",
-      "UnixTime": 1589587866
-    },
-    {
-      "Action": "utter",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "Text": "Weddings can be fun, which hotel would you like to stay at?",
-      "UnixTime": 1589587869
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "Hyatt",
-      "UnixTime": 1589587877
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Name": "\"Hyatt Hotel\""
-        },
-        {
-          "StartDate": "\"14th\""
-        },
-        {
-          "EndDate": "\"29th\""
-        },
-        {
-          "CustomerName": "\"John\""
-        },
-        {
-          "RequestType": "\"Check\""
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Unavailable"
-      },
-      "UnixTime": 1589587881
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Available"
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Available"
-      },
-      "Text": "It is available, should I book it now?",
-      "UnixTime": 1589587889
-    },
-    {
-      "Action": "pick_suggestion",
-      "ActionLabel": "hotel_ask_confirm_booking",
-      "ActionLabelOptions": [
-        "hotel_ask_confirm_booking",
-        "hotel_reservation_failed",
-        "hotel_ask_date_to"
-      ],
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Available"
-      },
-      "Text": "Alright, the Hyatt Hotel ticks all of your boxes, can I book this room for you?",
-      "UnixTime": 1589587890
-    },
-    {
-      "Action": "utter",
-      "Agent": "User",
-      "Text": "yes please",
-      "UnixTime": 1589587896
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "query",
-      "Agent": "Wizard",
-      "Constraints": [
-        {
-          "Name": "\"Hyatt Hotel\""
-        },
-        {
-          "StartDate": "\"14th\""
-        },
-        {
-          "EndDate": "\"29th\""
-        },
-        {
-          "CustomerName": "\"John\""
-        },
-        {
-          "RequestType": "\"Book\""
-        }
-      ],
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Available"
-      },
-      "UnixTime": 1589587900
-    },
-    {
-      "APIName": "hotel_book",
-      "Action": "return_item",
-      "Agent": "KnowledgeBase",
-      "Item": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Reservation Confirmed"
-      },
-      "TotalItems": -1
-    },
-    {
-      "Action": "request_suggestions",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Reservation Confirmed"
-      },
-      "Text": "Your reservation is made, can I help with anything else?",
-      "UnixTime": 1589587914
-    },
-    {
-      "Action": "utter",
-      "Agent": "Wizard",
-      "PrimaryItem": {
-        "APIName": "hotel_book",
-        "HotelName": "Hyatt Hotel",
-        "Message": "Reservation Confirmed"
-      },
-      "Text": "Your reservation is complete for the Hyatt, can I help with anything else?",
-      "UnixTime": 1589587942
-    },
-    {
-      "Action": "complete",
-      "Agent": "User",
-      "UnixTime": 1589587947
-    }
-  ],
-  "FORMAT-VERSION": 7,
-  "IntroducesConflicts": false,
-  "Scenario": {
-    "Domains": [
-      "hotel"
     ],
-    "Happy": true,
-    "MultiTask": false,
-    "UserTask": "You want to reserve a room at the Hilton Hotel from May 1st to 30th. Your name is John. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
-    "WizardCapabilities": [
-      {
-        "Domain": "hotel",
-        "SchemaImage": "hotel_book.jpg",
-        "Task": "hotel_book"
-      }
+    "FORMAT-VERSION": 7,
+    "IntroducesConflicts": false,
+    "Scenario": {
+        "Domains": [
+            "hotel"
+        ],
+        "Happy": false,
+        "MultiTask": false,
+        "UserTask": "You want to reserve a room at the Hilton Hotel from May 1st to 30th. Your name is John. Please do not make a custom request, and it is ok if no room is available - just say goodbye in this case.",
+        "WizardCapabilities": [
+            {
+                "Domain": "hotel",
+                "SchemaImage": "hotel_book.jpg",
+                "Task": "hotel_book"
+            }
+        ],
+        "WizardTask": "Help the user reserve a hotel room. (You can find the video tutorial under https://youtu.be/USrWF1ZyNWw, in case you want to watch it again.)"
+    },
+    "UserQuestionnaire": [
+        {
+            "Answer": true,
+            "Question": "Did the assistant reserve your hotel?"
+        },
+        {
+            "Answer": true,
+            "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
+        }
     ],
-    "WizardTask": "Help the user reserve a hotel room. (You can find the video tutorial under https://youtu.be/USrWF1ZyNWw, in case you want to watch it again.)"
-  },
-  "UserQuestionnaire": [
-    {
-      "Answer": true,
-      "Question": "Did the assistant reserve your hotel?"
-    },
-    {
-      "Answer": true,
-      "Question": "Did the assistant stay calm and helpful throughout the dialogue?"
-    }
-  ],
-  "WizardQuestionnaire": [
-    {
-      "Answer": true,
-      "Question": "Did the user change his/her mind about what he/she wants at any time?"
-    },
-    {
-      "Answer": false,
-      "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
-    },
-    {
-      "Answer": false,
-      "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
-    }
-  ]
+    "WizardQuestionnaire": [
+        {
+            "Answer": true,
+            "Question": "Did the user change his/her mind about what he/she wants at any time?"
+        },
+        {
+            "Answer": false,
+            "Question": "Did the user become aggressive or annoyed during the dialogue? (Note: some users may be instructed to be annoying.)"
+        },
+        {
+            "Answer": false,
+            "Question": "Where you unsure about what to do at any time? (Feel free to send us an email with details.)"
+        }
+    ]
 }
