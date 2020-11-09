@@ -1,13 +1,16 @@
 
 from collections import defaultdict
+from typing import Any, Dict, List, Text
 
-from flask import Flask, json, jsonify
+from flask import Flask, json, jsonify, request
 
 import api
 
 flask = Flask(__name__)
 
 MOCK_DATA_HEAP = defaultdict(list)
+
+Constraint = List[Dict[Text, Any]]
 
 
 class InvalidUsage(Exception):
@@ -27,14 +30,27 @@ def handle_invalid_usage(error):
   return response
 
 
-@flask.route("/<task>/<constraints_description>", methods=["GET"])
-def retrieve(task, constraints_description):
+def convert_comparators(constraints: List[Constraint]) -> List[Constraint]:
+  converted_constraints = []
+  for constraint in constraints:
+    slot = constraint.get("Slot")
+    value = constraint.get("Value")
+    comparator = constraint.get("Comparator")
+    if not comparator:
+      converted_constraints.append({slot: value})
+    else:
+      converted_constraints.append({slot: eval(f"api.{comparator}({value})")})
+  return converted_constraints
 
+
+@flask.route("/<task>", methods=["POST"])
+def retrieve(task):
   if MOCK_DATA_HEAP.get(task):
     return MOCK_DATA_HEAP[task].pop(0)
 
   try:
-    constraints = json.loads(constraints_description)
+    constraints = request.get_json(silent=True)
+    constraints = convert_comparators(constraints)
   except Exception as e:
     raise InvalidUsage("Bad constraints string")
 
@@ -43,7 +59,7 @@ def retrieve(task, constraints_description):
       task, 
       constraints=constraints,
     )
-    return json.dumps({"Message": "Ok", "Item": item, "NumOtherItems": num_other_items})
+    return jsonify({"Message": "Ok", "Item": item, "NumOtherItems": num_other_items})
   except Exception as e:
     raise InvalidUsage("API code failed")
 
@@ -53,6 +69,14 @@ def mock(task, response):
   """Add responses to the MOCK_DATA_HEAP"""
 
   MOCK_DATA_HEAP[task].append(response)
+  return ""
+
+
+@flask.route("/mock/clear", methods=["GET"])
+def mock_clear():
+  """Clear MOCK_DATA_HEAP"""
+
+  MOCK_DATA_HEAP.clear()
   return ""
 
 
