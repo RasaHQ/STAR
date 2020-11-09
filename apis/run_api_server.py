@@ -64,11 +64,11 @@ def retrieve(task):
     raise InvalidUsage("API code failed")
 
 
-@flask.route("/mock/<task>/<response>", methods=["GET"])
-def mock(task, response):
+@flask.route("/mock/<task>", methods=["POST"])
+def mock(task):
   """Add responses to the MOCK_DATA_HEAP"""
 
-  MOCK_DATA_HEAP[task].append(response)
+  MOCK_DATA_HEAP[task].append(request.get_json(silent=True))
   return ""
 
 
