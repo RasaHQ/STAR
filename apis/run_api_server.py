@@ -1,4 +1,4 @@
-
+#! env python
 from collections import defaultdict
 from typing import Any, Dict, List, Text
 
@@ -52,7 +52,7 @@ def retrieve(task):
     constraints = request.get_json(silent=True)
     constraints = convert_comparators(constraints)
   except Exception as e:
-    raise InvalidUsage("Bad constraints string")
+    raise InvalidUsage(f"Bad constraints string: {e}")
 
   try:
     item, num_other_items = api.call_api(
@@ -61,7 +61,7 @@ def retrieve(task):
     )
     return jsonify({"Message": "Ok", "Item": item, "NumOtherItems": num_other_items})
   except Exception as e:
-    raise InvalidUsage("API code failed")
+    raise InvalidUsage(f"API code failed: {e}")
 
 
 @flask.route("/mock/<task>", methods=["POST"])
